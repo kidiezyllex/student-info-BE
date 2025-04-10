@@ -1,6 +1,6 @@
 import express from 'express';
 import { getUsers, getUserById, updateUser, deleteUser } from '../controllers/user.controller.js';
-import { protect, admin } from '../middlewares/auth.middleware.js';
+import { authenticate, isAdmin } from '../middlewares/auth.middleware.js';
 
 const router = express.Router();
 
@@ -18,7 +18,7 @@ const router = express.Router();
  *       401:
  *         description: Not authorized
  */
-router.get('/', protect, admin, getUsers);
+router.get('/', authenticate, isAdmin, getUsers);
 
 /**
  * @swagger
@@ -41,7 +41,7 @@ router.get('/', protect, admin, getUsers);
  *       404:
  *         description: User not found
  */
-router.get('/:id', protect, getUserById);
+router.get('/:id', authenticate, getUserById);
 
 /**
  * @swagger
@@ -74,7 +74,7 @@ router.get('/:id', protect, getUserById);
  *       404:
  *         description: User not found
  */
-router.put('/:id', protect, updateUser);
+router.put('/:id', authenticate, updateUser);
 
 /**
  * @swagger
@@ -97,6 +97,6 @@ router.put('/:id', protect, updateUser);
  *       404:
  *         description: User not found
  */
-router.delete('/:id', protect, admin, deleteUser);
+router.delete('/:id', authenticate, isAdmin, deleteUser);
 
 export default router; 

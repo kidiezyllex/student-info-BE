@@ -16,10 +16,28 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  isAdmin: {
+  studentId: {
+    type: String,
+    unique: true,
+    sparse: true  // Chỉ áp dụng unique cho các giá trị không phải null
+  },
+  department: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Department'
+  },
+  role: {
+    type: String,
+    enum: ['student', 'coordinator', 'admin'],
+    default: 'student'
+  },
+  active: {
     type: Boolean,
-    default: false
-  }
+    default: true
+  },
+  savedNotifications: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Notification'
+  }]
 }, {
   timestamps: true
 });

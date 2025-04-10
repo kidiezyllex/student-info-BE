@@ -5,11 +5,11 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 // Database connection string from environment variables
-export const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/express-backend';
+export const mongoURI = process.env.MONGODB_URI;
 
 // JWT configuration
-export const jwtSecret = process.env.JWT_SECRET || 'your_jwt_secret_key';
-export const jwtExpiresIn = process.env.JWT_EXPIRES_IN || '24h';
+export const jwtSecret = process.env.JWT_SECRET;
+export const jwtExpiresIn = process.env.JWT_EXPIRES_IN;
 
 /**
  * Connect to MongoDB

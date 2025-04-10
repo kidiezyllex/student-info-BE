@@ -8,6 +8,13 @@ import { errorHandler, notFound } from "./middlewares/error.middleware.js";
 // Import routes
 import authRoutes from "./routes/auth.routes.js";
 import userRoutes from "./routes/user.routes.js";
+import datasetRoutes from "./routes/dataset.routes.js";
+import departmentRoutes from "./routes/department.routes.js";
+import chatRoutes from "./routes/chat.routes.js";
+import notificationRoutes from "./routes/notification.routes.js";
+import scholarshipRoutes from "./routes/scholarship.routes.js";
+import eventRoutes from "./routes/event.routes.js";
+import messageRoutes from "./routes/message.routes.js";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   try {
@@ -17,6 +24,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
     // API routes
     app.use("/api/auth", authRoutes);
     app.use("/api/users", userRoutes);
+    app.use("/api/dataset", datasetRoutes);
+    app.use("/api/departments", departmentRoutes);
+    app.use("/api/chat", chatRoutes);
+    app.use("/api/notifications", notificationRoutes);
+    app.use("/api/scholarships", scholarshipRoutes);
+    app.use("/api/events", eventRoutes);
+    app.use("/api/messages", messageRoutes);
     
     // Set up Swagger documentation
     setupSwagger(app);

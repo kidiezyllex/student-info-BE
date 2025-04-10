@@ -1,6 +1,6 @@
 import express from 'express';
 import { login, register, getProfile } from '../controllers/auth.controller.js';
-import { protect } from '../middlewares/auth.middleware.js';
+import { authenticate } from '../middlewares/auth.middleware.js';
 
 const router = express.Router();
 
@@ -77,6 +77,6 @@ router.post('/register', register);
  *       401:
  *         description: Not authorized
  */
-router.get('/profile', protect, getProfile);
+router.get('/profile', authenticate, getProfile);
 
 export default router; 
