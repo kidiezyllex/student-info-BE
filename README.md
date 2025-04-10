@@ -1,4 +1,4 @@
-# Express Backend API
+# Student Info BE API
 
 Backend API được xây dựng bằng Express và TypeScript, tuân theo các tiêu chuẩn RESTful.
 

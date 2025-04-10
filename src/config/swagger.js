@@ -6,9 +6,9 @@ const options = {
   definition: {
     openapi: '3.0.0',
     info: {
-      title: 'Express Backend API',
+      title: 'Student Info BE API',
       version: '1.0.0',
-      description: 'API documentation for Express Backend',
+      description: 'API documentation for Student Info BE',
       contact: {
         name: 'API Support',
         email: 'support@example.com',
@@ -55,7 +55,7 @@ export const setupSwagger = (app) => {
   app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs, {
     explorer: true,
     customCss: '.swagger-ui .topbar { display: none }',
-    customSiteTitle: 'Express Backend API Documentation',
+    customSiteTitle: 'Student Info BE API Documentation',
   }));
 
   // Serve swagger spec as JSON
