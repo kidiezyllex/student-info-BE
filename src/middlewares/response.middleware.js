@@ -20,7 +20,7 @@ const responseMiddleware = (req, res, next) => {
     
     // Chuẩn hóa response
     const standardResponse = {
-      status: obj.hasOwnProperty('success') ? obj.success : isSuccess,
+      status: Object.prototype.hasOwnProperty.call(obj, 'success') ? obj.success : isSuccess,
       message: obj.message || (isSuccess ? 'Success' : 'Error'),
       data: isSuccess ? (obj.data || (obj.message ? {} : obj)) : {},
       errors: isSuccess ? {} : (obj.errors || obj.error ? { error: obj.error } : (obj.message ? {} : obj)),

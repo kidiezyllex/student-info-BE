@@ -1,9 +1,9 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
-import express from "express";
 import { connectDB } from "./config/database.js";
 import { setupSwagger } from "./config/swagger.js";
 import { errorHandler, notFound } from "./middlewares/error.middleware.js";
+import { Request, Response } from "express";
 
 // Import routes
 import authRoutes from "./routes/auth.routes.js";
@@ -36,7 +36,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     setupSwagger(app);
     
     // API health check endpoint
-    app.get("/api/health", (req, res) => {
+    app.get("/api/health", (req: Request, res: Response) => {
       res.status(200).json({ 
         status: "ok", 
         message: "API is running"

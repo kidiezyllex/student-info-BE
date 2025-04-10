@@ -1,5 +1,4 @@
 import jwt from 'jsonwebtoken';
-import { jwtSecret } from '../config/database.js';
 import User from '../models/user.model.js';
 import dotenv from 'dotenv';
 
