@@ -55,6 +55,11 @@ router.post('/login', login);
  *                 type: string
  *               password:
  *                 type: string
+ *               role:
+ *                 type: string
+ *                 enum: [student, coordinator, admin]
+ *                 default: student
+ *                 description: Role of the user
  *     responses:
  *       201:
  *         description: User registered successfully

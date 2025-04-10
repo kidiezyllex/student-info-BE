@@ -19,7 +19,7 @@ const userSchema = new mongoose.Schema({
   studentId: {
     type: String,
     unique: true,
-    sparse: true  // Chỉ áp dụng unique cho các giá trị không phải null
+    sparse: true
   },
   department: {
     type: mongoose.Schema.Types.ObjectId,

@@ -29,11 +29,14 @@ export const login = async (req, res) => {
 
     // Return user with token
     res.json({
-      _id: user._id,
-      name: user.name,
-      email: user.email,
-      isAdmin: user.isAdmin,
-      token: generateToken(user._id)
+      message: 'Login successful',
+      data: {
+        _id: user._id,
+        name: user.name,
+        email: user.email,
+        isAdmin: user.isAdmin,
+        token: generateToken(user._id)
+      }
     });
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -65,11 +68,14 @@ export const register = async (req, res) => {
 
     if (user) {
       res.status(201).json({
-        _id: user._id,
-        name: user.name,
-        email: user.email,
-        isAdmin: user.isAdmin,
-        token: generateToken(user._id)
+        message: 'User registered successfully',
+        data: {
+          _id: user._id,
+          name: user.name,
+          email: user.email,
+          isAdmin: user.isAdmin,
+          token: generateToken(user._id)
+        }
       });
     } else {
       res.status(400).json({ message: 'Invalid user data' });
@@ -90,10 +96,13 @@ export const getProfile = async (req, res) => {
 
     if (user) {
       res.json({
-        _id: user._id,
-        name: user.name,
-        email: user.email,
-        isAdmin: user.isAdmin,
+        message: 'User profile retrieved successfully',
+        data: {
+          _id: user._id,
+          name: user.name,
+          email: user.email,
+          isAdmin: user.isAdmin,
+        }
       });
     } else {
       res.status(404).json({ message: 'User not found' });

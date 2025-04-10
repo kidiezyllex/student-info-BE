@@ -8,9 +8,14 @@ import User from '../models/user.model.js';
 export const getUsers = async (req, res) => {
   try {
     const users = await User.find({}).select('-password');
-    res.json(users);
+    res.json({
+      message: 'Users retrieved successfully',
+      data: users
+    });
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    res.status(500).json({ 
+      message: error.message 
+    });
   }
 };
 
@@ -24,7 +29,10 @@ export const getUserById = async (req, res) => {
     const user = await User.findById(req.params.id).select('-password');
 
     if (user) {
-      res.json(user);
+      res.json({
+        message: 'User retrieved successfully',
+        data: user
+      });
     } else {
       res.status(404).json({ message: 'User not found' });
     }
@@ -67,10 +75,13 @@ export const updateUser = async (req, res) => {
     const updatedUser = await user.save();
 
     res.json({
-      _id: updatedUser._id,
-      name: updatedUser.name,
-      email: updatedUser.email,
-      isAdmin: updatedUser.isAdmin,
+      message: 'User updated successfully',
+      data: {
+        _id: updatedUser._id,
+        name: updatedUser.name,
+        email: updatedUser.email,
+        isAdmin: updatedUser.isAdmin,
+      }
     });
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -93,7 +104,7 @@ export const deleteUser = async (req, res) => {
       }
 
       await User.deleteOne({ _id: user._id });
-      res.json({ message: 'User removed' });
+      res.json({ message: 'User removed successfully' });
     } else {
       res.status(404).json({ message: 'User not found' });
     }

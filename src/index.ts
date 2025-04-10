@@ -4,7 +4,8 @@ import helmet from "helmet";
 import morgan from "morgan";
 import compression from "compression";
 import dotenv from "dotenv";
-import { registerRoutes } from "./routes";
+import { registerRoutes } from "./routes.js";
+import responseMiddleware from "./middlewares/response.middleware.js";
 
 // Load environment variables
 dotenv.config();
@@ -30,6 +31,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(morgan('dev'));
+app.use(responseMiddleware);
 
 // Request logging middleware
 app.use((req, res, next) => {
