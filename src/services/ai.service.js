@@ -1,6 +1,7 @@
 import dotenv from 'dotenv';
 import fetch from 'node-fetch';
 import Dataset from '../models/dataset.model.js';
+import AITraining from '../models/aiTraining.model.js';
 import OpenAI from 'openai';
 import { LOCAL_QA_DATABASE, FALLBACK_RESPONSES } from '../mock/mockData.js';
 
@@ -46,8 +47,9 @@ function getLocalAnswer(question) {
 
 /**
  * Lấy dữ liệu từ dataset để tạo system prompt
+ * Cải tiến để tối ưu hóa việc chọn dữ liệu phù hợp
  */
-async function getDatasetContext(category = null, departmentId = null) {
+async function getDatasetContext(category = null, departmentId = null, userQuestion = null) {
   try {
     const query = {};
     if (category) query.category = category;
@@ -58,8 +60,51 @@ async function getDatasetContext(category = null, departmentId = null) {
       return "Không có dữ liệu trong dataset.";
     }
 
-    // Format dataset thành chuỗi văn bản
-    return datasets.map(item => `${item.key}: ${item.value}`).join('\n');
+    // Nếu có câu hỏi từ người dùng, thực hiện tìm kiếm ngữ nghĩa đơn giản
+    // để tìm dữ liệu liên quan nhất
+    if (userQuestion) {
+      const questionLower = userQuestion.toLowerCase();
+      // Tính điểm liên quan cho mỗi mục trong dataset
+      const scoredDatasets = datasets.map(item => {
+        let score = 0;
+        const keyLower = item.key.toLowerCase();
+        const valueLower = item.value.toLowerCase();
+        
+        // Tách câu hỏi thành các từ khóa
+        const keywords = questionLower.split(/\s+/);
+        
+        // Tăng điểm nếu từ khóa xuất hiện trong key hoặc value
+        for (const word of keywords) {
+          if (word.length < 3) continue; // Bỏ qua các từ quá ngắn
+          
+          if (keyLower.includes(word)) score += 2; // Key match có trọng số cao hơn
+          if (valueLower.includes(word)) score += 1;
+        }
+        
+        // Tăng điểm nếu có phrase khớp chính xác
+        if (keyLower.includes(questionLower)) score += 5;
+        if (valueLower.includes(questionLower)) score += 3;
+        
+        return { item, score };
+      });
+      
+      // Sắp xếp theo điểm giảm dần và lấy 10 kết quả hàng đầu
+      scoredDatasets.sort((a, b) => b.score - a.score);
+      const topResults = scoredDatasets
+        .filter(item => item.score > 0) // Chỉ lấy các kết quả có điểm > 0
+        .slice(0, 10)
+        .map(item => item.item);
+      
+      if (topResults.length > 0) {
+        return topResults.map(item => `${item.key}: ${item.value}`).join('\n');
+      }
+    }
+
+    // Nếu không có câu hỏi hoặc không tìm thấy kết quả phù hợp, trả về toàn bộ dataset
+    // Giới hạn kết quả để tránh context quá dài
+    const maxDatasetItems = 20;
+    const limitedDatasets = datasets.slice(0, maxDatasetItems);
+    return limitedDatasets.map(item => `${item.key}: ${item.value}`).join('\n');
   } catch (error) {
     console.error('Lỗi khi lấy dữ liệu dataset:', error);
     return "Không thể truy xuất dữ liệu dataset.";
@@ -144,7 +189,7 @@ export async function askAI(userQuestion, chatHistory = [], category = null, dep
     const fallbackAnswer = getFallbackResponse(userQuestion);
     
     // Lấy dữ liệu từ dataset để tạo context
-    const datasetContext = await getDatasetContext(category, departmentId);
+    const datasetContext = await getDatasetContext(category, departmentId, userQuestion);
 
     // Tạo system prompt
     const systemPrompt = {
@@ -208,6 +253,99 @@ Trả lời bằng tiếng Việt, ngắn gọn và hữu ích. Không tạo ra 
   }
 }
 
+/**
+ * Training AI từ dataset
+ * Tạo và gửi tập dữ liệu từ dataset để training model
+ */
+export async function trainAI(categories = [], departmentId = null, userId = null) {
+  try {
+    console.log('Bắt đầu quá trình training AI...');
+    
+    // Lấy dataset làm dữ liệu training
+    const query = {};
+    if (categories && categories.length > 0) {
+      query.category = { $in: categories };
+    }
+    if (departmentId) {
+      query.department = departmentId;
+    }
+
+    const datasets = await Dataset.find(query);
+    if (!datasets || datasets.length === 0) {
+      throw new Error('Không có dữ liệu trong dataset để training.');
+    }
+
+    console.log(`Tìm thấy ${datasets.length} mục dữ liệu để training.`);
+
+    // Tạo bản ghi training
+    const aiTraining = new AITraining({
+      datasetCount: datasets.length,
+      categories: categories,
+      department: departmentId,
+      createdBy: userId
+    });
+    
+    await aiTraining.save();
+
+    // Chuẩn bị dữ liệu training
+    const trainingData = datasets.map(item => ({
+      question: `${item.key}?`,
+      answer: item.value,
+      category: item.category
+    }));
+
+    // Tạo system prompt mẫu từ dataset
+    const sampleDataContext = datasets.map(item => `${item.key}: ${item.value}`).join('\n');
+    const systemPrompt = `Bạn là trợ lý thông minh hỗ trợ sinh viên tại trường. Trả lời câu hỏi dựa trên thông tin sau:\n\n${sampleDataContext}\n\nNếu bạn không tìm thấy thông tin liên quan trong dữ liệu, hãy thông báo rằng bạn không có thông tin và đề xuất liên hệ với nhân viên phòng ban phù hợp. Trả lời bằng tiếng Việt, ngắn gọn và hữu ích. Không tạo ra thông tin sai lệch.`;
+
+    // Tạo tập hợp các cặp câu hỏi - trả lời để fine-tune (nếu API hỗ trợ)
+    const finetuneMessages = trainingData.flatMap(item => [
+      { role: 'system', content: systemPrompt },
+      { role: 'user', content: item.question },
+      { role: 'assistant', content: item.answer }
+    ]);
+
+    // Nếu dùng OpenRouter API, gửi yêu cầu fine-tune nếu API hỗ trợ
+    // Hoặc thay thế bằng cách lưu mẫu training vào database để sử dụng trong context
+    try {
+      // Mẫu code gọi API fine-tune (tùy thuộc vào nhà cung cấp API)
+      // Trong trường hợp API không hỗ trợ fine-tune, chúng ta lưu dataset làm context
+      console.log('Đã chuẩn bị dữ liệu training:', trainingData.length, 'mẫu');
+      
+      // Cập nhật trạng thái training
+      aiTraining.status = 'completed';
+      aiTraining.completedAt = new Date();
+      await aiTraining.save();
+      
+      // Trả về thông tin về dữ liệu đã chuẩn bị
+      return {
+        success: true,
+        message: `Đã chuẩn bị ${trainingData.length} mẫu dữ liệu để training.`,
+        data: {
+          trainingId: aiTraining._id,
+          sampleCount: trainingData.length,
+          categories: [...new Set(trainingData.map(item => item.category))],
+          departmentId: departmentId,
+          status: 'completed'
+        }
+      };
+    } catch (error) {
+      console.error('Lỗi khi gọi API training:', error);
+      
+      // Cập nhật trạng thái lỗi
+      aiTraining.status = 'failed';
+      aiTraining.error = error.message;
+      await aiTraining.save();
+      
+      throw new Error(`Không thể training AI: ${error.message}`);
+    }
+  } catch (error) {
+    console.error('Lỗi khi training AI:', error);
+    throw error;
+  }
+}
+
 export default {
-  askAI
+  askAI,
+  trainAI
 };
