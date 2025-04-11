@@ -50,7 +50,7 @@ export const login = async (req, res) => {
  */
 export const register = async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    const { name, email, password, role } = req.body;
 
     // Check if user exists
     const userExists = await User.findOne({ email });
@@ -59,12 +59,24 @@ export const register = async (req, res) => {
       return res.status(400).json({ message: 'User already exists' });
     }
 
-    // Create user
-    const user = await User.create({
+    // Create user with optional role parameter
+    const userData = {
       name,
       email,
       password
-    });
+    };
+
+    // Add role to userData if it exists in request body
+    if (role) {
+      // Validate that role is one of the allowed values
+      if (!['student', 'coordinator', 'admin'].includes(role)) {
+        return res.status(400).json({ message: 'Invalid role specified' });
+      }
+      userData.role = role;
+    }
+
+    // Create user
+    const user = await User.create(userData);
 
     if (user) {
       res.status(201).json({
@@ -73,7 +85,7 @@ export const register = async (req, res) => {
           _id: user._id,
           name: user.name,
           email: user.email,
-          isAdmin: user.isAdmin,
+          role: user.role,
           token: generateToken(user._id)
         }
       });
@@ -102,6 +114,7 @@ export const getProfile = async (req, res) => {
           name: user.name,
           email: user.email,
           isAdmin: user.isAdmin,
+          role: user.role
         }
       });
     } else {

@@ -15,7 +15,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /api/notifications:
+ * /notifications:
  *   get:
  *     summary: Lấy tất cả thông báo
  *     tags: [Notifications]
@@ -38,7 +38,7 @@ router.get('/', getAllNotifications);
 
 /**
  * @swagger
- * /api/notifications/{id}:
+ * /notifications/{id}:
  *   get:
  *     summary: Lấy chi tiết thông báo theo ID
  *     tags: [Notifications]
@@ -59,7 +59,7 @@ router.get('/:id', getNotificationById);
 
 /**
  * @swagger
- * /api/notifications:
+ * /notifications:
  *   post:
  *     summary: Tạo thông báo mới
  *     tags: [Notifications]
@@ -105,7 +105,7 @@ router.post('/', authenticate, isAdminOrCoordinator, createNotification);
 
 /**
  * @swagger
- * /api/notifications/{id}:
+ * /notifications/{id}:
  *   put:
  *     summary: Cập nhật thông báo
  *     tags: [Notifications]
@@ -156,7 +156,7 @@ router.put('/:id', authenticate, isAdminOrCoordinator, updateNotification);
 
 /**
  * @swagger
- * /api/notifications/{id}:
+ * /notifications/{id}:
  *   delete:
  *     summary: Xóa thông báo
  *     tags: [Notifications]
@@ -181,7 +181,7 @@ router.delete('/:id', authenticate, isAdminOrCoordinator, deleteNotification);
 
 /**
  * @swagger
- * /api/notifications/saved:
+ * /notifications/saved:
  *   get:
  *     summary: Lấy danh sách thông báo đã lưu
  *     tags: [Notifications]
@@ -195,7 +195,7 @@ router.get('/saved', authenticate, getSavedNotifications);
 
 /**
  * @swagger
- * /api/notifications/{id}/save:
+ * /notifications/{id}/save:
  *   put:
  *     summary: Lưu thông báo vào danh sách yêu thích
  *     tags: [Notifications]
@@ -218,7 +218,7 @@ router.put('/:id/save', authenticate, saveNotification);
 
 /**
  * @swagger
- * /api/notifications/{id}/unsave:
+ * /notifications/{id}/unsave:
  *   put:
  *     summary: Xóa thông báo khỏi danh sách yêu thích
  *     tags: [Notifications]

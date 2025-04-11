@@ -12,7 +12,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /api/departments:
+ * /departments:
  *   get:
  *     summary: Lấy danh sách tất cả ngành học
  *     tags: [Departments]
@@ -24,7 +24,7 @@ router.get('/', getAllDepartments);
 
 /**
  * @swagger
- * /api/departments/{id}:
+ * /departments/{id}:
  *   get:
  *     summary: Lấy thông tin ngành học theo ID
  *     tags: [Departments]
@@ -45,7 +45,7 @@ router.get('/:id', getDepartmentById);
 
 /**
  * @swagger
- * /api/departments:
+ * /departments:
  *   post:
  *     summary: Tạo ngành học mới
  *     tags: [Departments]
@@ -83,7 +83,7 @@ router.post('/', authenticate, isAdmin, createDepartment);
 
 /**
  * @swagger
- * /api/departments/{id}:
+ * /departments/{id}:
  *   put:
  *     summary: Cập nhật thông tin ngành học
  *     tags: [Departments]
@@ -126,7 +126,7 @@ router.put('/:id', authenticate, isAdmin, updateDepartment);
 
 /**
  * @swagger
- * /api/departments/{id}:
+ * /departments/{id}:
  *   delete:
  *     summary: Xóa ngành học
  *     tags: [Departments]

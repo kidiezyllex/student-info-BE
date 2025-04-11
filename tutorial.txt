@@ -1,0 +1,328 @@
+================================1. Auth
+1.1. POST: /auth/register: Đăng ký tài khoản
+payload:
+{
+  "name": "string",
+  "email": "string",
+  "password": "string",
+  "role": string
+}
+
+Role sẽ có 3 role: "student" (mặc định nếu không truyền role), "admin", "coordinator"
+
+1.2. POST: /api/auth/login: Đăng nhập
+payload:
+{
+  "email": "string",
+  "password": "string"
+}
+Acc Admin có sẵn: admin@gmail.com/Admin123456
+Acc Admin Khoa: admin2@gmail.com/Admin123456
+Acc Student có sẵn: buitranthienan1111@gmail.com/kidiezyllex.1111
+{
+  "email": "admin@gmail.com",
+  "password": "Admin123456"
+}
+1.3. GET: /api/auth/profile: Lấy thông tin hồ sơ người dùng đã đăng nhập
+Truyền vào Token (bắt buộc)
+
+================================2. Users
+2.1. GET: /api/users: Lấy danh sách tất cả người dùng - Chỉ quyền Admin
+Truyền vào Token (bắt buộc)
+
+
+2.2. PUT: /api/users/:id: Cập nhật thông tin người dùng
+Truyền vào Token (bắt buộc)
+
+Payload:
+{
+"name": "Nguyễn Văn A",
+"email": "nguyenvana@gmail.com",
+"avatar": "https://example.com/avatar.jpg",
+"department": "64f5a41e2c0a6e1234567890"
+}
+
+
+2.3. GET: /api/users/:id: Lấy thông tin người dùng theo ID
+Truyền vào Token (bắt buộc)
+
+================================3. Departments 
+3.1. GET: /api/departments: Lấy danh sách tất cả ngành học
+Truyền vào Token (bắt buộc)
+
+3.2. GET: /api/departments/:id: Lấy thông tin ngành học theo ID
+Truyền vào Token (bắt buộc)
+Ví dụ: /api/departments/64f5a41e2c0a6e1234567890
+
+3.3. POST: /api/departments: Tạo ngành học mới - Chỉ Admin
+Truyền vào Token (bắt buộc)
+Payload:
+{
+"name": "Công nghệ thông tin",
+"code": "CNTT",
+"description": "Ngành học về công nghệ thông tin và lập trình",
+"coordinatorId": "67f80cb9b5b273e272ae6f44"
+}
+
+3.4. PUT: /api/departments/:id: Cập nhật thông tin ngành học - Chỉ Admin
+Truyền vào Token (bắt buộc)
+Payload:
+{
+"name": "Công nghệ thông tin",
+"code": "IT",
+"description": "Ngành học về CNTT và phát triển phần mềm",
+"coordinatorId": "64f5a41e2c0a6e1234567890"
+}
+
+3.5. DELETE: /api/departments/:id: Xóa ngành học - Chỉ Admin
+Truyền vào Token (bắt buộc)
+
+================================4. Events
+4.1. GET: /api/events
+(Lấy tất cả sự kiện sắp diễn ra hoặc đang diễn ra)
+Parameters:
+department: ID của ngành (để lọc sự kiện theo ngành)
+
+4.2. GET: /api/events/all
+(Lấy tất cả sự kiện bao gồm cả đã kết thúc - Chỉ Admin hoặc Coordinator)
+Truyền vào Token (bắt buộc)
+Parameters:
+department: ID của ngành (để lọc sự kiện theo ngành)
+
+4.3. GET: /api/events/:id
+(Lấy chi tiết sự kiện theo ID)
+
+4.4. POST: /api/events
+(Tạo sự kiện mới - Chỉ Admin hoặc Coordinator)
+Truyền vào Token (bắt buộc)
+Payload:
+{
+  "title": "Hội thảo Công nghệ",
+  "description": "Mô tả chi tiết về hội thảo",
+  "startDate": "2023-10-15T09:00:00Z",
+  "endDate": "2023-10-15T16:00:00Z",
+  "location": "Hội trường A",
+  "department": "64f5a41e2c0a6e1234567890",
+  "organizer": "Khoa Công nghệ thông tin"
+}
+
+4.5. PUT: /api/events/:id
+(Cập nhật sự kiện - Chỉ Admin hoặc Coordinator)
+Truyền vào Token (bắt buộc)
+Payload:
+{
+  "title": "Hội thảo Công nghệ (Cập nhật)",
+  "description": "Mô tả chi tiết đã cập nhật",
+  "startDate": "2023-10-15T10:00:00Z",
+  "endDate": "2023-10-15T17:00:00Z",
+  "location": "Hội trường B",
+  "department": "64f5a41e2c0a6e1234567890",
+  "organizer": "Khoa Công nghệ thông tin"
+}
+
+4.6. DELETE: /api/events/:id
+(Xóa sự kiện - Chỉ Admin hoặc Coordinator)
+Truyền vào Token (bắt buộc)
+
+================================5. Scholarships
+5.1. GET: /api/scholarships
+(Lấy tất cả học bổng còn hạn)
+Parameters:
+department: ID của ngành (để lọc học bổng theo ngành)
+
+5.2. GET: /api/scholarships/all
+(Lấy tất cả học bổng bao gồm cả hết hạn - Chỉ Admin hoặc Coordinator)
+Truyền vào Token (bắt buộc)
+Parameters:
+department: ID của ngành (để lọc học bổng theo ngành)
+
+5.3. GET: /api/scholarships/:id
+(Lấy chi tiết học bổng theo ID)
+
+5.4. POST: /api/scholarships
+(Tạo học bổng mới - Chỉ Admin hoặc Coordinator)
+Truyền vào Token (bắt buộc)
+Payload:
+{
+  "title": "Học bổng xuất sắc",
+  "description": "Dành cho sinh viên xuất sắc",
+  "requirements": "GPA 3.5 trở lên",
+  "value": "10.000.000 VND",
+  "applicationDeadline": "2023-12-31T23:59:59Z",
+  "provider": "Công ty ABC",
+  "department": "64f5a41e2c0a6e1234567890",
+  "eligibility": "Sinh viên năm 3, 4",
+  "applicationProcess": "Nộp hồ sơ qua email"
+}
+
+5.5. PUT: /api/scholarships/:id
+(Cập nhật học bổng - Chỉ Admin hoặc Coordinator)
+Truyền vào Token (bắt buộc)
+Payload:
+{
+  "title": "Học bổng xuất sắc (Cập nhật)",
+  "description": "Dành cho sinh viên xuất sắc",
+  "requirements": "GPA 3.2 trở lên",
+  "value": "15.000.000 VND",
+  "applicationDeadline": "2024-01-15T23:59:59Z",
+  "provider": "Công ty ABC",
+  "department": "64f5a41e2c0a6e1234567890",
+  "eligibility": "Sinh viên năm 2, 3, 4",
+  "applicationProcess": "Nộp hồ sơ qua website"
+}
+
+5.6. DELETE: /api/scholarships/:id
+(Xóa học bổng - Chỉ Admin hoặc Coordinator)
+Truyền vào Token (bắt buộc)
+
+================================================================6. Messages
+6.1. GET: /api/messages
+(Lấy danh sách các cuộc trò chuyện của người dùng hiện tại)
+Truyền vào Token (bắt buộc)
+
+6.2. GET: /api/messages/:userId
+(Lấy lịch sử tin nhắn với một người dùng cụ thể)
+Truyền vào Token (bắt buộc)
+
+6.3. POST: /api/messages
+(Gửi tin nhắn mới)
+Truyền vào Token (bắt buộc)
+Payload:
+{
+  "receiverId": "64f5a41e2c0a6e1234567890",
+  "content": "Xin chào, tôi có vài câu hỏi về khóa học"
+}
+
+6.4. PUT: /api/messages/:messageId/read
+(Đánh dấu tin nhắn đã đọc)
+Truyền vào Token (bắt buộc)
+
+6.5. PUT: /api/messages/:userId/read-all
+(Đánh dấu tất cả tin nhắn từ một người đã đọc)
+Truyền vào Token (bắt buộc)
+
+================================7. Notifications
+7.1. GET: /api/notifications
+(Lấy tất cả thông báo)
+Parameters:
+type: Lọc theo loại thông báo
+department: ID của ngành (để lọc thông báo theo ngành)
+
+7.2. GET: /api/notifications/:id
+(Lấy chi tiết thông báo theo ID)
+
+7.3. POST: /api/notifications
+(Tạo thông báo mới - Chỉ Admin hoặc Coordinator)
+Truyền vào Token (bắt buộc)
+Payload:
+{
+  "title": "Thông báo quan trọng",
+  "content": "Nội dung thông báo chi tiết",
+  "type": "general", // Có thể là: general, scholarship, event, department
+  "department": "64f5a41e2c0a6e1234567890", // Optional
+  "startDate": "2023-10-15T00:00:00Z", // Optional
+  "endDate": "2023-10-30T23:59:59Z", // Optional
+  "isImportant": true // Optional
+}
+
+7.4. PUT: /api/notifications/:id
+(Cập nhật thông báo - Chỉ Admin hoặc Coordinator)
+Truyền vào Token (bắt buộc)
+Payload:
+{
+  "title": "Thông báo quan trọng (Cập nhật)",
+  "content": "Nội dung thông báo đã cập nhật",
+  "type": "general",
+  "department": "64f5a41e2c0a6e1234567890",
+  "startDate": "2023-10-15T00:00:00Z",
+  "endDate": "2023-11-15T23:59:59Z",
+  "isImportant": false
+}
+
+7.5. DELETE: /api/notifications/:id
+(Xóa thông báo - Chỉ Admin hoặc Coordinator)
+Truyền vào Token (bắt buộc)
+
+7.6. GET: /api/notifications/saved
+(Lấy danh sách thông báo đã lưu - Cần đăng nhập)
+Truyền vào Token (bắt buộc)
+
+7.7. PUT: /api/notifications/:id/save
+(Lưu thông báo vào danh sách yêu thích - Cần đăng nhập)
+Truyền vào Token (bắt buộc)
+
+7.8. PUT: /api/notifications/:id/unsave
+(Xóa thông báo khỏi danh sách yêu thích - Cần đăng nhập)
+Truyền vào Token (bắt buộc)
+
+================================8. Chat
+8.1. POST: /api/chat/ask: Gửi câu hỏi đến AI và nhận câu trả lời
+Truyền vào Token (bắt buộc)
+Payload:
+{
+  "question": "Làm thế nào để đăng ký học bổng?",
+  "sessionId": "64f5a41e2c0a6e1234567890", // Optional nếu là phiên chat mới
+  "category": "scholarship", // Optional để lọc dữ liệu theo danh mục
+  "departmentId": "64f5a41e2c0a6e1234567890" // Optional để lọc dữ liệu theo ngành
+}
+
+8.2. GET: /api/chat/history
+(Lấy lịch sử chat của người dùng)
+Truyền vào Token (bắt buộc)
+
+8.3. GET: /api/chat/session/:id
+(Lấy chi tiết một phiên chat)
+Truyền vào Token (bắt buộc)
+
+8.4. PUT: /api/chat/rate
+(Đánh giá câu trả lời của AI)
+Truyền vào Token (bắt buộc)
+Payload:
+{
+  "sessionId": "64f5a41e2c0a6e1234567890",
+  "messageIndex": 1,
+  "isAccurate": true
+}
+
+8.5. DELETE: /api/chat/session/:id
+(Xóa một phiên chat)
+Truyền vào Token (bắt buộc)
+
+================================9. Dataset
+9.1. GET: /api/dataset
+(Lấy tất cả dữ liệu trong dataset - Chỉ Admin hoặc Coordinator)
+Truyền vào Token (bắt buộc)
+Parameters:
+category: Lọc theo category
+department: ID của ngành (để lọc dữ liệu theo ngành)
+
+9.2. GET: /api/dataset/:id
+(Lấy chi tiết dữ liệu theo ID - Chỉ Admin hoặc Coordinator)
+Truyền vào Token (bắt buộc)
+
+9.3. POST: /api/dataset
+(Thêm dữ liệu mới vào dataset - Chỉ Admin hoặc Coordinator)
+Truyền vào Token (bắt buộc)
+Payload:
+{
+  "key": "học bổng xuất sắc",
+  "value": "Học bổng dành cho sinh viên có GPA từ 3.5 trở lên",
+  "category": "scholarship", // Có thể là: general, scholarship, event, department, faq
+  "department": "64f5a41e2c0a6e1234567890" // Optional
+}
+
+9.4. PUT: /api/dataset/:id
+(Cập nhật dữ liệu trong dataset - Chỉ Admin hoặc Coordinator)
+Truyền vào Token (bắt buộc)
+Payload:
+{
+  "key": "học bổng xuất sắc",
+  "value": "Học bổng dành cho sinh viên có GPA từ 3.2 trở lên",
+  "category": "scholarship",
+  "department": "64f5a41e2c0a6e1234567890"
+}
+
+9.5. DELETE: /api/dataset/:id
+(Xóa dữ liệu khỏi dataset - Chỉ Admin hoặc Coordinator)
+Truyền vào Token (bắt buộc)
+

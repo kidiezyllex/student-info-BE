@@ -12,7 +12,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /api/chat/ask:
+ * /chat/ask:
  *   post:
  *     summary: Gửi câu hỏi đến AI và nhận câu trả lời
  *     tags: [Chat]
@@ -49,7 +49,7 @@ router.post('/ask', authenticate, askQuestion);
 
 /**
  * @swagger
- * /api/chat/history:
+ * /chat/history:
  *   get:
  *     summary: Lấy lịch sử chat của người dùng
  *     tags: [Chat]
@@ -63,7 +63,7 @@ router.get('/history', authenticate, getChatHistory);
 
 /**
  * @swagger
- * /api/chat/session/{id}:
+ * /chat/session/{id}:
  *   get:
  *     summary: Lấy chi tiết một phiên chat
  *     tags: [Chat]
@@ -88,7 +88,7 @@ router.get('/session/:id', authenticate, getChatSession);
 
 /**
  * @swagger
- * /api/chat/rate:
+ * /chat/rate:
  *   put:
  *     summary: Đánh giá câu trả lời của AI
  *     tags: [Chat]
@@ -128,7 +128,7 @@ router.put('/rate', authenticate, rateAnswer);
 
 /**
  * @swagger
- * /api/chat/session/{id}:
+ * /chat/session/{id}:
  *   delete:
  *     summary: Xóa một phiên chat
  *     tags: [Chat]

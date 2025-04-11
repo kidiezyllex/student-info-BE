@@ -12,7 +12,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /api/messages:
+ * /messages:
  *   get:
  *     summary: Lấy danh sách các cuộc trò chuyện
  *     tags: [Messages]
@@ -26,7 +26,7 @@ router.get('/', authenticate, getConversations);
 
 /**
  * @swagger
- * /api/messages/{userId}:
+ * /messages/{userId}:
  *   get:
  *     summary: Lấy lịch sử tin nhắn với một người dùng
  *     tags: [Messages]
@@ -49,7 +49,7 @@ router.get('/:userId', authenticate, getMessageHistory);
 
 /**
  * @swagger
- * /api/messages:
+ * /messages:
  *   post:
  *     summary: Gửi tin nhắn
  *     tags: [Messages]
@@ -85,7 +85,7 @@ router.post('/', authenticate, sendMessage);
 
 /**
  * @swagger
- * /api/messages/{messageId}/read:
+ * /messages/{messageId}/read:
  *   put:
  *     summary: Đánh dấu tin nhắn đã đọc
  *     tags: [Messages]
@@ -110,7 +110,7 @@ router.put('/:messageId/read', authenticate, markMessageAsRead);
 
 /**
  * @swagger
- * /api/messages/{userId}/read-all:
+ * /messages/{userId}/read-all:
  *   put:
  *     summary: Đánh dấu tất cả tin nhắn từ một người đã đọc
  *     tags: [Messages]

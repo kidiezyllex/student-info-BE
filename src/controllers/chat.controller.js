@@ -1,4 +1,4 @@
-import { askAI } from '../services/deepseek.service.js';
+import { askAI } from '../services/ai.service.js';
 import ChatSession from '../models/chatSession.model.js';
 
 /**
@@ -53,10 +53,22 @@ export const askQuestion = async (req, res) => {
     // Gọi AI để nhận câu trả lời
     const aiResponse = await askAI(question, chatHistory, category, departmentId);
     
+    // Xử lý aiResponse để đảm bảo messages.content là string
+    let responseContent = '';
+    if (typeof aiResponse === 'string') {
+      responseContent = aiResponse;
+    } else if (aiResponse && typeof aiResponse.content === 'string') {
+      responseContent = aiResponse.content;
+    } else if (aiResponse && aiResponse.content && typeof aiResponse.content === 'object') {
+      responseContent = JSON.stringify(aiResponse.content);
+    } else {
+      responseContent = 'Không có phản hồi từ AI.';
+    }
+    
     // Thêm câu trả lời của AI vào messages
     chatSession.messages.push({
       role: 'assistant',
-      content: aiResponse
+      content: responseContent
     });
     
     // Nếu là tin nhắn đầu tiên, tạo tiêu đề từ câu hỏi
@@ -73,7 +85,8 @@ export const askQuestion = async (req, res) => {
         sessionId: chatSession._id,
         title: chatSession.title,
         question,
-        answer: aiResponse
+        answer: responseContent,
+        message: aiResponse
       }
     });
   } catch (error) {

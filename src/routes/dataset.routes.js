@@ -12,7 +12,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /api/dataset:
+ * /dataset:
  *   get:
  *     summary: Lấy tất cả dữ liệu trong dataset
  *     tags: [Dataset]
@@ -37,7 +37,7 @@ router.get('/', authenticate, isAdminOrCoordinator, getAllDataset);
 
 /**
  * @swagger
- * /api/dataset/{id}:
+ * /dataset/{id}:
  *   get:
  *     summary: Lấy chi tiết dữ liệu theo ID
  *     tags: [Dataset]
@@ -60,7 +60,7 @@ router.get('/:id', authenticate, isAdminOrCoordinator, getDatasetById);
 
 /**
  * @swagger
- * /api/dataset:
+ * /dataset:
  *   post:
  *     summary: Thêm dữ liệu mới vào dataset
  *     tags: [Dataset]
@@ -97,7 +97,7 @@ router.post('/', authenticate, isAdminOrCoordinator, createDataset);
 
 /**
  * @swagger
- * /api/dataset/{id}:
+ * /dataset/{id}:
  *   put:
  *     summary: Cập nhật dữ liệu trong dataset
  *     tags: [Dataset]
@@ -137,7 +137,7 @@ router.put('/:id', authenticate, isAdminOrCoordinator, updateDataset);
 
 /**
  * @swagger
- * /api/dataset/{id}:
+ * /dataset/{id}:
  *   delete:
  *     summary: Xóa dữ liệu khỏi dataset
  *     tags: [Dataset]

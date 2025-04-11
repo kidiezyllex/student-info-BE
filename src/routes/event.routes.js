@@ -13,7 +13,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /api/events:
+ * /events:
  *   get:
  *     summary: Lấy tất cả sự kiện sắp diễn ra hoặc đang diễn ra
  *     tags: [Events]
@@ -31,7 +31,7 @@ router.get('/', getAllEvents);
 
 /**
  * @swagger
- * /api/events/all:
+ * /events/all:
  *   get:
  *     summary: Lấy tất cả sự kiện (bao gồm cả đã kết thúc)
  *     tags: [Events]
@@ -51,7 +51,7 @@ router.get('/all', authenticate, isAdminOrCoordinator, getAllEventsAdmin);
 
 /**
  * @swagger
- * /api/events/{id}:
+ * /events/{id}:
  *   get:
  *     summary: Lấy chi tiết sự kiện theo ID
  *     tags: [Events]
@@ -72,7 +72,7 @@ router.get('/:id', getEventById);
 
 /**
  * @swagger
- * /api/events:
+ * /events:
  *   post:
  *     summary: Tạo sự kiện mới
  *     tags: [Events]
@@ -121,7 +121,7 @@ router.post('/', authenticate, isAdminOrCoordinator, createEvent);
 
 /**
  * @swagger
- * /api/events/{id}:
+ * /events/{id}:
  *   put:
  *     summary: Cập nhật sự kiện
  *     tags: [Events]
@@ -171,7 +171,7 @@ router.put('/:id', authenticate, isAdminOrCoordinator, updateEvent);
 
 /**
  * @swagger
- * /api/events/{id}:
+ * /events/{id}:
  *   delete:
  *     summary: Xóa sự kiện
  *     tags: [Events]

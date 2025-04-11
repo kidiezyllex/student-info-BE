@@ -13,7 +13,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /api/scholarships:
+ * /scholarships:
  *   get:
  *     summary: Lấy tất cả học bổng còn hạn
  *     tags: [Scholarships]
@@ -31,7 +31,7 @@ router.get('/', getAllScholarships);
 
 /**
  * @swagger
- * /api/scholarships/all:
+ * /scholarships/all:
  *   get:
  *     summary: Lấy tất cả học bổng (bao gồm cả hết hạn)
  *     tags: [Scholarships]
@@ -51,7 +51,7 @@ router.get('/all', authenticate, isAdminOrCoordinator, getAllScholarshipsAdmin);
 
 /**
  * @swagger
- * /api/scholarships/{id}:
+ * /scholarships/{id}:
  *   get:
  *     summary: Lấy chi tiết học bổng theo ID
  *     tags: [Scholarships]
@@ -72,7 +72,7 @@ router.get('/:id', getScholarshipById);
 
 /**
  * @swagger
- * /api/scholarships:
+ * /scholarships:
  *   post:
  *     summary: Tạo học bổng mới
  *     tags: [Scholarships]
@@ -126,7 +126,7 @@ router.post('/', authenticate, isAdminOrCoordinator, createScholarship);
 
 /**
  * @swagger
- * /api/scholarships/{id}:
+ * /scholarships/{id}:
  *   put:
  *     summary: Cập nhật học bổng
  *     tags: [Scholarships]
@@ -179,7 +179,7 @@ router.put('/:id', authenticate, isAdminOrCoordinator, updateScholarship);
 
 /**
  * @swagger
- * /api/scholarships/{id}:
+ * /scholarships/{id}:
  *   delete:
  *     summary: Xóa học bổng
  *     tags: [Scholarships]
