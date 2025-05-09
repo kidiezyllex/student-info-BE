@@ -247,7 +247,7 @@ export const deleteChatSession = async (req, res) => {
       });
     }
     
-    await chatSession.remove();
+    await ChatSession.deleteOne({ _id: req.params.id });
     
     res.status(200).json({
       success: true,

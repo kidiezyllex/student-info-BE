@@ -253,11 +253,11 @@ export const deleteDepartment = async (req, res) => {
       { department: null }
     );
     
-    await department.remove();
+    await Department.deleteOne({ _id: req.params.id });
     
     res.status(200).json({
       success: true,
-      message: 'Đã xóa ngành thành công'
+      message: 'Đã xóa ngành'
     });
   } catch (error) {
     console.error('Lỗi khi xóa ngành:', error);

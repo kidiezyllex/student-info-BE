@@ -261,8 +261,7 @@ export const deleteNotification = async (req, res) => {
       }
     }
     
-    // Xóa thông báo
-    await notification.remove();
+    await Notification.deleteOne({ _id: req.params.id });
     
     // Xóa thông báo khỏi danh sách đã lưu của người dùng
     await User.updateMany(

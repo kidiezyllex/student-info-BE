@@ -230,7 +230,7 @@ export const deleteDataset = async (req, res) => {
       }
     }
     
-    await dataset.remove();
+    await Dataset.deleteOne({ _id: req.params.id });
     
     res.status(200).json({
       success: true,

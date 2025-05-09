@@ -316,8 +316,7 @@ export const deleteScholarship = async (req, res) => {
       }
     }
     
-    // Xóa học bổng
-    await scholarship.remove();
+    await Scholarship.deleteOne({ _id: req.params.id });
     
     res.status(200).json({
       success: true,

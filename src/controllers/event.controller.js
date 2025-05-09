@@ -324,8 +324,7 @@ export const deleteEvent = async (req, res) => {
       }
     }
     
-    // Xóa sự kiện
-    await event.remove();
+    await Event.deleteOne({ _id: req.params.id });
     
     res.status(200).json({
       success: true,
