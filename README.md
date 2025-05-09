@@ -14,9 +14,9 @@ Detailed documentation for all API endpoints available in the system.
   ```json
   {
     "name": "string",
-    "email": "string",
+    "email": "string",s
     "password": "string",
-    "role": "string" // Optional: "student" (default), "admin", "coordinator"
+    "role": "string" // Optional: "student" (default), "admin", "coordinator". Nếu sinh viên tự đăng ký tài khoản thì không truyền vào field "role"
   }
   ```
 - **Response:**
@@ -59,7 +59,7 @@ Detailed documentation for all API endpoints available in the system.
   ```
 - **Example Accounts:**
   - Admin: `admin@gmail.com / Admin123456`
-  - Admin (Department): `admin2@gmail.com / Admin123456`
+  - Quản trị ngành: `quantringanh1@gmail.com / Qtn123456`,  `admin2@gmail.com / Admin123456`
   - Student: `buitranthienan1111@gmail.com / kidiezyllex.1111`
 
 #### 1.3. Get Profile
@@ -152,7 +152,7 @@ Detailed documentation for all API endpoints available in the system.
 #### 3.1. Get All Departments
 - **Method:** GET
 - **Path:** `/api/departments`
-- **Access:** Private
+- **Access:** Private (Admin, Coordinator)
 - **Headers:** Authorization token required
 - **Response:**
   ```json
@@ -173,7 +173,7 @@ Detailed documentation for all API endpoints available in the system.
 #### 3.2. Get Department by ID
 - **Method:** GET
 - **Path:** `/api/departments/:id`
-- **Access:** Private
+- **Access:** Private (Admin, Coordinator)
 - **Headers:** Authorization token required
 - **Response:**
   ```json
@@ -197,10 +197,10 @@ Detailed documentation for all API endpoints available in the system.
 - **Payload:**
   ```json
   {
-    "name": "string",
-    "code": "string",
-    "description": "string",
-    "coordinatorId": "string"
+  "name": "Công nghệ thông tin",
+  "code": "CNTT",
+  "description": "Ngành học về công nghệ thông tin và lập trình",
+  "coordinatorId": "67f80cb9b5b273e272ae6f44"
   }
   ```
 - **Response:**
@@ -348,13 +348,13 @@ Detailed documentation for all API endpoints available in the system.
 - **Payload:**
   ```json
   {
-    "title": "string",
-    "description": "string",
-    "startDate": "date",
-    "endDate": "date",
-    "location": "string",
-    "department": "string", // Department ID
-    "organizer": "string"
+  "title": "Hội thảo Công nghệ",
+  "description": "Mô tả chi tiết về hội thảo",
+  "startDate": "2025-05-06T09:00:00Z",
+  "endDate": "2025-05-15T16:00:00Z",
+  "location": "Hội trường A",
+  "department": "67f8d416b509cace3cc9d4ea",
+  "organizer": "Khoa Công nghệ thông tin"
   }
   ```
 - **Response:**
