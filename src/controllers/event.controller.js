@@ -239,7 +239,7 @@ export const updateEvent = async (req, res) => {
       }
       
       // Không được thay đổi department
-      if (department && event.department && department !== event.department.toString()) {
+      if (department && (event.department && department !== event.department.toString())) {
         return res.status(403).json({
           success: false,
           message: 'Không có quyền thay đổi ngành của sự kiện'
@@ -258,8 +258,8 @@ export const updateEvent = async (req, res) => {
     // Cập nhật sự kiện
     event.title = title || event.title;
     event.description = description || event.description;
-    if (startDate) event.startDate = startDate;
-    if (endDate) event.endDate = endDate;
+    event.startDate = startDate || event.startDate;
+    event.endDate = endDate || event.endDate;
     event.location = location || event.location;
     event.organizer = organizer || event.organizer;
     
@@ -272,7 +272,7 @@ export const updateEvent = async (req, res) => {
     
     res.status(200).json({
       success: true,
-      message: 'Đã cập nhật sự kiện',
+      message: 'Cập nhật sự kiện thành công',
       data: event
     });
   } catch (error) {
@@ -303,11 +303,12 @@ export const deleteEvent = async (req, res) => {
     
     // Kiểm tra quyền
     if (req.user.role === 'coordinator') {
-      // Coordinator chỉ được xóa sự kiện của ngành mình
+      // Nếu sự kiện có department
       if (event.department) {
         const userDepartment = req.user.department ? req.user.department.toString() : null;
         const eventDepartment = event.department.toString();
         
+        // Nếu không phải department của người dùng
         if (userDepartment !== eventDepartment) {
           return res.status(403).json({
             success: false,
@@ -315,7 +316,7 @@ export const deleteEvent = async (req, res) => {
           });
         }
       }
-      // Không được xóa sự kiện chung
+      // Nếu là sự kiện chung, chỉ admin mới được xóa
       else if (!event.department) {
         return res.status(403).json({
           success: false,
@@ -328,7 +329,7 @@ export const deleteEvent = async (req, res) => {
     
     res.status(200).json({
       success: true,
-      message: 'Đã xóa sự kiện'
+      message: 'Đã xóa sự kiện thành công'
     });
   } catch (error) {
     console.error('Lỗi khi xóa sự kiện:', error);

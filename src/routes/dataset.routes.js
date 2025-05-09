@@ -6,7 +6,12 @@ import {
   updateDataset,
   deleteDataset
 } from '../controllers/dataset.controller.js';
-import { authenticate, isAdminOrCoordinator } from '../middlewares/auth.middleware.js';
+import { 
+  authenticate, 
+  isAdminOrCoordinator,
+  checkCoordinatorDepartmentAccess,
+  isAnyUser
+} from '../middlewares/auth.middleware.js';
 
 const router = express.Router();
 
@@ -33,7 +38,7 @@ const router = express.Router();
  *       200:
  *         description: Danh sách dữ liệu
  */
-router.get('/', authenticate, isAdminOrCoordinator, getAllDataset);
+router.get('/', authenticate, isAnyUser, getAllDataset);
 
 /**
  * @swagger
@@ -56,7 +61,7 @@ router.get('/', authenticate, isAdminOrCoordinator, getAllDataset);
  *       404:
  *         description: Không tìm thấy dữ liệu
  */
-router.get('/:id', authenticate, isAdminOrCoordinator, getDatasetById);
+router.get('/:id', authenticate, isAnyUser, getDatasetById);
 
 /**
  * @swagger
@@ -93,7 +98,7 @@ router.get('/:id', authenticate, isAdminOrCoordinator, getDatasetById);
  *       400:
  *         description: Dữ liệu không hợp lệ
  */
-router.post('/', authenticate, isAdminOrCoordinator, createDataset);
+router.post('/', authenticate, isAdminOrCoordinator, checkCoordinatorDepartmentAccess, createDataset);
 
 /**
  * @swagger
@@ -133,7 +138,7 @@ router.post('/', authenticate, isAdminOrCoordinator, createDataset);
  *       404:
  *         description: Không tìm thấy dữ liệu
  */
-router.put('/:id', authenticate, isAdminOrCoordinator, updateDataset);
+router.put('/:id', authenticate, isAdminOrCoordinator, checkCoordinatorDepartmentAccess, updateDataset);
 
 /**
  * @swagger
@@ -156,6 +161,6 @@ router.put('/:id', authenticate, isAdminOrCoordinator, updateDataset);
  *       404:
  *         description: Không tìm thấy dữ liệu
  */
-router.delete('/:id', authenticate, isAdminOrCoordinator, deleteDataset);
+router.delete('/:id', authenticate, isAdminOrCoordinator, checkCoordinatorDepartmentAccess, deleteDataset);
 
 export default router; 

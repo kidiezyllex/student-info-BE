@@ -101,6 +101,20 @@ export const isCoordinator = (req, res, next) => {
 };
 
 /**
+ * Middleware kiểm tra vai trò student
+ */
+export const isStudent = (req, res, next) => {
+  if (req.user && req.user.role === 'student') {
+    next();
+  } else {
+    res.status(403).json({
+      success: false,
+      message: 'Không có quyền truy cập, chỉ Student mới có quyền'
+    });
+  }
+};
+
+/**
  * Middleware kiểm tra vai trò admin hoặc coordinator
  */
 export const isAdminOrCoordinator = (req, res, next) => {
@@ -110,6 +124,20 @@ export const isAdminOrCoordinator = (req, res, next) => {
     res.status(403).json({
       success: false,
       message: 'Không có quyền truy cập, chỉ Admin hoặc Coordinator mới có quyền'
+    });
+  }
+};
+
+/**
+ * Middleware kiểm tra quyền truy cập cho tất cả người dùng (public)
+ */
+export const isAnyUser = (req, res, next) => {
+  if (req.user && (req.user.role === 'admin' || req.user.role === 'coordinator' || req.user.role === 'student')) {
+    next();
+  } else {
+    res.status(403).json({
+      success: false,
+      message: 'Không có quyền truy cập'
     });
   }
 };
@@ -153,6 +181,41 @@ export const checkDepartmentAccess = async (req, res, next) => {
     });
   } catch (error) {
     console.error('Lỗi kiểm tra quyền truy cập ngành:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Lỗi server',
+      error: error.message
+    });
+  }
+};
+
+/**
+ * Middleware kiểm tra coordinator chỉ được thao tác với dữ liệu thuộc ngành mình
+ */
+export const checkCoordinatorDepartmentAccess = async (req, res, next) => {
+  try {
+    // Nếu là admin, cho phép truy cập tất cả
+    if (req.user.role === 'admin') {
+      return next();
+    }
+    
+    // Nếu là coordinator, kiểm tra ngành
+    if (req.user.role === 'coordinator') {
+      const userDepartment = req.user.department ? req.user.department.toString() : null;
+      
+      // Lưu department của user để sử dụng trong controller
+      req.userDepartment = userDepartment;
+      
+      return next();
+    }
+    
+    // Nếu vai trò khác, từ chối truy cập
+    res.status(403).json({
+      success: false,
+      message: 'Không có quyền truy cập'
+    });
+  } catch (error) {
+    console.error('Lỗi kiểm tra quyền truy cập:', error);
     res.status(500).json({
       success: false,
       message: 'Lỗi server',

@@ -7,7 +7,12 @@ import {
   updateEvent,
   deleteEvent
 } from '../controllers/event.controller.js';
-import { authenticate, isAdminOrCoordinator } from '../middlewares/auth.middleware.js';
+import { 
+  authenticate, 
+  isAdminOrCoordinator,
+  isAnyUser,
+  checkCoordinatorDepartmentAccess 
+} from '../middlewares/auth.middleware.js';
 
 const router = express.Router();
 
@@ -27,7 +32,7 @@ const router = express.Router();
  *       200:
  *         description: Danh sách sự kiện
  */
-router.get('/', getAllEvents);
+router.get('/', authenticate, isAnyUser, getAllEvents);
 
 /**
  * @swagger
@@ -68,7 +73,7 @@ router.get('/all', authenticate, isAdminOrCoordinator, getAllEventsAdmin);
  *       404:
  *         description: Không tìm thấy sự kiện
  */
-router.get('/:id', getEventById);
+router.get('/:id', authenticate, isAnyUser, getEventById);
 
 /**
  * @swagger
@@ -117,7 +122,7 @@ router.get('/:id', getEventById);
  *       401:
  *         description: Không có quyền truy cập
  */
-router.post('/', authenticate, isAdminOrCoordinator, createEvent);
+router.post('/', authenticate, isAdminOrCoordinator, checkCoordinatorDepartmentAccess, createEvent);
 
 /**
  * @swagger
@@ -167,7 +172,7 @@ router.post('/', authenticate, isAdminOrCoordinator, createEvent);
  *       404:
  *         description: Không tìm thấy sự kiện
  */
-router.put('/:id', authenticate, isAdminOrCoordinator, updateEvent);
+router.put('/:id', authenticate, isAdminOrCoordinator, checkCoordinatorDepartmentAccess, updateEvent);
 
 /**
  * @swagger
@@ -192,6 +197,6 @@ router.put('/:id', authenticate, isAdminOrCoordinator, updateEvent);
  *       404:
  *         description: Không tìm thấy sự kiện
  */
-router.delete('/:id', authenticate, isAdminOrCoordinator, deleteEvent);
+router.delete('/:id', authenticate, isAdminOrCoordinator, checkCoordinatorDepartmentAccess, deleteEvent);
 
 export default router; 

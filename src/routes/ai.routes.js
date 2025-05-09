@@ -1,6 +1,6 @@
 import express from 'express';
 import { trainingAI, getTrainingHistory } from '../controllers/ai.controller.js';
-import { authenticate, isAdminOrCoordinator } from '../middlewares/auth.middleware.js';
+import { authenticate, isAdminOrCoordinator, checkCoordinatorDepartmentAccess } from '../middlewares/auth.middleware.js';
 
 const router = express.Router();
 
@@ -35,7 +35,7 @@ const router = express.Router();
  *       500:
  *         description: Lỗi server
  */
-router.post('/train', authenticate, isAdminOrCoordinator, trainingAI);
+router.post('/train', authenticate, isAdminOrCoordinator, checkCoordinatorDepartmentAccess, trainingAI);
 
 /**
  * @swagger

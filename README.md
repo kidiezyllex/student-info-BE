@@ -9,7 +9,7 @@ Detailed documentation for all API endpoints available in the system.
 #### 1.1. Register
 - **Method:** POST
 - **Path:** `/api/auth/register`
-- **Access:** Public
+- **Access:** Public (3 role)
 - **Payload:**
   ```json
   {
@@ -36,7 +36,7 @@ Detailed documentation for all API endpoints available in the system.
 #### 1.2. Login
 - **Method:** POST
 - **Path:** `/api/auth/login`
-- **Access:** Public
+- **Access:** Public (3 role)
 - **Payload:**
   ```json
   {
@@ -65,7 +65,7 @@ Detailed documentation for all API endpoints available in the system.
 #### 1.3. Get Profile
 - **Method:** GET
 - **Path:** `/api/auth/profile`
-- **Access:** Private
+- **Access:** Private (3 role)
 - **Headers:** Authorization token required
 - **Response:**
   ```json
@@ -132,7 +132,7 @@ Detailed documentation for all API endpoints available in the system.
 #### 2.3. Get User by ID
 - **Method:** GET
 - **Path:** `/api/users/:id`
-- **Access:** Private
+- **Access:** Private (3 role)
 - **Headers:** Authorization token required
 - **Response:**
   ```json
@@ -262,7 +262,7 @@ Detailed documentation for all API endpoints available in the system.
 #### 4.1. Get Upcoming Events
 - **Method:** GET
 - **Path:** `/api/events`
-- **Access:** Public
+- **Access:** Private (Admin, Coordinator, Student)
 - **Query Parameters:**
   - `department`: Filter by department ID (optional)
 - **Response:**
@@ -290,10 +290,10 @@ Detailed documentation for all API endpoints available in the system.
 #### 4.2. Get All Events (Including Past)
 - **Method:** GET
 - **Path:** `/api/events/all`
-- **Access:** Admin or Coordinator
+- **Access:** Private (Admin, Coordinator - only for their department)
 - **Headers:** Authorization token required
 - **Query Parameters:**
-  - `department`: Filter by department ID (optional)
+  - `department`: Filter by department ID (optional). Exmaple Id: 67f8d416b509cace3cc9d4ea
 - **Response:**
   ```json
   {
@@ -319,7 +319,7 @@ Detailed documentation for all API endpoints available in the system.
 #### 4.3. Get Event by ID
 - **Method:** GET
 - **Path:** `/api/events/:id`
-- **Access:** Public
+- **Access:** Private (Admin, Coordinator, Student)
 - **Response:**
   ```json
   {
@@ -343,7 +343,7 @@ Detailed documentation for all API endpoints available in the system.
 #### 4.4. Create Event
 - **Method:** POST
 - **Path:** `/api/events`
-- **Access:** Admin or Coordinator
+- **Access:** Private (Admin, Coordinator - only for their department)
 - **Headers:** Authorization token required
 - **Payload:**
   ```json
@@ -377,7 +377,7 @@ Detailed documentation for all API endpoints available in the system.
 #### 4.5. Update Event
 - **Method:** PUT
 - **Path:** `/api/events/:id`
-- **Access:** Admin or Coordinator
+- **Access:** Private (Admin, Coordinator - only for their department, cannot update general events)
 - **Headers:** Authorization token required
 - **Payload:**
   ```json
@@ -411,7 +411,7 @@ Detailed documentation for all API endpoints available in the system.
 #### 4.6. Delete Event
 - **Method:** DELETE
 - **Path:** `/api/events/:id`
-- **Access:** Admin or Coordinator
+- **Access:** Private (Admin, Coordinator - only for their department, cannot delete general events)
 - **Headers:** Authorization token required
 - **Response:**
   ```json
@@ -425,7 +425,7 @@ Detailed documentation for all API endpoints available in the system.
 #### 5.1. Get Active Scholarships
 - **Method:** GET
 - **Path:** `/api/scholarships`
-- **Access:** Public
+- **Access:** Private (Admin, Coordinator, Student)
 - **Query Parameters:**
   - `department`: Filter by department ID (optional)
 - **Response:**
@@ -455,7 +455,7 @@ Detailed documentation for all API endpoints available in the system.
 #### 5.2. Get All Scholarships (Including Expired)
 - **Method:** GET
 - **Path:** `/api/scholarships/all`
-- **Access:** Admin or Coordinator
+- **Access:** Private (Admin, Coordinator - only for their department)
 - **Headers:** Authorization token required
 - **Query Parameters:**
   - `department`: Filter by department ID (optional)
@@ -486,7 +486,7 @@ Detailed documentation for all API endpoints available in the system.
 #### 5.3. Get Scholarship by ID
 - **Method:** GET
 - **Path:** `/api/scholarships/:id`
-- **Access:** Public
+- **Access:** Private (Admin, Coordinator, Student)
 - **Response:**
   ```json
   {
@@ -512,7 +512,7 @@ Detailed documentation for all API endpoints available in the system.
 #### 5.4. Create Scholarship
 - **Method:** POST
 - **Path:** `/api/scholarships`
-- **Access:** Admin or Coordinator
+- **Access:** Private (Admin, Coordinator - only for their department)
 - **Headers:** Authorization token required
 - **Payload:**
   ```json
@@ -550,7 +550,7 @@ Detailed documentation for all API endpoints available in the system.
 #### 5.5. Update Scholarship
 - **Method:** PUT
 - **Path:** `/api/scholarships/:id`
-- **Access:** Admin or Coordinator
+- **Access:** Private (Admin, Coordinator - only for their department, cannot update general scholarships)
 - **Headers:** Authorization token required
 - **Payload:**
   ```json
@@ -588,7 +588,7 @@ Detailed documentation for all API endpoints available in the system.
 #### 5.6. Delete Scholarship
 - **Method:** DELETE
 - **Path:** `/api/scholarships/:id`
-- **Access:** Admin or Coordinator
+- **Access:** Private (Admin, Coordinator - only for their department, cannot delete general scholarships)
 - **Headers:** Authorization token required
 - **Response:**
   ```json
@@ -698,7 +698,7 @@ Detailed documentation for all API endpoints available in the system.
 #### 7.1. Get Notifications
 - **Method:** GET
 - **Path:** `/api/notifications`
-- **Access:** Public
+- **Access:** Private (Admin, Coordinator, Student)
 - **Query Parameters:**
   - `type`: Filter by notification type (optional)
   - `department`: Filter by department ID (optional)
@@ -728,7 +728,7 @@ Detailed documentation for all API endpoints available in the system.
 #### 7.2. Get Notification by ID
 - **Method:** GET
 - **Path:** `/api/notifications/:id`
-- **Access:** Public
+- **Access:** Private (Admin, Coordinator, Student)
 - **Response:**
   ```json
   {
@@ -753,7 +753,7 @@ Detailed documentation for all API endpoints available in the system.
 #### 7.3. Create Notification
 - **Method:** POST
 - **Path:** `/api/notifications`
-- **Access:** Admin or Coordinator
+- **Access:** Private (Admin, Coordinator - only for their department)
 - **Headers:** Authorization token required
 - **Payload:**
   ```json
@@ -788,7 +788,7 @@ Detailed documentation for all API endpoints available in the system.
 #### 7.4. Update Notification
 - **Method:** PUT
 - **Path:** `/api/notifications/:id`
-- **Access:** Admin or Coordinator
+- **Access:** Private (Admin, Coordinator - only for their department, cannot update general notifications)
 - **Headers:** Authorization token required
 - **Payload:**
   ```json
@@ -822,7 +822,7 @@ Detailed documentation for all API endpoints available in the system.
 #### 7.5. Delete Notification
 - **Method:** DELETE
 - **Path:** `/api/notifications/:id`
-- **Access:** Admin or Coordinator
+- **Access:** Private (Admin, Coordinator - only for their department, cannot delete general notifications)
 - **Headers:** Authorization token required
 - **Response:**
   ```json
@@ -1001,7 +1001,7 @@ Detailed documentation for all API endpoints available in the system.
 #### 9.1. Get All Dataset Items
 - **Method:** GET
 - **Path:** `/api/dataset`
-- **Access:** Admin or Coordinator
+- **Access:** Private (Admin, Coordinator, Student)
 - **Headers:** Authorization token required
 - **Query Parameters:**
   - `category`: Filter by category (optional)
@@ -1029,7 +1029,7 @@ Detailed documentation for all API endpoints available in the system.
 #### 9.2. Get Dataset Item by ID
 - **Method:** GET
 - **Path:** `/api/dataset/:id`
-- **Access:** Admin or Coordinator
+- **Access:** Private (Admin, Coordinator, Student)
 - **Headers:** Authorization token required
 - **Response:**
   ```json
@@ -1052,7 +1052,7 @@ Detailed documentation for all API endpoints available in the system.
 #### 9.3. Create Dataset Item
 - **Method:** POST
 - **Path:** `/api/dataset`
-- **Access:** Admin or Coordinator
+- **Access:** Private (Admin, Coordinator - only for their department)
 - **Headers:** Authorization token required
 - **Payload:**
   ```json
@@ -1081,7 +1081,7 @@ Detailed documentation for all API endpoints available in the system.
 #### 9.4. Update Dataset Item
 - **Method:** PUT
 - **Path:** `/api/dataset/:id`
-- **Access:** Admin or Coordinator
+- **Access:** Private (Admin, Coordinator - only for their department)
 - **Headers:** Authorization token required
 - **Payload:**
   ```json
@@ -1109,7 +1109,7 @@ Detailed documentation for all API endpoints available in the system.
 #### 9.5. Delete Dataset Item
 - **Method:** DELETE
 - **Path:** `/api/dataset/:id`
-- **Access:** Admin or Coordinator
+- **Access:** Private (Admin, Coordinator - only for their department)
 - **Headers:** Authorization token required
 - **Response:**
   ```json
@@ -1123,7 +1123,7 @@ Detailed documentation for all API endpoints available in the system.
 #### 10.1. Train AI
 - **Method:** POST
 - **Path:** `/api/ai/train`
-- **Access:** Admin or Coordinator
+- **Access:** Private (Admin, Coordinator - only for their department)
 - **Headers:** Authorization token required
 - **Response:**
   ```json
@@ -1140,7 +1140,7 @@ Detailed documentation for all API endpoints available in the system.
 #### 10.2. Get Training History
 - **Method:** GET
 - **Path:** `/api/ai/training-history`
-- **Access:** Admin or Coordinator
+- **Access:** Private (Admin, Coordinator - only for their department)
 - **Headers:** Authorization token required
 - **Response:**
   ```json

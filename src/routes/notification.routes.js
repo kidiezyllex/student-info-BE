@@ -9,7 +9,12 @@ import {
   unsaveNotification,
   getSavedNotifications
 } from '../controllers/notification.controller.js';
-import { authenticate, isAdminOrCoordinator } from '../middlewares/auth.middleware.js';
+import { 
+  authenticate, 
+  isAdminOrCoordinator,
+  isAnyUser,
+  checkCoordinatorDepartmentAccess 
+} from '../middlewares/auth.middleware.js';
 
 const router = express.Router();
 
@@ -34,7 +39,7 @@ const router = express.Router();
  *       200:
  *         description: Danh sách thông báo
  */
-router.get('/', getAllNotifications);
+router.get('/', authenticate, isAnyUser, getAllNotifications);
 
 /**
  * @swagger
@@ -55,7 +60,7 @@ router.get('/', getAllNotifications);
  *       404:
  *         description: Không tìm thấy thông báo
  */
-router.get('/:id', getNotificationById);
+router.get('/:id', authenticate, isAnyUser, getNotificationById);
 
 /**
  * @swagger
@@ -101,7 +106,7 @@ router.get('/:id', getNotificationById);
  *       401:
  *         description: Không có quyền truy cập
  */
-router.post('/', authenticate, isAdminOrCoordinator, createNotification);
+router.post('/', authenticate, isAdminOrCoordinator, checkCoordinatorDepartmentAccess, createNotification);
 
 /**
  * @swagger
@@ -152,7 +157,7 @@ router.post('/', authenticate, isAdminOrCoordinator, createNotification);
  *       404:
  *         description: Không tìm thấy thông báo
  */
-router.put('/:id', authenticate, isAdminOrCoordinator, updateNotification);
+router.put('/:id', authenticate, isAdminOrCoordinator, checkCoordinatorDepartmentAccess, updateNotification);
 
 /**
  * @swagger
@@ -177,7 +182,7 @@ router.put('/:id', authenticate, isAdminOrCoordinator, updateNotification);
  *       404:
  *         description: Không tìm thấy thông báo
  */
-router.delete('/:id', authenticate, isAdminOrCoordinator, deleteNotification);
+router.delete('/:id', authenticate, isAdminOrCoordinator, checkCoordinatorDepartmentAccess, deleteNotification);
 
 /**
  * @swagger

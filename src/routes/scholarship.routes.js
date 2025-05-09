@@ -7,7 +7,12 @@ import {
   updateScholarship,
   deleteScholarship
 } from '../controllers/scholarship.controller.js';
-import { authenticate, isAdminOrCoordinator } from '../middlewares/auth.middleware.js';
+import { 
+  authenticate, 
+  isAdminOrCoordinator,
+  isAnyUser,
+  checkCoordinatorDepartmentAccess 
+} from '../middlewares/auth.middleware.js';
 
 const router = express.Router();
 
@@ -27,7 +32,7 @@ const router = express.Router();
  *       200:
  *         description: Danh sách học bổng
  */
-router.get('/', getAllScholarships);
+router.get('/', authenticate, isAnyUser, getAllScholarships);
 
 /**
  * @swagger
@@ -68,7 +73,7 @@ router.get('/all', authenticate, isAdminOrCoordinator, getAllScholarshipsAdmin);
  *       404:
  *         description: Không tìm thấy học bổng
  */
-router.get('/:id', getScholarshipById);
+router.get('/:id', authenticate, isAnyUser, getScholarshipById);
 
 /**
  * @swagger
@@ -122,7 +127,7 @@ router.get('/:id', getScholarshipById);
  *       401:
  *         description: Không có quyền truy cập
  */
-router.post('/', authenticate, isAdminOrCoordinator, createScholarship);
+router.post('/', authenticate, isAdminOrCoordinator, checkCoordinatorDepartmentAccess, createScholarship);
 
 /**
  * @swagger
@@ -175,7 +180,7 @@ router.post('/', authenticate, isAdminOrCoordinator, createScholarship);
  *       404:
  *         description: Không tìm thấy học bổng
  */
-router.put('/:id', authenticate, isAdminOrCoordinator, updateScholarship);
+router.put('/:id', authenticate, isAdminOrCoordinator, checkCoordinatorDepartmentAccess, updateScholarship);
 
 /**
  * @swagger
@@ -200,6 +205,6 @@ router.put('/:id', authenticate, isAdminOrCoordinator, updateScholarship);
  *       404:
  *         description: Không tìm thấy học bổng
  */
-router.delete('/:id', authenticate, isAdminOrCoordinator, deleteScholarship);
+router.delete('/:id', authenticate, isAdminOrCoordinator, checkCoordinatorDepartmentAccess, deleteScholarship);
 
 export default router; 
