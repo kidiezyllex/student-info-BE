@@ -51,8 +51,16 @@ Detailed documentation for all API endpoints available in the system.
     "data": {
       "_id": "string",
       "name": "string",
+      "fullName": "string",
       "email": "string",
-      "isAdmin": "boolean",
+      "studentId": "string",
+      "role": "string",
+      "department": {
+        "_id": "string",
+        "name": "string",
+        "code": "string"
+      },
+      "avatar": "string",
       "token": "string"
     }
   }
@@ -74,9 +82,31 @@ Detailed documentation for all API endpoints available in the system.
     "data": {
       "_id": "string",
       "name": "string",
+      "fullName": "string",
       "email": "string",
-      "isAdmin": "boolean",
-      "role": "string"
+      "studentId": "string",
+      "role": "string",
+      "department": {
+        "_id": "string",
+        "name": "string",
+        "code": "string",
+        "description": "string"
+      },
+      "phoneNumber": "string",
+      "dateOfBirth": "date",
+      "gender": "string",
+      "avatar": "string",
+      "address": {},
+      "emergencyContact": {},
+      "studentInfo": {},
+      "coordinatorInfo": {},
+      "profileSettings": {},
+      "socialLinks": {},
+      "savedNotifications": [],
+      "lastLogin": "date",
+      "lastProfileUpdate": "date",
+      "createdAt": "date",
+      "updatedAt": "date"
     }
   }
   ```
@@ -96,40 +126,26 @@ Detailed documentation for all API endpoints available in the system.
       {
         "_id": "string",
         "name": "string",
+        "fullName": "string",
         "email": "string",
-        "role": "string"
+        "studentId": "string",
+        "role": "string",
+        "department": {
+          "_id": "string",
+          "name": "string",
+          "code": "string"
+        },
+        "phoneNumber": "string",
+        "avatar": "string",
+        "active": "boolean",
+        "createdAt": "date",
+        "updatedAt": "date"
       }
     ]
   }
   ```
 
-#### 2.2. Update User
-- **Method:** PUT
-- **Path:** `/api/users/:id`
-- **Access:** Private (own profile or admin)
-- **Headers:** Authorization token required
-- **Payload:**
-  ```json
-  {
-    "name": "string",
-    "email": "string",
-    "avatar": "string",
-    "department": "string" // Department ID
-  }
-  ```
-- **Response:**
-  ```json
-  {
-    "message": "User updated successfully",
-    "data": {
-      "_id": "string",
-      "name": "string",
-      "email": "string"
-    }
-  }
-  ```
-
-#### 2.3. Get User by ID
+#### 2.2. Get User by ID
 - **Method:** GET
 - **Path:** `/api/users/:id`
 - **Access:** Private (3 role)
@@ -141,9 +157,292 @@ Detailed documentation for all API endpoints available in the system.
     "data": {
       "_id": "string",
       "name": "string",
+      "fullName": "string",
       "email": "string",
-      "role": "string"
+      "studentId": "string",
+      "role": "string",
+      "department": {
+        "_id": "string",
+        "name": "string",
+        "code": "string",
+        "description": "string"
+      },
+      "phoneNumber": "string",
+      "dateOfBirth": "date",
+      "gender": "string",
+      "avatar": "string",
+      "address": {
+        "street": "string",
+        "ward": "string",
+        "district": "string",
+        "city": "string",
+        "zipCode": "string"
+      },
+      "emergencyContact": {
+        "name": "string",
+        "relationship": "string",
+        "phoneNumber": "string"
+      },
+      "studentInfo": {
+        "class": "string",
+        "course": "string",
+        "academicYear": "string",
+        "semester": "string",
+        "gpa": "number",
+        "credits": "number",
+        "admissionDate": "date",
+        "expectedGraduationDate": "date",
+        "status": "string",
+        "scholarships": [],
+        "achievements": []
+      },
+      "coordinatorInfo": {
+        "position": "string",
+        "officeLocation": "string",
+        "officeHours": "string",
+        "specialization": [],
+        "qualifications": [],
+        "experience": [],
+        "researchInterests": [],
+        "publications": []
+      },
+      "profileSettings": {
+        "isPublic": "boolean",
+        "showEmail": "boolean",
+        "showPhone": "boolean",
+        "allowMessages": "boolean",
+        "emailNotifications": "boolean"
+      },
+      "socialLinks": {
+        "facebook": "string",
+        "linkedin": "string",
+        "github": "string",
+        "website": "string"
+      },
+      "savedNotifications": [],
+      "lastLogin": "date",
+      "lastProfileUpdate": "date",
+      "createdAt": "date",
+      "updatedAt": "date"
     }
+  }
+  ```
+
+#### 2.3. Get Users by Role
+- **Method:** GET
+- **Path:** `/api/users/role/:role`
+- **Access:** Admin only
+- **Headers:** Authorization token required
+- **Parameters:** role (student, coordinator, admin)
+- **Response:**
+  ```json
+  {
+    "message": "Students retrieved successfully",
+    "count": 0,
+    "data": [
+      {
+        "_id": "string",
+        "name": "string",
+        "email": "string",
+        "role": "string",
+        "department": {
+          "_id": "string",
+          "name": "string",
+          "code": "string"
+        }
+      }
+    ]
+  }
+  ```
+
+#### 2.4. Get Users by Department
+- **Method:** GET
+- **Path:** `/api/users/department/:departmentId`
+- **Access:** Private (3 role)
+- **Headers:** Authorization token required
+- **Response:**
+  ```json
+  {
+    "message": "Department users retrieved successfully",
+    "count": 0,
+    "data": [
+      {
+        "_id": "string",
+        "name": "string",
+        "email": "string",
+        "role": "string",
+        "department": {
+          "_id": "string",
+          "name": "string",
+          "code": "string"
+        }
+      }
+    ]
+  }
+  ```
+
+#### 2.5. Update User Basic Information
+- **Method:** PUT
+- **Path:** `/api/users/:id`
+- **Access:** Private (own profile or admin)
+- **Headers:** Authorization token required
+- **Payload:**
+  ```json
+  {
+    "name": "string",
+    "email": "string",
+    "password": "string", // Optional
+    "studentId": "string",
+    "fullName": "string",
+    "phoneNumber": "string",
+    "avatar": "string",
+    "role": "string", // Only admin can change this
+    "department": "string", // Only admin can change this
+    "active": "boolean" // Only admin can change this
+  }
+  ```
+- **Response:**
+  ```json
+  {
+    "message": "User updated successfully",
+    "data": {
+      "_id": "string",
+      "name": "string",
+      "fullName": "string",
+      "email": "string",
+      "studentId": "string",
+      "role": "string",
+      "department": {
+        "_id": "string",
+        "name": "string",
+        "code": "string"
+      },
+      "phoneNumber": "string",
+      "avatar": "string",
+      "profileSettings": {},
+      "lastProfileUpdate": "date"
+    }
+  }
+  ```
+
+#### 2.6. Update User Profile (Comprehensive)
+- **Method:** PUT
+- **Path:** `/api/users/:id/profile`
+- **Access:** Private (own profile or admin)
+- **Headers:** Authorization token required
+- **Payload:**
+  ```json
+  {
+    "fullName": "string",
+    "dateOfBirth": "date",
+    "gender": "string", // "male", "female", "other"
+    "avatar": "string",
+    "phoneNumber": "string",
+    "address": {
+      "street": "string",
+      "ward": "string",
+      "district": "string",
+      "city": "string",
+      "zipCode": "string"
+    },
+    "emergencyContact": {
+      "name": "string",
+      "relationship": "string",
+      "phoneNumber": "string"
+    },
+    "studentInfo": {
+      "class": "string",
+      "course": "string",
+      "academicYear": "string",
+      "semester": "string",
+      "gpa": "number",
+      "credits": "number",
+      "admissionDate": "date",
+      "expectedGraduationDate": "date",
+      "status": "string", // "active", "suspended", "graduated", "dropped_out"
+      "scholarships": [
+        {
+          "name": "string",
+          "amount": "number",
+          "year": "string",
+          "semester": "string"
+        }
+      ],
+      "achievements": [
+        {
+          "title": "string",
+          "description": "string",
+          "date": "date",
+          "category": "string"
+        }
+      ]
+    },
+    "coordinatorInfo": {
+      "position": "string",
+      "officeLocation": "string",
+      "officeHours": "string",
+      "specialization": ["string"],
+      "qualifications": [
+        {
+          "degree": "string",
+          "field": "string",
+          "institution": "string",
+          "year": "number"
+        }
+      ],
+      "experience": [
+        {
+          "position": "string",
+          "organization": "string",
+          "startDate": "date",
+          "endDate": "date",
+          "description": "string"
+        }
+      ],
+      "researchInterests": ["string"],
+      "publications": [
+        {
+          "title": "string",
+          "journal": "string",
+          "year": "number",
+          "authors": ["string"]
+        }
+      ]
+    },
+    "profileSettings": {
+      "isPublic": "boolean",
+      "showEmail": "boolean",
+      "showPhone": "boolean",
+      "allowMessages": "boolean",
+      "emailNotifications": "boolean"
+    },
+    "socialLinks": {
+      "facebook": "string",
+      "linkedin": "string",
+      "github": "string",
+      "website": "string"
+    }
+  }
+  ```
+- **Response:**
+  ```json
+  {
+    "message": "User profile updated successfully",
+    "data": {
+      // Complete user object with all fields
+    }
+  }
+  ```
+
+#### 2.7. Delete User
+- **Method:** DELETE
+- **Path:** `/api/users/:id`
+- **Access:** Admin only
+- **Headers:** Authorization token required
+- **Response:**
+  ```json
+  {
+    "message": "User removed successfully"
   }
   ```
 
@@ -152,9 +451,8 @@ Detailed documentation for all API endpoints available in the system.
 #### 3.1. Get All Departments
 - **Method:** GET
 - **Path:** `/api/departments`
-- **Access:** Private (Admin, Coordinator)
-- **Headers:** Authorization token required
-- **Response:**
+- **Access:** Public
+- **Response:
   ```json
   {
     "message": "Departments retrieved successfully",
@@ -173,8 +471,7 @@ Detailed documentation for all API endpoints available in the system.
 #### 3.2. Get Department by ID
 - **Method:** GET
 - **Path:** `/api/departments/:id`
-- **Access:** Private (Admin, Coordinator)
-- **Headers:** Authorization token required
+- **Access:** Public
 - **Response:**
   ```json
   {
@@ -263,6 +560,7 @@ Detailed documentation for all API endpoints available in the system.
 - **Method:** GET
 - **Path:** `/api/events`
 - **Access:** Private (Admin, Coordinator, Student)
+- **Headers:** Authorization token required
 - **Query Parameters:**
   - `department`: Filter by department ID (optional)
 - **Response:**
@@ -320,6 +618,7 @@ Detailed documentation for all API endpoints available in the system.
 - **Method:** GET
 - **Path:** `/api/events/:id`
 - **Access:** Private (Admin, Coordinator, Student)
+- **Headers:** Authorization token required
 - **Response:**
   ```json
   {
@@ -426,6 +725,7 @@ Detailed documentation for all API endpoints available in the system.
 - **Method:** GET
 - **Path:** `/api/scholarships`
 - **Access:** Private (Admin, Coordinator, Student)
+- **Headers:** Authorization token required
 - **Query Parameters:**
   - `department`: Filter by department ID (optional)
 - **Response:**
@@ -487,6 +787,7 @@ Detailed documentation for all API endpoints available in the system.
 - **Method:** GET
 - **Path:** `/api/scholarships/:id`
 - **Access:** Private (Admin, Coordinator, Student)
+- **Headers:** Authorization token required
 - **Response:**
   ```json
   {
@@ -699,6 +1000,7 @@ Detailed documentation for all API endpoints available in the system.
 - **Method:** GET
 - **Path:** `/api/notifications`
 - **Access:** Private (Admin, Coordinator, Student)
+- **Headers:** Authorization token required
 - **Query Parameters:**
   - `type`: Filter by notification type (optional)
   - `department`: Filter by department ID (optional)
@@ -729,6 +1031,7 @@ Detailed documentation for all API endpoints available in the system.
 - **Method:** GET
 - **Path:** `/api/notifications/:id`
 - **Access:** Private (Admin, Coordinator, Student)
+- **Headers:** Authorization token required
 - **Response:**
   ```json
   {
@@ -902,11 +1205,13 @@ Detailed documentation for all API endpoints available in the system.
 - **Response:**
   ```json
   {
-    "message": "Response generated successfully",
+    "success": true,
     "data": {
-      "answer": "string",
       "sessionId": "string",
-      "messageIndex": 0
+      "title": "string",
+      "question": "string",
+      "answer": "string",
+      "message": "object" // AI response object
     }
   }
   ```
@@ -919,20 +1224,14 @@ Detailed documentation for all API endpoints available in the system.
 - **Response:**
   ```json
   {
-    "message": "Chat history retrieved successfully",
+    "success": true,
+    "count": 0,
     "data": [
       {
         "_id": "string",
         "title": "string",
-        "userId": "string",
-        "createdAt": "date",
-        "messages": [
-          {
-            "question": "string",
-            "answer": "string",
-            "timestamp": "date"
-          }
-        ]
+        "lastActive": "date",
+        "createdAt": "date"
       }
     ]
   }
@@ -946,18 +1245,18 @@ Detailed documentation for all API endpoints available in the system.
 - **Response:**
   ```json
   {
-    "message": "Chat session retrieved successfully",
+    "success": true,
     "data": {
       "_id": "string",
       "title": "string",
-      "userId": "string",
+      "user": "string",
       "createdAt": "date",
+      "lastActive": "date",
       "messages": [
         {
-          "question": "string",
-          "answer": "string",
-          "timestamp": "date",
-          "isAccurate": "boolean"
+          "role": "string", // "user" or "assistant"
+          "content": "string",
+          "isAccurate": "boolean" // Only for assistant messages
         }
       ]
     }
@@ -980,7 +1279,8 @@ Detailed documentation for all API endpoints available in the system.
 - **Response:**
   ```json
   {
-    "message": "Response rated successfully"
+    "success": true,
+    "message": "Đã cập nhật đánh giá"
   }
   ```
 
@@ -992,7 +1292,8 @@ Detailed documentation for all API endpoints available in the system.
 - **Response:**
   ```json
   {
-    "message": "Chat session deleted successfully"
+    "success": true,
+    "message": "Đã xóa phiên chat thành công"
   }
   ```
 
@@ -1125,10 +1426,17 @@ Detailed documentation for all API endpoints available in the system.
 - **Path:** `/api/ai/train`
 - **Access:** Private (Admin, Coordinator - only for their department)
 - **Headers:** Authorization token required
+- **Payload:**
+  ```json
+  {
+    "categories": ["string"], // Optional: array of categories (general, scholarship, event, department, faq)
+    "departmentId": "string" // Optional: ID của ngành (nếu muốn giới hạn dữ liệu theo ngành)
+  }
+  ```
 - **Response:**
   ```json
   {
-    "message": "AI training started successfully",
+    "message": "Đã hoàn thành quá trình training AI",
     "data": {
       "trainingId": "string",
       "status": "string",
@@ -1145,15 +1453,21 @@ Detailed documentation for all API endpoints available in the system.
 - **Response:**
   ```json
   {
-    "message": "Training history retrieved successfully",
+    "success": true,
+    "count": 0,
     "data": [
       {
         "_id": "string",
         "status": "string",
-        "startTime": "date",
-        "endTime": "date",
-        "datasetSize": 0,
-        "userId": "string"
+        "createdAt": "date",
+        "createdBy": {
+          "name": "string",
+          "email": "string"
+        },
+        "department": {
+          "name": "string",
+          "code": "string"
+        }
       }
     ]
   }

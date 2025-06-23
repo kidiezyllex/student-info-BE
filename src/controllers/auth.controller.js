@@ -21,11 +21,15 @@ export const login = async (req, res) => {
     const { email, password } = req.body;
 
     // Check for user email
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ email }).populate('department', 'name code');
 
     if (!user || !(await user.matchPassword(password))) {
       return res.status(401).json({ message: 'Invalid email or password' });
     }
+
+    // Update lastLogin
+    user.lastLogin = new Date();
+    await user.save();
 
     // Return user with token
     res.json({
@@ -33,8 +37,12 @@ export const login = async (req, res) => {
       data: {
         _id: user._id,
         name: user.name,
+        fullName: user.fullName,
         email: user.email,
-        isAdmin: user.isAdmin,
+        studentId: user.studentId,
+        role: user.role,
+        department: user.department,
+        avatar: user.avatar,
         token: generateToken(user._id)
       }
     });
@@ -79,6 +87,9 @@ export const register = async (req, res) => {
     const user = await User.create(userData);
 
     if (user) {
+      // Populate department info
+      await user.populate('department', 'name code');
+      
       res.status(201).json({
         message: 'User registered successfully',
         data: {
@@ -86,6 +97,7 @@ export const register = async (req, res) => {
           name: user.name,
           email: user.email,
           role: user.role,
+          department: user.department,
           token: generateToken(user._id)
         }
       });
@@ -104,18 +116,15 @@ export const register = async (req, res) => {
  */
 export const getProfile = async (req, res) => {
   try {
-    const user = await User.findById(req.user._id);
+    const user = await User.findById(req.user._id)
+      .populate('department', 'name code description')
+      .populate('savedNotifications')
+      .select('-password');
 
     if (user) {
       res.json({
         message: 'User profile retrieved successfully',
-        data: {
-          _id: user._id,
-          name: user.name,
-          email: user.email,
-          isAdmin: user.isAdmin,
-          role: user.role
-        }
+        data: user
       });
     } else {
       res.status(404).json({ message: 'User not found' });
