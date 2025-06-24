@@ -1516,3 +1516,125 @@ Coordinator cũng có thể sử dụng tất cả các route public như studen
 
 #### Event
 - `GET /api/events` — Lấy tất cả sự kiện sắp diễn ra hoặc đang diễn ra
+
+### 11. Upload
+
+#### 11.1. Upload Single File
+- **Method:** POST
+- **Path:** `/api/upload/single`
+- **Access:** Private (3 role)
+- **Headers:** Authorization token required
+- **Content-Type:** multipart/form-data
+- **Payload:**
+  ```
+  file: [File] (Required)
+  folder: string (Optional) - Folder name for organization
+  ```
+- **Response:**
+  ```json
+  {
+    "success": true,
+    "message": "File uploaded successfully",
+    "data": {
+      "url": "https://res.cloudinary.com/...",
+      "public_id": "student-info/filename",
+      "resource_type": "image",
+      "format": "jpg",
+      "size": 1024000,
+      "width": 1920,
+      "height": 1080,
+      "created_at": "2024-01-01T00:00:00Z",
+      "original_filename": "example.jpg",
+      "mimetype": "image/jpeg"
+    }
+  }
+  ```
+
+#### 11.2. Upload Multiple Files
+- **Method:** POST
+- **Path:** `/api/upload/multiple`
+- **Access:** Private (3 role)
+- **Headers:** Authorization token required
+- **Content-Type:** multipart/form-data
+- **Payload:**
+  ```
+  files: [File Array] (Required, max 10 files)
+  folder: string (Optional) - Folder name for organization
+  ```
+- **Response:**
+  ```json
+  {
+    "success": true,
+    "message": "Upload completed. 3 successful, 0 failed.",
+    "data": {
+      "total": 3,
+      "successful": 3,
+      "failed": 0,
+      "results": [
+        {
+          "success": true,
+          "url": "https://res.cloudinary.com/...",
+          "public_id": "student-info/filename1",
+          "resource_type": "image",
+          "format": "jpg",
+          "size": 1024000,
+          "original_filename": "file1.jpg",
+          "mimetype": "image/jpeg"
+        }
+      ]
+    }
+  }
+  ```
+
+#### 11.3. Delete File
+- **Method:** DELETE
+- **Path:** `/api/upload/:publicId`
+- **Access:** Private (3 role)
+- **Headers:** Authorization token required
+- **Query Parameters:**
+  - `resourceType`: Type of resource (image, video, raw) - Optional, default: image
+- **Response:**
+  ```json
+  {
+    "success": true,
+    "message": "File deleted successfully",
+    "data": {
+      "public_id": "student-info/filename",
+      "result": "ok"
+    }
+  }
+  ```
+
+#### 11.4. Get Upload Statistics
+- **Method:** GET
+- **Path:** `/api/upload/stats`
+- **Access:** Admin only
+- **Headers:** Authorization token required
+- **Response:**
+  ```json
+  {
+    "success": true,
+    "message": "Upload statistics retrieved successfully",
+    "data": {
+      "total_uploads": 150,
+      "total_size": 52428800,
+      "uploads_today": 12,
+      "uploads_this_month": 89,
+      "storage_used": "50 MB",
+      "storage_limit": "10 GB"
+    }
+  }
+  ```
+
+**Supported File Types:**
+- **Images:** JPG, JPEG, PNG, GIF, WebP, SVG
+- **Documents:** PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, TXT, CSV, RTF
+- **Archives:** ZIP, RAR, 7Z
+- **Audio:** MP3, WAV, OGG, M4A
+- **Video:** MP4, MPEG, MPG, MOV, AVI, WebM
+- **Other:** JSON, XML, HTML, CSS, JS
+
+**Upload Limits:**
+- Maximum file size: 50MB per file
+- Maximum files per request: 10 files
+- All files are automatically organized in Cloudinary folders

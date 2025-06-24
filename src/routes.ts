@@ -16,6 +16,7 @@ import scholarshipRoutes from "./routes/scholarship.routes.js";
 import eventRoutes from "./routes/event.routes.js";
 import messageRoutes from "./routes/message.routes.js";
 import aiRoutes from "./routes/ai.routes.js";
+import uploadRoutes from "./routes/upload.routes.js";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   try {
@@ -33,6 +34,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     app.use("/api/events", eventRoutes);
     app.use("/api/messages", messageRoutes);
     app.use("/api/ai", aiRoutes);
+    app.use("/api/upload", uploadRoutes);
     
     // Set up Swagger documentation
     setupSwagger(app);
