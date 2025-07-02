@@ -56,8 +56,6 @@ app.use((req: Request, res: Response, next: NextFunction) => {
       if (logLine.length > 80) {
         logLine = logLine.slice(0, 79) + "…";
       }
-
-      console.log(logLine);
     }
   });
 
@@ -73,14 +71,7 @@ app.use((req: Request, res: Response, next: NextFunction) => {
     app.use((err: Error & { status?: number; statusCode?: number }, _req: Request, res: Response) => {
       const status = err.status || err.statusCode || 500;
       const message = err.message || "Internal Server Error";
-
-      console.log(`Error: ${status} - ${message}`);
-
       res.status(status).json({ message });
-      
-      if (process.env.NODE_ENV !== 'production') {
-        console.error(err);
-      }
     });
 
     // Start server
@@ -94,7 +85,6 @@ app.use((req: Request, res: Response, next: NextFunction) => {
       console.log(`Server listening on port ${port}`);
     });
   } catch (error) {
-    console.error('Failed to start server:', error);
     process.exit(1);
   }
 })(); 
