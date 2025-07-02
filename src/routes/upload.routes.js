@@ -58,6 +58,45 @@ const router = express.Router();
 
 /**
  * @swagger
+ * /upload:
+ *   post:
+ *     summary: Upload a file (default single file upload)
+ *     tags: [Upload]
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       content:
+ *         multipart/form-data:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               file:
+ *                 type: string
+ *                 format: binary
+ *                 description: File to upload
+ *               folder:
+ *                 type: string
+ *                 description: Optional folder name for organization
+ *             required:
+ *               - file
+ *     responses:
+ *       200:
+ *         description: File uploaded successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/UploadResponse'
+ *       400:
+ *         description: No file uploaded or invalid file
+ *       401:
+ *         description: Not authenticated
+ *       500:
+ *         description: Upload failed
+ */
+router.post('/', authenticate, uploadSingle('file'), uploadSingleFile);
+
+/**
+ * @swagger
  * /upload/single:
  *   post:
  *     summary: Upload a single file

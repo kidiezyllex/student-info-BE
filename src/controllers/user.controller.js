@@ -23,6 +23,63 @@ export const getUsers = async (req, res) => {
 };
 
 /**
+ * @desc    Create new user
+ * @route   POST /api/users
+ * @access  Private/Admin
+ */
+export const createUser = async (req, res) => {
+  try {
+    const { name, email, password, role, studentId, fullName, department } = req.body;
+
+    // Check if user exists
+    const userExists = await User.findOne({ email });
+
+    if (userExists) {
+      return res.status(400).json({ message: 'User already exists' });
+    }
+
+    // Create user data
+    const userData = {
+      name,
+      email,
+      password,
+      role: role || 'student'
+    };
+
+    // Add optional fields if provided
+    if (studentId) userData.studentId = studentId;
+    if (fullName) userData.fullName = fullName;
+    if (department) userData.department = department;
+
+    // Create user
+    const user = await User.create(userData);
+
+    if (user) {
+      // Populate department info
+      await user.populate('department', 'name code');
+      
+      res.status(201).json({
+        message: 'User created successfully',
+        data: {
+          _id: user._id,
+          name: user.name,
+          fullName: user.fullName,
+          email: user.email,
+          studentId: user.studentId,
+          role: user.role,
+          department: user.department,
+          avatar: user.avatar
+        }
+      });
+    } else {
+      res.status(400).json({ message: 'Invalid user data' });
+    }
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+/**
  * @desc    Get user by ID
  * @route   GET /api/users/:id
  * @access  Private

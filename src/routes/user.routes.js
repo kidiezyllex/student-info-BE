@@ -1,6 +1,7 @@
 import express from 'express';
 import { 
   getUsers, 
+  createUser,
   getUserById, 
   updateUser, 
   updateUserProfile,
@@ -11,6 +12,51 @@ import {
 import { authenticate, isAdmin } from '../middlewares/auth.middleware.js';
 
 const router = express.Router();
+
+/**
+ * @swagger
+ * /users:
+ *   post:
+ *     summary: Create new user (Admin only)
+ *     tags: [Users]
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - name
+ *               - email
+ *               - password
+ *             properties:
+ *               name:
+ *                 type: string
+ *               email:
+ *                 type: string
+ *               password:
+ *                 type: string
+ *               role:
+ *                 type: string
+ *                 enum: [student, coordinator, admin]
+ *                 default: student
+ *               studentId:
+ *                 type: string
+ *               fullName:
+ *                 type: string
+ *               department:
+ *                 type: string
+ *     responses:
+ *       201:
+ *         description: User created successfully
+ *       400:
+ *         description: User already exists or invalid data
+ *       401:
+ *         description: Not authorized
+ */
+router.post('/', authenticate, isAdmin, createUser);
 
 /**
  * @swagger
