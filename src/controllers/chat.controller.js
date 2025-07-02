@@ -100,6 +100,43 @@ export const askQuestion = async (req, res) => {
 };
 
 /**
+ * @desc    Tạo phiên chat mới
+ * @route   POST /api/chat
+ * @access  Tất cả người dùng
+ */
+export const createChatSession = async (req, res) => {
+  try {
+    const { title } = req.body;
+    
+    const chatSession = new ChatSession({
+      user: req.user._id,
+      title: title || 'Cuộc trò chuyện mới',
+      lastActive: Date.now()
+    });
+    
+    await chatSession.save();
+    
+    res.status(201).json({
+      success: true,
+      message: 'Tạo phiên chat mới thành công',
+      data: {
+        sessionId: chatSession._id,
+        title: chatSession.title,
+        createdAt: chatSession.createdAt,
+        lastActive: chatSession.lastActive
+      }
+    });
+  } catch (error) {
+    console.error('Lỗi khi tạo phiên chat:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Lỗi server',
+      error: error.message
+    });
+  }
+};
+
+/**
  * @desc    Lấy lịch sử chat của người dùng
  * @route   GET /api/chat/history
  * @access  Tất cả người dùng

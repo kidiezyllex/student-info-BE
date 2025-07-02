@@ -1,6 +1,7 @@
 import express from 'express';
 import {
   askQuestion,
+  createChatSession,
   getChatHistory,
   getChatSession,
   rateAnswer,
@@ -9,6 +10,31 @@ import {
 import { authenticate } from '../middlewares/auth.middleware.js';
 
 const router = express.Router();
+
+/**
+ * @swagger
+ * /chat:
+ *   post:
+ *     summary: Tạo phiên chat mới
+ *     tags: [Chat]
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               title:
+ *                 type: string
+ *                 description: Tiêu đề cho phiên chat (tùy chọn)
+ *     responses:
+ *       201:
+ *         description: Tạo phiên chat thành công
+ *       401:
+ *         description: Không có quyền truy cập
+ */
+router.post('/', authenticate, createChatSession);
 
 /**
  * @swagger

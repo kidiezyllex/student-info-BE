@@ -89,7 +89,61 @@ export const getTrainingHistory = async (req, res) => {
   }
 };
 
+/**
+ * @desc    Kiểm tra trạng thái và thông tin AI
+ * @route   POST /api/ai
+ * @access  Admin, Coordinator, Student
+ */
+export const checkAIStatus = async (req, res) => {
+  try {
+    // Lấy thông tin training gần nhất
+    let query = {};
+    if (req.user.role === 'coordinator') {
+      query.department = req.user.department;
+    }
+    
+    const latestTraining = await AITraining.findOne(query)
+      .populate('createdBy', 'name')
+      .populate('department', 'name code')
+      .sort({ createdAt: -1 });
+    
+    const totalTrainings = await AITraining.countDocuments(query);
+    
+    res.status(200).json({
+      success: true,
+      message: 'Thông tin trạng thái AI',
+      data: {
+        status: 'active',
+        totalTrainings,
+        lastTraining: latestTraining ? {
+          date: latestTraining.createdAt,
+          categories: latestTraining.categories,
+          department: latestTraining.department,
+          trainedBy: latestTraining.createdBy,
+          documentsCount: latestTraining.documentsCount,
+          success: latestTraining.success
+        } : null,
+        capabilities: [
+          'general_questions',
+          'scholarship_info',
+          'event_info',
+          'department_info',
+          'faq'
+        ]
+      }
+    });
+  } catch (error) {
+    console.error('Lỗi khi kiểm tra trạng thái AI:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Lỗi server',
+      error: error.message
+    });
+  }
+};
+
 export default {
   trainingAI,
-  getTrainingHistory
+  getTrainingHistory,
+  checkAIStatus
 }; 
