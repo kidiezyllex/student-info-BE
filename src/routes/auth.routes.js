@@ -1,6 +1,7 @@
 import express from 'express';
 import { login, register, getProfile } from '../controllers/auth.controller.js';
 import { authenticate } from '../middlewares/auth.middleware.js';
+import { authRateLimit } from '../middlewares/rateLimit.middleware.js';
 
 const router = express.Router();
 
@@ -30,7 +31,7 @@ const router = express.Router();
  *       401:
  *         description: Invalid credentials
  */
-router.post('/login', login);
+router.post('/login', authRateLimit, login);
 
 /**
  * @swagger
@@ -66,7 +67,7 @@ router.post('/login', login);
  *       400:
  *         description: Invalid input data
  */
-router.post('/register', register);
+router.post('/register', authRateLimit, register);
 
 /**
  * @swagger
