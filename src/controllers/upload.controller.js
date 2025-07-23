@@ -19,10 +19,32 @@ export const uploadSingleFile = async (req, res) => {
     const { file } = req;
     const { folder } = req.body;
 
+    // Define document MIME types that should be treated as 'raw' resources
+    const rawDocumentMimeTypes = [
+      'application/pdf',
+      'application/msword',
+      'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+      'text/plain',
+      'application/vnd.ms-excel',
+      'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+      'application/vnd.ms-powerpoint',
+      'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+      'text/csv',
+      'application/rtf',
+      'application/zip',
+      'application/x-rar-compressed',
+      'application/x-7z-compressed'
+    ];
+
+    let resourceType = 'auto';
+    if (rawDocumentMimeTypes.includes(file.mimetype)) {
+      resourceType = 'raw';
+    }
+
     // Upload to Cloudinary
     const uploadOptions = {
       folder: folder ? `student-info/${folder}` : 'student-info',
-      resource_type: 'auto'
+      resource_type: resourceType
     };
 
     const result = await uploadToCloudinary(file.path, uploadOptions);
@@ -94,9 +116,31 @@ export const uploadMultipleFiles = async (req, res) => {
     // Upload each file to Cloudinary
     for (const file of files) {
       try {
+        // Define document MIME types that should be treated as 'raw' resources
+        const rawDocumentMimeTypes = [
+          'application/pdf',
+          'application/msword',
+          'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+          'text/plain',
+          'application/vnd.ms-excel',
+          'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+          'application/vnd.ms-powerpoint',
+          'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+          'text/csv',
+          'application/rtf',
+          'application/zip',
+          'application/x-rar-compressed',
+          'application/x-7z-compressed'
+        ];
+
+        let resourceType = 'auto';
+        if (rawDocumentMimeTypes.includes(file.mimetype)) {
+          resourceType = 'raw';
+        }
+
         const uploadOptions = {
           folder: folder ? `student-info/${folder}` : 'student-info',
-          resource_type: 'auto'
+          resource_type: resourceType
         };
 
         const result = await uploadToCloudinary(file.path, uploadOptions);

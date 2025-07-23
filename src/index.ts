@@ -7,13 +7,10 @@ import dotenv from "dotenv";
 import { registerRoutes } from "./routes.js";
 import responseMiddleware from "./middlewares/response.middleware.js";
 
-// Load environment variables
 dotenv.config();
 
-// Create Express app
 const app = express();
 
-// Apply middleware
 app.use(helmet({
   contentSecurityPolicy: {
     directives: {
