@@ -29,7 +29,7 @@ export const getUsers = async (req, res) => {
  */
 export const createUser = async (req, res) => {
   try {
-    const { name, email, password, role, studentId, fullName, department } = req.body;
+    const { name, email, password, role, studentId, fullName, department, phoneNumber, avatar } = req.body;
 
     // Check if user exists
     const userExists = await User.findOne({ email });
@@ -50,6 +50,8 @@ export const createUser = async (req, res) => {
     if (studentId) userData.studentId = studentId;
     if (fullName) userData.fullName = fullName;
     if (department) userData.department = department;
+    if (phoneNumber) userData.phoneNumber = phoneNumber;
+    if (avatar) userData.avatar = avatar;
 
     // Create user
     const user = await User.create(userData);
@@ -68,7 +70,8 @@ export const createUser = async (req, res) => {
           studentId: user.studentId,
           role: user.role,
           department: user.department,
-          avatar: user.avatar
+          avatar: user.avatar,
+          phoneNumber: user.phoneNumber
         }
       });
     } else {
