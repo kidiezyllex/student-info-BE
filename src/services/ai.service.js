@@ -5,7 +5,9 @@ import AITraining from '../models/aiTraining.model.js';
 dotenv.config();
 
 const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY
-const OPENROUTER_MODEL = process.env.OPENROUTER_MODEL
+const OPENROUTER_MODEL = "deepseek/deepseek-chat-v3-0324:free"
+console.log('🔑 OpenRouter API Key Length:', OPENROUTER_API_KEY ? OPENROUTER_API_KEY.length : 'Not set');
+console.log('🧠 OpenRouter Model:', OPENROUTER_MODEL || 'Not set');
 const SITE_URL = process.env.SITE_URL || 'https://your-website.com';
 const SITE_NAME = process.env.SITE_NAME || 'Student Information System';
 
@@ -18,7 +20,7 @@ async function getDatasetContext(category = null, departmentId = null, userQuest
     const datasets = await Dataset.find(query);
     console.log('📊 All datasets found:', datasets.length);
     console.log('📋 Dataset list:', datasets.map(item => ({ key: item.key, value: item.value, category: item.category })));
-    
+
     if (!datasets || datasets.length === 0) {
       return "No data in dataset.";
     }
@@ -51,9 +53,9 @@ async function getDatasetContext(category = null, departmentId = null, userQuest
         .map(item => item.item);
 
       console.log('🔍 Datasets found from user keywords:', topResults.length);
-      console.log('📝 Filtered datasets:', topResults.map(item => ({ 
-        key: item.key, 
-        value: item.value, 
+      console.log('📝 Filtered datasets:', topResults.map(item => ({
+        key: item.key,
+        value: item.value,
         category: item.category,
         score: scoredDatasets.find(scored => scored.item._id.toString() === item._id.toString())?.score || 0
       })));
@@ -68,7 +70,6 @@ async function getDatasetContext(category = null, departmentId = null, userQuest
     console.log('📊 Using limited datasets (no keyword filtering):', limitedDatasets.length);
     return limitedDatasets.map(item => `${item.key}: ${item.value}`).join('\n');
   } catch (error) {
-    console.error('❌ Error in getDatasetContext:', error);
     return "Cannot access dataset data.";
   }
 }
@@ -93,10 +94,17 @@ async function queryOpenRouterAI(messages) {
     );
 
     const data = await response.json();
-    const message = data?.choices?.[0]?.message || { content: 'No response from AI.' };
+
+    if (!response.ok) {
+      console.error(`❌ OpenRouter API Error: Status ${response.status}`);
+      console.error('Response data:', data);
+      throw new Error(`OpenRouter API responded with status ${response.status}: ${data.error ? data.error.message : JSON.stringify(data)}`);
+    }
+
+    const message = data?.choices?.[0]?.message;
 
     if (!message.content || typeof message.content !== 'string') {
-      message.content = message.content ? JSON.stringify(message.content) : 'No response from AI.';
+      message.content = message.content ? JSON.stringify(message.content) : '';
     }
 
     return message;
@@ -108,13 +116,12 @@ async function queryOpenRouterAI(messages) {
 export async function askAI(userQuestion, chatHistory = [], category = null, departmentId = null) {
   try {
     const datasetContext = await getDatasetContext(category, departmentId, userQuestion);
-    
+
     const systemPrompt = {
       role: 'system',
-      content: `You are a smart assistant helping students at the school. Answer questions based on the following information:
-      
+      content: `You are a smart assistant for students. Prioritize using the following information from the dataset:
 ${datasetContext}
-If you do not find the information link in the data, please state that you do not have the information and suggest contacting the appropriate department staff. Answer in English, short and useful. Do not create false information.`
+If the answer is not available in the provided dataset, you may use your general knowledge to answer. Answer concisely in English.`
     };
 
     const messages = [
