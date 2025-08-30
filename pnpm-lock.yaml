@@ -8,12 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@ai-sdk/mistral':
-        specifier: ^1.2.6
-        version: 1.2.8(zod@3.25.67)
-      '@upstash/vector':
-        specifier: ^1.2.1
-        version: 1.2.2
       ai:
         specifier: ^4.3.4
         version: 4.3.16(react@19.1.0)(zod@3.25.67)
@@ -56,9 +50,6 @@ importers:
       node-fetch:
         specifier: ^3.3.2
         version: 3.3.2
-      ollama:
-        specifier: ^0.5.14
-        version: 0.5.16
       openai:
         specifier: ^4.93.0
         version: 4.104.0(zod@3.25.67)
@@ -128,12 +119,6 @@ importers:
         version: 8.35.1(eslint@8.57.1)(typescript@5.6.3)
 
 packages:
-
-  '@ai-sdk/mistral@1.2.8':
-    resolution: {integrity: sha512-lv857D9UJqCVxiq2Fcu7mSPTypEHBUqLl1K+lCaP6X/7QAkcaxI36QDONG+tOhGHJOXTsS114u8lrUTaEiGXbg==}
-    engines: {node: '>=18'}
-    peerDependencies:
-      zod: ^3.0.0
 
   '@ai-sdk/provider-utils@2.2.8':
     resolution: {integrity: sha512-fqhG+4sCVv8x7nFzYnFo19ryhAa3w096Kmc3hWxMQfW/TubPOmt3A6tYZhl4mUfQWWQMsuSkLrtjlWuXBVSGQA==}
@@ -817,9 +802,6 @@ packages:
 
   '@ungap/structured-clone@1.3.0':
     resolution: {integrity: sha512-WmoN8qaIAo7WTYWbAZuG8PYEhn5fkz7dZrqTBZ7dtt//lL2Gwms1IcnQ5yHqjDfX8Ft5j4YzDM23f87zBfDe9g==}
-
-  '@upstash/vector@1.2.2':
-    resolution: {integrity: sha512-ptQ9xnxtKqmpNK52PCcHCszlPOLxIBfjsv7ty8RoF95pkjctS9rSjTQ3Pl9bx5VFbpDj+0dMXw88WLt6swDkgQ==}
 
   abbrev@1.1.1:
     resolution: {integrity: sha512-nne9/IiQ/hzIhY6pdDnbBtz7DjPTKrY00P/zvPSm5pOFkl6xuGrGnXn/VtTNNfNtAfZ9/1RtehkszU9qcTii0Q==}
@@ -1720,9 +1702,6 @@ packages:
     resolution: {integrity: sha512-W67iLl4J2EXEGTbfeHCffrjDfitvLANg0UlX3wFUUSTx92KXRFegMHUVgSqE+wvhAbi4WqjGg9czysTV2Epbew==}
     engines: {node: '>= 0.4'}
 
-  ollama@0.5.16:
-    resolution: {integrity: sha512-OEbxxOIUZtdZgOaTPAULo051F5y+Z1vosxEYOoABPnQKeW7i4O8tJNlxCB+xioyoorVqgjkdj+TA1f1Hy2ug/w==}
-
   on-finished@2.3.0:
     resolution: {integrity: sha512-ikqdkGAAyf/X/gPhXGvfgAytDZtDbr+bkNUJ0N9h5MI/dmdgCs3l6hoHrcUv41sRKew3jIwrp4qQDXiK99Utww==}
     engines: {node: '>= 0.8'}
@@ -2095,9 +2074,6 @@ packages:
     resolution: {integrity: sha512-VwddBukDzu71offAQR975unBIGqfKZpM+8ZX6ySk8nYhVoo5CYaZyzt3YBvYtRtO+aoGlqxPg/B87NGVZ/fu6g==}
     engines: {node: '>=12'}
 
-  whatwg-fetch@3.6.20:
-    resolution: {integrity: sha512-EqhiFU6daOA8kpjOWTL0olhVOF3i7OrFzSYiGsEMB8GcXS+RrzauAERX65xMeNWVqxA6HXH2m69Z9LaKKdisfg==}
-
   whatwg-url@14.2.0:
     resolution: {integrity: sha512-De72GdQZzNTUBBChsXueQUnPKDkg/5A5zp7pFDuQAj5UFoENpiACU0wlCvzpAGnTkj++ihpKwKyYewn/XNUbKw==}
     engines: {node: '>=18'}
@@ -2154,12 +2130,6 @@ packages:
     resolution: {integrity: sha512-idA2YXwpCdqUSKRCACDE6ItZD9TZzy3OZMtpfLoh6oPR47lipysRrJfjzMqFxQ3uJuUPyUeWe1r9vLH33xO/Qw==}
 
 snapshots:
-
-  '@ai-sdk/mistral@1.2.8(zod@3.25.67)':
-    dependencies:
-      '@ai-sdk/provider': 1.1.3
-      '@ai-sdk/provider-utils': 2.2.8(zod@3.25.67)
-      zod: 3.25.67
 
   '@ai-sdk/provider-utils@2.2.8(zod@3.25.67)':
     dependencies:
@@ -2705,8 +2675,6 @@ snapshots:
       eslint-visitor-keys: 4.2.1
 
   '@ungap/structured-clone@1.3.0': {}
-
-  '@upstash/vector@1.2.2': {}
 
   abbrev@1.1.1: {}
 
@@ -3696,10 +3664,6 @@ snapshots:
 
   object-inspect@1.13.4: {}
 
-  ollama@0.5.16:
-    dependencies:
-      whatwg-fetch: 3.6.20
-
   on-finished@2.3.0:
     dependencies:
       ee-first: 1.1.1
@@ -4051,8 +4015,6 @@ snapshots:
   webidl-conversions@3.0.1: {}
 
   webidl-conversions@7.0.0: {}
-
-  whatwg-fetch@3.6.20: {}
 
   whatwg-url@14.2.0:
     dependencies:

@@ -98,4 +98,74 @@ export const strictRateLimit = rateLimit({
       timestamp: new Date()
     });
   }
+});
+
+/**
+ * Email rate limiting middleware
+ * Restricts email sending to prevent spam
+ */
+export const emailRateLimit = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 5, // Limit to 5 emails per 15 minutes per IP
+  keyGenerator: (req) => {
+    // Use both IP and email for more granular control
+    return `${req.ip}-${req.body.email || 'no-email'}`;
+  },
+  message: {
+    success: false,
+    message: 'Too many email verification requests. Please try again in 15 minutes.',
+    errors: {
+      rateLimit: 'Email rate limit exceeded'
+    },
+    data: {},
+    timestamp: new Date()
+  },
+  standardHeaders: true,
+  legacyHeaders: false,
+  handler: (req, res) => {
+    res.status(429).json({
+      success: false,
+      message: 'Too many email verification requests. Please try again in 15 minutes.',
+      errors: {
+        rateLimit: 'Email rate limit exceeded'
+      },
+      data: {},
+      timestamp: new Date()
+    });
+  }
+});
+
+/**
+ * Verification code rate limiting middleware
+ * Restricts verification attempts to prevent brute force
+ */
+export const verificationRateLimit = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 10, // Limit to 10 verification attempts per 15 minutes per IP
+  keyGenerator: (req) => {
+    // Use both IP and email for more granular control
+    return `${req.ip}-${req.body.email || 'no-email'}`;
+  },
+  message: {
+    success: false,
+    message: 'Too many verification attempts. Please try again in 15 minutes.',
+    errors: {
+      rateLimit: 'Verification rate limit exceeded'
+    },
+    data: {},
+    timestamp: new Date()
+  },
+  standardHeaders: true,
+  legacyHeaders: false,
+  handler: (req, res) => {
+    res.status(429).json({
+      success: false,
+      message: 'Too many verification attempts. Please try again in 15 minutes.',
+      errors: {
+        rateLimit: 'Verification rate limit exceeded'
+      },
+      data: {},
+      timestamp: new Date()
+    });
+  }
 }); 

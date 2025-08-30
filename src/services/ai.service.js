@@ -6,8 +6,6 @@ dotenv.config();
 
 const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY
 const OPENROUTER_MODEL = "deepseek/deepseek-chat-v3-0324:free"
-console.log('🔑 OpenRouter API Key Length:', OPENROUTER_API_KEY ? OPENROUTER_API_KEY.length : 'Not set');
-console.log('🧠 OpenRouter Model:', OPENROUTER_MODEL || 'Not set');
 const SITE_URL = process.env.SITE_URL || 'https://your-website.com';
 const SITE_NAME = process.env.SITE_NAME || 'Student Information System';
 

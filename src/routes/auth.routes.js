@@ -1,5 +1,5 @@
 import express from 'express';
-import { login, register, getProfile } from '../controllers/auth.controller.js';
+import { login, register, getProfile, completeRegistration } from '../controllers/auth.controller.js';
 import { authenticate } from '../middlewares/auth.middleware.js';
 import { authRateLimit } from '../middlewares/rateLimit.middleware.js';
 
@@ -37,7 +37,7 @@ router.post('/login', authRateLimit, login);
  * @swagger
  * /auth/register:
  *   post:
- *     summary: User registration
+ *     summary: Send verification code for user registration
  *     tags: [Auth]
  *     requestBody:
  *       required: true
@@ -52,22 +52,124 @@ router.post('/login', authRateLimit, login);
  *             properties:
  *               name:
  *                 type: string
+ *                 description: User's full name
  *               email:
  *                 type: string
+ *                 format: email
+ *                 description: User's email address
  *               password:
  *                 type: string
+ *                 minLength: 6
+ *                 description: User's password (minimum 6 characters)
  *               role:
  *                 type: string
  *                 enum: [student, coordinator, admin]
  *                 default: student
  *                 description: Role of the user
  *     responses:
- *       201:
- *         description: User registered successfully
+ *       200:
+ *         description: Verification code sent successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                 message:
+ *                   type: string
+ *                 data:
+ *                   type: object
+ *                   properties:
+ *                     email:
+ *                       type: string
+ *                     name:
+ *                       type: string
+ *                     role:
+ *                       type: string
+ *                     expiresAt:
+ *                       type: string
+ *                       format: date-time
+ *                     nextStep:
+ *                       type: string
  *       400:
- *         description: Invalid input data
+ *         description: Bad request - invalid input or user already exists
+ *       500:
+ *         description: Failed to send verification code
  */
 router.post('/register', authRateLimit, register);
+
+/**
+ * @swagger
+ * /auth/complete-registration:
+ *   post:
+ *     summary: Complete user registration with verification token
+ *     tags: [Auth]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - name
+ *               - email
+ *               - password
+ *               - verificationToken
+ *             properties:
+ *               name:
+ *                 type: string
+ *                 description: User's full name
+ *               email:
+ *                 type: string
+ *                 format: email
+ *                 description: User's email address
+ *               password:
+ *                 type: string
+ *                 minLength: 6
+ *                 description: User's password (minimum 6 characters)
+ *               verificationToken:
+ *                 type: string
+ *                 description: Verification token received after email verification
+ *               role:
+ *                 type: string
+ *                 enum: [student, coordinator, admin]
+ *                 default: student
+ *                 description: User's role
+ *     responses:
+ *       200:
+ *         description: Registration completed successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                 message:
+ *                   type: string
+ *                 data:
+ *                   type: object
+ *                   properties:
+ *                     user:
+ *                       type: object
+ *                       properties:
+ *                         id:
+ *                           type: string
+ *                         name:
+ *                           type: string
+ *                         email:
+ *                           type: string
+ *                         role:
+ *                           type: string
+ *                         emailVerified:
+ *                           type: boolean
+ *       400:
+ *         description: Bad request - invalid input or verification token
+ *       500:
+ *         description: Internal server error
+ */
+router.post('/complete-registration', authRateLimit, completeRegistration);
 
 /**
  * @swagger

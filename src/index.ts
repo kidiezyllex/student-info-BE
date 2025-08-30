@@ -6,7 +6,6 @@ import compression from "compression";
 import dotenv from "dotenv";
 import { registerRoutes } from "./routes.js";
 import responseMiddleware from "./middlewares/response.middleware.js";
-
 dotenv.config();
 
 const app = express();
@@ -61,17 +60,14 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 
 (async () => {
   try {
-    // Register API routes and get HTTP server
     const server = await registerRoutes(app);
 
-    // Global error handler
     app.use((err: Error & { status?: number; statusCode?: number }, _req: Request, res: Response) => {
       const status = err.status || err.statusCode || 500;
       const message = err.message || "Internal Server Error";
       res.status(status).json({ message });
     });
 
-    // Start server
     const port = parseInt(process.env.PORT || '5000');
     server.listen({
       port,
