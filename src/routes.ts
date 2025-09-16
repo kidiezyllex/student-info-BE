@@ -17,6 +17,7 @@ import eventRoutes from "./routes/event.routes.js";
 import messageRoutes from "./routes/message.routes.js";
 import aiRoutes from "./routes/ai.routes.js";
 import uploadRoutes from "./routes/upload.routes.js";
+import verificationRoutes from "./routes/verification.routes.js";
 export async function registerRoutes(app: Express): Promise<Server> {
   try {
     // Connect to database
@@ -34,6 +35,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     app.use("/api/messages", messageRoutes);
     app.use("/api/ai", aiRoutes);
     app.use("/api/upload", uploadRoutes);
+    app.use("/api/verification", verificationRoutes);
     setupSwagger(app);
     
     // API health check endpoint
