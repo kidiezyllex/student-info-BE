@@ -15,8 +15,8 @@ export const trainingAI = async (req, res) => {
     if (categories && !Array.isArray(categories)) {
       return res.status(400).json({
         success: false,
-        message: 'Danh sách danh mục không hợp lệ',
-        errors: { categories: 'Phải là một mảng' }
+        message: 'Invalid categories list',
+        errors: { categories: 'Must be an array' }
       });
     }
     
@@ -33,7 +33,7 @@ export const trainingAI = async (req, res) => {
       else if (departmentId !== userDepartment) {
         return res.status(403).json({
           success: false,
-          message: 'Không có quyền training AI cho ngành khác'
+          message: 'No permission to train AI for other departments'
         });
       }
     }
@@ -42,14 +42,14 @@ export const trainingAI = async (req, res) => {
     
     res.status(200).json({
       success: true,
-      message: 'Đã hoàn thành quá trình training AI',
+      message: 'AI training process completed',
       data: result.data
     });
   } catch (error) {
     console.error('Lỗi khi training AI:', error);
     res.status(500).json({
       success: false,
-      message: 'Lỗi khi training AI',
+      message: 'Error during AI training',
       error: error.message
     });
   }
@@ -80,10 +80,10 @@ export const getTrainingHistory = async (req, res) => {
       data: trainings
     });
   } catch (error) {
-    console.error('Lỗi khi lấy lịch sử training:', error);
+    console.error('Error getting training history:', error);
     res.status(500).json({
       success: false,
-      message: 'Lỗi server',
+      message: 'Server error',
       error: error.message
     });
   }
@@ -111,7 +111,7 @@ export const checkAIStatus = async (req, res) => {
     
     res.status(200).json({
       success: true,
-      message: 'Thông tin trạng thái AI',
+      message: 'AI status information',
       data: {
         status: 'active',
         totalTrainings,
@@ -133,10 +133,10 @@ export const checkAIStatus = async (req, res) => {
       }
     });
   } catch (error) {
-    console.error('Lỗi khi kiểm tra trạng thái AI:', error);
+    console.error('Error checking AI status:', error);
     res.status(500).json({
       success: false,
-      message: 'Lỗi server',
+      message: 'Server error',
       error: error.message
     });
   }

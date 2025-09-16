@@ -37,7 +37,7 @@ router.post('/login', authRateLimit, login);
  * @swagger
  * /auth/register:
  *   post:
- *     summary: Send verification code for user registration
+ *     summary: Register a new user
  *     tags: [Auth]
  *     requestBody:
  *       required: true
@@ -68,7 +68,7 @@ router.post('/login', authRateLimit, login);
  *                 description: Role of the user
  *     responses:
  *       200:
- *         description: Verification code sent successfully
+ *         description: Registration successful
  *         content:
  *           application/json:
  *             schema:
@@ -81,21 +81,30 @@ router.post('/login', authRateLimit, login);
  *                 data:
  *                   type: object
  *                   properties:
- *                     email:
+ *                     _id:
  *                       type: string
  *                     name:
  *                       type: string
+ *                     fullName:
+ *                       type: string
+ *                     email:
+ *                       type: string
+ *                     studentId:
+ *                       type: string
  *                     role:
  *                       type: string
- *                     expiresAt:
+ *                     department:
+ *                       type: object
+ *                     avatar:
  *                       type: string
- *                       format: date-time
- *                     nextStep:
+ *                     emailVerified:
+ *                       type: boolean
+ *                     token:
  *                       type: string
  *       400:
  *         description: Bad request - invalid input or user already exists
  *       500:
- *         description: Failed to send verification code
+ *         description: Failed to process registration request
  */
 router.post('/register', authRateLimit, register);
 

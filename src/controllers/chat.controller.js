@@ -13,7 +13,7 @@ export const askQuestion = async (req, res) => {
     if (!question) {
       return res.status(400).json({
         success: false,
-        message: 'Vui lòng nhập câu hỏi'
+        message: 'Please enter a question'
       });
     }
     
@@ -30,14 +30,14 @@ export const askQuestion = async (req, res) => {
         // Nếu sessionId không hợp lệ, tạo session mới
         chatSession = new ChatSession({
           user: req.user._id,
-          title: 'Cuộc trò chuyện mới'
+          title: 'New conversation'
         });
       }
     } else {
       // Tạo session mới nếu không có sessionId
       chatSession = new ChatSession({
         user: req.user._id,
-        title: 'Cuộc trò chuyện mới'
+        title: 'New conversation'
       });
     }
     
@@ -62,7 +62,7 @@ export const askQuestion = async (req, res) => {
     } else if (aiResponse && aiResponse.content && typeof aiResponse.content === 'object') {
       responseContent = JSON.stringify(aiResponse.content);
     } else {
-      responseContent = 'Không có phản hồi từ AI.';
+      responseContent = 'No response from AI.';
     }
     
     // Thêm câu trả lời của AI vào messages
@@ -118,7 +118,7 @@ export const createChatSession = async (req, res) => {
     
     res.status(201).json({
       success: true,
-      message: 'Tạo phiên chat mới thành công',
+      message: 'New chat session created successfully',
       data: {
         sessionId: chatSession._id,
         title: chatSession.title,
@@ -127,10 +127,10 @@ export const createChatSession = async (req, res) => {
       }
     });
   } catch (error) {
-    console.error('Lỗi khi tạo phiên chat:', error);
+    console.error('Error creating chat session:', error);
     res.status(500).json({
       success: false,
-      message: 'Lỗi server',
+      message: 'Server error',
       error: error.message
     });
   }
@@ -153,10 +153,10 @@ export const getChatHistory = async (req, res) => {
       data: chatSessions
     });
   } catch (error) {
-    console.error('Lỗi khi lấy lịch sử chat:', error);
+    console.error('Error getting chat history:', error);
     res.status(500).json({
       success: false,
-      message: 'Lỗi server',
+      message: 'Server error',
       error: error.message
     });
   }
@@ -174,7 +174,7 @@ export const getChatSession = async (req, res) => {
     if (!chatSession) {
       return res.status(404).json({
         success: false,
-        message: 'Không tìm thấy phiên chat'
+        message: 'Chat session not found'
       });
     }
     
@@ -182,7 +182,7 @@ export const getChatSession = async (req, res) => {
     if (chatSession.user.toString() !== req.user._id.toString()) {
       return res.status(403).json({
         success: false,
-        message: 'Bạn không có quyền truy cập phiên chat này'
+        message: 'You do not have permission to access this chat session'
       });
     }
     
@@ -191,10 +191,10 @@ export const getChatSession = async (req, res) => {
       data: chatSession
     });
   } catch (error) {
-    console.error('Lỗi khi lấy chi tiết phiên chat:', error);
+    console.error('Error getting chat session details:', error);
     res.status(500).json({
       success: false,
-      message: 'Lỗi server',
+      message: 'Server error',
       error: error.message
     });
   }
@@ -212,7 +212,7 @@ export const rateAnswer = async (req, res) => {
     if (!sessionId || messageIndex === undefined || isAccurate === undefined) {
       return res.status(400).json({
         success: false,
-        message: 'Thiếu thông tin đánh giá'
+        message: 'Missing rating information'
       });
     }
     
@@ -221,7 +221,7 @@ export const rateAnswer = async (req, res) => {
     if (!chatSession) {
       return res.status(404).json({
         success: false,
-        message: 'Không tìm thấy phiên chat'
+        message: 'Chat session not found'
       });
     }
     
@@ -229,7 +229,7 @@ export const rateAnswer = async (req, res) => {
     if (chatSession.user.toString() !== req.user._id.toString()) {
       return res.status(403).json({
         success: false,
-        message: 'Bạn không có quyền đánh giá phiên chat này'
+        message: 'You do not have permission to rate this chat session'
       });
     }
     
@@ -238,7 +238,7 @@ export const rateAnswer = async (req, res) => {
         chatSession.messages[messageIndex].role !== 'assistant') {
       return res.status(400).json({
         success: false,
-        message: 'Index tin nhắn không hợp lệ'
+        message: 'Invalid message index'
       });
     }
     
@@ -248,13 +248,13 @@ export const rateAnswer = async (req, res) => {
     
     res.status(200).json({
       success: true,
-      message: 'Đã cập nhật đánh giá'
+      message: 'Rating updated'
     });
   } catch (error) {
-    console.error('Lỗi khi đánh giá câu trả lời:', error);
+    console.error('Error rating answer:', error);
     res.status(500).json({
       success: false,
-      message: 'Lỗi server',
+      message: 'Server error',
       error: error.message
     });
   }
@@ -272,7 +272,7 @@ export const deleteChatSession = async (req, res) => {
     if (!chatSession) {
       return res.status(404).json({
         success: false,
-        message: 'Không tìm thấy phiên chat'
+        message: 'Chat session not found'
       });
     }
     
@@ -280,7 +280,7 @@ export const deleteChatSession = async (req, res) => {
     if (chatSession.user.toString() !== req.user._id.toString()) {
       return res.status(403).json({
         success: false,
-        message: 'Bạn không có quyền xóa phiên chat này'
+        message: 'You do not have permission to delete this chat session'
       });
     }
     
@@ -288,13 +288,13 @@ export const deleteChatSession = async (req, res) => {
     
     res.status(200).json({
       success: true,
-      message: 'Đã xóa phiên chat'
+      message: 'Chat session deleted'
     });
   } catch (error) {
-    console.error('Lỗi khi xóa phiên chat:', error);
+    console.error('Error deleting chat session:', error);
     res.status(500).json({
       success: false,
-      message: 'Lỗi server',
+      message: 'Server error',
       error: error.message
     });
   }

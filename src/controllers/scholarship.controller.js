@@ -34,10 +34,10 @@ export const getAllScholarships = async (req, res) => {
       data: scholarships
     });
   } catch (error) {
-    console.error('Lỗi khi lấy danh sách học bổng:', error);
+    console.error('Error getting scholarships list:', error);
     res.status(500).json({
       success: false,
-      message: 'Lỗi server',
+      message: 'Server error',
       error: error.message
     });
   }
@@ -74,10 +74,10 @@ export const getAllScholarshipsAdmin = async (req, res) => {
       data: scholarships
     });
   } catch (error) {
-    console.error('Lỗi khi lấy tất cả học bổng:', error);
+    console.error('Error getting all scholarships:', error);
     res.status(500).json({
       success: false,
-      message: 'Lỗi server',
+      message: 'Server error',
       error: error.message
     });
   }
@@ -97,7 +97,7 @@ export const getScholarshipById = async (req, res) => {
     if (!scholarship) {
       return res.status(404).json({
         success: false,
-        message: 'Không tìm thấy học bổng'
+        message: 'Scholarship not found'
       });
     }
     
@@ -106,10 +106,10 @@ export const getScholarshipById = async (req, res) => {
       data: scholarship
     });
   } catch (error) {
-    console.error('Lỗi khi lấy chi tiết học bổng:', error);
+    console.error('Error getting scholarship details:', error);
     res.status(500).json({
       success: false,
-      message: 'Lỗi server',
+      message: 'Server error',
       error: error.message
     });
   }
@@ -140,7 +140,7 @@ export const createScholarship = async (req, res) => {
       if (!existingDepartment) {
         return res.status(400).json({
           success: false,
-          message: 'Không tìm thấy ngành'
+          message: 'Department not found'
         });
       }
       
@@ -150,7 +150,7 @@ export const createScholarship = async (req, res) => {
         if (userDepartment !== department) {
           return res.status(403).json({
             success: false,
-            message: 'Không có quyền tạo học bổng cho ngành khác'
+            message: 'No permission to create scholarships for other departments'
           });
         }
       }
@@ -172,14 +172,14 @@ export const createScholarship = async (req, res) => {
     
     res.status(201).json({
       success: true,
-      message: 'Đã tạo học bổng mới',
+      message: 'New scholarship created',
       data: scholarship
     });
   } catch (error) {
-    console.error('Lỗi khi tạo học bổng:', error);
+    console.error('Error creating scholarship:', error);
     res.status(500).json({
       success: false,
-      message: 'Lỗi server',
+      message: 'Server error',
       error: error.message
     });
   }
@@ -209,7 +209,7 @@ export const updateScholarship = async (req, res) => {
     if (!scholarship) {
       return res.status(404).json({
         success: false,
-        message: 'Không tìm thấy học bổng'
+        message: 'Scholarship not found'
       });
     }
     
@@ -224,7 +224,7 @@ export const updateScholarship = async (req, res) => {
         if (userDepartment !== scholarshipDepartment) {
           return res.status(403).json({
             success: false,
-            message: 'Không có quyền cập nhật học bổng của ngành khác'
+            message: 'No permission to update scholarships from other departments'
           });
         }
       }
@@ -232,7 +232,7 @@ export const updateScholarship = async (req, res) => {
       else if (!scholarship.department) {
         return res.status(403).json({
           success: false,
-          message: 'Không có quyền cập nhật học bổng chung, chỉ Admin mới có quyền'
+          message: 'No permission to update general scholarships, only Admin has permission'
         });
       }
       
@@ -240,7 +240,7 @@ export const updateScholarship = async (req, res) => {
       if (department && scholarship.department && department !== scholarship.department.toString()) {
         return res.status(403).json({
           success: false,
-          message: 'Không có quyền thay đổi ngành của học bổng'
+            message: 'No permission to change the department of the scholarship'
         });
       }
     }
@@ -264,14 +264,14 @@ export const updateScholarship = async (req, res) => {
     
     res.status(200).json({
       success: true,
-      message: 'Đã cập nhật học bổng',
+      message: 'Scholarship updated',
       data: scholarship
     });
   } catch (error) {
-    console.error('Lỗi khi cập nhật học bổng:', error);
+    console.error('Error updating scholarship:', error);
     res.status(500).json({
       success: false,
-      message: 'Lỗi server',
+      message: 'Server error',
       error: error.message
     });
   }
@@ -289,7 +289,7 @@ export const deleteScholarship = async (req, res) => {
     if (!scholarship) {
       return res.status(404).json({
         success: false,
-        message: 'Không tìm thấy học bổng'
+        message: 'Scholarship not found'
       });
     }
     
@@ -303,7 +303,7 @@ export const deleteScholarship = async (req, res) => {
         if (userDepartment !== scholarshipDepartment) {
           return res.status(403).json({
             success: false,
-            message: 'Không có quyền xóa học bổng của ngành khác'
+            message: 'No permission to delete scholarships from other departments'
           });
         }
       }
@@ -311,7 +311,7 @@ export const deleteScholarship = async (req, res) => {
       else if (!scholarship.department) {
         return res.status(403).json({
           success: false,
-          message: 'Không có quyền xóa học bổng chung, chỉ Admin mới có quyền'
+          message: 'No permission to delete general scholarships, only Admin has permission'
         });
       }
     }
@@ -320,13 +320,13 @@ export const deleteScholarship = async (req, res) => {
     
     res.status(200).json({
       success: true,
-      message: 'Đã xóa học bổng'
+      message: 'Scholarship deleted'
     });
   } catch (error) {
-    console.error('Lỗi khi xóa học bổng:', error);
+    console.error('Error deleting scholarship:', error);
     res.status(500).json({
       success: false,
-      message: 'Lỗi server',
+      message: 'Server error',
       error: error.message
     });
   }

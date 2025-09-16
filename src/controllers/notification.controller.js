@@ -43,10 +43,10 @@ export const getAllNotifications = async (req, res) => {
       data: notifications
     });
   } catch (error) {
-    console.error('Lỗi khi lấy danh sách thông báo:', error);
+    console.error('Error getting notifications list:', error);
     res.status(500).json({
       success: false,
-      message: 'Lỗi server',
+      message: 'Server error',
       error: error.message
     });
   }
@@ -66,7 +66,7 @@ export const getNotificationById = async (req, res) => {
     if (!notification) {
       return res.status(404).json({
         success: false,
-        message: 'Không tìm thấy thông báo'
+        message: 'Notification not found'
       });
     }
     
@@ -75,10 +75,10 @@ export const getNotificationById = async (req, res) => {
       data: notification
     });
   } catch (error) {
-    console.error('Lỗi khi lấy thông báo theo ID:', error);
+    console.error('Error getting notification by ID:', error);
     res.status(500).json({
       success: false,
-      message: 'Lỗi server',
+      message: 'Server error',
       error: error.message
     });
   }
@@ -99,7 +99,7 @@ export const createNotification = async (req, res) => {
       if (!existingDepartment) {
         return res.status(400).json({
           success: false,
-          message: 'Không tìm thấy ngành'
+          message: 'Department not found'
         });
       }
       
@@ -109,7 +109,7 @@ export const createNotification = async (req, res) => {
         if (userDepartment !== department) {
           return res.status(403).json({
             success: false,
-            message: 'Không có quyền tạo thông báo cho ngành khác'
+            message: 'No permission to create notifications for other departments'
           });
         }
       }
@@ -129,14 +129,14 @@ export const createNotification = async (req, res) => {
     
     res.status(201).json({
       success: true,
-      message: 'Đã tạo thông báo mới',
+      message: 'New notification created',
       data: notification
     });
   } catch (error) {
-    console.error('Lỗi khi tạo thông báo:', error);
+    console.error('Error creating notification:', error);
     res.status(500).json({
       success: false,
-      message: 'Lỗi server',
+      message: 'Server error',
       error: error.message
     });
   }
@@ -156,7 +156,7 @@ export const updateNotification = async (req, res) => {
     if (!notification) {
       return res.status(404).json({
         success: false,
-        message: 'Không tìm thấy thông báo'
+        message: 'Notification not found'
       });
     }
     
@@ -171,7 +171,7 @@ export const updateNotification = async (req, res) => {
         if (userDepartment !== notificationDepartment) {
           return res.status(403).json({
             success: false,
-            message: 'Không có quyền cập nhật thông báo của ngành khác'
+            message: 'No permission to update notifications from other departments'
           });
         }
       }
@@ -179,7 +179,7 @@ export const updateNotification = async (req, res) => {
       else if (!notification.department) {
         return res.status(403).json({
           success: false,
-          message: 'Không có quyền cập nhật thông báo chung, chỉ Admin mới có quyền'
+          message: 'No permission to update general notifications, only Admin has permission'
         });
       }
       
@@ -187,7 +187,7 @@ export const updateNotification = async (req, res) => {
       if (department && notification.department && department !== notification.department.toString()) {
         return res.status(403).json({
           success: false,
-          message: 'Không có quyền thay đổi ngành của thông báo'
+            message: 'No permission to change the department of the notification'
         });
       }
     }
@@ -209,14 +209,14 @@ export const updateNotification = async (req, res) => {
     
     res.status(200).json({
       success: true,
-      message: 'Đã cập nhật thông báo',
+      message: 'Notification updated',
       data: notification
     });
   } catch (error) {
-    console.error('Lỗi khi cập nhật thông báo:', error);
+    console.error('Error updating notification:', error);
     res.status(500).json({
       success: false,
-      message: 'Lỗi server',
+      message: 'Server error',
       error: error.message
     });
   }
@@ -234,7 +234,7 @@ export const deleteNotification = async (req, res) => {
     if (!notification) {
       return res.status(404).json({
         success: false,
-        message: 'Không tìm thấy thông báo'
+        message: 'Notification not found'
       });
     }
     
@@ -248,7 +248,7 @@ export const deleteNotification = async (req, res) => {
         if (userDepartment !== notificationDepartment) {
           return res.status(403).json({
             success: false,
-            message: 'Không có quyền xóa thông báo của ngành khác'
+            message: 'No permission to delete notifications from other departments'
           });
         }
       }
@@ -256,7 +256,7 @@ export const deleteNotification = async (req, res) => {
       else if (!notification.department) {
         return res.status(403).json({
           success: false,
-          message: 'Không có quyền xóa thông báo chung, chỉ Admin mới có quyền'
+          message: 'No permission to delete general notifications, only Admin has permission'
         });
       }
     }
@@ -271,13 +271,13 @@ export const deleteNotification = async (req, res) => {
     
     res.status(200).json({
       success: true,
-      message: 'Đã xóa thông báo'
+      message: 'Notification deleted'
     });
   } catch (error) {
-    console.error('Lỗi khi xóa thông báo:', error);
+    console.error('Error deleting notification:', error);
     res.status(500).json({
       success: false,
-      message: 'Lỗi server',
+      message: 'Server error',
       error: error.message
     });
   }
@@ -295,7 +295,7 @@ export const saveNotification = async (req, res) => {
     if (!notification) {
       return res.status(404).json({
         success: false,
-        message: 'Không tìm thấy thông báo'
+        message: 'Notification not found'
       });
     }
     
@@ -308,13 +308,13 @@ export const saveNotification = async (req, res) => {
     
     res.status(200).json({
       success: true,
-      message: 'Đã lưu thông báo vào danh sách yêu thích'
+      message: 'Notification saved to favorites'
     });
   } catch (error) {
-    console.error('Lỗi khi lưu thông báo:', error);
+    console.error('Error saving notification:', error);
     res.status(500).json({
       success: false,
-      message: 'Lỗi server',
+      message: 'Server error',
       error: error.message
     });
   }
@@ -332,7 +332,7 @@ export const unsaveNotification = async (req, res) => {
     if (!notification) {
       return res.status(404).json({
         success: false,
-        message: 'Không tìm thấy thông báo'
+        message: 'Notification not found'
       });
     }
     
@@ -343,13 +343,13 @@ export const unsaveNotification = async (req, res) => {
     
     res.status(200).json({
       success: true,
-      message: 'Đã xóa thông báo khỏi danh sách yêu thích'
+      message: 'Notification removed from favorites'
     });
   } catch (error) {
-    console.error('Lỗi khi xóa thông báo khỏi danh sách yêu thích:', error);
+    console.error('Error removing notification from favorites:', error);
     res.status(500).json({
       success: false,
-      message: 'Lỗi server',
+      message: 'Server error',
       error: error.message
     });
   }
@@ -377,10 +377,10 @@ export const getSavedNotifications = async (req, res) => {
       data: user.savedNotifications
     });
   } catch (error) {
-    console.error('Lỗi khi lấy danh sách thông báo đã lưu:', error);
+    console.error('Error getting saved notifications list:', error);
     res.status(500).json({
       success: false,
-      message: 'Lỗi server',
+      message: 'Server error',
       error: error.message
     });
   }

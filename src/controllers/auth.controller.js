@@ -3,6 +3,11 @@ import User from '../models/user.model.js';
 import VerificationToken from '../models/verificationToken.model.js';
 import { jwtSecret, jwtExpiresIn } from '../config/database.js';
 import VerificationCode from '../models/verificationCode.model.js';
+import { sendVerificationCode } from '../services/email.service.js';
+
+const generateVerificationCode = () => {
+  return Math.floor(100000 + Math.random() * 900000).toString();
+};
 
 const generateToken = (id) => {
   return jwt.sign({ id }, jwtSecret, {
@@ -19,19 +24,42 @@ export const login = async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    // Check for user email
-    const user = await User.findOne({ email }).populate('department', 'name code');
-
-    if (!user || !(await user.matchPassword(password))) {
-      return res.status(401).json({ message: 'Invalid email or password' });
+    if (!email || !password) {
+      return res.status(400).json({
+        success: false,
+        message: 'Email and password are required'
+      });
     }
 
-    // Update lastLogin
+    const user = await User.findOne({ email: email.toLowerCase() }).populate('department', 'name code');
+
+    if (!user) {
+      return res.status(401).json({
+        success: false,
+        message: 'Invalid email or password'
+      });
+    }
+
+    const isPasswordValid = await user.matchPassword(password);
+    if (!isPasswordValid) {
+      return res.status(401).json({
+        success: false,
+        message: 'Invalid email or password'
+      });
+    }
+
+    if (!user.active) {
+      return res.status(401).json({
+        success: false,
+        message: 'Account is deactivated'
+      });
+    }
+
     user.lastLogin = new Date();
     await user.save();
 
-    // Return user with token
-    res.json({
+    res.status(200).json({
+      success: true,
       message: 'Login successful',
       data: {
         _id: user._id,
@@ -46,7 +74,11 @@ export const login = async (req, res) => {
       }
     });
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    console.error('Login error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Internal server error'
+    });
   }
 };
 
@@ -59,14 +91,15 @@ export const register = async (req, res) => {
   try {
     const { name, email, password, role } = req.body;
 
-    // Check if user exists
     const userExists = await User.findOne({ email });
 
     if (userExists) {
-      return res.status(400).json({ message: 'User already exists' });
+      return res.status(400).json({ 
+        success: false,
+        message: 'User already exists' 
+      });
     }
 
-    // Validate input
     if (!name || !email || !password) {
       return res.status(400).json({
         success: false,
@@ -74,7 +107,6 @@ export const register = async (req, res) => {
       });
     }
 
-    // Validate password length
     if (password.length < 6) {
       return res.status(400).json({
         success: false,
@@ -82,7 +114,6 @@ export const register = async (req, res) => {
       });
     }
 
-    // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       return res.status(400).json({
@@ -91,7 +122,6 @@ export const register = async (req, res) => {
       });
     }
 
-    // Validate role if provided
     if (role && !['student', 'coordinator', 'admin'].includes(role)) {
       return res.status(400).json({
         success: false,
@@ -99,46 +129,42 @@ export const register = async (req, res) => {
       });
     }
 
-    // Delete any existing verification codes for this email
-    await VerificationCode.deleteMany({ email });
-
-    // Generate verification code
-    const code = generateVerificationCode();
-    const expiresAt = new Date(Date.now() + 5 * 60 * 1000); // 5 minutes
-
-    // Save verification code
-    const verificationCode = new VerificationCode({
-      email,
-      code,
+    const userData = {
       name,
-      expiresAt
-    });
+      email,
+      password,
+      emailVerified: true,
+      emailVerifiedAt: new Date(),
+      role: role || 'student'
+    };
 
-    await verificationCode.save();
+    const user = await User.create(userData);
 
-    // Send verification email
-    const emailSent = await sendVerificationEmail(email, name, code);
-
-    if (!emailSent) {
-      // Clean up the saved code if email failed
-      await VerificationCode.deleteOne({ _id: verificationCode._id });
-      return res.status(500).json({
+    if (user) {
+      await user.populate('department', 'name code');
+      
+      res.status(200).json({
+        success: true,
+        message: 'Registration successful',
+        data: {
+          _id: user._id,
+          name: user.name,
+          fullName: user.fullName,
+          email: user.email,
+          studentId: user.studentId,
+          role: user.role,
+          department: user.department,
+          avatar: user.avatar,
+          emailVerified: user.emailVerified,
+          token: generateToken(user._id)
+        }
+      });
+    } else {
+      res.status(400).json({
         success: false,
-        message: 'Failed to send verification code. Please try again.'
+        message: 'Invalid user data'
       });
     }
-
-    res.status(200).json({
-      success: true,
-      message: 'Verification code sent to your email. Please check your inbox and complete registration.',
-      data: {
-        email,
-        name,
-        role: role || 'student',
-        expiresAt,
-        nextStep: 'Use the verification code to complete registration via /api/auth/complete-registration'
-      }
-    });
 
   } catch (error) {
     console.error('Registration error:', error);

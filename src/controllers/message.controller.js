@@ -13,7 +13,7 @@ export const sendMessage = async (req, res) => {
     if (!receiverId || !content) {
       return res.status(400).json({
         success: false,
-        message: 'Vui lòng cung cấp người nhận và nội dung tin nhắn'
+        message: 'Please provide receiver and message content'
       });
     }
     
@@ -22,7 +22,7 @@ export const sendMessage = async (req, res) => {
     if (!receiver) {
       return res.status(404).json({
         success: false,
-        message: 'Không tìm thấy người nhận'
+        message: 'Receiver not found'
       });
     }
     
@@ -45,10 +45,10 @@ export const sendMessage = async (req, res) => {
       data: populatedMessage
     });
   } catch (error) {
-    console.error('Lỗi khi gửi tin nhắn:', error);
+    console.error('Error sending message:', error);
     res.status(500).json({
       success: false,
-      message: 'Lỗi server',
+      message: 'Server error',
       error: error.message
     });
   }
@@ -68,7 +68,7 @@ export const getMessageHistory = async (req, res) => {
     if (!otherUser) {
       return res.status(404).json({
         success: false,
-        message: 'Không tìm thấy người dùng'
+        message: 'User not found'
       });
     }
     
@@ -89,10 +89,10 @@ export const getMessageHistory = async (req, res) => {
       data: messages
     });
   } catch (error) {
-    console.error('Lỗi khi lấy lịch sử tin nhắn:', error);
+    console.error('Error getting message history:', error);
     res.status(500).json({
       success: false,
-      message: 'Lỗi server',
+      message: 'Server error',
       error: error.message
     });
   }
@@ -156,10 +156,10 @@ export const getConversations = async (req, res) => {
       data: conversationArray
     });
   } catch (error) {
-    console.error('Lỗi khi lấy danh sách cuộc trò chuyện:', error);
+    console.error('Error getting conversations list:', error);
     res.status(500).json({
       success: false,
-      message: 'Lỗi server',
+      message: 'Server error',
       error: error.message
     });
   }
@@ -180,7 +180,7 @@ export const markMessageAsRead = async (req, res) => {
     if (!message) {
       return res.status(404).json({
         success: false,
-        message: 'Không tìm thấy tin nhắn'
+        message: 'Message not found'
       });
     }
     
@@ -188,7 +188,7 @@ export const markMessageAsRead = async (req, res) => {
     if (message.receiver.toString() !== req.user._id.toString()) {
       return res.status(403).json({
         success: false,
-        message: 'Bạn không có quyền đánh dấu tin nhắn này là đã đọc'
+        message: 'You do not have permission to mark this message as read'
       });
     }
     
@@ -198,14 +198,14 @@ export const markMessageAsRead = async (req, res) => {
     
     res.status(200).json({
       success: true,
-      message: 'Đã đánh dấu tin nhắn là đã đọc',
+      message: 'Message marked as read',
       data: message
     });
   } catch (error) {
-    console.error('Lỗi khi đánh dấu tin nhắn là đã đọc:', error);
+    console.error('Error marking message as read:', error);
     res.status(500).json({
       success: false,
-      message: 'Lỗi server',
+      message: 'Server error',
       error: error.message
     });
   }
@@ -225,7 +225,7 @@ export const markAllMessagesAsRead = async (req, res) => {
     if (!otherUser) {
       return res.status(404).json({
         success: false,
-        message: 'Không tìm thấy người dùng'
+        message: 'User not found'
       });
     }
     
@@ -237,14 +237,14 @@ export const markAllMessagesAsRead = async (req, res) => {
     
     res.status(200).json({
       success: true,
-      message: 'Đã đánh dấu tất cả tin nhắn là đã đọc',
+      message: 'All messages marked as read',
       count: result.modifiedCount
     });
   } catch (error) {
-    console.error('Lỗi khi đánh dấu tất cả tin nhắn là đã đọc:', error);
+    console.error('Error marking all messages as read:', error);
     res.status(500).json({
       success: false,
-      message: 'Lỗi server',
+      message: 'Server error',
       error: error.message
     });
   }

@@ -18,10 +18,10 @@ export const getAllDepartments = async (req, res) => {
       data: departments
     });
   } catch (error) {
-    console.error('Lỗi khi lấy danh sách ngành:', error);
+    console.error('Error getting departments list:', error);
     res.status(500).json({
       success: false,
-      message: 'Lỗi server',
+      message: 'Server error',
       error: error.message
     });
   }
@@ -40,7 +40,7 @@ export const getDepartmentById = async (req, res) => {
     if (!department) {
       return res.status(404).json({
         success: false,
-        message: 'Không tìm thấy ngành'
+        message: 'Department not found'
       });
     }
     
@@ -49,10 +49,10 @@ export const getDepartmentById = async (req, res) => {
       data: department
     });
   } catch (error) {
-    console.error('Lỗi khi lấy ngành theo ID:', error);
+    console.error('Error getting department by ID:', error);
     res.status(500).json({
       success: false,
-      message: 'Lỗi server',
+      message: 'Server error',
       error: error.message
     });
   }
@@ -75,7 +75,7 @@ export const createDepartment = async (req, res) => {
     if (existingDepartment) {
       return res.status(400).json({
         success: false,
-        message: 'Tên ngành hoặc mã ngành đã tồn tại'
+        message: 'Department name or code already exists'
       });
     }
     
@@ -85,7 +85,7 @@ export const createDepartment = async (req, res) => {
       if (!user) {
         return res.status(400).json({
           success: false,
-          message: 'Không tìm thấy người phụ trách'
+          message: 'Coordinator not found'
         });
       }
       
@@ -113,14 +113,14 @@ export const createDepartment = async (req, res) => {
     
     res.status(201).json({
       success: true,
-      message: 'Đã tạo ngành mới',
+      message: 'New department created',
       data: newDepartment
     });
   } catch (error) {
-    console.error('Lỗi khi tạo ngành:', error);
+    console.error('Error creating department:', error);
     res.status(500).json({
       success: false,
-      message: 'Lỗi server',
+      message: 'Server error',
       error: error.message
     });
   }
@@ -140,7 +140,7 @@ export const updateDepartment = async (req, res) => {
     if (!department) {
       return res.status(404).json({
         success: false,
-        message: 'Không tìm thấy ngành'
+        message: 'Department not found'
       });
     }
     
@@ -150,7 +150,7 @@ export const updateDepartment = async (req, res) => {
       if (existingDepartment) {
         return res.status(400).json({
           success: false,
-          message: 'Tên ngành đã tồn tại'
+          message: 'Department name already exists'
         });
       }
     }
@@ -160,7 +160,7 @@ export const updateDepartment = async (req, res) => {
       if (existingDepartment) {
         return res.status(400).json({
           success: false,
-          message: 'Mã ngành đã tồn tại'
+          message: 'Department code already exists'
         });
       }
     }
@@ -175,7 +175,7 @@ export const updateDepartment = async (req, res) => {
         if (!user) {
           return res.status(400).json({
             success: false,
-            message: 'Không tìm thấy người phụ trách'
+            message: 'Coordinator not found'
           });
         }
         
@@ -211,14 +211,14 @@ export const updateDepartment = async (req, res) => {
     
     res.status(200).json({
       success: true,
-      message: 'Cập nhật ngành thành công',
+      message: 'Department updated successfully',
       data: department
     });
   } catch (error) {
-    console.error('Lỗi khi cập nhật ngành:', error);
+    console.error('Error updating department:', error);
     res.status(500).json({
       success: false,
-      message: 'Lỗi server',
+      message: 'Server error',
       error: error.message
     });
   }
@@ -236,7 +236,7 @@ export const deleteDepartment = async (req, res) => {
     if (!department) {
       return res.status(404).json({
         success: false,
-        message: 'Không tìm thấy ngành'
+        message: 'Department not found'
       });
     }
     
@@ -257,13 +257,13 @@ export const deleteDepartment = async (req, res) => {
     
     res.status(200).json({
       success: true,
-      message: 'Đã xóa ngành'
+      message: 'Department deleted'
     });
   } catch (error) {
-    console.error('Lỗi khi xóa ngành:', error);
+    console.error('Error deleting department:', error);
     res.status(500).json({
       success: false,
-      message: 'Lỗi server',
+      message: 'Server error',
       error: error.message
     });
   }

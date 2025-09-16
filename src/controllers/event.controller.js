@@ -34,10 +34,10 @@ export const getAllEvents = async (req, res) => {
       data: events
     });
   } catch (error) {
-    console.error('Lỗi khi lấy danh sách sự kiện:', error);
+    console.error('Error getting events list:', error);
     res.status(500).json({
       success: false,
-      message: 'Lỗi server',
+      message: 'Server error',
       error: error.message
     });
   }
@@ -74,10 +74,10 @@ export const getAllEventsAdmin = async (req, res) => {
       data: events
     });
   } catch (error) {
-    console.error('Lỗi khi lấy tất cả sự kiện:', error);
+    console.error('Error getting all events:', error);
     res.status(500).json({
       success: false,
-      message: 'Lỗi server',
+      message: 'Server error',
       error: error.message
     });
   }
@@ -97,7 +97,7 @@ export const getEventById = async (req, res) => {
     if (!event) {
       return res.status(404).json({
         success: false,
-        message: 'Không tìm thấy sự kiện'
+        message: 'Event not found'
       });
     }
     
@@ -106,10 +106,10 @@ export const getEventById = async (req, res) => {
       data: event
     });
   } catch (error) {
-    console.error('Lỗi khi lấy chi tiết sự kiện:', error);
+    console.error('Error getting event details:', error);
     res.status(500).json({
       success: false,
-      message: 'Lỗi server',
+      message: 'Server error',
       error: error.message
     });
   }
@@ -136,7 +136,7 @@ export const createEvent = async (req, res) => {
     if (new Date(startDate) >= new Date(endDate)) {
       return res.status(400).json({
         success: false,
-        message: 'Ngày kết thúc phải sau ngày bắt đầu'
+        message: 'End date must be after start date'
       });
     }
     
@@ -146,7 +146,7 @@ export const createEvent = async (req, res) => {
       if (!existingDepartment) {
         return res.status(400).json({
           success: false,
-          message: 'Không tìm thấy ngành'
+          message: 'Department not found'
         });
       }
       
@@ -156,7 +156,7 @@ export const createEvent = async (req, res) => {
         if (userDepartment !== department) {
           return res.status(403).json({
             success: false,
-            message: 'Không có quyền tạo sự kiện cho ngành khác'
+            message: 'No permission to create events for other departments'
           });
         }
       }
@@ -176,14 +176,14 @@ export const createEvent = async (req, res) => {
     
     res.status(201).json({
       success: true,
-      message: 'Đã tạo sự kiện mới',
+      message: 'New event created',
       data: event
     });
   } catch (error) {
-    console.error('Lỗi khi tạo sự kiện:', error);
+    console.error('Error creating event:', error);
     res.status(500).json({
       success: false,
-      message: 'Lỗi server',
+      message: 'Server error',
       error: error.message
     });
   }
@@ -211,7 +211,7 @@ export const updateEvent = async (req, res) => {
     if (!event) {
       return res.status(404).json({
         success: false,
-        message: 'Không tìm thấy sự kiện'
+        message: 'Event not found'
       });
     }
     
@@ -226,7 +226,7 @@ export const updateEvent = async (req, res) => {
         if (userDepartment !== eventDepartment) {
           return res.status(403).json({
             success: false,
-            message: 'Không có quyền cập nhật sự kiện của ngành khác'
+            message: 'No permission to update events from other departments'
           });
         }
       }
@@ -234,7 +234,7 @@ export const updateEvent = async (req, res) => {
       else if (!event.department) {
         return res.status(403).json({
           success: false,
-          message: 'Không có quyền cập nhật sự kiện chung, chỉ Admin mới có quyền'
+          message: 'No permission to update general events, only Admin has permission'
         });
       }
       
@@ -242,7 +242,7 @@ export const updateEvent = async (req, res) => {
       if (department && (event.department && department !== event.department.toString())) {
         return res.status(403).json({
           success: false,
-          message: 'Không có quyền thay đổi ngành của sự kiện'
+            message: 'No permission to change the department of the event'
         });
       }
     }
@@ -251,7 +251,7 @@ export const updateEvent = async (req, res) => {
     if (startDate && endDate && new Date(startDate) >= new Date(endDate)) {
       return res.status(400).json({
         success: false,
-        message: 'Ngày kết thúc phải sau ngày bắt đầu'
+        message: 'End date must be after start date'
       });
     }
     
@@ -272,14 +272,14 @@ export const updateEvent = async (req, res) => {
     
     res.status(200).json({
       success: true,
-      message: 'Cập nhật sự kiện thành công',
+      message: 'Event updated successfully',
       data: event
     });
   } catch (error) {
-    console.error('Lỗi khi cập nhật sự kiện:', error);
+    console.error('Error updating event:', error);
     res.status(500).json({
       success: false,
-      message: 'Lỗi server',
+      message: 'Server error',
       error: error.message
     });
   }
@@ -297,7 +297,7 @@ export const deleteEvent = async (req, res) => {
     if (!event) {
       return res.status(404).json({
         success: false,
-        message: 'Không tìm thấy sự kiện'
+        message: 'Event not found'
       });
     }
     
@@ -312,7 +312,7 @@ export const deleteEvent = async (req, res) => {
         if (userDepartment !== eventDepartment) {
           return res.status(403).json({
             success: false,
-            message: 'Không có quyền xóa sự kiện của ngành khác'
+            message: 'No permission to delete events from other departments'
           });
         }
       }
@@ -320,7 +320,7 @@ export const deleteEvent = async (req, res) => {
       else if (!event.department) {
         return res.status(403).json({
           success: false,
-          message: 'Không có quyền xóa sự kiện chung, chỉ Admin mới có quyền'
+          message: 'No permission to delete general events, only Admin has permission'
         });
       }
     }
@@ -329,13 +329,13 @@ export const deleteEvent = async (req, res) => {
     
     res.status(200).json({
       success: true,
-      message: 'Đã xóa sự kiện thành công'
+      message: 'Event deleted successfully'
     });
   } catch (error) {
-    console.error('Lỗi khi xóa sự kiện:', error);
+    console.error('Error deleting event:', error);
     res.status(500).json({
       success: false,
-      message: 'Lỗi server',
+      message: 'Server error',
       error: error.message
     });
   }

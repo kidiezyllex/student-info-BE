@@ -26,10 +26,10 @@ export const getAllDataset = async (req, res) => {
       data: datasets
     });
   } catch (error) {
-    console.error('Lỗi khi lấy dataset:', error);
+    console.error('Error getting dataset:', error);
     res.status(500).json({
       success: false,
-      message: 'Lỗi server',
+      message: 'Server error',
       error: error.message
     });
   }
@@ -50,7 +50,7 @@ export const getDatasetById = async (req, res) => {
     if (!dataset) {
       return res.status(404).json({
         success: false,
-        message: 'Không tìm thấy dữ liệu'
+        message: 'Data not found'
       });
     }
     
@@ -59,10 +59,10 @@ export const getDatasetById = async (req, res) => {
       data: dataset
     });
   } catch (error) {
-    console.error('Lỗi khi lấy dataset theo ID:', error);
+    console.error('Error getting dataset by ID:', error);
     res.status(500).json({
       success: false,
-      message: 'Lỗi server',
+      message: 'Server error',
       error: error.message
     });
   }
@@ -82,7 +82,7 @@ export const createDataset = async (req, res) => {
     if (existingData) {
       return res.status(400).json({
         success: false,
-        message: 'Key đã tồn tại trong dataset'
+        message: 'Key already exists in dataset'
       });
     }
     
@@ -92,7 +92,7 @@ export const createDataset = async (req, res) => {
       if (!existingDepartment) {
         return res.status(400).json({
           success: false,
-          message: 'Không tìm thấy ngành'
+          message: 'Department not found'
         });
       }
       
@@ -102,7 +102,7 @@ export const createDataset = async (req, res) => {
         if (userDepartment !== department) {
           return res.status(403).json({
             success: false,
-            message: 'Bạn không có quyền thêm dữ liệu cho ngành khác'
+            message: 'You do not have permission to add data for other departments'
           });
         }
       }
@@ -119,14 +119,14 @@ export const createDataset = async (req, res) => {
     
     res.status(201).json({
       success: true,
-      message: 'Đã thêm dữ liệu mới',
+      message: 'New data added',
       data: newData
     });
   } catch (error) {
-    console.error('Lỗi khi thêm dataset:', error);
+    console.error('Error adding dataset:', error);
     res.status(500).json({
       success: false,
-      message: 'Lỗi server',
+      message: 'Server error',
       error: error.message
     });
   }
@@ -146,7 +146,7 @@ export const updateDataset = async (req, res) => {
     if (!dataset) {
       return res.status(404).json({
         success: false,
-        message: 'Không tìm thấy dữ liệu'
+        message: 'Data not found'
       });
     }
     
@@ -159,7 +159,7 @@ export const updateDataset = async (req, res) => {
       if (datasetDepartment && userDepartment !== datasetDepartment) {
         return res.status(403).json({
           success: false,
-          message: 'Bạn không có quyền cập nhật dữ liệu của ngành khác'
+          message: 'You do not have permission to update data from other departments'
         });
       }
       
@@ -167,7 +167,7 @@ export const updateDataset = async (req, res) => {
       if (department && department !== datasetDepartment) {
         return res.status(403).json({
           success: false,
-          message: 'Bạn không có quyền thay đổi ngành của dữ liệu'
+            message: 'You do not have permission to change the department of the data'
         });
       }
     }
@@ -187,14 +187,14 @@ export const updateDataset = async (req, res) => {
     
     res.status(200).json({
       success: true,
-      message: 'Cập nhật dữ liệu thành công',
+      message: 'Data updated successfully',
       data: dataset
     });
   } catch (error) {
-    console.error('Lỗi khi cập nhật dataset:', error);
+    console.error('Error updating dataset:', error);
     res.status(500).json({
       success: false,
-      message: 'Lỗi server',
+      message: 'Server error',
       error: error.message
     });
   }
@@ -212,7 +212,7 @@ export const deleteDataset = async (req, res) => {
     if (!dataset) {
       return res.status(404).json({
         success: false,
-        message: 'Không tìm thấy dữ liệu'
+        message: 'Data not found'
       });
     }
     
@@ -225,7 +225,7 @@ export const deleteDataset = async (req, res) => {
       if (datasetDepartment && userDepartment !== datasetDepartment) {
         return res.status(403).json({
           success: false,
-          message: 'Bạn không có quyền xóa dữ liệu của ngành khác'
+          message: 'You do not have permission to delete data from other departments'
         });
       }
     }
@@ -234,13 +234,13 @@ export const deleteDataset = async (req, res) => {
     
     res.status(200).json({
       success: true,
-      message: 'Đã xóa dữ liệu thành công'
+      message: 'Data deleted successfully'
     });
   } catch (error) {
-    console.error('Lỗi khi xóa dataset:', error);
+    console.error('Error deleting dataset:', error);
     res.status(500).json({
       success: false,
-      message: 'Lỗi server',
+      message: 'Server error',
       error: error.message
     });
   }

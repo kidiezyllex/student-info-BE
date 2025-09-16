@@ -20,7 +20,7 @@ export const authenticate = async (req, res, next) => {
     if (!token) {
       return res.status(401).json({
         success: false,
-        message: 'Không có token, từ chối truy cập'
+        message: 'No token, access denied'
       });
     }
     
@@ -33,7 +33,7 @@ export const authenticate = async (req, res, next) => {
     if (!user) {
       return res.status(401).json({
         success: false,
-        message: 'Người dùng không tồn tại'
+        message: 'User does not exist'
       });
     }
     
@@ -41,7 +41,7 @@ export const authenticate = async (req, res, next) => {
     if (!user.active) {
       return res.status(401).json({
         success: false,
-        message: 'Tài khoản đã bị khóa'
+        message: 'Account has been locked'
       });
     }
     
@@ -52,21 +52,21 @@ export const authenticate = async (req, res, next) => {
     if (error.name === 'JsonWebTokenError') {
       return res.status(401).json({
         success: false,
-        message: 'Token không hợp lệ'
+        message: 'Invalid token'
       });
     }
     
     if (error.name === 'TokenExpiredError') {
       return res.status(401).json({
         success: false,
-        message: 'Token đã hết hạn'
+        message: 'Token has expired'
       });
     }
     
     console.error('Lỗi xác thực:', error);
     res.status(500).json({
       success: false,
-      message: 'Lỗi server',
+      message: 'Server error',
       error: error.message
     });
   }
@@ -81,7 +81,7 @@ export const isAdmin = (req, res, next) => {
   } else {
     res.status(403).json({
       success: false,
-      message: 'Không có quyền truy cập, chỉ Admin mới có quyền'
+      message: 'Access denied, only Admin has permission'
     });
   }
 };
@@ -95,7 +95,7 @@ export const isCoordinator = (req, res, next) => {
   } else {
     res.status(403).json({
       success: false,
-      message: 'Không có quyền truy cập, chỉ Coordinator mới có quyền'
+      message: 'Access denied, only Coordinator has permission'
     });
   }
 };
@@ -109,7 +109,7 @@ export const isStudent = (req, res, next) => {
   } else {
     res.status(403).json({
       success: false,
-      message: 'Không có quyền truy cập, chỉ Student mới có quyền'
+      message: 'Access denied, only Student has permission'
     });
   }
 };
@@ -123,7 +123,7 @@ export const isAdminOrCoordinator = (req, res, next) => {
   } else {
     res.status(403).json({
       success: false,
-      message: 'Không có quyền truy cập, chỉ Admin hoặc Coordinator mới có quyền'
+      message: 'Access denied, only Admin or Coordinator has permission'
     });
   }
 };
@@ -137,7 +137,7 @@ export const isAnyUser = (req, res, next) => {
   } else {
     res.status(403).json({
       success: false,
-      message: 'Không có quyền truy cập'
+      message: 'Access denied'
     });
   }
 };
@@ -167,7 +167,7 @@ export const checkDepartmentAccess = async (req, res, next) => {
       if (userDepartment !== departmentId) {
         return res.status(403).json({
           success: false,
-          message: 'Không có quyền truy cập dữ liệu của ngành khác'
+          message: 'No permission to access data from other departments'
         });
       }
       
@@ -177,13 +177,13 @@ export const checkDepartmentAccess = async (req, res, next) => {
     // Nếu vai trò khác, từ chối truy cập
     res.status(403).json({
       success: false,
-      message: 'Không có quyền truy cập'
+      message: 'Access denied'
     });
   } catch (error) {
     console.error('Lỗi kiểm tra quyền truy cập ngành:', error);
     res.status(500).json({
       success: false,
-      message: 'Lỗi server',
+      message: 'Server error',
       error: error.message
     });
   }
@@ -212,13 +212,13 @@ export const checkCoordinatorDepartmentAccess = async (req, res, next) => {
     // Nếu vai trò khác, từ chối truy cập
     res.status(403).json({
       success: false,
-      message: 'Không có quyền truy cập'
+      message: 'Access denied'
     });
   } catch (error) {
     console.error('Lỗi kiểm tra quyền truy cập:', error);
     res.status(500).json({
       success: false,
-      message: 'Lỗi server',
+      message: 'Server error',
       error: error.message
     });
   }

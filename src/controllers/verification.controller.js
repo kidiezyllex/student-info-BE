@@ -12,7 +12,7 @@ export const sendCode = async (req, res) => {
     if (!email) {
       return res.status(400).json({
         success: false,
-        message: 'Email là bắt buộc'
+        message: 'Email is required'
       });
     }
 
@@ -20,7 +20,7 @@ export const sendCode = async (req, res) => {
     if (!emailRegex.test(email)) {
       return res.status(400).json({
         success: false,
-        message: 'Định dạng email không hợp lệ'
+        message: 'Invalid email format'
       });
     }
 
@@ -44,13 +44,13 @@ export const sendCode = async (req, res) => {
       await VerificationCode.deleteOne({ _id: verificationCode._id });
       return res.status(500).json({
         success: false,
-        message: 'Không thể gửi mã xác thực. Vui lòng thử lại.'
+        message: 'Unable to send verification code. Please try again.'
       });
     }
 
     res.status(200).json({
       success: true,
-      message: 'Mã xác thực đã được gửi đến email của bạn',
+      message: 'Verification code has been sent to your email',
       data: {
         email,
         expiresAt
@@ -61,7 +61,7 @@ export const sendCode = async (req, res) => {
     console.error('Send code error:', error);
     res.status(500).json({
       success: false,
-      message: 'Lỗi hệ thống khi gửi mã xác thực'
+      message: 'System error when sending verification code'
     });
   }
 };
@@ -73,7 +73,7 @@ export const verifyCode = async (req, res) => {
     if (!email || !code) {
       return res.status(400).json({
         success: false,
-        message: 'Email và mã xác thực là bắt buộc'
+        message: 'Email and verification code are required'
       });
     }
 
@@ -85,7 +85,7 @@ export const verifyCode = async (req, res) => {
     if (!verificationRecord) {
       return res.status(400).json({
         success: false,
-        message: 'Mã xác thực không đúng'
+        message: 'Invalid verification code'
       });
     }
 
@@ -93,7 +93,7 @@ export const verifyCode = async (req, res) => {
       await VerificationCode.deleteOne({ _id: verificationRecord._id });
       return res.status(400).json({
         success: false,
-        message: 'Mã xác thực đã hết hạn'
+        message: 'Verification code has expired'
       });
     }
 
@@ -101,7 +101,7 @@ export const verifyCode = async (req, res) => {
       await VerificationCode.deleteOne({ _id: verificationRecord._id });
       return res.status(400).json({
         success: false,
-        message: 'Đã vượt quá số lần thử. Vui lòng yêu cầu mã mới'
+        message: 'Maximum attempts exceeded. Please request a new code'
       });
     }
 
@@ -109,7 +109,7 @@ export const verifyCode = async (req, res) => {
 
     res.status(200).json({
       success: true,
-      message: 'Xác thực thành công',
+      message: 'Verification successful',
       data: {
         email: verificationRecord.email,
         verified: true
@@ -120,7 +120,7 @@ export const verifyCode = async (req, res) => {
     console.error('Verify code error:', error);
     res.status(500).json({
       success: false,
-      message: 'Lỗi hệ thống khi xác thực mã'
+      message: 'System error when verifying code'
     });
   }
 };
@@ -132,7 +132,7 @@ export const sendPasswordReset = async (req, res) => {
     if (!email) {
       return res.status(400).json({
         success: false,
-        message: 'Email là bắt buộc'
+        message: 'Email is required'
       });
     }
 
@@ -140,7 +140,7 @@ export const sendPasswordReset = async (req, res) => {
     if (!emailRegex.test(email)) {
       return res.status(400).json({
         success: false,
-        message: 'Định dạng email không hợp lệ'
+        message: 'Invalid email format'
       });
     }
 
@@ -164,13 +164,13 @@ export const sendPasswordReset = async (req, res) => {
       await VerificationCode.deleteOne({ _id: verificationCode._id });
       return res.status(500).json({
         success: false,
-        message: 'Không thể gửi mã đặt lại mật khẩu. Vui lòng thử lại.'
+        message: 'Unable to send password reset code. Please try again.'
       });
     }
 
     res.status(200).json({
       success: true,
-      message: 'Mã đặt lại mật khẩu đã được gửi đến email của bạn',
+      message: 'Password reset code has been sent to your email',
       data: {
         email,
         expiresAt
@@ -181,7 +181,7 @@ export const sendPasswordReset = async (req, res) => {
     console.error('Send password reset error:', error);
     res.status(500).json({
       success: false,
-      message: 'Lỗi hệ thống khi gửi mã đặt lại mật khẩu'
+      message: 'System error when sending password reset code'
     });
   }
 };
