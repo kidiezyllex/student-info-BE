@@ -140,7 +140,6 @@ If the answer is not available in the provided dataset, you may use your general
       console.log('✅ AI Response received:', aiResponse);
       return aiResponse;
     } catch (error) {
-      console.error('❌ Error calling OpenRouter AI:', error);
       return { content: 'Sorry, the system is currently experiencing an issue. Please try again later or contact the appropriate department for support.' };
     }
   } catch (error) {
