@@ -10,18 +10,19 @@ const createTransporter = () => {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASS
     },
-    connectionTimeout: 30000,
-    greetingTimeout: 15000,
-    socketTimeout: 30000,
+    connectionTimeout: 15000,
+    greetingTimeout: 5000,
+    socketTimeout: 15000,
     tls: {
-      rejectUnauthorized: false
+      rejectUnauthorized: false,
+      ciphers: 'SSLv3'
     },
     pool: false,
     maxConnections: 1,
     maxMessages: 1,
     rateLimit: 5,
-    retryDelay: 2000,
-    retryAttempts: 2
+    retryDelay: 1000,
+    retryAttempts: 1
   });
 };
 
@@ -54,12 +55,17 @@ const sendEmailAttempt = async (email, name, code, maxRetries) => {
     try {
       transporter = createTransporter();
       
-      const verifyPromise = transporter.verify();
-      const verifyTimeout = new Promise((_, reject) => 
-        setTimeout(() => reject(new Error('SMTP verification timeout')), 10000)
-      );
+      console.log(`Attempting to send email to ${email} (attempt ${retryCount + 1})`);
       
-      await Promise.race([verifyPromise, verifyTimeout]);
+      if (process.env.NODE_ENV === 'production') {
+      } else {
+        const verifyPromise = transporter.verify();
+        const verifyTimeout = new Promise((_, reject) => 
+          setTimeout(() => reject(new Error('SMTP verification timeout')), 5000)
+        );
+        
+        await Promise.race([verifyPromise, verifyTimeout]);
+      }
       
       const mailOptions = {
         from: process.env.EMAIL_USER,
@@ -147,12 +153,19 @@ const sendPasswordResetAttempt = async (email, name, code, maxRetries) => {
     try {
       transporter = createTransporter();
       
-      const verifyPromise = transporter.verify();
-      const verifyTimeout = new Promise((_, reject) => 
-        setTimeout(() => reject(new Error('SMTP verification timeout')), 10000)
-      );
+      console.log(`Attempting to send password reset email to ${email} (attempt ${retryCount + 1})`);
       
-      await Promise.race([verifyPromise, verifyTimeout]);
+      // Skip verification in production to avoid timeout issues
+      if (process.env.NODE_ENV === 'production') {
+        console.log('Skipping SMTP verification in production');
+      } else {
+        const verifyPromise = transporter.verify();
+        const verifyTimeout = new Promise((_, reject) => 
+          setTimeout(() => reject(new Error('SMTP verification timeout')), 5000)
+        );
+        
+        await Promise.race([verifyPromise, verifyTimeout]);
+      }
       
       const mailOptions = {
         from: process.env.EMAIL_USER,
