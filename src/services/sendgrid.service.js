@@ -40,6 +40,12 @@ export const sendVerificationCode = async (email, name, code) => {
       code: error.code,
       response: error.response?.body
     });
+    
+    // Log detailed error for debugging
+    if (error.response?.body?.errors) {
+      console.error('SendGrid detailed errors:', error.response.body.errors);
+    }
+    
     return false;
   }
 };
@@ -81,6 +87,12 @@ export const sendPasswordResetCode = async (email, name, code) => {
       code: error.code,
       response: error.response?.body
     });
+    
+    // Log detailed error for debugging
+    if (error.response?.body?.errors) {
+      console.error('SendGrid detailed errors:', error.response.body.errors);
+    }
+    
     return false;
   }
 };

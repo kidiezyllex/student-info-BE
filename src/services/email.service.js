@@ -55,11 +55,19 @@ const createTransporter = () => {
 };
 
 export const sendVerificationCode = async (email, name, code) => {
-  if (process.env.SENDGRID_API_KEY) {
-    const sendGridResult = await sendGridVerification(email, name, code);
-    if (sendGridResult) {
-      return true;
+  if (process.env.SENDGRID_API_KEY && process.env.SENDGRID_API_KEY !== 'SG.REPLACE_WITH_YOUR_ACTUAL_API_KEY') {
+    console.log('Using SendGrid for email sending');
+    try {
+      const sendGridResult = await sendGridVerification(email, name, code);
+      if (sendGridResult) {
+        return true;
+      }
+    } catch (error) {
+      console.error('SendGrid error:', error.message);
     }
+    console.log('SendGrid failed, falling back to SMTP');
+  } else {
+    console.log('SendGrid API key not configured, using SMTP');
   }
 
   // Fallback to SMTP
@@ -158,11 +166,19 @@ const sendEmailAttempt = async (email, name, code, maxRetries) => {
 
 export const sendPasswordResetCode = async (email, name, code) => {
   // Try SendGrid first if API key is available
-  if (process.env.SENDGRID_API_KEY) {
-    const sendGridResult = await sendGridPasswordReset(email, name, code);
-    if (sendGridResult) {
-      return true;
+  if (process.env.SENDGRID_API_KEY && process.env.SENDGRID_API_KEY !== 'SG.REPLACE_WITH_YOUR_ACTUAL_API_KEY') {
+    console.log('Using SendGrid for password reset email');
+    try {
+      const sendGridResult = await sendGridPasswordReset(email, name, code);
+      if (sendGridResult) {
+        return true;
+      }
+    } catch (error) {
+      console.error('SendGrid error:', error.message);
     }
+    console.log('SendGrid failed, falling back to SMTP');
+  } else {
+    console.log('SendGrid API key not configured, using SMTP');
   }
 
   // Fallback to SMTP
