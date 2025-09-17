@@ -55,14 +55,11 @@ const createTransporter = () => {
 };
 
 export const sendVerificationCode = async (email, name, code) => {
-  // Try SendGrid first if API key is available
   if (process.env.SENDGRID_API_KEY) {
-    console.log('Using SendGrid for email sending');
     const sendGridResult = await sendGridVerification(email, name, code);
     if (sendGridResult) {
       return true;
     }
-    console.log('SendGrid failed, falling back to SMTP');
   }
 
   // Fallback to SMTP
@@ -81,12 +78,6 @@ export const sendVerificationCode = async (email, name, code) => {
   try {
     return await sendWithTimeout();
   } catch (error) {
-    console.error('Send verification code failed:', error.message);
-    
-    // Final fallback: if email fails, log the code and return true
-    console.log(`=== EMAIL FAILED - VERIFICATION CODE FOR ${email}: ${code} ===`);
-    console.log('This is a fallback - email service is not working');
-    console.log('You can use this code to verify:', code);
     return true; // Return true to allow the process to continue
   }
 };
@@ -98,9 +89,6 @@ const sendEmailAttempt = async (email, name, code, maxRetries) => {
   while (retryCount < maxRetries) {
     try {
       transporter = createTransporter();
-      
-      console.log(`Attempting to send email to ${email} (attempt ${retryCount + 1})`);
-      
       if (process.env.NODE_ENV === 'production') {
       } else {
         const verifyPromise = transporter.verify();
@@ -171,12 +159,10 @@ const sendEmailAttempt = async (email, name, code, maxRetries) => {
 export const sendPasswordResetCode = async (email, name, code) => {
   // Try SendGrid first if API key is available
   if (process.env.SENDGRID_API_KEY) {
-    console.log('Using SendGrid for password reset email');
     const sendGridResult = await sendGridPasswordReset(email, name, code);
     if (sendGridResult) {
       return true;
     }
-    console.log('SendGrid failed, falling back to SMTP');
   }
 
   // Fallback to SMTP
@@ -195,12 +181,6 @@ export const sendPasswordResetCode = async (email, name, code) => {
   try {
     return await sendWithTimeout();
   } catch (error) {
-    console.error('Send password reset code failed:', error.message);
-    
-    // Final fallback: if email fails, log the code and return true
-    console.log(`=== EMAIL FAILED - PASSWORD RESET CODE FOR ${email}: ${code} ===`);
-    console.log('This is a fallback - email service is not working');
-    console.log('You can use this code to reset password:', code);
     return true; // Return true to allow the process to continue
   }
 };
@@ -212,12 +192,8 @@ const sendPasswordResetAttempt = async (email, name, code, maxRetries) => {
   while (retryCount < maxRetries) {
     try {
       transporter = createTransporter();
-      
-      console.log(`Attempting to send password reset email to ${email} (attempt ${retryCount + 1})`);
-      
       // Skip verification in production to avoid timeout issues
       if (process.env.NODE_ENV === 'production') {
-        console.log('Skipping SMTP verification in production');
       } else {
         const verifyPromise = transporter.verify();
         const verifyTimeout = new Promise((_, reject) => 

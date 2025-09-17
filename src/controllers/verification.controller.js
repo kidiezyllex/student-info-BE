@@ -25,9 +25,6 @@ export const sendCode = async (req, res) => {
         message: 'Invalid email format'
       });
     }
-
-    console.log(`Starting verification code process for email: ${email}`);
-
     await VerificationCode.deleteMany({ email });
 
     const code = generateVerificationCode();
@@ -41,13 +38,11 @@ export const sendCode = async (req, res) => {
     });
 
     await verificationCode.save();
-    console.log(`Verification code saved to database for email: ${email}`);
 
     const emailStartTime = Date.now();
     const emailSent = await sendVerificationCode(email, 'User', code);
     const emailDuration = Date.now() - emailStartTime;
     
-    console.log(`Email sending took ${emailDuration}ms for email: ${email}`);
 
     if (!emailSent) {
       await VerificationCode.deleteOne({ _id: verificationCode._id });

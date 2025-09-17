@@ -16,15 +16,11 @@ async function getDatasetContext(category = null, departmentId = null, userQuest
     if (departmentId) query.department = departmentId;
 
     const datasets = await Dataset.find(query);
-    console.log('📊 All datasets found:', datasets.length);
-    console.log('📋 Dataset list:', datasets.map(item => ({ key: item.key, value: item.value, category: item.category })));
-
     if (!datasets || datasets.length === 0) {
       return "No data in dataset.";
     }
 
     if (userQuestion) {
-      console.log('❓ User question:', userQuestion);
       const questionLower = userQuestion.toLowerCase();
       const scoredDatasets = datasets.map(item => {
         let score = 0;
@@ -49,15 +45,6 @@ async function getDatasetContext(category = null, departmentId = null, userQuest
         .filter(item => item.score > 0)
         .slice(0, 10)
         .map(item => item.item);
-
-      console.log('🔍 Datasets found from user keywords:', topResults.length);
-      console.log('📝 Filtered datasets:', topResults.map(item => ({
-        key: item.key,
-        value: item.value,
-        category: item.category,
-        score: scoredDatasets.find(scored => scored.item._id.toString() === item._id.toString())?.score || 0
-      })));
-
       if (topResults.length > 0) {
         return topResults.map(item => `${item.key}: ${item.value}`).join('\n');
       }
@@ -65,7 +52,6 @@ async function getDatasetContext(category = null, departmentId = null, userQuest
 
     const maxDatasetItems = 20;
     const limitedDatasets = datasets.slice(0, maxDatasetItems);
-    console.log('📊 Using limited datasets (no keyword filtering):', limitedDatasets.length);
     return limitedDatasets.map(item => `${item.key}: ${item.value}`).join('\n');
   } catch (error) {
     return "Cannot access dataset data.";

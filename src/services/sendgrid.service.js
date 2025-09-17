@@ -31,9 +31,7 @@ export const sendVerificationCode = async (email, name, code) => {
       `
     };
 
-    console.log(`Sending verification email to ${email} via SendGrid`);
     await sgMail.send(msg);
-    console.log(`Verification email sent successfully to ${email}`);
     return true;
 
   } catch (error) {
@@ -74,9 +72,7 @@ export const sendPasswordResetCode = async (email, name, code) => {
       `
     };
 
-    console.log(`Sending password reset email to ${email} via SendGrid`);
     await sgMail.send(msg);
-    console.log(`Password reset email sent successfully to ${email}`);
     return true;
 
   } catch (error) {
