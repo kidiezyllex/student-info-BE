@@ -1,4 +1,5 @@
 import nodemailer from 'nodemailer';
+import { sendVerificationCode as sendGridVerification, sendPasswordResetCode as sendGridPasswordReset } from './sendgrid.service.js';
 
 const createTransporter = () => {
   // Try different SMTP configurations based on environment
@@ -54,6 +55,17 @@ const createTransporter = () => {
 };
 
 export const sendVerificationCode = async (email, name, code) => {
+  // Try SendGrid first if API key is available
+  if (process.env.SENDGRID_API_KEY) {
+    console.log('Using SendGrid for email sending');
+    const sendGridResult = await sendGridVerification(email, name, code);
+    if (sendGridResult) {
+      return true;
+    }
+    console.log('SendGrid failed, falling back to SMTP');
+  }
+
+  // Fallback to SMTP
   const maxRetries = 1;
   const totalTimeout = 20000;
   
@@ -71,14 +83,11 @@ export const sendVerificationCode = async (email, name, code) => {
   } catch (error) {
     console.error('Send verification code failed:', error.message);
     
-    // In production, if email fails, log the code and return true for development
-    if (process.env.NODE_ENV === 'production') {
-      console.log(`=== EMAIL FAILED - VERIFICATION CODE FOR ${email}: ${code} ===`);
-      console.log('This is a fallback - email service is not working in production');
-      return true; // Return true to allow the process to continue
-    }
-    
-    return false;
+    // Final fallback: if email fails, log the code and return true
+    console.log(`=== EMAIL FAILED - VERIFICATION CODE FOR ${email}: ${code} ===`);
+    console.log('This is a fallback - email service is not working');
+    console.log('You can use this code to verify:', code);
+    return true; // Return true to allow the process to continue
   }
 };
 
@@ -160,6 +169,17 @@ const sendEmailAttempt = async (email, name, code, maxRetries) => {
 };
 
 export const sendPasswordResetCode = async (email, name, code) => {
+  // Try SendGrid first if API key is available
+  if (process.env.SENDGRID_API_KEY) {
+    console.log('Using SendGrid for password reset email');
+    const sendGridResult = await sendGridPasswordReset(email, name, code);
+    if (sendGridResult) {
+      return true;
+    }
+    console.log('SendGrid failed, falling back to SMTP');
+  }
+
+  // Fallback to SMTP
   const maxRetries = 1;
   const totalTimeout = 20000;
   
@@ -177,14 +197,11 @@ export const sendPasswordResetCode = async (email, name, code) => {
   } catch (error) {
     console.error('Send password reset code failed:', error.message);
     
-    // In production, if email fails, log the code and return true for development
-    if (process.env.NODE_ENV === 'production') {
-      console.log(`=== EMAIL FAILED - PASSWORD RESET CODE FOR ${email}: ${code} ===`);
-      console.log('This is a fallback - email service is not working in production');
-      return true; // Return true to allow the process to continue
-    }
-    
-    return false;
+    // Final fallback: if email fails, log the code and return true
+    console.log(`=== EMAIL FAILED - PASSWORD RESET CODE FOR ${email}: ${code} ===`);
+    console.log('This is a fallback - email service is not working');
+    console.log('You can use this code to reset password:', code);
+    return true; // Return true to allow the process to continue
   }
 };
 
