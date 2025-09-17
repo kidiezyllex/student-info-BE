@@ -6,6 +6,8 @@ const generateVerificationCode = () => {
 };
 
 export const sendCode = async (req, res) => {
+  const startTime = Date.now();
+  
   try {
     const { email } = req.body;
 
@@ -24,6 +26,8 @@ export const sendCode = async (req, res) => {
       });
     }
 
+    console.log(`Starting verification code process for email: ${email}`);
+
     await VerificationCode.deleteMany({ email });
 
     const code = generateVerificationCode();
@@ -37,16 +41,25 @@ export const sendCode = async (req, res) => {
     });
 
     await verificationCode.save();
+    console.log(`Verification code saved to database for email: ${email}`);
 
+    const emailStartTime = Date.now();
     const emailSent = await sendVerificationCode(email, 'User', code);
+    const emailDuration = Date.now() - emailStartTime;
+    
+    console.log(`Email sending took ${emailDuration}ms for email: ${email}`);
 
     if (!emailSent) {
       await VerificationCode.deleteOne({ _id: verificationCode._id });
+      console.error(`Failed to send email for: ${email}`);
       return res.status(500).json({
         success: false,
         message: 'Unable to send verification code. Please try again.'
       });
     }
+
+    const totalDuration = Date.now() - startTime;
+    console.log(`Verification code process completed in ${totalDuration}ms for email: ${email}`);
 
     res.status(200).json({
       success: true,
@@ -58,7 +71,12 @@ export const sendCode = async (req, res) => {
     });
 
   } catch (error) {
-    console.error('Send code error:', error);
+    const totalDuration = Date.now() - startTime;
+    console.error(`Send code error after ${totalDuration}ms:`, {
+      error: error.message,
+      stack: error.stack,
+      email: req.body?.email
+    });
     res.status(500).json({
       success: false,
       message: 'System error when sending verification code'
@@ -126,6 +144,8 @@ export const verifyCode = async (req, res) => {
 };
 
 export const sendPasswordReset = async (req, res) => {
+  const startTime = Date.now();
+  
   try {
     const { email } = req.body;
 
@@ -144,6 +164,8 @@ export const sendPasswordReset = async (req, res) => {
       });
     }
 
+    console.log(`Starting password reset process for email: ${email}`);
+
     await VerificationCode.deleteMany({ email });
 
     const code = generateVerificationCode();
@@ -157,16 +179,25 @@ export const sendPasswordReset = async (req, res) => {
     });
 
     await verificationCode.save();
+    console.log(`Password reset code saved to database for email: ${email}`);
 
+    const emailStartTime = Date.now();
     const emailSent = await sendPasswordResetCode(email, 'User', code);
+    const emailDuration = Date.now() - emailStartTime;
+    
+    console.log(`Password reset email sending took ${emailDuration}ms for email: ${email}`);
 
     if (!emailSent) {
       await VerificationCode.deleteOne({ _id: verificationCode._id });
+      console.error(`Failed to send password reset email for: ${email}`);
       return res.status(500).json({
         success: false,
         message: 'Unable to send password reset code. Please try again.'
       });
     }
+
+    const totalDuration = Date.now() - startTime;
+    console.log(`Password reset process completed in ${totalDuration}ms for email: ${email}`);
 
     res.status(200).json({
       success: true,
@@ -178,7 +209,12 @@ export const sendPasswordReset = async (req, res) => {
     });
 
   } catch (error) {
-    console.error('Send password reset error:', error);
+    const totalDuration = Date.now() - startTime;
+    console.error(`Send password reset error after ${totalDuration}ms:`, {
+      error: error.message,
+      stack: error.stack,
+      email: req.body?.email
+    });
     res.status(500).json({
       success: false,
       message: 'System error when sending password reset code'

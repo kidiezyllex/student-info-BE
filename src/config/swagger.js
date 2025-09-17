@@ -51,14 +51,12 @@ const specs = swaggerJsdoc(options);
  * @param app Express application
  */
 export const setupSwagger = (app) => {
-  // Serve swagger docs
   app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs, {
     explorer: true,
     customCss: '.swagger-ui .topbar { display: none }',
     customSiteTitle: 'Student Info BE API Documentation',
   }));
 
-  // Serve swagger spec as JSON
   app.get('/swagger.json', (req, res) => {
     res.setHeader('Content-Type', 'application/json');
     res.send(specs);

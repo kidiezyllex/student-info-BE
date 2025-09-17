@@ -5,38 +5,61 @@ const createTransporter = () => {
     service: 'gmail',
     host: 'smtp.gmail.com',
     port: 587,
-    secure: false, // true for 465, false for other ports
+    secure: false,
     auth: {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASS
     },
-    connectionTimeout: 60000, // 60秒连接超时
-    greetingTimeout: 30000,   // 30秒问候超时
-    socketTimeout: 60000,     // 60秒socket超时
-    // 启用TLS
+    connectionTimeout: 30000,
+    greetingTimeout: 15000,
+    socketTimeout: 30000,
     tls: {
       rejectUnauthorized: false
     },
-    // 连接池配置
-    pool: true,
-    maxConnections: 5,
-    maxMessages: 100,
-    rateLimit: 10, // 每秒最多10封邮件
-    // 重试配置
-    retryDelay: 1000, // 1秒后重试
-    retryAttempts: 3  // 最多重试3次
+    pool: false,
+    maxConnections: 1,
+    maxMessages: 1,
+    rateLimit: 5,
+    retryDelay: 2000,
+    retryAttempts: 2
   });
 };
 
 export const sendVerificationCode = async (email, name, code) => {
+  const maxRetries = 2;
+  const totalTimeout = 45000;
+  
+  const sendWithTimeout = async () => {
+    return Promise.race([
+      sendEmailAttempt(email, name, code, maxRetries),
+      new Promise((_, reject) => 
+        setTimeout(() => reject(new Error('Email sending timeout')), totalTimeout)
+      )
+    ]);
+  };
+
+  try {
+    return await sendWithTimeout();
+  } catch (error) {
+    console.error('Send verification code failed:', error.message);
+    return false;
+  }
+};
+
+const sendEmailAttempt = async (email, name, code, maxRetries) => {
   let transporter;
   let retryCount = 0;
-  const maxRetries = 3;
 
   while (retryCount < maxRetries) {
     try {
       transporter = createTransporter();
-      await transporter.verify();
+      
+      const verifyPromise = transporter.verify();
+      const verifyTimeout = new Promise((_, reject) => 
+        setTimeout(() => reject(new Error('SMTP verification timeout')), 10000)
+      );
+      
+      await Promise.race([verifyPromise, verifyTimeout]);
       
       const mailOptions = {
         from: process.env.EMAIL_USER,
@@ -61,23 +84,32 @@ export const sendVerificationCode = async (email, name, code) => {
         `
       };
 
-      const result = await transporter.sendMail(mailOptions);
-      transporter.close();
+      const sendPromise = transporter.sendMail(mailOptions);
+      const sendTimeout = new Promise((_, reject) => 
+        setTimeout(() => reject(new Error('SMTP send timeout')), 20000)
+      );
+      
+      await Promise.race([sendPromise, sendTimeout]);
+      
+      if (transporter) {
+        transporter.close();
+      }
       return true;
       
     } catch (error) {
       retryCount++;
+      console.error(`Email send attempt ${retryCount}/${maxRetries} failed:`, error.message);
+      
       if (transporter) {
         try {
           transporter.close();
         } catch (closeError) {
-          console.error('关闭transporter时出错:', closeError.message);
+          console.error('Error closing transporter:', closeError.message);
         }
       }
       
-      // 如果不是最后一次尝试，等待后重试
       if (retryCount < maxRetries) {
-        const delay = Math.pow(2, retryCount) * 1000; // 指数退避: 2s, 4s, 8s
+        const delay = 2000 * retryCount;
         await new Promise(resolve => setTimeout(resolve, delay));
       }
     }
@@ -87,14 +119,40 @@ export const sendVerificationCode = async (email, name, code) => {
 };
 
 export const sendPasswordResetCode = async (email, name, code) => {
+  const maxRetries = 2;
+  const totalTimeout = 45000;
+  
+  const sendWithTimeout = async () => {
+    return Promise.race([
+      sendPasswordResetAttempt(email, name, code, maxRetries),
+      new Promise((_, reject) => 
+        setTimeout(() => reject(new Error('Email sending timeout')), totalTimeout)
+      )
+    ]);
+  };
+
+  try {
+    return await sendWithTimeout();
+  } catch (error) {
+    console.error('Send password reset code failed:', error.message);
+    return false;
+  }
+};
+
+const sendPasswordResetAttempt = async (email, name, code, maxRetries) => {
   let transporter;
   let retryCount = 0;
-  const maxRetries = 3;
 
   while (retryCount < maxRetries) {
     try {
       transporter = createTransporter();
-      await transporter.verify();
+      
+      const verifyPromise = transporter.verify();
+      const verifyTimeout = new Promise((_, reject) => 
+        setTimeout(() => reject(new Error('SMTP verification timeout')), 10000)
+      );
+      
+      await Promise.race([verifyPromise, verifyTimeout]);
       
       const mailOptions = {
         from: process.env.EMAIL_USER,
@@ -119,30 +177,32 @@ export const sendPasswordResetCode = async (email, name, code) => {
         `
       };
 
-      const result = await transporter.sendMail(mailOptions);
+      const sendPromise = transporter.sendMail(mailOptions);
+      const sendTimeout = new Promise((_, reject) => 
+        setTimeout(() => reject(new Error('SMTP send timeout')), 20000)
+      );
       
-      transporter.close();
+      await Promise.race([sendPromise, sendTimeout]);
+      
+      if (transporter) {
+        transporter.close();
+      }
       return true;
       
     } catch (error) {
       retryCount++;
-      console.error(`发送密码重置邮件失败 (尝试 ${retryCount}/${maxRetries}):`, {
-        error: error.message,
-        code: error.code,
-        command: error.command,
-        response: error.response
-      });
+      console.error(`Password reset email attempt ${retryCount}/${maxRetries} failed:`, error.message);
       
       if (transporter) {
         try {
           transporter.close();
         } catch (closeError) {
-          console.error('关闭transporter时出错:', closeError.message);
+          console.error('Error closing transporter:', closeError.message);
         }
       }
       
       if (retryCount < maxRetries) {
-        const delay = Math.pow(2, retryCount) * 1000; // 指数退避: 2s, 4s, 8s
+        const delay = 2000 * retryCount;
         await new Promise(resolve => setTimeout(resolve, delay));
       }
     }

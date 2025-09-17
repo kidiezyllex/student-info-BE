@@ -1,6 +1,7 @@
 import express from 'express';
 import { sendCode, verifyCode, sendPasswordReset } from '../controllers/verification.controller.js';
 import { authRateLimit } from '../middlewares/rateLimit.middleware.js';
+import timeoutMiddleware from '../middlewares/timeout.middleware.js';
 
 const router = express.Router();
 
@@ -48,7 +49,7 @@ const router = express.Router();
  *       500:
  *         description: Lỗi hệ thống khi gửi mã xác thực
  */
-router.post('/send-code', authRateLimit, sendCode);
+router.post('/send-code', authRateLimit, timeoutMiddleware(50000), sendCode);
 
 /**
  * @swagger
@@ -143,6 +144,6 @@ router.post('/verify-code', authRateLimit, verifyCode);
  *       500:
  *         description: Lỗi hệ thống khi gửi mã đặt lại mật khẩu
  */
-router.post('/send-password-reset', authRateLimit, sendPasswordReset);
+router.post('/send-password-reset', authRateLimit, timeoutMiddleware(50000), sendPasswordReset);
 
 export default router;
