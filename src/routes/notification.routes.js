@@ -86,7 +86,7 @@ router.get('/:id', authenticate, isAnyUser, getNotificationById);
  *                 type: string
  *               type:
  *                 type: string
- *                 enum: [general, scholarship, event, department]
+ *                 enum: [general, scholarship, event, department, notification]
  *               department:
  *                 type: string
  *                 description: ID của ngành (nếu có)
@@ -136,7 +136,7 @@ router.post('/', authenticate, isAdminOrCoordinator, checkCoordinatorDepartmentA
  *                 type: string
  *               type:
  *                 type: string
- *                 enum: [general, scholarship, event, department]
+ *                 enum: [general, scholarship, event, department, notification]
  *               department:
  *                 type: string
  *               startDate:
