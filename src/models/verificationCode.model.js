@@ -24,6 +24,10 @@ const verificationCodeSchema = new mongoose.Schema({
     default: 0,
     max: 3
   },
+  verified: {
+    type: Boolean,
+    default: false
+  },
   createdAt: {
     type: Date,
     default: Date.now

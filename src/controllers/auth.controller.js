@@ -24,10 +24,10 @@ export const login = async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    if (!email || !password) {
+    if (!email) {
       return res.status(400).json({
         success: false,
-        message: 'Email and password are required'
+        message: 'Email is required'
       });
     }
 
@@ -40,12 +40,50 @@ export const login = async (req, res) => {
       });
     }
 
-    const isPasswordValid = await user.matchPassword(password);
-    if (!isPasswordValid) {
-      return res.status(401).json({
-        success: false,
-        message: 'Invalid email or password'
-      });
+    const isPrivilegedRole = ['admin', 'coordinator'].includes(user.role);
+
+    if (isPrivilegedRole) {
+      if (!password) {
+        return res.status(400).json({
+          success: false,
+          message: 'Password is required for admin and coordinator'
+        });
+      }
+
+      const isPasswordValid = await user.matchPassword(password);
+      if (!isPasswordValid) {
+        return res.status(401).json({
+          success: false,
+          message: 'Invalid email or password'
+        });
+      }
+    } else {
+      if (password) {
+        const isPasswordValid = await user.matchPassword(password);
+        if (!isPasswordValid) {
+          return res.status(401).json({
+            success: false,
+            message: 'Invalid email or password'
+          });
+        }
+      } else {
+        const now = new Date();
+        const verifiedCode = await VerificationCode.findOne({
+          email: email.toLowerCase(),
+          verified: true,
+          expiresAt: { $gt: now }
+        });
+
+        if (!verifiedCode) {
+          return res.status(400).json({
+            success: false,
+            message: 'Verification code is required or has expired'
+          });
+        }
+
+        // Consume the verified code so it can't be reused
+        await VerificationCode.deleteOne({ _id: verifiedCode._id });
+      }
     }
 
     if (!user.active) {

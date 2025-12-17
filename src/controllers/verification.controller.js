@@ -118,7 +118,9 @@ export const verifyCode = async (req, res) => {
       });
     }
 
-    await VerificationCode.deleteOne({ _id: verificationRecord._id });
+    // Mark this code as verified (allow backend to check for passwordless login)
+    verificationRecord.verified = true;
+    await verificationRecord.save();
 
     res.status(200).json({
       success: true,

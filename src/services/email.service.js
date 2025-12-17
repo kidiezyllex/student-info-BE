@@ -1,7 +1,12 @@
 import nodemailer from 'nodemailer';
-import { sendVerificationCode as sendGridVerification, sendPasswordResetCode as sendGridPasswordReset } from './sendgrid.service.js';
 
 const createTransporter = () => {
+  const hasSmtpCreds = !!process.env.EMAIL_USER && !!process.env.EMAIL_PASS;
+
+  if (!hasSmtpCreds) {
+    throw new Error('SMTP credentials (EMAIL_USER / EMAIL_PASS) are not configured');
+  }
+
   // Try different SMTP configurations based on environment
   if (process.env.NODE_ENV === 'production') {
     // Use Gmail with different port and settings for production
@@ -55,11 +60,13 @@ const createTransporter = () => {
 };
 
 export const sendVerificationCode = async (email, name, code) => {
-  if (process.env.SENDGRID_API_KEY) {
-    const sendGridResult = await sendGridVerification(email, name, code);
-    if (sendGridResult) {
-      return true;
-    }
+  const hasSmtpCreds = !!process.env.EMAIL_USER && !!process.env.EMAIL_PASS;
+
+  // In development, if no email provider is configured, don't block the flow
+  if (process.env.NODE_ENV !== 'production' && !hasSmtpCreds) {
+    console.warn('No email provider configured (SMTP).');
+    console.warn(`Verification code for ${email}: ${code}`);
+    return true;
   }
 
   // Fallback to SMTP
@@ -100,7 +107,7 @@ const sendEmailAttempt = async (email, name, code, maxRetries) => {
       }
       
       const mailOptions = {
-        from: process.env.EMAIL_USER,
+        from: `Trường Đại học Việt Đức (VGU) <${process.env.EMAIL_USER}>`,
         to: email,
         subject: 'Mã xác thực đăng ký tài khoản',
         html: `
@@ -157,15 +164,16 @@ const sendEmailAttempt = async (email, name, code, maxRetries) => {
 };
 
 export const sendPasswordResetCode = async (email, name, code) => {
-  // Try SendGrid first if API key is available
-  if (process.env.SENDGRID_API_KEY) {
-    const sendGridResult = await sendGridPasswordReset(email, name, code);
-    if (sendGridResult) {
-      return true;
-    }
+  const hasSmtpCreds = !!process.env.EMAIL_USER && !!process.env.EMAIL_PASS;
+
+  // In development, if no email provider is configured, don't block the flow
+  if (process.env.NODE_ENV !== 'production' && !hasSmtpCreds) {
+    console.warn('No email provider configured (SMTP).');
+    console.warn(`Password reset code for ${email}: ${code}`);
+    return true;
   }
 
-  // Fallback to SMTP
+  // Use SMTP
   const maxRetries = 1;
   const totalTimeout = 20000;
   
@@ -204,7 +212,7 @@ const sendPasswordResetAttempt = async (email, name, code, maxRetries) => {
       }
       
       const mailOptions = {
-        from: process.env.EMAIL_USER,
+        from: `Trường Đại học Việt Đức (VGU) <${process.env.EMAIL_USER}>`,
         to: email,
         subject: 'Mã xác thực đặt lại mật khẩu',
         html: `
