@@ -71,15 +71,17 @@ app.use((req: Request, res: Response, next: NextFunction) => {
     });
 
     const port = parseInt(process.env.PORT || '5000');
-    server.listen({
-      port,
-      host: "0.0.0.0",
-    }, () => {
+    server.listen(port, "0.0.0.0", () => {
       console.log(`Server running in ${app.get("env")} mode`);
       console.log(`API Documentation available at http://localhost:${port}/api-docs`);
       console.log(`Server listening on port ${port}`);
     });
   } catch (error) {
+    console.error("Failed to start server:", error);
+    if (error instanceof Error) {
+      console.error("Error message:", error.message);
+      console.error("Error stack:", error.stack);
+    }
     process.exit(1);
   }
 })(); 
