@@ -8,7 +8,6 @@ import { Request, Response } from "express";
 // Import routes
 import authRoutes from "./routes/auth.routes.js";
 import userRoutes from "./routes/user.routes.js";
-import datasetRoutes from "./routes/dataset.routes.js";
 import departmentRoutes from "./routes/department.routes.js";
 import chatRoutes from "./routes/chat.routes.js";
 import messageRoutes from "./routes/message.routes.js";
@@ -21,7 +20,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
     await connectDB();
     app.use("/api/auth", authRoutes);
     app.use("/api/users", userRoutes);
-    app.use("/api/dataset", datasetRoutes);
     app.use("/api/departments", departmentRoutes);
     app.use("/api/chat", chatRoutes);
     app.use("/api/messages", messageRoutes);
@@ -31,11 +29,30 @@ export async function registerRoutes(app: Express): Promise<Server> {
     app.use("/api/topics", topicRoutes);
     setupSwagger(app);
     
+    // Root endpoint
+    app.get("/", (req: Request, res: Response) => {
+      res.status(200).json({ 
+        message: "Student Information System API",
+        version: "1.0.0",
+        status: "running",
+        endpoints: {
+          health: "/api/health",
+          docs: "/api-docs",
+          auth: "/api/auth",
+          users: "/api/users",
+          topics: "/api/topics",
+          chat: "/api/chat",
+          departments: "/api/departments"
+        }
+      });
+    });
+    
     // API health check endpoint
     app.get("/api/health", (req: Request, res: Response) => {
       res.status(200).json({ 
         status: "ok", 
-        message: "API is running"
+        message: "API is running",
+        timestamp: new Date().toISOString()
       });
     });
     

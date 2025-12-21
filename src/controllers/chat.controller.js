@@ -1,19 +1,19 @@
-import { askAI } from '../services/ai.service.js';
+import { askWithRAG, searchTopicsAdvanced } from '../services/groqRAG.service.js';
 import ChatSession from '../models/chatSession.model.js';
 
 /**
- * @desc    Gửi câu hỏi đến AI và nhận câu trả lời
+ * @desc    Gửi câu hỏi đến AI và nhận câu trả lời (sử dụng Groq RAG)
  * @route   POST /api/chat/ask
  * @access  Tất cả người dùng
  */
 export const askQuestion = async (req, res) => {
   try {
-    const { question, sessionId, category, departmentId } = req.body;
+    const { question, sessionId, type, departmentId, includeExpired } = req.body;
     
-    if (!question) {
+    if (!question || !question.trim()) {
       return res.status(400).json({
         success: false,
-        message: 'Please enter a question'
+        message: 'Vui lòng nhập câu hỏi'
       });
     }
     
@@ -24,46 +24,42 @@ export const askQuestion = async (req, res) => {
     if (sessionId) {
       chatSession = await ChatSession.findById(sessionId);
       if (chatSession && chatSession.user.toString() === req.user._id.toString()) {
-        // Lấy tối đa 5 tin nhắn gần nhất để làm context
-        chatHistory = chatSession.messages.slice(-5);
+        // Lấy tối đa 10 tin nhắn gần nhất để làm context (tăng từ 5 lên 10 cho RAG tốt hơn)
+        chatHistory = chatSession.messages.slice(-10);
       } else {
         // Nếu sessionId không hợp lệ, tạo session mới
         chatSession = new ChatSession({
           user: req.user._id,
-          title: 'New conversation'
+          title: 'Cuộc trò chuyện mới'
         });
       }
     } else {
       // Tạo session mới nếu không có sessionId
       chatSession = new ChatSession({
         user: req.user._id,
-        title: 'New conversation'
+        title: 'Cuộc trò chuyện mới'
       });
     }
     
     // Thêm câu hỏi của người dùng vào messages
     chatSession.messages.push({
       role: 'user',
-      content: question
+      content: question.trim()
     });
     
     // Cập nhật lastActive
     chatSession.lastActive = Date.now();
     
-    // Gọi AI để nhận câu trả lời
-    const aiResponse = await askAI(question, chatHistory, category, departmentId);
+    // Gọi Groq RAG để nhận câu trả lời
+    const ragResponse = await askWithRAG(question.trim(), chatHistory, {
+      type: type || null,
+      departmentId: departmentId || null,
+      limit: 10,
+      includeExpired: includeExpired || false
+    });
     
-    // Xử lý aiResponse để đảm bảo messages.content là string
-    let responseContent = '';
-    if (typeof aiResponse === 'string') {
-      responseContent = aiResponse;
-    } else if (aiResponse && typeof aiResponse.content === 'string') {
-      responseContent = aiResponse.content;
-    } else if (aiResponse && aiResponse.content && typeof aiResponse.content === 'object') {
-      responseContent = JSON.stringify(aiResponse.content);
-    } else {
-      responseContent = 'No response from AI.';
-    }
+    // Xử lý response
+    const responseContent = ragResponse.content || 'Xin lỗi, không thể tạo câu trả lời.';
     
     // Thêm câu trả lời của AI vào messages
     chatSession.messages.push({
@@ -73,7 +69,7 @@ export const askQuestion = async (req, res) => {
     
     // Nếu là tin nhắn đầu tiên, tạo tiêu đề từ câu hỏi
     if (chatSession.messages.length <= 2) {
-      chatSession.title = question.substring(0, 50) + (question.length > 50 ? '...' : '');
+      chatSession.title = question.trim().substring(0, 50) + (question.trim().length > 50 ? '...' : '');
     }
     
     // Lưu session
@@ -84,9 +80,11 @@ export const askQuestion = async (req, res) => {
       data: {
         sessionId: chatSession._id,
         title: chatSession.title,
-        question,
+        question: question.trim(),
         answer: responseContent,
-        message: aiResponse
+        relevantTopics: ragResponse.relevantTopics || [],
+        usage: ragResponse.usage || null,
+        model: ragResponse.model || null
       }
     });
   } catch (error) {
@@ -305,6 +303,45 @@ export const deleteChatSession = async (req, res) => {
     });
   } catch (error) {
     console.error('Error deleting chat session:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Server error',
+      error: error.message
+    });
+  }
+};
+
+/**
+ * @desc    Tìm kiếm topics nâng cao (hỗ trợ RAG)
+ * @route   GET /api/chat/search-topics
+ * @access  Tất cả người dùng
+ */
+export const searchTopics = async (req, res) => {
+  try {
+    const { 
+      q = '', 
+      type = null, 
+      departmentId = null, 
+      limit = 20,
+      includeExpired = false,
+      sortBy = 'relevance'
+    } = req.query;
+
+    const topics = await searchTopicsAdvanced(q, {
+      type,
+      departmentId,
+      limit: parseInt(limit),
+      includeExpired: includeExpired === 'true',
+      sortBy
+    });
+
+    res.status(200).json({
+      success: true,
+      data: topics,
+      count: topics.length
+    });
+  } catch (error) {
+    console.error('Error searching topics:', error);
     res.status(500).json({
       success: false,
       message: 'Server error',

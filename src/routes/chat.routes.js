@@ -5,7 +5,8 @@ import {
   getChatHistory,
   getChatSession,
   rateAnswer,
-  deleteChatSession
+  deleteChatSession,
+  searchTopics
 } from '../controllers/chat.controller.js';
 import { authenticate } from '../middlewares/auth.middleware.js';
 
@@ -40,7 +41,7 @@ router.post('/', authenticate, createChatSession);
  * @swagger
  * /chat/ask:
  *   post:
- *     summary: Gửi câu hỏi đến AI và nhận câu trả lời
+ *     summary: Gửi câu hỏi đến AI và nhận câu trả lời (sử dụng Groq RAG)
  *     tags: [Chat]
  *     security:
  *       - bearerAuth: []
@@ -59,15 +60,19 @@ router.post('/', authenticate, createChatSession);
  *               sessionId:
  *                 type: string
  *                 description: ID của phiên chat (nếu là phiên chat đã tồn tại)
- *               category:
+ *               type:
  *                 type: string
- *                 description: Danh mục dữ liệu muốn tìm kiếm
+ *                 enum: [event, scholarship, notification, job, advertisement, internship, recruitment, volunteer, extracurricular]
+ *                 description: Loại topic muốn tìm kiếm
  *               departmentId:
  *                 type: string
  *                 description: ID của ngành (nếu muốn giới hạn dữ liệu theo ngành)
+ *               includeExpired:
+ *                 type: boolean
+ *                 description: Có bao gồm các topic đã hết hạn không
  *     responses:
  *       200:
- *         description: Câu trả lời từ AI
+ *         description: Câu trả lời từ AI với RAG context
  *       400:
  *         description: Thiếu câu hỏi
  */
@@ -176,5 +181,55 @@ router.put('/rate', authenticate, rateAnswer);
  *         description: Không tìm thấy phiên chat
  */
 router.delete('/session/:id', authenticate, deleteChatSession);
+
+/**
+ * @swagger
+ * /chat/search-topics:
+ *   get:
+ *     summary: Tìm kiếm topics nâng cao (hỗ trợ RAG)
+ *     tags: [Chat]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: query
+ *         name: q
+ *         schema:
+ *           type: string
+ *         description: Từ khóa tìm kiếm
+ *       - in: query
+ *         name: type
+ *         schema:
+ *           type: string
+ *           enum: [event, scholarship, notification, job, advertisement, internship, recruitment, volunteer, extracurricular]
+ *         description: Loại topic
+ *       - in: query
+ *         name: departmentId
+ *         schema:
+ *           type: string
+ *         description: ID của ngành
+ *       - in: query
+ *         name: limit
+ *         schema:
+ *           type: integer
+ *           default: 20
+ *         description: Số lượng kết quả tối đa
+ *       - in: query
+ *         name: includeExpired
+ *         schema:
+ *           type: boolean
+ *           default: false
+ *         description: Có bao gồm các topic đã hết hạn không
+ *       - in: query
+ *         name: sortBy
+ *         schema:
+ *           type: string
+ *           enum: [relevance, date, title]
+ *           default: relevance
+ *         description: Cách sắp xếp kết quả
+ *     responses:
+ *       200:
+ *         description: Danh sách topics tìm được
+ */
+router.get('/search-topics', authenticate, searchTopics);
 
 export default router; 
