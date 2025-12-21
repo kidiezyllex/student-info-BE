@@ -143,14 +143,27 @@ export const createChatSession = async (req, res) => {
  */
 export const getChatHistory = async (req, res) => {
   try {
-    const chatSessions = await ChatSession.find({ user: req.user._id })
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 10;
+    const skip = (page - 1) * limit;
+
+    const query = ChatSession.find({ user: req.user._id });
+    const total = await ChatSession.countDocuments({ user: req.user._id });
+    const chatSessions = await query
       .select('title lastActive createdAt')
-      .sort({ lastActive: -1 });
+      .sort({ lastActive: -1 })
+      .skip(skip)
+      .limit(limit);
+    
+    const totalPages = Math.ceil(total / limit);
     
     res.status(200).json({
       success: true,
-      count: chatSessions.length,
-      data: chatSessions
+      data: chatSessions,
+      total,
+      page,
+      limit,
+      totalPages
     });
   } catch (error) {
     console.error('Error getting chat history:', error);

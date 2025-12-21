@@ -9,6 +9,9 @@ import Department from '../models/department.model.js';
 export const getAllEvents = async (req, res) => {
   try {
     const { department } = req.query;
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 10;
+    const skip = (page - 1) * limit;
     const query = {};
     
     // Lọc sự kiện theo ngành nếu có
@@ -23,15 +26,23 @@ export const getAllEvents = async (req, res) => {
     const now = new Date();
     query.endDate = { $gt: now };
     
+    const total = await Event.countDocuments(query);
     const events = await Event.find(query)
       .populate('department', 'name code')
       .populate('createdBy', 'name role')
-      .sort({ startDate: 1 });
+      .sort({ startDate: 1 })
+      .skip(skip)
+      .limit(limit);
+    
+    const totalPages = Math.ceil(total / limit);
     
     res.status(200).json({
       success: true,
-      count: events.length,
-      data: events
+      data: events,
+      total,
+      page,
+      limit,
+      totalPages
     });
   } catch (error) {
     console.error('Error getting events list:', error);
@@ -51,6 +62,9 @@ export const getAllEvents = async (req, res) => {
 export const getAllEventsAdmin = async (req, res) => {
   try {
     const { department } = req.query;
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 10;
+    const skip = (page - 1) * limit;
     const query = {};
     
     // Lọc sự kiện theo ngành nếu có
@@ -63,15 +77,23 @@ export const getAllEventsAdmin = async (req, res) => {
       query.department = req.user.department;
     }
     
+    const total = await Event.countDocuments(query);
     const events = await Event.find(query)
       .populate('department', 'name code')
       .populate('createdBy', 'name role')
-      .sort({ startDate: -1 });
+      .sort({ startDate: -1 })
+      .skip(skip)
+      .limit(limit);
+    
+    const totalPages = Math.ceil(total / limit);
     
     res.status(200).json({
       success: true,
-      count: events.length,
-      data: events
+      data: events,
+      total,
+      page,
+      limit,
+      totalPages
     });
   } catch (error) {
     console.error('Error getting all events:', error);

@@ -9,21 +9,32 @@ import Department from '../models/department.model.js';
 export const getAllDataset = async (req, res) => {
   try {
     const { category, department } = req.query;
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 10;
+    const skip = (page - 1) * limit;
     const query = {};
     
     if (category) query.category = category;
     if (department) query.department = department;
     
+    const total = await Dataset.countDocuments(query);
     const datasets = await Dataset.find(query)
       .populate('department', 'name code')
       .populate('createdBy', 'name')
       .populate('updatedBy', 'name')
-      .sort({ createdAt: -1 });
+      .sort({ createdAt: -1 })
+      .skip(skip)
+      .limit(limit);
+    
+    const totalPages = Math.ceil(total / limit);
     
     res.status(200).json({
       success: true,
-      count: datasets.length,
-      data: datasets
+      data: datasets,
+      total,
+      page,
+      limit,
+      totalPages
     });
   } catch (error) {
     console.error('Error getting dataset:', error);

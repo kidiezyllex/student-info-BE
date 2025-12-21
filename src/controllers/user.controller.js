@@ -7,13 +7,39 @@ import User from '../models/user.model.js';
  */
 export const getUsers = async (req, res) => {
   try {
-    const users = await User.find({})
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 10;
+    const skip = (page - 1) * limit;
+    const { role } = req.query;
+
+    // Build query filter
+    const filter = {};
+    if (role) {
+      // Validate role
+      if (!['student', 'coordinator', 'admin'].includes(role)) {
+        return res.status(400).json({ 
+          message: 'Invalid role specified. Allowed values: student, coordinator, admin' 
+        });
+      }
+      filter.role = role;
+    }
+
+    const total = await User.countDocuments(filter);
+    const users = await User.find(filter)
       .populate('department', 'name code')
-      .select('-password');
+      .select('-password')
+      .skip(skip)
+      .limit(limit);
     
+    const totalPages = Math.ceil(total / limit);
+
     res.json({
       message: 'Users retrieved successfully',
-      data: users
+      data: users,
+      total,
+      page,
+      limit,
+      totalPages
     });
   } catch (error) {
     res.status(500).json({ 
@@ -290,19 +316,31 @@ export const deleteUser = async (req, res) => {
 export const getUsersByRole = async (req, res) => {
   try {
     const { role } = req.params;
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 10;
+    const skip = (page - 1) * limit;
     
     if (!['student', 'coordinator', 'admin'].includes(role)) {
       return res.status(400).json({ message: 'Invalid role specified' });
     }
 
-    const users = await User.find({ role })
+    const query = User.find({ role });
+    const total = await User.countDocuments({ role });
+    const users = await query
       .populate('department', 'name code')
-      .select('-password');
+      .select('-password')
+      .skip(skip)
+      .limit(limit);
+
+    const totalPages = Math.ceil(total / limit);
 
     res.json({
       message: `${role.charAt(0).toUpperCase() + role.slice(1)}s retrieved successfully`,
-      count: users.length,
-      data: users
+      data: users,
+      total,
+      page,
+      limit,
+      totalPages
     });
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -317,15 +355,27 @@ export const getUsersByRole = async (req, res) => {
 export const getUsersByDepartment = async (req, res) => {
   try {
     const { departmentId } = req.params;
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 10;
+    const skip = (page - 1) * limit;
 
-    const users = await User.find({ department: departmentId })
+    const query = User.find({ department: departmentId });
+    const total = await User.countDocuments({ department: departmentId });
+    const users = await query
       .populate('department', 'name code')
-      .select('-password');
+      .select('-password')
+      .skip(skip)
+      .limit(limit);
+
+    const totalPages = Math.ceil(total / limit);
 
     res.json({
       message: 'Department users retrieved successfully',
-      count: users.length,
-      data: users
+      data: users,
+      total,
+      page,
+      limit,
+      totalPages
     });
   } catch (error) {
     res.status(500).json({ message: error.message });

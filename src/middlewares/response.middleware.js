@@ -27,6 +27,12 @@ const responseMiddleware = (req, res, next) => {
       timestamp: new Date()
     };
     
+    // Giữ lại các trường pagination nếu có (kiểm tra cả null và undefined)
+    if (obj.hasOwnProperty('total')) standardResponse.total = obj.total;
+    if (obj.hasOwnProperty('page')) standardResponse.page = obj.page;
+    if (obj.hasOwnProperty('limit')) standardResponse.limit = obj.limit;
+    if (obj.hasOwnProperty('totalPages')) standardResponse.totalPages = obj.totalPages;
+    
     // Gọi phương thức json gốc với response đã chuẩn hóa
     return originalJson.call(this, standardResponse);
   };

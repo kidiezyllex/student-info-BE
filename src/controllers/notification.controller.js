@@ -10,6 +10,9 @@ import User from '../models/user.model.js';
 export const getAllNotifications = async (req, res) => {
   try {
     const { type, department } = req.query;
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 10;
+    const skip = (page - 1) * limit;
     const query = {};
     
     // Lọc thông báo theo type nếu có
@@ -32,15 +35,23 @@ export const getAllNotifications = async (req, res) => {
       { endDate: { $gt: now } }
     );
     
+    const total = await Notification.countDocuments(query);
     const notifications = await Notification.find(query)
       .populate('department', 'name code')
       .populate('createdBy', 'name role')
-      .sort({ isImportant: -1, createdAt: -1 });
+      .sort({ isImportant: -1, createdAt: -1 })
+      .skip(skip)
+      .limit(limit);
+    
+    const totalPages = Math.ceil(total / limit);
     
     res.status(200).json({
       success: true,
-      count: notifications.length,
-      data: notifications
+      data: notifications,
+      total,
+      page,
+      limit,
+      totalPages
     });
   } catch (error) {
     console.error('Error getting notifications list:', error);
@@ -362,6 +373,10 @@ export const unsaveNotification = async (req, res) => {
  */
 export const getSavedNotifications = async (req, res) => {
   try {
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 10;
+    const skip = (page - 1) * limit;
+
     const user = await User.findById(req.user._id)
       .populate({
         path: 'savedNotifications',
@@ -371,10 +386,17 @@ export const getSavedNotifications = async (req, res) => {
         ]
       });
     
+    const total = user.savedNotifications.length;
+    const savedNotifications = user.savedNotifications.slice(skip, skip + limit);
+    const totalPages = Math.ceil(total / limit);
+    
     res.status(200).json({
       success: true,
-      count: user.savedNotifications.length,
-      data: user.savedNotifications
+      data: savedNotifications,
+      total,
+      page,
+      limit,
+      totalPages
     });
   } catch (error) {
     console.error('Error getting saved notifications list:', error);

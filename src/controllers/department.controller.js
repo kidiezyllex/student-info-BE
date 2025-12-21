@@ -8,14 +8,26 @@ import User from '../models/user.model.js';
  */
 export const getAllDepartments = async (req, res) => {
   try {
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 10;
+    const skip = (page - 1) * limit;
+
+    const total = await Department.countDocuments();
     const departments = await Department.find()
       .populate('coordinator', 'name email')
-      .sort({ name: 1 });
+      .sort({ name: 1 })
+      .skip(skip)
+      .limit(limit);
+    
+    const totalPages = Math.ceil(total / limit);
     
     res.status(200).json({
       success: true,
-      count: departments.length,
-      data: departments
+      data: departments,
+      total,
+      page,
+      limit,
+      totalPages
     });
   } catch (error) {
     console.error('Error getting departments list:', error);

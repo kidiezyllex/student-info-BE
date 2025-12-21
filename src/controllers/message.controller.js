@@ -62,6 +62,9 @@ export const sendMessage = async (req, res) => {
 export const getMessageHistory = async (req, res) => {
   try {
     const { userId } = req.params;
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 10;
+    const skip = (page - 1) * limit;
     
     // Kiểm tra người dùng có tồn tại
     const otherUser = await User.findById(userId);
@@ -72,21 +75,31 @@ export const getMessageHistory = async (req, res) => {
       });
     }
     
-    // Tìm tất cả tin nhắn giữa người dùng hiện tại và người dùng được chỉ định
-    const messages = await Message.find({
+    const query = {
       $or: [
         { sender: req.user._id, receiver: userId },
         { sender: userId, receiver: req.user._id }
       ]
-    })
+    };
+    
+    // Tìm tất cả tin nhắn giữa người dùng hiện tại và người dùng được chỉ định
+    const total = await Message.countDocuments(query);
+    const messages = await Message.find(query)
     .populate('sender', 'name avatar')
     .populate('receiver', 'name avatar')
-    .sort({ createdAt: 1 });
+    .sort({ createdAt: 1 })
+    .skip(skip)
+    .limit(limit);
+    
+    const totalPages = Math.ceil(total / limit);
     
     res.status(200).json({
       success: true,
-      count: messages.length,
-      data: messages
+      data: messages,
+      total,
+      page,
+      limit,
+      totalPages
     });
   } catch (error) {
     console.error('Error getting message history:', error);
@@ -105,6 +118,10 @@ export const getMessageHistory = async (req, res) => {
  */
 export const getConversations = async (req, res) => {
   try {
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 10;
+    const skip = (page - 1) * limit;
+
     // Tìm tất cả tin nhắn có liên quan đến người dùng hiện tại
     const messages = await Message.find({
       $or: [
@@ -150,10 +167,17 @@ export const getConversations = async (req, res) => {
       b.lastMessage.createdAt - a.lastMessage.createdAt
     );
     
+    const total = conversationArray.length;
+    const paginatedConversations = conversationArray.slice(skip, skip + limit);
+    const totalPages = Math.ceil(total / limit);
+    
     res.status(200).json({
       success: true,
-      count: conversationArray.length,
-      data: conversationArray
+      data: paginatedConversations,
+      total,
+      page,
+      limit,
+      totalPages
     });
   } catch (error) {
     console.error('Error getting conversations list:', error);

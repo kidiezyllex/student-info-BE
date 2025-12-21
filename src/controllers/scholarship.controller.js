@@ -9,6 +9,9 @@ import Department from '../models/department.model.js';
 export const getAllScholarships = async (req, res) => {
   try {
     const { department } = req.query;
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 10;
+    const skip = (page - 1) * limit;
     const query = {};
     
     // Lọc học bổng theo ngành nếu có
@@ -23,15 +26,23 @@ export const getAllScholarships = async (req, res) => {
     const now = new Date();
     query.applicationDeadline = { $gt: now };
     
+    const total = await Scholarship.countDocuments(query);
     const scholarships = await Scholarship.find(query)
       .populate('department', 'name code')
       .populate('createdBy', 'name role')
-      .sort({ applicationDeadline: 1 });
+      .sort({ applicationDeadline: 1 })
+      .skip(skip)
+      .limit(limit);
+    
+    const totalPages = Math.ceil(total / limit);
     
     res.status(200).json({
       success: true,
-      count: scholarships.length,
-      data: scholarships
+      data: scholarships,
+      total,
+      page,
+      limit,
+      totalPages
     });
   } catch (error) {
     console.error('Error getting scholarships list:', error);
@@ -51,6 +62,9 @@ export const getAllScholarships = async (req, res) => {
 export const getAllScholarshipsAdmin = async (req, res) => {
   try {
     const { department } = req.query;
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 10;
+    const skip = (page - 1) * limit;
     const query = {};
     
     // Lọc học bổng theo ngành nếu có
@@ -63,15 +77,23 @@ export const getAllScholarshipsAdmin = async (req, res) => {
       query.department = req.user.department;
     }
     
+    const total = await Scholarship.countDocuments(query);
     const scholarships = await Scholarship.find(query)
       .populate('department', 'name code')
       .populate('createdBy', 'name role')
-      .sort({ createdAt: -1 });
+      .sort({ createdAt: -1 })
+      .skip(skip)
+      .limit(limit);
+    
+    const totalPages = Math.ceil(total / limit);
     
     res.status(200).json({
       success: true,
-      count: scholarships.length,
-      data: scholarships
+      data: scholarships,
+      total,
+      page,
+      limit,
+      totalPages
     });
   } catch (error) {
     console.error('Error getting all scholarships:', error);
