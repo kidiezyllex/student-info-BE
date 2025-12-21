@@ -1,13 +1,15 @@
-import { seedDatabase } from './seed-data.js';
+import dotenv from 'dotenv';
+import { connectDB, disconnectDB } from './config/database.js';
+import User from './models/user.model.js';
+import Department from './models/department.model.js';
+import Event from './models/event.model.js';
+import Scholarship from './models/scholarship.model.js';
+import Notification from './models/notification.model.js';
+import Dataset from './models/dataset.model.js';
+import Message from './models/message.model.js';
+import ChatSession from './models/chatSession.model.js';
 
-// Re-export for backward compatibility
-export { seedDatabase };
-
-// Run seed if this file is executed directly
-if (import.meta.url === `file://${process.argv[1]?.replace(/\\/g, '/')}` || 
-    (process.argv[1] && process.argv[1].includes('seed.js'))) {
-  seedDatabase();
-}
+dotenv.config();
 
 // VGU Departments Data - IT Specializations
 const vguDepartments = [
@@ -110,7 +112,7 @@ const generateStudentId = (course, index) => {
   return `${year}${String(index).padStart(4, '0')}`;
 };
 
-const seedDatabase = async (skipClear = false) => {
+export const seedDatabase = async (skipClear = false) => {
   try {
     console.log('🌱 Starting database seeding...');
     
@@ -120,16 +122,18 @@ const seedDatabase = async (skipClear = false) => {
       await connectDB();
     }
     
-    // Clear existing data
-    console.log('🗑️  Clearing existing data...');
-    await User.deleteMany({});
-    await Department.deleteMany({});
-    await Event.deleteMany({});
-    await Scholarship.deleteMany({});
-    await Notification.deleteMany({});
-    await Dataset.deleteMany({});
-    await Message.deleteMany({});
-    await ChatSession.deleteMany({});
+    // Clear existing data (unless skipped)
+    if (!skipClear) {
+      console.log('🗑️  Clearing existing data...');
+      await User.deleteMany({});
+      await Department.deleteMany({});
+      await Event.deleteMany({});
+      await Scholarship.deleteMany({});
+      await Notification.deleteMany({});
+      await Dataset.deleteMany({});
+      await Message.deleteMany({});
+      await ChatSession.deleteMany({});
+    }
     
     // 1. Create Admin
     console.log('👤 Creating admin user...');
@@ -669,14 +673,14 @@ const seedDatabase = async (skipClear = false) => {
     console.log(`\n💾 Login credentials saved to: ${credentialsFile}`);
     
     // Only disconnect if running directly (not imported)
-    const isDirectExecution = process.argv[1] && process.argv[1].includes('seed.js');
+    const isDirectExecution = process.argv[1] && process.argv[1].includes('seed');
     if (isDirectExecution) {
       await disconnectDB();
       process.exit(0);
     }
   } catch (error) {
     console.error('❌ Error seeding database:', error);
-    const isDirectExecution = process.argv[1] && process.argv[1].includes('seed.js');
+    const isDirectExecution = process.argv[1] && process.argv[1].includes('seed');
     if (isDirectExecution) {
       await disconnectDB();
       process.exit(1);
@@ -685,24 +689,4 @@ const seedDatabase = async (skipClear = false) => {
     }
   }
 };
-
-// Export seedDatabase function for use in other scripts
-export { seedDatabase };
-
-// Run seed only if this file is executed directly (not imported)
-// Check if this module is being run directly by comparing import.meta.url with process.argv[1]
-const isMainModule = () => {
-  try {
-    const currentFile = import.meta.url.replace('file:///', '').replace(/\\/g, '/');
-    const mainFile = process.argv[1]?.replace(/\\/g, '/') || '';
-    return currentFile.endsWith('seed.js') && mainFile.endsWith('seed.js');
-  } catch {
-    return false;
-  }
-};
-
-// Only run if executed directly (not when imported)
-if (isMainModule()) {
-  seedDatabase();
-}
 

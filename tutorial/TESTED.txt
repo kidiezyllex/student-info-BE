@@ -1,0 +1,6 @@
+1. Quản lý User 
+- Các chức năng CURD
+- Lọc theo Department
+- Lọc theo Role
+- Tìm kiếm
+- Upload ảnh đại diện

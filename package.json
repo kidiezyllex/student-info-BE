@@ -10,6 +10,8 @@
     "lint": "eslint src/",
     "db:push": "drizzle-kit push",
     "seed": "tsx src/seed.js",
+    "reset": "tsx src/reset-database.js",
+    "reset:seed": "tsx src/reset-and-seed.js",
     "postinstall": "npm rebuild bcrypt --update-binary",
     "prepare": "npm run build"
   },

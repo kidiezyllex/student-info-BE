@@ -10,18 +10,19 @@ export const getUsers = async (req, res) => {
     const page = parseInt(req.query.page) || 1;
     const limit = parseInt(req.query.limit) || 10;
     const skip = (page - 1) * limit;
-    const { role } = req.query;
+    const { role, department } = req.query;
 
-    // Build query filter
     const filter = {};
     if (role) {
-      // Validate role
       if (!['student', 'coordinator', 'admin'].includes(role)) {
         return res.status(400).json({ 
           message: 'Invalid role specified. Allowed values: student, coordinator, admin' 
         });
       }
       filter.role = role;
+    }
+    if (department) {
+      filter.department = department;
     }
 
     const total = await User.countDocuments(filter);
