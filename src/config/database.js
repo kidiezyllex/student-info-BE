@@ -16,9 +16,16 @@ export const jwtExpiresIn = process.env.JWT_EXPIRES_IN;
  */
 export const connectDB = async () => {
   try {
+    if (!mongoURI) {
+      throw new Error('MONGODB_URI is not defined in environment variables');
+    }
     const conn = await mongoose.connect(mongoURI);
     console.log(`MongoDB Connected: ${conn.connection.host}`);
   } catch (error) {
+    console.error('Error connecting to MongoDB:', error);
+    if (error instanceof Error) {
+      console.error('Error message:', error.message);
+    }
     process.exit(1);
   }
 };

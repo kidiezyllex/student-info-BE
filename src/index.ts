@@ -6,7 +6,14 @@ import compression from "compression";
 import dotenv from "dotenv";
 import { registerRoutes } from "./routes.js";
 import responseMiddleware from "./middlewares/response.middleware.js";
+
+// Load environment variables
 dotenv.config();
+
+// Log environment info
+console.log("Starting server...");
+console.log("NODE_ENV:", process.env.NODE_ENV || "development");
+console.log("PORT:", process.env.PORT || "5000");
 
 const app = express();
 

@@ -18,10 +18,15 @@ import verificationRoutes from "./routes/verification.routes.js";
 import topicRoutes from "./routes/topic.routes.js";
 export async function registerRoutes(app: Express): Promise<Server> {
   try {
+    console.log("Registering routes...");
+    
     // Connect to database
+    console.log("Connecting to database...");
     await connectDB();
+    console.log("Database connected successfully");
     
     // API routes
+    console.log("Setting up API routes...");
     app.use("/api/auth", authRoutes);
     app.use("/api/users", userRoutes);
     app.use("/api/dataset", datasetRoutes);
@@ -32,6 +37,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     app.use("/api/upload", uploadRoutes);
     app.use("/api/verification", verificationRoutes);
     app.use("/api/topics", topicRoutes);
+    console.log("Setting up Swagger...");
     setupSwagger(app);
     
     // API health check endpoint
@@ -46,11 +52,17 @@ export async function registerRoutes(app: Express): Promise<Server> {
     app.use(notFound);
     app.use(errorHandler);
     
+    console.log("Creating HTTP server...");
     const httpServer = createServer(app);
+    console.log("Routes registered successfully");
     
     return httpServer;
   } catch (error) {
     console.error("Error registering routes:", error);
+    if (error instanceof Error) {
+      console.error("Error message:", error.message);
+      console.error("Error stack:", error.stack);
+    }
     throw error;
   }
 } 
