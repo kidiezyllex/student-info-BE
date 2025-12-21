@@ -2,9 +2,7 @@ import dotenv from 'dotenv';
 import { connectDB, disconnectDB } from './config/database.js';
 import User from './models/user.model.js';
 import Department from './models/department.model.js';
-import Event from './models/event.model.js';
-import Scholarship from './models/scholarship.model.js';
-import Notification from './models/notification.model.js';
+import Topic from './models/topic.model.js';
 import Dataset from './models/dataset.model.js';
 import Message from './models/message.model.js';
 import ChatSession from './models/chatSession.model.js';
@@ -127,9 +125,7 @@ export const seedDatabase = async (skipClear = false) => {
       console.log('🗑️  Clearing existing data...');
       await User.deleteMany({});
       await Department.deleteMany({});
-      await Event.deleteMany({});
-      await Scholarship.deleteMany({});
-      await Notification.deleteMany({});
+      await Topic.deleteMany({});
       await Dataset.deleteMany({});
       await Message.deleteMany({});
       await ChatSession.deleteMany({});
@@ -279,9 +275,11 @@ export const seedDatabase = async (skipClear = false) => {
     }
     console.log(`✅ Created ${students.length} students`);
     
-    // 5. Create Events
+    // 5. Create Topics - All Types
+    console.log('📝 Creating topics...');
+    
+    // 5.1. Events (15-20 items)
     console.log('📅 Creating events...');
-    const events = [];
     const eventTitles = [
       'IT Technology Conference 2024',
       'Software Development Workshop',
@@ -305,16 +303,17 @@ export const seedDatabase = async (skipClear = false) => {
       'API Development and Integration Workshop'
     ];
     
-    for (let i = 0; i < 80; i++) {
-      const title = eventTitles[Math.floor(Math.random() * eventTitles.length)];
+    for (let i = 0; i < 18; i++) {
+      const title = eventTitles[i % eventTitles.length];
       const startDate = randomDate(new Date(2024, 0, 1), new Date(2025, 11, 31));
       const endDate = new Date(startDate.getTime() + Math.random() * 8 * 60 * 60 * 1000);
       const department = Math.random() > 0.3 ? departments[Math.floor(Math.random() * departments.length)] : null;
       const creator = Math.random() > 0.5 ? admin : coordinators[Math.floor(Math.random() * coordinators.length)];
       
-      const event = await Event.create({
+      await Topic.create({
         title: `${title}${i > 0 ? ` - Session ${i + 1}` : ''}`,
         description: `Detailed description about ${title.toLowerCase()}. This event is organized at VGU with the participation of many experts and students.`,
+        type: 'event',
         startDate: startDate,
         endDate: endDate,
         location: `Hall ${String.fromCharCode(65 + Math.floor(Math.random() * 5))}, VGU`,
@@ -322,13 +321,11 @@ export const seedDatabase = async (skipClear = false) => {
         organizer: department ? department.name : 'VGU',
         createdBy: creator._id
       });
-      events.push(event);
     }
-    console.log(`✅ Created ${events.length} events`);
+    console.log(`✅ Created 18 events`);
     
-    // 6. Create Scholarships
+    // 5.2. Scholarships (15-20 items)
     console.log('💰 Creating scholarships...');
-    const scholarships = [];
     const scholarshipTitles = [
       'IT Department Excellence Scholarship',
       'IT Academic Achievement Scholarship',
@@ -344,7 +341,10 @@ export const seedDatabase = async (skipClear = false) => {
       'Cloud Computing Scholarship',
       'Cybersecurity Scholarship',
       'Blockchain Technology Scholarship',
-      'IoT and Embedded Systems Scholarship'
+      'IoT and Embedded Systems Scholarship',
+      'Full Stack Development Scholarship',
+      'Machine Learning Research Scholarship',
+      'Network Engineering Scholarship'
     ];
     const providers = [
       'VGU Foundation',
@@ -356,17 +356,18 @@ export const seedDatabase = async (skipClear = false) => {
       'German Business Association in Vietnam'
     ];
     
-    for (let i = 0; i < 60; i++) {
-      const title = scholarshipTitles[Math.floor(Math.random() * scholarshipTitles.length)];
+    for (let i = 0; i < 17; i++) {
+      const title = scholarshipTitles[i % scholarshipTitles.length];
       const provider = providers[Math.floor(Math.random() * providers.length)];
       const deadline = randomDate(new Date(2024, 6, 1), new Date(2025, 11, 31));
       const department = Math.random() > 0.4 ? departments[Math.floor(Math.random() * departments.length)] : null;
       const creator = Math.random() > 0.5 ? admin : coordinators[Math.floor(Math.random() * coordinators.length)];
       const value = `${Math.floor(Math.random() * 20 + 5)}.000.000 VND`;
       
-      const scholarship = await Scholarship.create({
+      await Topic.create({
         title: `${title}${i > 0 ? ` - Round ${i + 1}` : ''}`,
         description: `${title} for VGU students. This scholarship aims to encourage and support students in their learning and research process.`,
+        type: 'scholarship',
         requirements: `GPA of ${(Math.random() * 1.5 + 2.5).toFixed(1)} or higher, no disciplinary violations, active participation in school activities.`,
         value: value,
         applicationDeadline: deadline,
@@ -376,13 +377,11 @@ export const seedDatabase = async (skipClear = false) => {
         applicationProcess: 'Submit application through VGU online system, including: application form, transcript, recommendation letter.',
         createdBy: creator._id
       });
-      scholarships.push(scholarship);
     }
-    console.log(`✅ Created ${scholarships.length} scholarships`);
+    console.log(`✅ Created 17 scholarships`);
     
-    // 7. Create Notifications
+    // 5.3. Notifications (15-20 items)
     console.log('🔔 Creating notifications...');
-    const notifications = [];
     const notificationTitles = [
       'IT Department Final Exam Schedule Announcement',
       'IT Major Course Registration Announcement',
@@ -398,31 +397,308 @@ export const seedDatabase = async (skipClear = false) => {
       'Information Security Workshop Announcement',
       'Online Course Registration Announcement',
       'Technology Startup Conference Announcement',
-      'Full Stack Developer Recruitment Announcement'
+      'Full Stack Developer Recruitment Announcement',
+      'Database Management Course Announcement',
+      'Cloud Computing Training Program',
+      'Cybersecurity Certification Program'
     ];
-    const notificationTypes = ['general', 'scholarship', 'event', 'department'];
     
-    for (let i = 0; i < 100; i++) {
-      const title = notificationTitles[Math.floor(Math.random() * notificationTitles.length)];
-      const type = notificationTypes[Math.floor(Math.random() * notificationTypes.length)];
+    for (let i = 0; i < 18; i++) {
+      const title = notificationTitles[i % notificationTitles.length];
       const startDate = randomDate(new Date(2024, 0, 1), new Date(2025, 5, 30));
       const endDate = new Date(startDate.getTime() + Math.random() * 30 * 24 * 60 * 60 * 1000);
       const department = Math.random() > 0.5 ? departments[Math.floor(Math.random() * departments.length)] : null;
       const creator = Math.random() > 0.5 ? admin : coordinators[Math.floor(Math.random() * coordinators.length)];
       
-      const notification = await Notification.create({
+      await Topic.create({
         title: `${title} - ${new Date().toLocaleDateString('en-US')}`,
-        content: `Detailed content about ${title.toLowerCase()}. Please read carefully and follow the instructions. For any questions, please contact the academic office.`,
-        type: type,
+        description: `Detailed content about ${title.toLowerCase()}. Please read carefully and follow the instructions. For any questions, please contact the academic office.`,
+        type: 'notification',
         department: department ? department._id : null,
         startDate: startDate,
         endDate: endDate,
         isImportant: Math.random() > 0.7,
         createdBy: creator._id
       });
-      notifications.push(notification);
     }
-    console.log(`✅ Created ${notifications.length} notifications`);
+    console.log(`✅ Created 18 notifications`);
+    
+    // 5.4. Jobs (15-20 items)
+    console.log('💼 Creating job opportunities...');
+    const jobTitles = [
+      'Senior Software Engineer',
+      'Full Stack Developer',
+      'Frontend Developer',
+      'Backend Developer',
+      'DevOps Engineer',
+      'Data Scientist',
+      'Machine Learning Engineer',
+      'Cybersecurity Specialist',
+      'Cloud Architect',
+      'Mobile App Developer',
+      'UI/UX Designer',
+      'Database Administrator',
+      'System Administrator',
+      'Network Engineer',
+      'QA Engineer',
+      'Product Manager',
+      'Technical Lead',
+      'Software Architect'
+    ];
+    const companies = [
+      'FPT Software',
+      'Viettel Solutions',
+      'CMC Corporation',
+      'TMA Solutions',
+      'Luxoft Vietnam',
+      'NashTech',
+      'KMS Technology',
+      'Rikkeisoft',
+      'Toshiba Software',
+      'Samsung Vietnam'
+    ];
+    
+    for (let i = 0; i < 18; i++) {
+      const position = jobTitles[i % jobTitles.length];
+      const company = companies[Math.floor(Math.random() * companies.length)];
+      const department = Math.random() > 0.3 ? departments[Math.floor(Math.random() * departments.length)] : null;
+      const creator = Math.random() > 0.5 ? admin : coordinators[Math.floor(Math.random() * coordinators.length)];
+      const salary = `${Math.floor(Math.random() * 20 + 10)}.000.000 - ${Math.floor(Math.random() * 30 + 30)}.000.000 VND`;
+      
+      await Topic.create({
+        title: `${position} at ${company}`,
+        description: `${company} is looking for a ${position.toLowerCase()}. Join our team and work on exciting projects with cutting-edge technologies.`,
+        type: 'job',
+        department: department ? department._id : null,
+        company: company,
+        position: position,
+        salary: salary,
+        contactInfo: `hr@${company.toLowerCase().replace(/\s+/g, '')}.com | Phone: 090${String(1000000 + i).slice(-7)}`,
+        applicationDeadline: randomDate(new Date(2024, 6, 1), new Date(2025, 11, 31)),
+        createdBy: creator._id
+      });
+    }
+    console.log(`✅ Created 18 job opportunities`);
+    
+    // 5.5. Advertisements (15-20 items)
+    console.log('📢 Creating advertisements...');
+    const adTitles = [
+      'New Laptop Discount for Students',
+      'Programming Course Special Offer',
+      'IT Certification Exam Preparation',
+      'Software Development Bootcamp',
+      'Cloud Computing Training Course',
+      'Cybersecurity Workshop Registration',
+      'Web Development Masterclass',
+      'Mobile App Development Course',
+      'Data Science Bootcamp',
+      'AI and ML Training Program',
+      'Database Design Course',
+      'DevOps Certification Program',
+      'UI/UX Design Workshop',
+      'Blockchain Development Course',
+      'Network Security Training',
+      'Full Stack Development Program',
+      'IT Career Counseling Service',
+      'Tech Startup Incubator Program'
+    ];
+    
+    for (let i = 0; i < 17; i++) {
+      const title = adTitles[i % adTitles.length];
+      const department = Math.random() > 0.4 ? departments[Math.floor(Math.random() * departments.length)] : null;
+      const creator = Math.random() > 0.5 ? admin : coordinators[Math.floor(Math.random() * coordinators.length)];
+      const startDate = randomDate(new Date(2024, 0, 1), new Date(2025, 5, 30));
+      const endDate = new Date(startDate.getTime() + Math.random() * 60 * 24 * 60 * 60 * 1000);
+      
+      await Topic.create({
+        title: title,
+        description: `Special promotion: ${title.toLowerCase()}. Limited time offer! Don't miss this opportunity to enhance your skills and advance your career.`,
+        type: 'advertisement',
+        department: department ? department._id : null,
+        startDate: startDate,
+        endDate: endDate,
+        contactInfo: `info@vgu.edu.vn | Phone: 090${String(2000000 + i).slice(-7)}`,
+        createdBy: creator._id
+      });
+    }
+    console.log(`✅ Created 17 advertisements`);
+    
+    // 5.6. Internships (15-20 items)
+    console.log('🎓 Creating internship opportunities...');
+    const internshipTitles = [
+      'Software Development Intern',
+      'Web Development Intern',
+      'Mobile App Development Intern',
+      'Data Science Intern',
+      'Machine Learning Intern',
+      'Cybersecurity Intern',
+      'Cloud Computing Intern',
+      'DevOps Intern',
+      'UI/UX Design Intern',
+      'Database Management Intern',
+      'Network Engineering Intern',
+      'QA Testing Intern',
+      'Frontend Development Intern',
+      'Backend Development Intern',
+      'Full Stack Development Intern',
+      'AI Research Intern',
+      'Blockchain Development Intern',
+      'IoT Development Intern'
+    ];
+    
+    for (let i = 0; i < 18; i++) {
+      const title = internshipTitles[i % internshipTitles.length];
+      const company = companies[Math.floor(Math.random() * companies.length)];
+      const department = Math.random() > 0.3 ? departments[Math.floor(Math.random() * departments.length)] : null;
+      const creator = Math.random() > 0.5 ? admin : coordinators[Math.floor(Math.random() * coordinators.length)];
+      const startDate = randomDate(new Date(2024, 0, 1), new Date(2025, 5, 30));
+      const endDate = new Date(startDate.getTime() + Math.random() * 180 * 24 * 60 * 60 * 1000);
+      
+      await Topic.create({
+        title: `${title} at ${company}`,
+        description: `${company} offers internship opportunities for ${title.toLowerCase()}. Gain real-world experience and work on exciting projects.`,
+        type: 'internship',
+        department: department ? department._id : null,
+        company: company,
+        position: title,
+        startDate: startDate,
+        endDate: endDate,
+        contactInfo: `internship@${company.toLowerCase().replace(/\s+/g, '')}.com | Phone: 090${String(3000000 + i).slice(-7)}`,
+        applicationDeadline: new Date(startDate.getTime() - 30 * 24 * 60 * 60 * 1000),
+        createdBy: creator._id
+      });
+    }
+    console.log(`✅ Created 18 internship opportunities`);
+    
+    // 5.7. Recruitment (15-20 items)
+    console.log('🏢 Creating recruitment opportunities...');
+    const recruitmentTitles = [
+      'FPT Software - Software Engineer Recruitment',
+      'Viettel Solutions - IT Specialist Recruitment',
+      'CMC Corporation - Developer Recruitment',
+      'TMA Solutions - Programmer Recruitment',
+      'Luxoft Vietnam - Tech Talent Recruitment',
+      'NashTech - Software Developer Recruitment',
+      'KMS Technology - Engineer Recruitment',
+      'Rikkeisoft - Developer Recruitment',
+      'Toshiba Software - IT Professional Recruitment',
+      'Samsung Vietnam - Technology Recruitment',
+      'VNG Corporation - Software Engineer Recruitment',
+      'Grab Vietnam - Tech Recruitment',
+      'Shopee Vietnam - Developer Recruitment',
+      'Lazada Vietnam - IT Recruitment',
+      'MoMo - Fintech Developer Recruitment',
+      'Tiki - E-commerce Developer Recruitment',
+      'VinGroup - IT Professional Recruitment',
+      'Vietcombank - IT Specialist Recruitment'
+    ];
+    
+    for (let i = 0; i < 18; i++) {
+      const title = recruitmentTitles[i % recruitmentTitles.length];
+      const company = title.split(' - ')[0];
+      const department = Math.random() > 0.3 ? departments[Math.floor(Math.random() * departments.length)] : null;
+      const creator = Math.random() > 0.5 ? admin : coordinators[Math.floor(Math.random() * coordinators.length)];
+      
+      await Topic.create({
+        title: title,
+        description: `${company} is actively recruiting IT professionals. Join our team and be part of innovative projects. We offer competitive salary and benefits.`,
+        type: 'recruitment',
+        department: department ? department._id : null,
+        company: company,
+        contactInfo: `careers@${company.toLowerCase().replace(/\s+/g, '')}.com | Phone: 090${String(4000000 + i).slice(-7)}`,
+        applicationDeadline: randomDate(new Date(2024, 6, 1), new Date(2025, 11, 31)),
+        createdBy: creator._id
+      });
+    }
+    console.log(`✅ Created 18 recruitment opportunities`);
+    
+    // 5.8. Volunteer (15-20 items)
+    console.log('🤝 Creating volunteer opportunities...');
+    const volunteerTitles = [
+      'Teaching Programming to Children',
+      'IT Support for Elderly Community',
+      'Website Development for NGOs',
+      'Digital Literacy Training',
+      'Tech Mentorship Program',
+      'Coding Bootcamp for Underprivileged Youth',
+      'IT Equipment Donation Drive',
+      'Free IT Consultation Service',
+      'Community Tech Support',
+      'Programming Workshop for Students',
+      'IT Career Guidance Program',
+      'Technology Awareness Campaign',
+      'Open Source Project Contribution',
+      'Tech Event Organization',
+      'IT Training for Teachers',
+      'Digital Transformation Support',
+      'Cybersecurity Awareness Program',
+      'Tech Innovation Challenge'
+    ];
+    
+    for (let i = 0; i < 17; i++) {
+      const title = volunteerTitles[i % volunteerTitles.length];
+      const department = Math.random() > 0.4 ? departments[Math.floor(Math.random() * departments.length)] : null;
+      const creator = Math.random() > 0.5 ? admin : coordinators[Math.floor(Math.random() * coordinators.length)];
+      const startDate = randomDate(new Date(2024, 0, 1), new Date(2025, 5, 30));
+      const endDate = new Date(startDate.getTime() + Math.random() * 90 * 24 * 60 * 60 * 1000);
+      
+      await Topic.create({
+        title: title,
+        description: `Volunteer opportunity: ${title.toLowerCase()}. Make a difference in your community by sharing your IT knowledge and skills.`,
+        type: 'volunteer',
+        department: department ? department._id : null,
+        startDate: startDate,
+        endDate: endDate,
+        location: `Various locations in Ho Chi Minh City`,
+        contactInfo: `volunteer@vgu.edu.vn | Phone: 090${String(5000000 + i).slice(-7)}`,
+        createdBy: creator._id
+      });
+    }
+    console.log(`✅ Created 17 volunteer opportunities`);
+    
+    // 5.9. Extracurricular (15-20 items)
+    console.log('🎯 Creating extracurricular activities...');
+    const extracurricularTitles = [
+      'Programming Club Meeting',
+      'Hackathon Competition',
+      'Tech Talk Series',
+      'Code Review Session',
+      'Algorithm Study Group',
+      'Open Source Project Collaboration',
+      'Tech Innovation Lab',
+      'Startup Pitch Competition',
+      'IT Career Networking Event',
+      'Tech Quiz Competition',
+      'Programming Contest',
+      'Tech Exhibition',
+      'IT Alumni Meetup',
+      'Tech Startup Showcase',
+      'Innovation Challenge',
+      'Tech Mentorship Program',
+      'IT Research Group',
+      'Tech Community Building'
+    ];
+    
+    for (let i = 0; i < 18; i++) {
+      const title = extracurricularTitles[i % extracurricularTitles.length];
+      const department = Math.random() > 0.3 ? departments[Math.floor(Math.random() * departments.length)] : null;
+      const creator = Math.random() > 0.5 ? admin : coordinators[Math.floor(Math.random() * coordinators.length)];
+      const startDate = randomDate(new Date(2024, 0, 1), new Date(2025, 11, 31));
+      const endDate = new Date(startDate.getTime() + Math.random() * 4 * 60 * 60 * 1000);
+      
+      await Topic.create({
+        title: title,
+        description: `Extracurricular activity: ${title.toLowerCase()}. Join fellow students and enhance your skills through hands-on activities and collaboration.`,
+        type: 'extracurricular',
+        department: department ? department._id : null,
+        startDate: startDate,
+        endDate: endDate,
+        location: `Room ${String.fromCharCode(65 + Math.floor(Math.random() * 5))}${Math.floor(Math.random() * 10) + 1}, VGU`,
+        organizer: department ? department.name : 'VGU Student Council',
+        createdBy: creator._id
+      });
+    }
+    console.log(`✅ Created 18 extracurricular activities`);
     
     // 8. Create Dataset entries
     console.log('📚 Creating dataset entries...');
@@ -489,11 +765,12 @@ export const seedDatabase = async (skipClear = false) => {
       }
     }
     
-    // Add scholarship entries
-    for (const scholarship of scholarships.slice(0, 10)) {
+    // Add scholarship entries from topics
+    const scholarshipTopics = await Topic.find({ type: 'scholarship' }).limit(10);
+    for (const scholarship of scholarshipTopics) {
       const entry = await Dataset.create({
         key: scholarship.title,
-        value: `${scholarship.description}. Requirements: ${scholarship.requirements}. Value: ${scholarship.value}. Deadline: ${scholarship.applicationDeadline.toLocaleDateString('en-US')}.`,
+        value: `${scholarship.description}. Requirements: ${scholarship.requirements || 'N/A'}. Value: ${scholarship.value || 'N/A'}. Deadline: ${scholarship.applicationDeadline ? scholarship.applicationDeadline.toLocaleDateString('en-US') : 'N/A'}.`,
         category: 'scholarship',
         department: scholarship.department,
         createdBy: admin._id,
@@ -502,11 +779,12 @@ export const seedDatabase = async (skipClear = false) => {
       datasetEntries.push(entry);
     }
     
-    // Add event entries
-    for (const event of events.slice(0, 10)) {
+    // Add event entries from topics
+    const eventTopics = await Topic.find({ type: 'event' }).limit(10);
+    for (const event of eventTopics) {
       const entry = await Dataset.create({
         key: event.title,
-        value: `${event.description}. Time: ${event.startDate.toLocaleDateString('en-US')} - ${event.endDate.toLocaleDateString('en-US')}. Location: ${event.location}.`,
+        value: `${event.description}. Time: ${event.startDate ? event.startDate.toLocaleDateString('en-US') : 'N/A'} - ${event.endDate ? event.endDate.toLocaleDateString('en-US') : 'N/A'}. Location: ${event.location || 'N/A'}.`,
         category: 'event',
         department: event.department,
         createdBy: admin._id,
@@ -631,15 +909,21 @@ export const seedDatabase = async (skipClear = false) => {
       }))
     };
     
+    const topicCounts = await Topic.aggregate([
+      { $group: { _id: '$type', count: { $sum: 1 } } }
+    ]);
+    const totalTopics = await Topic.countDocuments();
+    
     console.log('\n✨ Seeding completed successfully!');
     console.log('\n📊 Summary:');
     console.log(`   - Admin: 1`);
     console.log(`   - Coordinators: ${coordinators.length}`);
     console.log(`   - Students: ${students.length}`);
     console.log(`   - Departments: ${departments.length}`);
-    console.log(`   - Events: ${events.length}`);
-    console.log(`   - Scholarships: ${scholarships.length}`);
-    console.log(`   - Notifications: ${notifications.length}`);
+    console.log(`   - Topics (Total: ${totalTopics}):`);
+    topicCounts.forEach(({ _id, count }) => {
+      console.log(`     * ${_id}: ${count}`);
+    });
     console.log(`   - Dataset entries: ${datasetEntries.length}`);
     console.log(`   - Messages: ${messages.length}`);
     console.log(`   - Chat sessions: ${chatSessions.length}`);

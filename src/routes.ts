@@ -11,13 +11,11 @@ import userRoutes from "./routes/user.routes.js";
 import datasetRoutes from "./routes/dataset.routes.js";
 import departmentRoutes from "./routes/department.routes.js";
 import chatRoutes from "./routes/chat.routes.js";
-import notificationRoutes from "./routes/notification.routes.js";
-import scholarshipRoutes from "./routes/scholarship.routes.js";
-import eventRoutes from "./routes/event.routes.js";
 import messageRoutes from "./routes/message.routes.js";
 import aiRoutes from "./routes/ai.routes.js";
 import uploadRoutes from "./routes/upload.routes.js";
 import verificationRoutes from "./routes/verification.routes.js";
+import topicRoutes from "./routes/topic.routes.js";
 export async function registerRoutes(app: Express): Promise<Server> {
   try {
     // Connect to database
@@ -29,13 +27,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
     app.use("/api/dataset", datasetRoutes);
     app.use("/api/departments", departmentRoutes);
     app.use("/api/chat", chatRoutes);
-    app.use("/api/notifications", notificationRoutes);
-    app.use("/api/scholarships", scholarshipRoutes);
-    app.use("/api/events", eventRoutes);
     app.use("/api/messages", messageRoutes);
     app.use("/api/ai", aiRoutes);
     app.use("/api/upload", uploadRoutes);
     app.use("/api/verification", verificationRoutes);
+    app.use("/api/topics", topicRoutes);
     setupSwagger(app);
     
     // API health check endpoint
