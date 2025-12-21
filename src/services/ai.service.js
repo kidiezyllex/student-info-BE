@@ -244,22 +244,13 @@ QUY TẮC TRẢ LỜI:
       })),
       { role: 'user', content: userQuestion }
     ];
-
-    console.log('💬 Messages to send to AI:', messages.length);
-    console.log('🤖 System prompt content length:', systemPrompt.content.length);
-    console.log('🎓 Is scholarship question:', isScholarshipQuestion);
-    console.log('📚 Has scholarship context:', !!scholarshipContext);
-
     try {
-      console.log('🔄 Calling OpenRouter AI...');
       const aiResponse = await queryOpenRouterAI(messages);
-      console.log('✅ AI Response received:', aiResponse);
       return aiResponse;
     } catch (error) {
       return { content: 'Xin lỗi, hệ thống đang gặp sự cố. Vui lòng thử lại sau hoặc liên hệ phòng ban phù hợp để được hỗ trợ.' };
     }
   } catch (error) {
-    console.error('❌ Error in askAI function:', error);
     return { content: 'Xin lỗi, đã xảy ra lỗi khi xử lý câu hỏi của bạn. Vui lòng thử lại sau hoặc liên hệ phòng ban phù hợp để được hỗ trợ.' };
   }
 }

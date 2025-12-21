@@ -12,8 +12,7 @@
     "seed": "tsx src/seed.js",
     "reset": "tsx src/reset-database.js",
     "reset:seed": "tsx src/reset-and-seed.js",
-    "postinstall": "npm rebuild bcrypt --update-binary",
-    "prepare": "npm run build"
+    "postinstall": "npm rebuild bcrypt --update-binary"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
