@@ -1,0 +1,922 @@
+{
+  "topicTypes": [
+    "event",
+    "scholarship",
+    "notification",
+    "job",
+    "advertisement",
+    "internship",
+    "recruitment",
+    "volunteer",
+    "extracurricular"
+  ],
+  "getTopicsResponse": {
+    "status": true,
+    "message": "Success",
+    "data": [
+      {
+        "_id": "67890abcdef1234567890123",
+        "title": "IT Technology Conference 2024",
+        "description": "Detailed description about it technology conference 2024. This event is organized at VGU with the participation of many experts and students.",
+        "type": "event",
+        "department": {
+          "_id": "12345abcdef6789012345678",
+          "name": "Computer Science",
+          "code": "CS"
+        },
+        "createdBy": {
+          "_id": "98765fedcba4321098765432",
+          "name": "VGU Administrator",
+          "role": "admin"
+        },
+        "startDate": "2024-06-15T08:00:00.000Z",
+        "endDate": "2024-06-15T17:00:00.000Z",
+        "location": "Hall A, VGU",
+        "organizer": "Computer Science",
+        "createdAt": "2024-05-01T10:00:00.000Z",
+        "updatedAt": "2024-05-01T10:00:00.000Z"
+      },
+      {
+        "_id": "67890abcdef1234567890124",
+        "title": "IT Department Excellence Scholarship - Round 1",
+        "description": "IT Department Excellence Scholarship for VGU students. This scholarship aims to encourage and support students in their learning and research process.",
+        "type": "scholarship",
+        "department": {
+          "_id": "12345abcdef6789012345678",
+          "name": "Computer Science",
+          "code": "CS"
+        },
+        "createdBy": {
+          "_id": "98765fedcba4321098765432",
+          "name": "VGU Administrator",
+          "role": "admin"
+        },
+        "requirements": "GPA of 3.2 or higher, no disciplinary violations, active participation in school activities.",
+        "value": "15.000.000 VND",
+        "applicationDeadline": "2024-12-31T23:59:59.000Z",
+        "provider": "VGU Foundation",
+        "eligibility": "Students currently enrolled at VGU, from year 2 onwards",
+        "applicationProcess": "Submit application through VGU online system, including: application form, transcript, recommendation letter.",
+        "createdAt": "2024-05-01T10:00:00.000Z",
+        "updatedAt": "2024-05-01T10:00:00.000Z"
+      },
+      {
+        "_id": "67890abcdef1234567890125",
+        "title": "IT Department Final Exam Schedule Announcement - 12/21/2024",
+        "description": "Detailed content about it department final exam schedule announcement. Please read carefully and follow the instructions. For any questions, please contact the academic office.",
+        "type": "notification",
+        "department": {
+          "_id": "12345abcdef6789012345678",
+          "name": "Computer Science",
+          "code": "CS"
+        },
+        "createdBy": {
+          "_id": "98765fedcba4321098765432",
+          "name": "VGU Administrator",
+          "role": "admin"
+        },
+        "startDate": "2024-05-01T00:00:00.000Z",
+        "endDate": "2024-06-01T23:59:59.000Z",
+        "isImportant": true,
+        "createdAt": "2024-05-01T10:00:00.000Z",
+        "updatedAt": "2024-05-01T10:00:00.000Z"
+      },
+      {
+        "_id": "67890abcdef1234567890126",
+        "title": "Senior Software Engineer at FPT Software",
+        "description": "FPT Software is looking for a senior software engineer. Join our team and work on exciting projects with cutting-edge technologies.",
+        "type": "job",
+        "department": {
+          "_id": "12345abcdef6789012345678",
+          "name": "Computer Science",
+          "code": "CS"
+        },
+        "createdBy": {
+          "_id": "98765fedcba4321098765432",
+          "name": "VGU Administrator",
+          "role": "admin"
+        },
+        "company": "FPT Software",
+        "position": "Senior Software Engineer",
+        "salary": "20.000.000 - 35.000.000 VND",
+        "contactInfo": "hr@fptsoftware.com | Phone: 0901000001",
+        "applicationDeadline": "2024-12-31T23:59:59.000Z",
+        "createdAt": "2024-05-01T10:00:00.000Z",
+        "updatedAt": "2024-05-01T10:00:00.000Z"
+      }
+    ],
+    "total": 159,
+    "page": 1,
+    "limit": 10,
+    "totalPages": 16,
+    "errors": {},
+    "timestamp": "2024-12-21T10:00:00.000Z"
+  },
+  "createTopicPayloads": {
+    "event": {
+      "title": "IT Technology Conference 2024",
+      "description": "Detailed description about IT technology conference 2024. This event is organized at VGU with the participation of many experts and students.",
+      "type": "event",
+      "department": "12345abcdef6789012345678",
+      "startDate": "2024-06-15T08:00:00.000Z",
+      "endDate": "2024-06-15T17:00:00.000Z",
+      "location": "Hall A, VGU",
+      "organizer": "Computer Science"
+    },
+    "scholarship": {
+      "title": "IT Department Excellence Scholarship",
+      "description": "IT Department Excellence Scholarship for VGU students. This scholarship aims to encourage and support students in their learning and research process.",
+      "type": "scholarship",
+      "department": "12345abcdef6789012345678",
+      "requirements": "GPA of 3.2 or higher, no disciplinary violations, active participation in school activities.",
+      "value": "15.000.000 VND",
+      "applicationDeadline": "2024-12-31T23:59:59.000Z",
+      "provider": "VGU Foundation",
+      "eligibility": "Students currently enrolled at VGU, from year 2 onwards",
+      "applicationProcess": "Submit application through VGU online system, including: application form, transcript, recommendation letter."
+    },
+    "notification": {
+      "title": "IT Department Final Exam Schedule Announcement",
+      "description": "Detailed content about IT department final exam schedule announcement. Please read carefully and follow the instructions.",
+      "type": "notification",
+      "department": "12345abcdef6789012345678",
+      "startDate": "2024-05-01T00:00:00.000Z",
+      "endDate": "2024-06-01T23:59:59.000Z",
+      "isImportant": true
+    },
+    "job": {
+      "title": "Senior Software Engineer at FPT Software",
+      "description": "FPT Software is looking for a senior software engineer. Join our team and work on exciting projects with cutting-edge technologies.",
+      "type": "job",
+      "department": "12345abcdef6789012345678",
+      "company": "FPT Software",
+      "position": "Senior Software Engineer",
+      "salary": "20.000.000 - 35.000.000 VND",
+      "contactInfo": "hr@fptsoftware.com | Phone: 0901000001",
+      "applicationDeadline": "2024-12-31T23:59:59.000Z"
+    },
+    "advertisement": {
+      "title": "New Laptop Discount for Students",
+      "description": "Special promotion: new laptop discount for students. Limited time offer! Don't miss this opportunity to enhance your skills and advance your career.",
+      "type": "advertisement",
+      "department": "12345abcdef6789012345678",
+      "startDate": "2024-05-01T00:00:00.000Z",
+      "endDate": "2024-07-01T23:59:59.000Z",
+      "contactInfo": "info@vgu.edu.vn | Phone: 0902000001"
+    },
+    "internship": {
+      "title": "Software Development Intern at FPT Software",
+      "description": "FPT Software offers internship opportunities for software development intern. Gain real-world experience and work on exciting projects.",
+      "type": "internship",
+      "department": "12345abcdef6789012345678",
+      "company": "FPT Software",
+      "position": "Software Development Intern",
+      "startDate": "2024-06-01T00:00:00.000Z",
+      "endDate": "2024-12-01T23:59:59.000Z",
+      "contactInfo": "internship@fptsoftware.com | Phone: 0903000001",
+      "applicationDeadline": "2024-05-15T23:59:59.000Z"
+    },
+    "recruitment": {
+      "title": "FPT Software - Software Engineer Recruitment",
+      "description": "FPT Software is actively recruiting IT professionals. Join our team and be part of innovative projects. We offer competitive salary and benefits.",
+      "type": "recruitment",
+      "department": "12345abcdef6789012345678",
+      "company": "FPT Software",
+      "contactInfo": "careers@fptsoftware.com | Phone: 0904000001",
+      "applicationDeadline": "2024-12-31T23:59:59.000Z"
+    },
+    "volunteer": {
+      "title": "Teaching Programming to Children",
+      "description": "Volunteer opportunity: teaching programming to children. Make a difference in your community by sharing your IT knowledge and skills.",
+      "type": "volunteer",
+      "department": "12345abcdef6789012345678",
+      "startDate": "2024-06-01T00:00:00.000Z",
+      "endDate": "2024-09-01T23:59:59.000Z",
+      "location": "Various locations in Ho Chi Minh City",
+      "contactInfo": "volunteer@vgu.edu.vn | Phone: 0905000001"
+    },
+    "extracurricular": {
+      "title": "Programming Club Meeting",
+      "description": "Extracurricular activity: programming club meeting. Join fellow students and enhance your skills through hands-on activities and collaboration.",
+      "type": "extracurricular",
+      "department": "12345abcdef6789012345678",
+      "startDate": "2024-06-15T14:00:00.000Z",
+      "endDate": "2024-06-15T17:00:00.000Z",
+      "location": "Room A1, VGU",
+      "organizer": "Computer Science"
+    }
+  },
+  "updateTopicPayloads": {
+    "event": {
+      "title": "IT Technology Conference 2024 - Updated",
+      "description": "Updated description about IT technology conference 2024.",
+      "startDate": "2024-06-20T08:00:00.000Z",
+      "endDate": "2024-06-20T17:00:00.000Z",
+      "location": "Hall B, VGU",
+      "organizer": "VGU"
+    },
+    "scholarship": {
+      "title": "IT Department Excellence Scholarship - Updated",
+      "description": "Updated description for scholarship.",
+      "requirements": "GPA of 3.5 or higher, no disciplinary violations.",
+      "value": "20.000.000 VND",
+      "applicationDeadline": "2025-01-31T23:59:59.000Z",
+      "provider": "VGU Development Fund"
+    },
+    "notification": {
+      "title": "IT Department Final Exam Schedule Announcement - Updated",
+      "description": "Updated content about exam schedule.",
+      "startDate": "2024-06-01T00:00:00.000Z",
+      "endDate": "2024-07-01T23:59:59.000Z",
+      "isImportant": false
+    },
+    "job": {
+      "title": "Senior Software Engineer at FPT Software - Updated",
+      "description": "Updated job description.",
+      "position": "Lead Software Engineer",
+      "salary": "25.000.000 - 40.000.000 VND",
+      "applicationDeadline": "2025-01-31T23:59:59.000Z"
+    },
+    "advertisement": {
+      "title": "New Laptop Discount for Students - Updated",
+      "description": "Updated promotion details.",
+      "startDate": "2024-06-01T00:00:00.000Z",
+      "endDate": "2024-08-01T23:59:59.000Z"
+    },
+    "internship": {
+      "title": "Software Development Intern at FPT Software - Updated",
+      "description": "Updated internship description.",
+      "startDate": "2024-07-01T00:00:00.000Z",
+      "endDate": "2025-01-01T23:59:59.000Z",
+      "applicationDeadline": "2024-06-15T23:59:59.000Z"
+    },
+    "recruitment": {
+      "title": "FPT Software - Software Engineer Recruitment - Updated",
+      "description": "Updated recruitment information.",
+      "applicationDeadline": "2025-01-31T23:59:59.000Z"
+    },
+    "volunteer": {
+      "title": "Teaching Programming to Children - Updated",
+      "description": "Updated volunteer opportunity details.",
+      "startDate": "2024-07-01T00:00:00.000Z",
+      "endDate": "2024-10-01T23:59:59.000Z",
+      "location": "Community Center, District 9"
+    },
+    "extracurricular": {
+      "title": "Programming Club Meeting - Updated",
+      "description": "Updated activity description.",
+      "startDate": "2024-06-20T14:00:00.000Z",
+      "endDate": "2024-06-20T17:00:00.000Z",
+      "location": "Room B2, VGU"
+    }
+  },
+  "apiEndpoints": {
+    "getAllTopics": {
+      "method": "GET",
+      "url": "/api/topics",
+      "access": "Authenticated users",
+      "headers": {
+        "Authorization": "Bearer {token}",
+        "Content-Type": "application/json"
+      },
+      "queryParams": {
+        "type": {
+          "type": "string",
+          "optional": true,
+          "values": ["event", "scholarship", "notification", "job", "advertisement", "internship", "recruitment", "volunteer", "extracurricular"],
+          "description": "Filter by topic type. If not provided, returns all types."
+        },
+        "department": {
+          "type": "string",
+          "optional": true,
+          "description": "Department ID (ObjectId). If provided, returns topics from this department or general topics (department: null)"
+        },
+        "page": {
+          "type": "number",
+          "optional": true,
+          "default": 1,
+          "description": "Page number for pagination"
+        },
+        "limit": {
+          "type": "number",
+          "optional": true,
+          "default": 10,
+          "description": "Number of items per page"
+        }
+      },
+      "filters": {
+        "event": "Only shows events that haven't ended (endDate > now)",
+        "scholarship": "Only shows scholarships that haven't expired (applicationDeadline > now)",
+        "notification": "Only shows notifications that haven't expired (endDate > now or endDate is null)"
+      },
+      "sortOrder": {
+        "event": "startDate ascending",
+        "scholarship": "applicationDeadline ascending",
+        "notification": "isImportant descending, then createdAt descending",
+        "default": "createdAt descending"
+      },
+      "example": "GET /api/topics?type=event&page=1&limit=10",
+      "curlExample": "curl -X GET 'http://localhost:5000/api/topics?type=event&page=1&limit=10' -H 'Authorization: Bearer YOUR_TOKEN'",
+      "response": {
+        "status": 200,
+        "success": true,
+        "data": "Array of topics",
+        "total": "Total number of topics matching the query",
+        "page": "Current page number",
+        "limit": "Items per page",
+        "totalPages": "Total number of pages"
+      },
+      "errorResponses": {
+        "401": {
+          "status": false,
+          "message": "No token, access denied"
+        },
+        "500": {
+          "status": false,
+          "message": "Server error",
+          "error": "Error message"
+        }
+      }
+    },
+    "getAllTopicsAdmin": {
+      "method": "GET",
+      "url": "/api/topics/all",
+      "access": "Admin, Coordinator",
+      "headers": {
+        "Authorization": "Bearer {token}",
+        "Content-Type": "application/json"
+      },
+      "queryParams": {
+        "type": {
+          "type": "string",
+          "optional": true,
+          "description": "Filter by topic type"
+        },
+        "department": {
+          "type": "string",
+          "optional": true,
+          "description": "Filter by department ID. Coordinators can only see their own department topics."
+        },
+        "page": {
+          "type": "number",
+          "optional": true,
+          "default": 1
+        },
+        "limit": {
+          "type": "number",
+          "optional": true,
+          "default": 10
+        }
+      },
+      "note": "Returns all topics including expired ones. Coordinators automatically filtered to their department.",
+      "example": "GET /api/topics/all?type=event&page=1&limit=10",
+      "curlExample": "curl -X GET 'http://localhost:5000/api/topics/all?type=event&page=1&limit=10' -H 'Authorization: Bearer YOUR_TOKEN'",
+      "response": {
+        "status": 200,
+        "success": true,
+        "data": "Array of topics (including expired)",
+        "total": "Total count",
+        "page": "Current page",
+        "limit": "Items per page",
+        "totalPages": "Total pages"
+      },
+      "errorResponses": {
+        "401": {
+          "status": false,
+          "message": "No token, access denied"
+        },
+        "403": {
+          "status": false,
+          "message": "Access denied. Admin or Coordinator role required."
+        }
+      }
+    },
+    "getTopicById": {
+      "method": "GET",
+      "url": "/api/topics/:id",
+      "access": "Authenticated users",
+      "headers": {
+        "Authorization": "Bearer {token}",
+        "Content-Type": "application/json"
+      },
+      "pathParams": {
+        "id": {
+          "type": "string",
+          "required": true,
+          "description": "Topic ID (MongoDB ObjectId)"
+        }
+      },
+      "example": "GET /api/topics/67890abcdef1234567890123",
+      "curlExample": "curl -X GET 'http://localhost:5000/api/topics/67890abcdef1234567890123' -H 'Authorization: Bearer YOUR_TOKEN'",
+      "response": {
+        "status": 200,
+        "success": true,
+        "data": "Topic object with populated department and createdBy"
+      },
+      "errorResponses": {
+        "404": {
+          "status": false,
+          "message": "Topic not found"
+        },
+        "500": {
+          "status": false,
+          "message": "Server error",
+          "error": "Error message"
+        }
+      }
+    },
+    "createTopic": {
+      "method": "POST",
+      "url": "/api/topics",
+      "access": "Admin, Coordinator",
+      "headers": {
+        "Authorization": "Bearer {token}",
+        "Content-Type": "application/json"
+      },
+      "requiredFields": {
+        "title": {
+          "type": "string",
+          "required": true,
+          "description": "Title of the topic"
+        },
+        "description": {
+          "type": "string",
+          "required": true,
+          "description": "Description/content of the topic"
+        },
+        "type": {
+          "type": "string",
+          "required": true,
+          "values": ["event", "scholarship", "notification", "job", "advertisement", "internship", "recruitment", "volunteer", "extracurricular"],
+          "description": "Type of topic"
+        }
+      },
+      "typeSpecificRequired": {
+        "event": ["startDate", "endDate"],
+        "scholarship": ["applicationDeadline"]
+      },
+      "optionalFields": {
+        "department": {
+          "type": "string",
+          "description": "Department ID (ObjectId). Null for general topics. Coordinators can only create for their own department."
+        },
+        "startDate": {
+          "type": "string",
+          "format": "ISO 8601 date string",
+          "description": "Start date/time"
+        },
+        "endDate": {
+          "type": "string",
+          "format": "ISO 8601 date string",
+          "description": "End date/time"
+        },
+        "applicationDeadline": {
+          "type": "string",
+          "format": "ISO 8601 date string",
+          "description": "Application deadline"
+        },
+        "location": {
+          "type": "string",
+          "description": "Location (for events, volunteer, extracurricular)"
+        },
+        "organizer": {
+          "type": "string",
+          "description": "Organizer name (for events, extracurricular)"
+        },
+        "requirements": {
+          "type": "string",
+          "description": "Requirements (for scholarships)"
+        },
+        "value": {
+          "type": "string",
+          "description": "Value/amount (for scholarships)"
+        },
+        "provider": {
+          "type": "string",
+          "description": "Provider organization (for scholarships)"
+        },
+        "eligibility": {
+          "type": "string",
+          "description": "Eligibility criteria (for scholarships)"
+        },
+        "applicationProcess": {
+          "type": "string",
+          "description": "Application process (for scholarships)"
+        },
+        "isImportant": {
+          "type": "boolean",
+          "default": false,
+          "description": "Mark as important (for notifications)"
+        },
+        "company": {
+          "type": "string",
+          "description": "Company name (for job, internship, recruitment)"
+        },
+        "salary": {
+          "type": "string",
+          "description": "Salary range (for job)"
+        },
+        "position": {
+          "type": "string",
+          "description": "Position title (for job, internship)"
+        },
+        "contactInfo": {
+          "type": "string",
+          "description": "Contact information"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Additional metadata (any JSON object)"
+        }
+      },
+      "example": "POST /api/topics",
+      "curlExample": "curl -X POST 'http://localhost:5000/api/topics' -H 'Authorization: Bearer YOUR_TOKEN' -H 'Content-Type: application/json' -d '{...payload...}'",
+      "response": {
+        "status": 201,
+        "success": true,
+        "message": "New topic created",
+        "data": "Created topic object"
+      },
+      "errorResponses": {
+        "400": {
+          "status": false,
+          "messages": [
+            "Invalid type. Allowed types: event, scholarship, notification, job, advertisement, internship, recruitment, volunteer, extracurricular",
+            "Start date and end date are required for events",
+            "End date must be after start date",
+            "Application deadline is required for scholarships",
+            "Department not found"
+          ]
+        },
+        "401": {
+          "status": false,
+          "message": "No token, access denied"
+        },
+        "403": {
+          "status": false,
+          "message": "No permission to create topics for other departments"
+        },
+        "500": {
+          "status": false,
+          "message": "Server error",
+          "error": "Error message"
+        }
+      }
+    },
+    "updateTopic": {
+      "method": "PUT",
+      "url": "/api/topics/:id",
+      "access": "Admin, Coordinator",
+      "headers": {
+        "Authorization": "Bearer {token}",
+        "Content-Type": "application/json"
+      },
+      "pathParams": {
+        "id": {
+          "type": "string",
+          "required": true,
+          "description": "Topic ID (MongoDB ObjectId)"
+        }
+      },
+      "note": "All fields are optional. Only provided fields will be updated. Coordinators can only update topics from their own department. Only Admin can change department.",
+      "optionalFields": "Same as createTopic optionalFields",
+      "example": "PUT /api/topics/67890abcdef1234567890123",
+      "curlExample": "curl -X PUT 'http://localhost:5000/api/topics/67890abcdef1234567890123' -H 'Authorization: Bearer YOUR_TOKEN' -H 'Content-Type: application/json' -d '{...payload...}'",
+      "response": {
+        "status": 200,
+        "success": true,
+        "message": "Topic updated successfully",
+        "data": "Updated topic object"
+      },
+      "errorResponses": {
+        "400": {
+          "status": false,
+          "message": "End date must be after start date"
+        },
+        "401": {
+          "status": false,
+          "message": "No token, access denied"
+        },
+        "403": {
+          "status": false,
+          "messages": [
+            "No permission to update topics from other departments",
+            "No permission to update general topics, only Admin has permission",
+            "No permission to change the department of the topic"
+          ]
+        },
+        "404": {
+          "status": false,
+          "message": "Topic not found"
+        },
+        "500": {
+          "status": false,
+          "message": "Server error",
+          "error": "Error message"
+        }
+      }
+    },
+    "deleteTopic": {
+      "method": "DELETE",
+      "url": "/api/topics/:id",
+      "access": "Admin, Coordinator",
+      "headers": {
+        "Authorization": "Bearer {token}",
+        "Content-Type": "application/json"
+      },
+      "pathParams": {
+        "id": {
+          "type": "string",
+          "required": true,
+          "description": "Topic ID (MongoDB ObjectId)"
+        }
+      },
+      "note": "Coordinator can only delete topics from their own department. General topics can only be deleted by Admin. Automatically removes topic from all users' saved lists.",
+      "example": "DELETE /api/topics/67890abcdef1234567890123",
+      "curlExample": "curl -X DELETE 'http://localhost:5000/api/topics/67890abcdef1234567890123' -H 'Authorization: Bearer YOUR_TOKEN'",
+      "response": {
+        "status": 200,
+        "success": true,
+        "message": "Topic deleted successfully"
+      },
+      "errorResponses": {
+        "401": {
+          "status": false,
+          "message": "No token, access denied"
+        },
+        "403": {
+          "status": false,
+          "message": "No permission to delete topics from other departments",
+          "or": "No permission to delete general topics, only Admin has permission"
+        },
+        "404": {
+          "status": false,
+          "message": "Topic not found"
+        },
+        "500": {
+          "status": false,
+          "message": "Server error",
+          "error": "Error message"
+        }
+      }
+    },
+    "saveTopic": {
+      "method": "PUT",
+      "url": "/api/topics/:id/save",
+      "access": "Authenticated users",
+      "headers": {
+        "Authorization": "Bearer {token}",
+        "Content-Type": "application/json"
+      },
+      "pathParams": {
+        "id": {
+          "type": "string",
+          "required": true,
+          "description": "Topic ID (MongoDB ObjectId)"
+        }
+      },
+      "note": "Adds topic to user's saved topics list. If already saved, does nothing.",
+      "example": "PUT /api/topics/67890abcdef1234567890123/save",
+      "curlExample": "curl -X PUT 'http://localhost:5000/api/topics/67890abcdef1234567890123/save' -H 'Authorization: Bearer YOUR_TOKEN'",
+      "response": {
+        "status": 200,
+        "success": true,
+        "message": "Topic saved to favorites"
+      },
+      "errorResponses": {
+        "401": {
+          "status": false,
+          "message": "No token, access denied"
+        },
+        "404": {
+          "status": false,
+          "message": "Topic not found"
+        },
+        "500": {
+          "status": false,
+          "message": "Server error",
+          "error": "Error message"
+        }
+      }
+    },
+    "unsaveTopic": {
+      "method": "PUT",
+      "url": "/api/topics/:id/unsave",
+      "access": "Authenticated users",
+      "headers": {
+        "Authorization": "Bearer {token}",
+        "Content-Type": "application/json"
+      },
+      "pathParams": {
+        "id": {
+          "type": "string",
+          "required": true,
+          "description": "Topic ID (MongoDB ObjectId)"
+        }
+      },
+      "note": "Removes topic from user's saved topics list.",
+      "example": "PUT /api/topics/67890abcdef1234567890123/unsave",
+      "curlExample": "curl -X PUT 'http://localhost:5000/api/topics/67890abcdef1234567890123/unsave' -H 'Authorization: Bearer YOUR_TOKEN'",
+      "response": {
+        "status": 200,
+        "success": true,
+        "message": "Topic removed from favorites"
+      },
+      "errorResponses": {
+        "401": {
+          "status": false,
+          "message": "No token, access denied"
+        },
+        "404": {
+          "status": false,
+          "message": "Topic not found"
+        },
+        "500": {
+          "status": false,
+          "message": "Server error",
+          "error": "Error message"
+        }
+      }
+    },
+    "getSavedTopics": {
+      "method": "GET",
+      "url": "/api/topics/saved",
+      "access": "Authenticated users",
+      "headers": {
+        "Authorization": "Bearer {token}",
+        "Content-Type": "application/json"
+      },
+      "queryParams": {
+        "page": {
+          "type": "number",
+          "optional": true,
+          "default": 1,
+          "description": "Page number for pagination"
+        },
+        "limit": {
+          "type": "number",
+          "optional": true,
+          "default": 10,
+          "description": "Number of items per page"
+        }
+      },
+      "note": "Returns topics saved by the authenticated user. Sorted by saved order.",
+      "example": "GET /api/topics/saved?page=1&limit=10",
+      "curlExample": "curl -X GET 'http://localhost:5000/api/topics/saved?page=1&limit=10' -H 'Authorization: Bearer YOUR_TOKEN'",
+      "response": {
+        "status": 200,
+        "success": true,
+        "data": "Array of saved topics with populated department and createdBy",
+        "total": "Total number of saved topics",
+        "page": "Current page number",
+        "limit": "Items per page",
+        "totalPages": "Total number of pages"
+      },
+      "errorResponses": {
+        "401": {
+          "status": false,
+          "message": "No token, access denied"
+        },
+        "500": {
+          "status": false,
+          "message": "Server error",
+          "error": "Error message"
+        }
+      }
+    }
+  },
+  "fieldDescriptions": {
+    "commonFields": {
+      "title": "Title of the topic (required)",
+      "description": "Description/content of the topic (required)",
+      "type": "Type of topic - must be one of: event, scholarship, notification, job, advertisement, internship, recruitment, volunteer, extracurricular (required)",
+      "department": "Department ID (ObjectId) - optional, null for general topics",
+      "createdBy": "User ID who created the topic (automatically set)"
+    },
+    "eventSpecificFields": {
+      "startDate": "Event start date and time",
+      "endDate": "Event end date and time (must be after startDate)",
+      "location": "Event location",
+      "organizer": "Event organizer name"
+    },
+    "scholarshipSpecificFields": {
+      "requirements": "Scholarship requirements",
+      "value": "Scholarship value/amount",
+      "applicationDeadline": "Application deadline date",
+      "provider": "Scholarship provider organization",
+      "eligibility": "Eligibility criteria",
+      "applicationProcess": "Application process description"
+    },
+    "notificationSpecificFields": {
+      "startDate": "Notification start date",
+      "endDate": "Notification end date (optional)",
+      "isImportant": "Boolean - mark as important notification"
+    },
+    "jobSpecificFields": {
+      "company": "Company name",
+      "position": "Job position title",
+      "salary": "Salary range",
+      "contactInfo": "Contact information",
+      "applicationDeadline": "Application deadline"
+    },
+    "advertisementSpecificFields": {
+      "startDate": "Advertisement start date",
+      "endDate": "Advertisement end date",
+      "contactInfo": "Contact information"
+    },
+    "internshipSpecificFields": {
+      "company": "Company name",
+      "position": "Internship position",
+      "startDate": "Internship start date",
+      "endDate": "Internship end date",
+      "contactInfo": "Contact information",
+      "applicationDeadline": "Application deadline"
+    },
+    "recruitmentSpecificFields": {
+      "company": "Company name",
+      "contactInfo": "Contact information",
+      "applicationDeadline": "Application deadline"
+    },
+    "volunteerSpecificFields": {
+      "startDate": "Volunteer activity start date",
+      "endDate": "Volunteer activity end date",
+      "location": "Activity location",
+      "contactInfo": "Contact information"
+    },
+    "extracurricularSpecificFields": {
+      "startDate": "Activity start date and time",
+      "endDate": "Activity end date and time",
+      "location": "Activity location",
+      "organizer": "Activity organizer"
+    }
+  },
+  "validationRules": {
+    "event": {
+      "required": ["title", "description", "type", "startDate", "endDate"],
+      "dateValidation": "endDate must be after startDate"
+    },
+    "scholarship": {
+      "required": ["title", "description", "type", "applicationDeadline"]
+    },
+    "notification": {
+      "required": ["title", "description", "type"]
+    },
+    "job": {
+      "required": ["title", "description", "type"]
+    },
+    "advertisement": {
+      "required": ["title", "description", "type"]
+    },
+    "internship": {
+      "required": ["title", "description", "type"]
+    },
+    "recruitment": {
+      "required": ["title", "description", "type"]
+    },
+    "volunteer": {
+      "required": ["title", "description", "type"]
+    },
+    "extracurricular": {
+      "required": ["title", "description", "type"]
+    }
+  },
+  "typescriptTypes": {
+    "TopicType": "\"event\" | \"scholarship\" | \"notification\" | \"job\" | \"advertisement\" | \"internship\" | \"recruitment\" | \"volunteer\" | \"extracurricular\"",
+    "Topic": "{\n  _id: string;\n  title: string;\n  description: string;\n  type: TopicType;\n  department?: {\n    _id: string;\n    name: string;\n    code: string;\n  } | null;\n  createdBy: {\n    _id: string;\n    name: string;\n    role: string;\n  };\n  startDate?: string;\n  endDate?: string;\n  applicationDeadline?: string;\n  location?: string;\n  organizer?: string;\n  requirements?: string;\n  value?: string;\n  provider?: string;\n  eligibility?: string;\n  applicationProcess?: string;\n  isImportant?: boolean;\n  company?: string;\n  salary?: string;\n  position?: string;\n  contactInfo?: string;\n  metadata?: Record<string, any>;\n  createdAt: string;\n  updatedAt: string;\n}",
+    "TopicListResponse": "{\n  status: boolean;\n  message: string;\n  data: Topic[];\n  total: number;\n  page: number;\n  limit: number;\n  totalPages: number;\n  errors: Record<string, any>;\n  timestamp: string;\n}",
+    "CreateTopicPayload": "{\n  title: string;\n  description: string;\n  type: TopicType;\n  department?: string | null;\n  startDate?: string;\n  endDate?: string;\n  applicationDeadline?: string;\n  location?: string;\n  organizer?: string;\n  requirements?: string;\n  value?: string;\n  provider?: string;\n  eligibility?: string;\n  applicationProcess?: string;\n  isImportant?: boolean;\n  company?: string;\n  salary?: string;\n  position?: string;\n  contactInfo?: string;\n  metadata?: Record<string, any>;\n}",
+    "UpdateTopicPayload": "Partial<CreateTopicPayload>",
+    "ApiResponse": "<T> = {\n  status: boolean;\n  message: string;\n  data: T;\n  errors?: Record<string, any>;\n  timestamp: string;\n}",
+    "PaginationResponse": "<T> = ApiResponse<T> & {\n  total: number;\n  page: number;\n  limit: number;\n  totalPages: number;\n}"
+  },
+  "reactHookExamples": {
+    "useTopics": "import { useState, useEffect } from 'react';\n\ninterface UseTopicsFilters {\n  type?: TopicType;\n  department?: string;\n}\n\ninterface UseTopicsReturn {\n  topics: Topic[];\n  loading: boolean;\n  error: string | null;\n  pagination: {\n    page: number;\n    limit: number;\n    total: number;\n    totalPages: number;\n  };\n  setPagination: (pagination: { page: number; limit: number }) => void;\n  refetch: () => void;\n}\n\nconst useTopics = (filters: UseTopicsFilters = {}): UseTopicsReturn => {\n  const [topics, setTopics] = useState<Topic[]>([]);\n  const [loading, setLoading] = useState(true);\n  const [error, setError] = useState<string | null>(null);\n  const [pagination, setPagination] = useState({\n    page: 1,\n    limit: 10,\n    total: 0,\n    totalPages: 0\n  });\n\n  const fetchTopics = async () => {\n    try {\n      setLoading(true);\n      setError(null);\n      const params = new URLSearchParams({\n        page: pagination.page.toString(),\n        limit: pagination.limit.toString(),\n        ...(filters.type && { type: filters.type }),\n        ...(filters.department && { department: filters.department })\n      });\n      \n      const token = localStorage.getItem('token');\n      const response = await fetch(`/api/topics?${params}`, {\n        headers: { Authorization: `Bearer ${token}` }\n      });\n      \n      if (!response.ok) throw new Error('Failed to fetch topics');\n      \n      const data: TopicListResponse = await response.json();\n      setTopics(data.data);\n      setPagination({\n        page: data.page,\n        limit: data.limit,\n        total: data.total,\n        totalPages: data.totalPages\n      });\n    } catch (err) {\n      setError(err instanceof Error ? err.message : 'Unknown error');\n    } finally {\n      setLoading(false);\n    }\n  };\n\n  useEffect(() => {\n    fetchTopics();\n  }, [filters.type, filters.department, pagination.page, pagination.limit]);\n\n  return {\n    topics,\n    loading,\n    error,\n    pagination,\n    setPagination,\n    refetch: fetchTopics\n  };\n};",
+    "useCreateTopic": "import { useState } from 'react';\n\ninterface UseCreateTopicReturn {\n  createTopic: (payload: CreateTopicPayload) => Promise<Topic>;\n  loading: boolean;\n  error: string | null;\n}\n\nconst useCreateTopic = (): UseCreateTopicReturn => {\n  const [loading, setLoading] = useState(false);\n  const [error, setError] = useState<string | null>(null);\n\n  const createTopic = async (payload: CreateTopicPayload): Promise<Topic> => {\n    try {\n      setLoading(true);\n      setError(null);\n      \n      const token = localStorage.getItem('token');\n      const response = await fetch('/api/topics', {\n        method: 'POST',\n        headers: {\n          'Content-Type': 'application/json',\n          Authorization: `Bearer ${token}`\n        },\n        body: JSON.stringify(payload)\n      });\n      \n      const data: ApiResponse<Topic> = await response.json();\n      \n      if (!data.status) throw new Error(data.message);\n      \n      return data.data;\n    } catch (err) {\n      const errorMessage = err instanceof Error ? err.message : 'Unknown error';\n      setError(errorMessage);\n      throw err;\n    } finally {\n      setLoading(false);\n    }\n  };\n\n  return { createTopic, loading, error };\n};",
+    "useUpdateTopic": "import { useState } from 'react';\n\ninterface UseUpdateTopicReturn {\n  updateTopic: (id: string, payload: UpdateTopicPayload) => Promise<Topic>;\n  loading: boolean;\n  error: string | null;\n}\n\nconst useUpdateTopic = (): UseUpdateTopicReturn => {\n  const [loading, setLoading] = useState(false);\n  const [error, setError] = useState<string | null>(null);\n\n  const updateTopic = async (id: string, payload: UpdateTopicPayload): Promise<Topic> => {\n    try {\n      setLoading(true);\n      setError(null);\n      \n      const token = localStorage.getItem('token');\n      const response = await fetch(`/api/topics/${id}`, {\n        method: 'PUT',\n        headers: {\n          'Content-Type': 'application/json',\n          Authorization: `Bearer ${token}`\n        },\n        body: JSON.stringify(payload)\n      });\n      \n      const data: ApiResponse<Topic> = await response.json();\n      \n      if (!data.status) throw new Error(data.message);\n      \n      return data.data;\n    } catch (err) {\n      const errorMessage = err instanceof Error ? err.message : 'Unknown error';\n      setError(errorMessage);\n      throw err;\n    } finally {\n      setLoading(false);\n    }\n  };\n\n  return { updateTopic, loading, error };\n};",
+    "useDeleteTopic": "import { useState } from 'react';\n\ninterface UseDeleteTopicReturn {\n  deleteTopic: (id: string) => Promise<void>;\n  loading: boolean;\n  error: string | null;\n}\n\nconst useDeleteTopic = (): UseDeleteTopicReturn => {\n  const [loading, setLoading] = useState(false);\n  const [error, setError] = useState<string | null>(null);\n\n  const deleteTopic = async (id: string): Promise<void> => {\n    try {\n      setLoading(true);\n      setError(null);\n      \n      const token = localStorage.getItem('token');\n      const response = await fetch(`/api/topics/${id}`, {\n        method: 'DELETE',\n        headers: { Authorization: `Bearer ${token}` }\n      });\n      \n      const data: ApiResponse<null> = await response.json();\n      \n      if (!data.status) throw new Error(data.message);\n    } catch (err) {\n      const errorMessage = err instanceof Error ? err.message : 'Unknown error';\n      setError(errorMessage);\n      throw err;\n    } finally {\n      setLoading(false);\n    }\n  };\n\n  return { deleteTopic, loading, error };\n};",
+    "useSaveTopic": "import { useState } from 'react';\n\ninterface UseSaveTopicReturn {\n  saveTopic: (id: string) => Promise<void>;\n  loading: boolean;\n  error: string | null;\n}\n\nconst useSaveTopic = (): UseSaveTopicReturn => {\n  const [loading, setLoading] = useState(false);\n  const [error, setError] = useState<string | null>(null);\n\n  const saveTopic = async (id: string): Promise<void> => {\n    try {\n      setLoading(true);\n      setError(null);\n      \n      const token = localStorage.getItem('token');\n      const response = await fetch(`/api/topics/${id}/save`, {\n        method: 'PUT',\n        headers: { Authorization: `Bearer ${token}` }\n      });\n      \n      const data: ApiResponse<null> = await response.json();\n      \n      if (!data.status) throw new Error(data.message);\n    } catch (err) {\n      const errorMessage = err instanceof Error ? err.message : 'Unknown error';\n      setError(errorMessage);\n      throw err;\n    } finally {\n      setLoading(false);\n    }\n  };\n\n  return { saveTopic, loading, error };\n};",
+    "useUnsaveTopic": "import { useState } from 'react';\n\ninterface UseUnsaveTopicReturn {\n  unsaveTopic: (id: string) => Promise<void>;\n  loading: boolean;\n  error: string | null;\n}\n\nconst useUnsaveTopic = (): UseUnsaveTopicReturn => {\n  const [loading, setLoading] = useState(false);\n  const [error, setError] = useState<string | null>(null);\n\n  const unsaveTopic = async (id: string): Promise<void> => {\n    try {\n      setLoading(true);\n      setError(null);\n      \n      const token = localStorage.getItem('token');\n      const response = await fetch(`/api/topics/${id}/unsave`, {\n        method: 'PUT',\n        headers: { Authorization: `Bearer ${token}` }\n      });\n      \n      const data: ApiResponse<null> = await response.json();\n      \n      if (!data.status) throw new Error(data.message);\n    } catch (err) {\n      const errorMessage = err instanceof Error ? err.message : 'Unknown error';\n      setError(errorMessage);\n      throw err;\n    } finally {\n      setLoading(false);\n    }\n  };\n\n  return { unsaveTopic, loading, error };\n};",
+    "useSavedTopics": "import { useState, useEffect } from 'react';\n\ninterface UseSavedTopicsReturn {\n  topics: Topic[];\n  loading: boolean;\n  error: string | null;\n  pagination: {\n    page: number;\n    limit: number;\n    total: number;\n    totalPages: number;\n  };\n  setPagination: (pagination: { page: number; limit: number }) => void;\n  refetch: () => void;\n}\n\nconst useSavedTopics = (): UseSavedTopicsReturn => {\n  const [topics, setTopics] = useState<Topic[]>([]);\n  const [loading, setLoading] = useState(true);\n  const [error, setError] = useState<string | null>(null);\n  const [pagination, setPagination] = useState({\n    page: 1,\n    limit: 10,\n    total: 0,\n    totalPages: 0\n  });\n\n  const fetchSavedTopics = async () => {\n    try {\n      setLoading(true);\n      setError(null);\n      \n      const params = new URLSearchParams({\n        page: pagination.page.toString(),\n        limit: pagination.limit.toString()\n      });\n      \n      const token = localStorage.getItem('token');\n      const response = await fetch(`/api/topics/saved?${params}`, {\n        headers: { Authorization: `Bearer ${token}` }\n      });\n      \n      if (!response.ok) throw new Error('Failed to fetch saved topics');\n      \n      const data: TopicListResponse = await response.json();\n      setTopics(data.data);\n      setPagination({\n        page: data.page,\n        limit: data.limit,\n        total: data.total,\n        totalPages: data.totalPages\n      });\n    } catch (err) {\n      setError(err instanceof Error ? err.message : 'Unknown error');\n    } finally {\n      setLoading(false);\n    }\n  };\n\n  useEffect(() => {\n    fetchSavedTopics();\n  }, [pagination.page, pagination.limit]);\n\n  return {\n    topics,\n    loading,\n    error,\n    pagination,\n    setPagination,\n    refetch: fetchSavedTopics\n  };\n};",
+    "useTopicById": "import { useState, useEffect } from 'react';\n\ninterface UseTopicByIdReturn {\n  topic: Topic | null;\n  loading: boolean;\n  error: string | null;\n  refetch: () => void;\n}\n\nconst useTopicById = (id: string): UseTopicByIdReturn => {\n  const [topic, setTopic] = useState<Topic | null>(null);\n  const [loading, setLoading] = useState(true);\n  const [error, setError] = useState<string | null>(null);\n\n  const fetchTopic = async () => {\n    try {\n      setLoading(true);\n      setError(null);\n      \n      const token = localStorage.getItem('token');\n      const response = await fetch(`/api/topics/${id}`, {\n        headers: { Authorization: `Bearer ${token}` }\n      });\n      \n      if (!response.ok) throw new Error('Failed to fetch topic');\n      \n      const data: ApiResponse<Topic> = await response.json();\n      setTopic(data.data);\n    } catch (err) {\n      setError(err instanceof Error ? err.message : 'Unknown error');\n    } finally {\n      setLoading(false);\n    }\n  };\n\n  useEffect(() => {\n    if (id) fetchTopic();\n  }, [id]);\n\n  return { topic, loading, error, refetch: fetchTopic };\n};"
+  },
+  "axiosExamples": {
+    "getAllTopics": "import axios from 'axios';\n\nconst getAllTopics = async (filters = {}) => {\n  const token = localStorage.getItem('token');\n  const response = await axios.get('/api/topics', {\n    params: filters,\n    headers: { Authorization: `Bearer ${token}` }\n  });\n  return response.data;\n};",
+    "createTopic": "import axios from 'axios';\n\nconst createTopic = async (payload) => {\n  const token = localStorage.getItem('token');\n  const response = await axios.post('/api/topics', payload, {\n    headers: {\n      'Content-Type': 'application/json',\n      Authorization: `Bearer ${token}`\n    }\n  });\n  return response.data;\n};",
+    "updateTopic": "import axios from 'axios';\n\nconst updateTopic = async (id, payload) => {\n  const token = localStorage.getItem('token');\n  const response = await axios.put(`/api/topics/${id}`, payload, {\n    headers: {\n      'Content-Type': 'application/json',\n      Authorization: `Bearer ${token}`\n    }\n  });\n  return response.data;\n};",
+    "deleteTopic": "import axios from 'axios';\n\nconst deleteTopic = async (id) => {\n  const token = localStorage.getItem('token');\n  const response = await axios.delete(`/api/topics/${id}`, {\n    headers: { Authorization: `Bearer ${token}` }\n  });\n  return response.data;\n};"
+  },
+  "baseUrl": "http://localhost:5000",
+  "authentication": {
+    "type": "Bearer Token",
+    "header": "Authorization: Bearer {token}",
+    "note": "Get token from /api/auth/login endpoint. Store token in localStorage or state management."
+  },
+  "commonErrorCodes": {
+    "400": "Bad Request - Invalid input data",
+    "401": "Unauthorized - Missing or invalid token",
+    "403": "Forbidden - Insufficient permissions",
+    "404": "Not Found - Resource not found",
+    "500": "Internal Server Error - Server error occurred"
+  }
+}
+

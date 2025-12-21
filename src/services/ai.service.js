@@ -2,7 +2,7 @@ import dotenv from 'dotenv';
 import fetch from 'node-fetch';
 import Dataset from '../models/dataset.model.js';
 import AITraining from '../models/aiTraining.model.js';
-import Scholarship from '../models/scholarship.model.js';
+import Topic from '../models/topic.model.js';
 dotenv.config();
 
 const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY
@@ -12,19 +12,19 @@ const SITE_NAME = process.env.SITE_NAME || 'Student Information System';
 
 async function getScholarshipContext(departmentId = null, userQuestion = null) {
   try {
-    const query = {};
+    const query = { type: 'scholarship' };
     if (departmentId) {
       query.$or = [
         { department: departmentId },
-        { department: null } // Học bổng chung
+        { department: null } // General scholarships
       ];
     }
 
-    // Chỉ lấy học bổng chưa hết hạn đăng ký
+    // Only get scholarships that haven't expired
     const now = new Date();
     query.applicationDeadline = { $gt: now };
 
-    const scholarships = await Scholarship.find(query)
+    const scholarships = await Topic.find(query)
       .populate('department', 'name code')
       .sort({ applicationDeadline: 1 });
 
