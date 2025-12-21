@@ -11,11 +11,25 @@ export const getAllDepartments = async (req, res) => {
     const page = parseInt(req.query.page) || 1;
     const limit = parseInt(req.query.limit) || 10;
     const skip = (page - 1) * limit;
+    const { hasCoordinator } = req.query;
 
-    const total = await Department.countDocuments();
-    const departments = await Department.find()
+    const filter = {};
+    if (hasCoordinator !== undefined) {
+      const hasCoordinatorBool = hasCoordinator === 'true';
+      if (hasCoordinatorBool) {
+        filter.coordinator = { $exists: true, $ne: null };
+      } else {
+        filter.$or = [
+          { coordinator: { $exists: false } },
+          { coordinator: null }
+        ];
+      }
+    }
+
+    const total = await Department.countDocuments(filter);
+    const departments = await Department.find(filter)
       .populate('coordinator', 'name email')
-      .sort({ name: 1 })
+      .sort({ createdAt: -1 })
       .skip(skip)
       .limit(limit);
     

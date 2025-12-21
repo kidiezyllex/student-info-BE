@@ -1,6 +1,12 @@
 1. Quản lý User 
-- Các chức năng CURD
+- Các chức năng CURD (Xem, Xóa, Cập nhật, Thêm mới)
 - Lọc theo Department
 - Lọc theo Role
 - Tìm kiếm
 - Upload ảnh đại diện
+
+2. Quản lý Department 
+- Các chức năng CURD
+- Lọc danh sách Department chưa có Coordinator hoặc đã có
+- Tìm kiếm
+- Tạo Department trước --> Tạo Coordinator sau --> Select Department vừa tạo cho Coordinator sắp tạo

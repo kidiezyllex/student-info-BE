@@ -1,4 +1,5 @@
 import User from '../models/user.model.js';
+import Department from '../models/department.model.js';
 
 /**
  * @desc    Get all users
@@ -29,6 +30,7 @@ export const getUsers = async (req, res) => {
     const users = await User.find(filter)
       .populate('department', 'name code')
       .select('-password')
+      .sort({ createdAt: -1 })
       .skip(skip)
       .limit(limit);
     
@@ -84,6 +86,15 @@ export const createUser = async (req, res) => {
     const user = await User.create(userData);
 
     if (user) {
+      // If user is a coordinator with a department, update department.coordinator
+      if (user.role === 'coordinator' && user.department) {
+        await Department.findByIdAndUpdate(
+          user.department,
+          { coordinator: user._id },
+          { new: true }
+        );
+      }
+
       // Populate department info
       await user.populate('department', 'name code');
       
@@ -197,6 +208,10 @@ export const updateUser = async (req, res) => {
       user.socialLinks = { ...user.socialLinks, ...req.body.socialLinks };
     }
 
+    // Store old values for department coordinator update
+    const oldDepartment = user.department;
+    const oldRole = user.role;
+
     // Only admin can change role and department
     if (req.user.role === 'admin') {
       if (req.body.role !== undefined) user.role = req.body.role;
@@ -205,6 +220,34 @@ export const updateUser = async (req, res) => {
     }
 
     const updatedUser = await user.save();
+    
+    // Update department coordinator references
+    const roleChanged = req.user.role === 'admin' && req.body.role !== undefined && req.body.role !== oldRole;
+    const departmentChanged = req.user.role === 'admin' && req.body.department !== undefined && req.body.department?.toString() !== oldDepartment?.toString();
+    
+    // If user was coordinator and role changed to non-coordinator, remove from old department
+    if (oldRole === 'coordinator' && roleChanged && updatedUser.role !== 'coordinator' && oldDepartment) {
+      await Department.findByIdAndUpdate(
+        oldDepartment,
+        { $unset: { coordinator: '' } }
+      );
+    }
+    
+    // If department changed and user was coordinator, remove from old department
+    if (oldRole === 'coordinator' && departmentChanged && oldDepartment) {
+      await Department.findByIdAndUpdate(
+        oldDepartment,
+        { $unset: { coordinator: '' } }
+      );
+    }
+    
+    // If user is coordinator (either was already or just became one), sync with department
+    if (updatedUser.role === 'coordinator' && updatedUser.department) {
+      await Department.findByIdAndUpdate(
+        updatedUser.department,
+        { coordinator: updatedUser._id }
+      );
+    }
     
     // Populate department info for response
     await updatedUser.populate('department', 'name code');
@@ -297,6 +340,14 @@ export const deleteUser = async (req, res) => {
       // Prevent deletion of admin users
       if (user.role === 'admin') {
         return res.status(400).json({ message: 'Cannot delete admin user' });
+      }
+
+      // If user is a coordinator, remove coordinator reference from department
+      if (user.role === 'coordinator' && user.department) {
+        await Department.findByIdAndUpdate(
+          user.department,
+          { $unset: { coordinator: '' } }
+        );
       }
 
       await User.deleteOne({ _id: user._id });
