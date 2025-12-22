@@ -7,9 +7,7 @@ const createTransporter = () => {
     throw new Error('SMTP credentials (EMAIL_USER / EMAIL_PASS) are not configured');
   }
 
-  // Try different SMTP configurations based on environment
   if (process.env.NODE_ENV === 'production') {
-    // Use Gmail with different port and settings for production
     return nodemailer.createTransport({
       service: 'gmail',
       host: 'smtp.gmail.com',
@@ -33,7 +31,6 @@ const createTransporter = () => {
       retryAttempts: 1
     });
   } else {
-    // Local development configuration
     return nodemailer.createTransport({
       service: 'gmail',
       host: 'smtp.gmail.com',
@@ -62,14 +59,12 @@ const createTransporter = () => {
 export const sendVerificationCode = async (email, name, code) => {
   const hasSmtpCreds = !!process.env.EMAIL_USER && !!process.env.EMAIL_PASS;
 
-  // In development, if no email provider is configured, don't block the flow
   if (process.env.NODE_ENV !== 'production' && !hasSmtpCreds) {
     console.warn('No email provider configured (SMTP).');
     console.warn(`Verification code for ${email}: ${code}`);
     return true;
   }
 
-  // Fallback to SMTP
   const maxRetries = 1;
   const totalTimeout = 20000;
   
@@ -85,7 +80,7 @@ export const sendVerificationCode = async (email, name, code) => {
   try {
     return await sendWithTimeout();
   } catch (error) {
-    return true; // Return true to allow the process to continue
+    return true;
   }
 };
 
@@ -111,15 +106,20 @@ const sendEmailAttempt = async (email, name, code, maxRetries) => {
         to: email,
         subject: 'Your verification code',
         html: `
-          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #ccc; padding: 24px; box-sizing: border-box;">
-            <div style="text-align: center; margin-bottom: 24px; background-color: #fff;">
-              <img src="https://res.cloudinary.com/drqbhj6ft/image/upload/v1766390178/vgu-logo_sjsk36.webp" alt="VGU" style="max-width: 180px; height: auto;">
+          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #ccc; border-radius: 8px; padding: 24px; box-sizing: border-box;">
+            <div style="text-align: center; margin: -24px -24px 24px -24px; padding: 16px 24px; background-color: #e67e22; border-radius: 8px 8px 0 0; color: #ffffff;">
+              <div style="font-size: 20px; font-weight: 700; letter-spacing: 1px;">
+                Vietnamese-German University
+              </div>
+              <div style="font-size: 12px; margin-top: 4px; opacity: 0.9;">
+                Student Information System
+              </div>
             </div>
             <h2 style="color: #d35400; margin: 0 0 12px 0;">Hello ${name},</h2>
             <p style="color: #333; margin: 0 0 12px 0; line-height: 1.5;">
               You requested a verification code to register your account. Your code is:
             </p>
-            <div style="background-color: #fff6ed; border: 1px solid #ccc; padding: 18px; text-align: center; margin: 16px 0;">
+            <div style="background-color: #fff6ed; border: 1px solid #ccc; border-radius: 8px; padding: 18px; text-align: center; margin: 16px 0;">
               <h1 style="color: #e67e22; font-size: 32px; margin: 0; letter-spacing: 6px;">${code}</h1>
             </div>
             <p style="color: #333; margin: 0 0 8px 0; line-height: 1.5;">
@@ -235,15 +235,20 @@ const sendPasswordResetAttempt = async (email, name, code, maxRetries) => {
         to: email,
         subject: 'Your password reset code',
         html: `
-          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #ccc; padding: 24px; box-sizing: border-box;">
-            <div style="text-align: center; margin-bottom: 24px;">
-              <img src="https://res.cloudinary.com/drqbhj6ft/image/upload/v1766389229/vgu-logo2_lx0wfw.webp" alt="VGU" style="max-width: 180px; height: auto;">
+          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #ccc; border-radius: 8px; padding: 24px; box-sizing: border-box;">
+            <div style="text-align: center; margin: -24px -24px 24px -24px; padding: 16px 24px; background-color: #e67e22; border-radius: 8px 8px 0 0; color: #ffffff;">
+              <div style="font-size: 20px; font-weight: 700; letter-spacing: 1px;">
+                Vietnamese-German University
+              </div>
+              <div style="font-size: 12px; margin-top: 4px; opacity: 0.9;">
+                Student Information System
+              </div>
             </div>
             <h2 style="color: #d35400; margin: 0 0 12px 0;">Hello ${name},</h2>
             <p style="color: #333; margin: 0 0 12px 0; line-height: 1.5;">
               You requested to reset your password. Your verification code is:
             </p>
-            <div style="background-color: #fff6ed; border: 1px solid #ccc; padding: 18px; text-align: center; margin: 16px 0;">
+            <div style="background-color: #fff6ed; border: 1px solid #ccc; border-radius: 8px; padding: 18px; text-align: center; margin: 16px 0;">
               <h1 style="color: #e67e22; font-size: 32px; margin: 0; letter-spacing: 6px;">${code}</h1>
             </div>
             <p style="color: #333; margin: 0 0 8px 0; line-height: 1.5;">

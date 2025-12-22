@@ -32,7 +32,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(morgan('dev'));
 app.use(responseMiddleware);
 
-// Request logging middleware
 app.use((req: Request, res: Response, next: NextFunction) => {
   const start = Date.now();
   const path = req.path;

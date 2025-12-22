@@ -24,47 +24,69 @@ export const login = async (req, res) => {
   try {
     const { email, password } = req.body;
 
+    const logLogin = (statusCode, payload) => {
+      try {
+        // Avoid logging sensitive password, only meta info
+        console.log('Login response:', {
+          email,
+          statusCode,
+          success: payload.success,
+          message: payload.message
+        });
+      } catch {}
+    };
+
     if (!email) {
-      return res.status(400).json({
+      const payload = {
         success: false,
         message: 'Email is required'
-      });
+      };
+      logLogin(400, payload);
+      return res.status(400).json(payload);
     }
 
     const user = await User.findOne({ email: email.toLowerCase() }).populate('department', 'name code');
 
     if (!user) {
-      return res.status(401).json({
+      const payload = {
         success: false,
         message: 'Invalid email or password'
-      });
+      };
+      logLogin(401, payload);
+      return res.status(401).json(payload);
     }
 
     const isPrivilegedRole = ['admin', 'coordinator'].includes(user.role);
 
     if (isPrivilegedRole) {
       if (!password) {
-        return res.status(400).json({
+        const payload = {
           success: false,
           message: 'Password is required for admin and coordinator'
-        });
+        };
+        logLogin(400, payload);
+        return res.status(400).json(payload);
       }
 
       const isPasswordValid = await user.matchPassword(password);
       if (!isPasswordValid) {
-        return res.status(401).json({
+        const payload = {
           success: false,
           message: 'Invalid email or password'
-        });
+        };
+        logLogin(401, payload);
+        return res.status(401).json(payload);
       }
     } else {
       if (password) {
         const isPasswordValid = await user.matchPassword(password);
         if (!isPasswordValid) {
-          return res.status(401).json({
+          const payload = {
             success: false,
             message: 'Invalid email or password'
-          });
+          };
+          logLogin(401, payload);
+          return res.status(401).json(payload);
         }
       } else {
         const now = new Date();
@@ -75,10 +97,12 @@ export const login = async (req, res) => {
         });
 
         if (!verifiedCode) {
-          return res.status(400).json({
+          const payload = {
             success: false,
             message: 'Verification code is required or has expired'
-          });
+          };
+          logLogin(400, payload);
+          return res.status(400).json(payload);
         }
 
         // Consume the verified code so it can't be reused
@@ -87,16 +111,18 @@ export const login = async (req, res) => {
     }
 
     if (!user.active) {
-      return res.status(401).json({
+      const payload = {
         success: false,
         message: 'Account is deactivated'
-      });
+      };
+      logLogin(401, payload);
+      return res.status(401).json(payload);
     }
 
     user.lastLogin = new Date();
     await user.save();
 
-    res.status(200).json({
+    const successPayload = {
       success: true,
       message: 'Login successful',
       data: {
@@ -110,13 +136,19 @@ export const login = async (req, res) => {
         avatar: user.avatar,
         token: generateToken(user._id)
       }
-    });
+    };
+    logLogin(200, successPayload);
+    res.status(200).json(successPayload);
   } catch (error) {
     console.error('Login error:', error);
-    res.status(500).json({
+    const payload = {
       success: false,
       message: 'Internal server error'
-    });
+    };
+    try {
+      console.log('Login response:', { email: req.body?.email, statusCode: 500, success: payload.success, message: payload.message });
+    } catch {}
+    res.status(500).json(payload);
   }
 };
 

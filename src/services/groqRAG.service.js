@@ -5,12 +5,8 @@ dotenv.config();
 
 const GROQ_API_KEY = process.env.GROQ_API_KEY;
 const GROQ_API_URL = 'https://api.groq.com/openai/v1/chat/completions';
-// Sử dụng Llama 3.1 70B - model mạnh mẽ cho RAG
 const GROQ_MODEL = 'llama-3.1-70b-versatile';
 
-/**
- * Synonyms and keyword expansion for English
- */
 const SYNONYMS = {
   'scholarship': ['scholarship', 'financial aid', 'grant', 'bursary', 'funding', 'tuition assistance'],
   'event': ['event', 'activity', 'program', 'workshop', 'seminar', 'conference'],
@@ -95,7 +91,7 @@ Return only JSON, no additional text.`
       body: JSON.stringify({
         model: GROQ_MODEL,
         messages: messages,
-        temperature: 0.3, // Lower for more consistent results
+        temperature: 0.3,
         max_tokens: 500,
         response_format: { type: 'json_object' }
       }),
@@ -112,7 +108,6 @@ Return only JSON, no additional text.`
       return null;
     }
 
-    // Parse JSON response - xử lý cả trường hợp có code block
     let cleanText = analysisText.trim();
     if (cleanText.startsWith('```json')) {
       cleanText = cleanText.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();
@@ -134,16 +129,12 @@ Return only JSON, no additional text.`
   }
 }
 
-/**
- * Mở rộng từ khóa với từ đồng nghĩa
- */
 function expandKeywords(keywords) {
   const expanded = new Set(keywords);
   
   keywords.forEach(keyword => {
     const lowerKeyword = keyword.toLowerCase();
     
-    // Tìm từ đồng nghĩa
     for (const [key, synonyms] of Object.entries(SYNONYMS)) {
       if (lowerKeyword.includes(key) || synonyms.some(s => lowerKeyword.includes(s))) {
         synonyms.forEach(syn => expanded.add(syn));
@@ -155,10 +146,6 @@ function expandKeywords(keywords) {
   return Array.from(expanded);
 }
 
-/**
- * Tìm kiếm topics liên quan đến câu hỏi của người dùng
- * Sử dụng MongoDB text search và semantic matching với NLP enhancement
- */
 async function searchRelevantTopics(userQuestion, options = {}) {
   try {
     const { 
@@ -169,19 +156,16 @@ async function searchRelevantTopics(userQuestion, options = {}) {
       nlpAnalysis = null
     } = options;
 
-    // Bước 1: Phân tích NLP nếu chưa có
     let analysis = nlpAnalysis;
     if (!analysis) {
       analysis = await analyzeQuestionWithNLP(userQuestion);
     }
 
-    // Bước 2: Xác định type từ NLP analysis hoặc options
     let detectedType = type;
     if (!detectedType && analysis?.intent) {
       detectedType = KEYWORD_TO_TYPE[analysis.intent] || null;
     }
 
-    // Bước 3: Mở rộng từ khóa tìm kiếm
     let searchQuery = userQuestion;
     if (analysis?.expandedKeywords && analysis.expandedKeywords.length > 0) {
       const expanded = expandKeywords(analysis.expandedKeywords);
@@ -191,30 +175,25 @@ async function searchRelevantTopics(userQuestion, options = {}) {
       searchQuery = expanded.join(' ');
     }
 
-    // Bước 4: Xây dựng query tìm kiếm
     const query = {
       $text: { $search: searchQuery }
     };
 
-    // Lọc theo type nếu có (ưu tiên detected type từ NLP)
     if (detectedType) {
       query.type = detectedType;
     }
 
-    // Xây dựng điều kiện $and để kết hợp department và date filters
     const andConditions = [];
 
-    // Lọc theo department nếu có
     if (departmentId) {
       andConditions.push({
         $or: [
           { department: departmentId },
-          { department: null } // Topics chung
+          { department: null }
         ]
       });
     }
 
-    // Lọc theo thời gian nếu không muốn lấy expired
     if (!includeExpired) {
       const now = new Date();
       andConditions.push({
@@ -227,26 +206,22 @@ async function searchRelevantTopics(userQuestion, options = {}) {
       });
     }
 
-    // Thêm $and nếu có điều kiện
     if (andConditions.length > 0) {
       query.$and = andConditions;
     }
 
-    // Tìm kiếm với text index
     const topics = await Topic.find(query)
       .populate('department', 'name code')
       .populate('createdBy', 'name email')
       .sort({ score: { $meta: 'textScore' } })
       .limit(limit);
 
-    // Nếu không tìm thấy với text search, thử tìm kiếm mở rộng
     if (topics.length === 0) {
       const fallbackQuery = {};
       const fallbackAndConditions = [];
 
       if (type) fallbackQuery.type = type;
 
-      // Department filter
       if (departmentId) {
         fallbackAndConditions.push({
           $or: [
@@ -256,7 +231,6 @@ async function searchRelevantTopics(userQuestion, options = {}) {
         });
       }
 
-      // Date filter
       if (!includeExpired) {
         const now = new Date();
         fallbackAndConditions.push({
@@ -269,7 +243,6 @@ async function searchRelevantTopics(userQuestion, options = {}) {
         });
       }
 
-      // Tìm kiếm trong title và description
       const keywords = userQuestion.toLowerCase().split(/\s+/).filter(w => w.length > 2);
       if (keywords.length > 0) {
         fallbackAndConditions.push({
@@ -300,9 +273,6 @@ async function searchRelevantTopics(userQuestion, options = {}) {
   }
 }
 
-/**
- * Format topic data into context string for RAG
- */
 function formatTopicContext(topics) {
   if (!topics || topics.length === 0) {
     return 'No relevant information found in the system.';
@@ -326,7 +296,6 @@ function formatTopicContext(topics) {
     context += `Description: ${topic.description}\n`;
     context += `Department: ${deptName}\n`;
 
-    // Add information based on topic type
     if (topic.startDate) {
       context += `Start Date: ${new Date(topic.startDate).toLocaleDateString('en-US')}\n`;
     }
@@ -380,9 +349,6 @@ function formatTopicContext(topics) {
   }).join('\n');
 }
 
-/**
- * Gọi Groq API với RAG context
- */
 async function queryGroqAPI(messages) {
   try {
     if (!GROQ_API_KEY) {
@@ -430,9 +396,7 @@ async function queryGroqAPI(messages) {
   }
 }
 
-/**
- * Hàm chính: Xử lý câu hỏi với RAG từ Topic data
- */
+
 export async function askWithRAG(userQuestion, chatHistory = [], options = {}) {
   try {
     const {
@@ -442,22 +406,18 @@ export async function askWithRAG(userQuestion, chatHistory = [], options = {}) {
       includeExpired = false
     } = options;
 
-    // Bước 1: Phân tích câu hỏi với NLP
     const nlpAnalysis = await analyzeQuestionWithNLP(userQuestion);
     
-    // Bước 2: Tìm kiếm topics liên quan (với NLP enhancement)
     const relevantTopics = await searchRelevantTopics(userQuestion, {
       type,
       departmentId,
       limit,
       includeExpired,
-      nlpAnalysis // Truyền analysis để tránh gọi lại
+      nlpAnalysis
     });
 
-    // Bước 2: Format context từ topics
     const topicContext = formatTopicContext(relevantTopics);
 
-    // Step 3: Build system prompt with RAG context
     const systemPrompt = {
       role: 'system',
       content: `You are an intelligent assistant specialized in helping students search for information about events, scholarships, notifications, job opportunities, internships, and other activities at the school.
@@ -478,7 +438,6 @@ RESPONSE RULES:
 Answer the user's question in the most helpful and accurate way possible.`
     };
 
-    // Step 5: Build messages array
     const messages = [
       systemPrompt,
       ...chatHistory.map(msg => ({
@@ -488,7 +447,6 @@ Answer the user's question in the most helpful and accurate way possible.`
       { role: 'user', content: userQuestion }
     ];
 
-    // Step 6: Call Groq API
     const aiResponse = await queryGroqAPI(messages);
 
     return {
@@ -528,25 +486,21 @@ export async function searchTopicsAdvanced(query, filters = {}) {
       departmentId = null,
       limit = 20,
       includeExpired = false,
-      sortBy = 'relevance' // 'relevance', 'date', 'title'
+      sortBy = 'relevance'
     } = filters;
 
     const searchQuery = {};
     
-    // Text search
     if (query && query.trim()) {
       searchQuery.$text = { $search: query };
     }
 
-    // Type filter
     if (type) {
       searchQuery.type = type;
     }
 
-    // Xây dựng điều kiện $and để kết hợp department và date filters
     const andConditions = [];
 
-    // Department filter
     if (departmentId) {
       andConditions.push({
         $or: [
@@ -556,7 +510,6 @@ export async function searchTopicsAdvanced(query, filters = {}) {
       });
     }
 
-    // Date filter
     if (!includeExpired) {
       const now = new Date();
       andConditions.push({
@@ -569,7 +522,6 @@ export async function searchTopicsAdvanced(query, filters = {}) {
       });
     }
 
-    // Thêm $and nếu có điều kiện
     if (andConditions.length > 0) {
       searchQuery.$and = andConditions;
     }

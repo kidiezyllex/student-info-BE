@@ -5,7 +5,6 @@ import { setupSwagger } from "./config/swagger.js";
 import { errorHandler, notFound } from "./middlewares/error.middleware.js";
 import { Request, Response } from "express";
 
-// Import routes
 import authRoutes from "./routes/auth.routes.js";
 import userRoutes from "./routes/user.routes.js";
 import departmentRoutes from "./routes/department.routes.js";
@@ -29,7 +28,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
     app.use("/api/topics", topicRoutes);
     setupSwagger(app);
     
-    // Root endpoint
     app.get("/", (req: Request, res: Response) => {
       res.status(200).json({ 
         message: "Student Information System API",
