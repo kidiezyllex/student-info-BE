@@ -112,8 +112,8 @@ const sendEmailAttempt = async (email, name, code, maxRetries) => {
         subject: 'Your verification code',
         html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #ccc; padding: 24px; box-sizing: border-box;">
-            <div style="text-align: center; margin-bottom: 24px;">
-              <img src="https://res.cloudinary.com/drqbhj6ft/image/upload/v1766389229/vgu-logo2_lx0wfw.webp" alt="VGU" style="max-width: 180px; height: auto;">
+            <div style="text-align: center; margin-bottom: 24px; background-color: #fff;">
+              <img src="https://res.cloudinary.com/drqbhj6ft/image/upload/v1766390178/vgu-logo_sjsk36.webp" alt="VGU" style="max-width: 180px; height: auto;">
             </div>
             <h2 style="color: #d35400; margin: 0 0 12px 0;">Hello ${name},</h2>
             <p style="color: #333; margin: 0 0 12px 0; line-height: 1.5;">

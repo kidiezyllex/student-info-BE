@@ -198,3 +198,75 @@ export const sendPasswordReset = async (req, res) => {
     });
   }
 };
+
+/**
+ * @desc    Reset password using verified code
+ * @route   POST /api/verification/reset-password
+ * @access  Public
+ */
+export const resetPassword = async (req, res) => {
+  try {
+    const { email, code, newPassword, confirmPassword } = req.body;
+
+    if (!email || !code || !newPassword || !confirmPassword) {
+      return res.status(400).json({
+        success: false,
+        message: 'Email, code and new password are required'
+      });
+    }
+
+    if (newPassword !== confirmPassword) {
+      return res.status(400).json({
+        success: false,
+        message: 'Password confirmation does not match'
+      });
+    }
+
+    if (newPassword.length < 6) {
+      return res.status(400).json({
+        success: false,
+        message: 'Password must be at least 6 characters'
+      });
+    }
+
+    const now = new Date();
+    const verificationRecord = await VerificationCode.findOne({
+      email: email.toLowerCase(),
+      code,
+      verified: true,
+      expiresAt: { $gt: now }
+    });
+
+    if (!verificationRecord) {
+      return res.status(400).json({
+        success: false,
+        message: 'Invalid or expired verification code'
+      });
+    }
+
+    const user = await import('../models/user.model.js').then(m => m.default.findOne({ email: email.toLowerCase() }));
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: 'User not found'
+      });
+    }
+
+    user.password = newPassword;
+    await user.save();
+
+    // Consume the code so it cannot be reused
+    await VerificationCode.deleteOne({ _id: verificationRecord._id });
+
+    res.status(200).json({
+      success: true,
+      message: 'Password has been reset successfully'
+    });
+  } catch (error) {
+    console.error('Reset password error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'System error when resetting password'
+    });
+  }
+};

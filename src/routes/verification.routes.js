@@ -1,5 +1,5 @@
 import express from 'express';
-import { sendCode, verifyCode, sendPasswordReset } from '../controllers/verification.controller.js';
+import { sendCode, verifyCode, sendPasswordReset, resetPassword } from '../controllers/verification.controller.js';
 import { authRateLimit } from '../middlewares/rateLimit.middleware.js';
 import timeoutMiddleware from '../middlewares/timeout.middleware.js';
 
@@ -145,5 +145,50 @@ router.post('/verify-code', authRateLimit, verifyCode);
  *         description: Lỗi hệ thống khi gửi mã đặt lại mật khẩu
  */
 router.post('/send-password-reset', authRateLimit, timeoutMiddleware(50000), sendPasswordReset);
+
+/**
+ * @swagger
+ * /verification/reset-password:
+ *   post:
+ *     summary: Reset password using a verified code
+ *     tags: [Verification]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - email
+ *               - code
+ *               - newPassword
+ *               - confirmPassword
+ *             properties:
+ *               email:
+ *                 type: string
+ *                 format: email
+ *                 description: Email address
+ *               code:
+ *                 type: string
+ *                 description: Verified 6-digit code
+ *               newPassword:
+ *                 type: string
+ *                 minLength: 6
+ *                 description: New password
+ *               confirmPassword:
+ *                 type: string
+ *                 minLength: 6
+ *                 description: Confirm new password
+ *     responses:
+ *       200:
+ *         description: Password reset successfully
+ *       400:
+ *         description: Invalid input or code
+ *       404:
+ *         description: User not found
+ *       500:
+ *         description: Server error when resetting password
+ */
+router.post('/reset-password', authRateLimit, resetPassword);
 
 export default router;
