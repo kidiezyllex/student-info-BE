@@ -10,3 +10,7 @@
 - Lọc danh sách Department chưa có Coordinator hoặc đã có
 - Tìm kiếm
 - Tạo Department trước --> Tạo Coordinator sau --> Select Department vừa tạo cho Coordinator sắp tạo
+
+3. Quản lý Topic 
+- Các chức năng CURD
+- Tìm kiếm
