@@ -14,6 +14,7 @@ export const getAllTopics = async (req, res) => {
     const limit = parseInt(req.query.limit) || 10;
     const skip = (page - 1) * limit;
     const query = {};
+    const andConditions = [];
     
     // Filter by type if provided
     if (type) {
@@ -22,28 +23,39 @@ export const getAllTopics = async (req, res) => {
     
     // Filter by department if provided
     if (department) {
-      query.$or = [
-        { department },
-        { department: null } // General topics
-      ];
+      andConditions.push({
+        $or: [
+          { department },
+          { department: null } // General topics
+        ]
+      });
     }
     
-    // Filter by date based on type
     const now = new Date();
     if (type === 'event') {
-      // Only show events that haven't ended
       query.endDate = { $gt: now };
     } else if (type === 'scholarship') {
-      // Only show scholarships that haven't expired
-      query.applicationDeadline = { $gt: now };
+      andConditions.push({
+        $or: [
+          { applicationDeadline: { $exists: false } },
+          { applicationDeadline: null },
+          { applicationDeadline: { $gt: now } }
+        ]
+      });
     } else if (type === 'notification') {
       // Only show notifications that haven't expired
-      query.$or = query.$or || [];
-      query.$or.push(
-        { endDate: { $exists: false } },
-        { endDate: null },
-        { endDate: { $gt: now } }
-      );
+      andConditions.push({
+        $or: [
+          { endDate: { $exists: false } },
+          { endDate: null },
+          { endDate: { $gt: now } }
+        ]
+      });
+    }
+    
+    // Combine all conditions with $and if needed
+    if (andConditions.length > 0) {
+      query.$and = andConditions;
     }
     
     const total = await Topic.countDocuments(query);

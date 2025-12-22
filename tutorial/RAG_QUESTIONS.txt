@@ -1,0 +1,569 @@
+================================================================================
+RAG QUESTION SAMPLES FOR TOPIC SYSTEM
+Sample Questions for Testing Chatbot RAG Functionality
+================================================================================
+
+================================================================================
+1. SCHOLARSHIP QUESTIONS (Học bổng)
+================================================================================
+
+ENGLISH:
+--------
+- What scholarships are available for students?
+- Show me all scholarships that are currently open for application
+- Are there any scholarships for international students?
+- What are the requirements to apply for scholarships?
+- Find scholarships with deadlines in the next month
+- Which scholarships offer the highest value?
+- Tell me about scholarship opportunities for engineering students
+- What scholarships are provided by external organizations?
+- Are there any scholarships expiring soon?
+- How do I apply for a scholarship?
+- Show me scholarships from the Computer Science department
+- What financial aid options are available?
+- Find grants for undergraduate students
+- Are there any bursaries I can apply for?
+- What tuition assistance programs exist?
+
+VIETNAMESE:
+-----------
+- Có những học bổng nào dành cho sinh viên?
+- Cho tôi xem tất cả các học bổng đang mở đơn đăng ký
+- Có học bổng nào dành cho sinh viên quốc tế không?
+- Yêu cầu để đăng ký học bổng là gì?
+- Tìm các học bổng có hạn nộp đơn trong tháng tới
+- Học bổng nào có giá trị cao nhất?
+- Cho tôi biết về cơ hội học bổng cho sinh viên kỹ thuật
+- Có học bổng nào được cung cấp bởi các tổ chức bên ngoài không?
+- Có học bổng nào sắp hết hạn không?
+- Làm thế nào để đăng ký học bổng?
+- Cho tôi xem các học bổng từ khoa Khoa học Máy tính
+- Có những lựa chọn hỗ trợ tài chính nào?
+- Tìm các khoản trợ cấp cho sinh viên đại học
+- Có học bổng nào tôi có thể đăng ký không?
+- Có những chương trình hỗ trợ học phí nào?
+
+================================================================================
+2. EVENT QUESTIONS (Sự kiện)
+================================================================================
+
+ENGLISH:
+--------
+- What events are happening this week?
+- Show me all upcoming events
+- Are there any workshops scheduled for next month?
+- What seminars are available for students?
+- Find events happening in the main auditorium
+- Tell me about the career fair event
+- What activities are organized by the Student Union?
+- Are there any events this weekend?
+- Show me events from the Business department
+- What conferences are coming up?
+- Find events related to technology
+- Are there any cultural events this month?
+- What programs are available for new students?
+- Tell me about upcoming networking events
+- What events can I attend to improve my skills?
+
+VIETNAMESE:
+-----------
+- Có những sự kiện nào diễn ra trong tuần này?
+- Cho tôi xem tất cả các sự kiện sắp tới
+- Có workshop nào được lên lịch cho tháng tới không?
+- Có những buổi seminar nào dành cho sinh viên?
+- Tìm các sự kiện diễn ra tại hội trường chính
+- Cho tôi biết về sự kiện hội chợ việc làm
+- Có những hoạt động nào được tổ chức bởi Hội Sinh viên?
+- Có sự kiện nào vào cuối tuần này không?
+- Cho tôi xem các sự kiện từ khoa Kinh doanh
+- Có những hội nghị nào sắp tới?
+- Tìm các sự kiện liên quan đến công nghệ
+- Có sự kiện văn hóa nào trong tháng này không?
+- Có những chương trình nào dành cho sinh viên mới?
+- Cho tôi biết về các sự kiện networking sắp tới
+- Tôi có thể tham gia sự kiện nào để cải thiện kỹ năng?
+
+================================================================================
+3. JOB QUESTIONS (Việc làm)
+================================================================================
+
+ENGLISH:
+--------
+- What job opportunities are available?
+- Show me all open positions
+- Are there any part-time jobs for students?
+- Find jobs in the IT sector
+- What companies are hiring?
+- Tell me about job openings in marketing
+- Are there any remote work opportunities?
+- What positions are available for recent graduates?
+- Show me jobs with good salary packages
+- Find employment opportunities in Ho Chi Minh City
+- What career opportunities exist for engineers?
+- Are there any jobs that don't require experience?
+- Tell me about full-time positions available
+- What work opportunities are there for students?
+- Show me jobs from partner companies
+
+VIETNAMESE:
+-----------
+- Có những cơ hội việc làm nào?
+- Cho tôi xem tất cả các vị trí đang tuyển
+- Có công việc bán thời gian nào cho sinh viên không?
+- Tìm các công việc trong lĩnh vực CNTT
+- Có công ty nào đang tuyển dụng không?
+- Cho tôi biết về các vị trí tuyển dụng trong marketing
+- Có cơ hội làm việc từ xa nào không?
+- Có những vị trí nào dành cho sinh viên mới tốt nghiệp?
+- Cho tôi xem các công việc có mức lương tốt
+- Tìm cơ hội việc làm tại Thành phố Hồ Chí Minh
+- Có cơ hội nghề nghiệp nào cho kỹ sư không?
+- Có công việc nào không yêu cầu kinh nghiệm không?
+- Cho tôi biết về các vị trí toàn thời gian
+- Có những cơ hội việc làm nào cho sinh viên?
+- Cho tôi xem các công việc từ các công ty đối tác
+
+================================================================================
+4. INTERNSHIP QUESTIONS (Thực tập)
+================================================================================
+
+ENGLISH:
+--------
+- What internship opportunities are available?
+- Show me all internship programs
+- Are there any summer internships?
+- Find internships in software development
+- What companies offer internships?
+- Tell me about internship positions for engineering students
+- Are there any paid internships?
+- What internship opportunities exist for business students?
+- Show me internships with application deadlines soon
+- Find internship programs in multinational companies
+- What trainee positions are available?
+- Are there any apprenticeship programs?
+- Tell me about placement opportunities
+- What internships can I apply for as a student?
+- Show me internships that provide certificates
+
+VIETNAMESE:
+-----------
+- Có những cơ hội thực tập nào?
+- Cho tôi xem tất cả các chương trình thực tập
+- Có thực tập mùa hè nào không?
+- Tìm các vị trí thực tập trong phát triển phần mềm
+- Có công ty nào cung cấp thực tập không?
+- Cho tôi biết về các vị trí thực tập cho sinh viên kỹ thuật
+- Có thực tập có lương nào không?
+- Có cơ hội thực tập nào cho sinh viên kinh doanh?
+- Cho tôi xem các chương trình thực tập sắp hết hạn đăng ký
+- Tìm các chương trình thực tập tại công ty đa quốc gia
+- Có những vị trí thực tập sinh nào?
+- Có chương trình học việc nào không?
+- Cho tôi biết về cơ hội thực tập
+- Tôi có thể đăng ký thực tập nào với tư cách là sinh viên?
+- Cho tôi xem các chương trình thực tập cấp chứng chỉ
+
+================================================================================
+5. NOTIFICATION QUESTIONS (Thông báo)
+================================================================================
+
+ENGLISH:
+--------
+- What are the latest notifications?
+- Show me all important announcements
+- Are there any urgent notices?
+- What updates have been posted recently?
+- Find notifications about exam schedules
+- Tell me about important announcements from the administration
+- Are there any new notices this week?
+- What news is there for students?
+- Show me notifications from my department
+- Find announcements about registration deadlines
+- What important notices should I know about?
+- Are there any updates about campus facilities?
+- Tell me about recent announcements
+- What notifications are there about academic policies?
+- Show me all current announcements
+
+VIETNAMESE:
+-----------
+- Có những thông báo mới nhất nào?
+- Cho tôi xem tất cả các thông báo quan trọng
+- Có thông báo khẩn cấp nào không?
+- Có những cập nhật nào được đăng gần đây?
+- Tìm các thông báo về lịch thi
+- Cho tôi biết về các thông báo quan trọng từ ban giám hiệu
+- Có thông báo mới nào trong tuần này không?
+- Có tin tức gì cho sinh viên?
+- Cho tôi xem các thông báo từ khoa của tôi
+- Tìm các thông báo về hạn đăng ký
+- Có thông báo quan trọng nào tôi nên biết không?
+- Có cập nhật nào về cơ sở vật chất của trường không?
+- Cho tôi biết về các thông báo gần đây
+- Có thông báo nào về chính sách học tập không?
+- Cho tôi xem tất cả các thông báo hiện tại
+
+================================================================================
+6. RECRUITMENT QUESTIONS (Tuyển dụng)
+================================================================================
+
+ENGLISH:
+--------
+- What companies are recruiting?
+- Show me all recruitment opportunities
+- Are there any hiring events?
+- Find recruitment from partner companies
+- What positions are companies looking to fill?
+- Tell me about job openings from linked companies
+- Are there any recruitment drives?
+- What vacancies are available?
+- Show me recruitment opportunities for graduates
+- Find companies that are actively hiring
+- What recruitment activities are happening?
+- Are there any career recruitment events?
+- Tell me about companies coming to campus for recruitment
+- What recruitment opportunities exist?
+- Show me all current job openings from companies
+
+VIETNAMESE:
+-----------
+- Có công ty nào đang tuyển dụng?
+- Cho tôi xem tất cả các cơ hội tuyển dụng
+- Có sự kiện tuyển dụng nào không?
+- Tìm các đợt tuyển dụng từ công ty đối tác
+- Các công ty đang tìm kiếm vị trí nào?
+- Cho tôi biết về các vị trí tuyển dụng từ công ty liên kết
+- Có đợt tuyển dụng nào không?
+- Có những vị trí trống nào?
+- Cho tôi xem cơ hội tuyển dụng cho sinh viên tốt nghiệp
+- Tìm các công ty đang tích cực tuyển dụng
+- Có hoạt động tuyển dụng nào đang diễn ra?
+- Có sự kiện tuyển dụng nghề nghiệp nào không?
+- Cho tôi biết về các công ty đến trường để tuyển dụng
+- Có những cơ hội tuyển dụng nào?
+- Cho tôi xem tất cả các vị trí tuyển dụng hiện tại từ các công ty
+
+================================================================================
+7. VOLUNTEER QUESTIONS (Tình nguyện)
+================================================================================
+
+ENGLISH:
+--------
+- What volunteer opportunities are available?
+- Show me all volunteer programs
+- Are there any community service activities?
+- Find volunteer work I can participate in
+- What volunteering activities are happening?
+- Tell me about volunteer opportunities for students
+- Are there any volunteer events this month?
+- What community service programs exist?
+- Show me volunteer activities I can join
+- Find volunteer opportunities near campus
+- What volunteer work is available?
+- Are there any ongoing volunteer programs?
+- Tell me about volunteer positions
+- What service opportunities can I participate in?
+- Show me all current volunteer activities
+
+VIETNAMESE:
+-----------
+- Có những cơ hội tình nguyện nào?
+- Cho tôi xem tất cả các chương trình tình nguyện
+- Có hoạt động cộng đồng nào không?
+- Tìm công việc tình nguyện tôi có thể tham gia
+- Có hoạt động tình nguyện nào đang diễn ra?
+- Cho tôi biết về cơ hội tình nguyện cho sinh viên
+- Có sự kiện tình nguyện nào trong tháng này không?
+- Có những chương trình phục vụ cộng đồng nào?
+- Cho tôi xem các hoạt động tình nguyện tôi có thể tham gia
+- Tìm cơ hội tình nguyện gần trường
+- Có công việc tình nguyện nào?
+- Có chương trình tình nguyện đang diễn ra nào không?
+- Cho tôi biết về các vị trí tình nguyện
+- Tôi có thể tham gia cơ hội phục vụ nào?
+- Cho tôi xem tất cả các hoạt động tình nguyện hiện tại
+
+================================================================================
+8. EXTRACURRICULAR QUESTIONS (Hoạt động ngoại khóa)
+================================================================================
+
+ENGLISH:
+--------
+- What extracurricular activities are available?
+- Show me all clubs and societies
+- Are there any student organizations I can join?
+- Find extracurricular activities for students
+- What clubs are active on campus?
+- Tell me about student societies
+- Are there any extracurricular programs this semester?
+- What activities can I join outside of classes?
+- Show me all available clubs
+- Find student organizations related to my interests
+- What extracurricular opportunities exist?
+- Are there any new clubs starting?
+- Tell me about campus organizations
+- What activities are organized by student groups?
+- Show me all current extracurricular activities
+
+VIETNAMESE:
+-----------
+- Có những hoạt động ngoại khóa nào?
+- Cho tôi xem tất cả các câu lạc bộ và hội sinh viên
+- Có tổ chức sinh viên nào tôi có thể tham gia không?
+- Tìm các hoạt động ngoại khóa cho sinh viên
+- Có câu lạc bộ nào đang hoạt động trong trường?
+- Cho tôi biết về các hội sinh viên
+- Có chương trình ngoại khóa nào trong học kỳ này không?
+- Tôi có thể tham gia hoạt động nào ngoài giờ học?
+- Cho tôi xem tất cả các câu lạc bộ có sẵn
+- Tìm các tổ chức sinh viên liên quan đến sở thích của tôi
+- Có những cơ hội ngoại khóa nào?
+- Có câu lạc bộ mới nào đang thành lập không?
+- Cho tôi biết về các tổ chức trong trường
+- Có hoạt động nào được tổ chức bởi nhóm sinh viên?
+- Cho tôi xem tất cả các hoạt động ngoại khóa hiện tại
+
+================================================================================
+9. ADVERTISEMENT QUESTIONS (Quảng cáo)
+================================================================================
+
+ENGLISH:
+--------
+- What advertisements are posted?
+- Show me all current ads
+- Are there any promotional offers?
+- Find advertisements from local businesses
+- What promotions are available for students?
+- Tell me about special offers
+- Are there any student discounts advertised?
+- What ads are relevant to students?
+- Show me advertisements from partner companies
+- Find promotional content
+- What advertising opportunities exist?
+- Are there any special deals for students?
+- Tell me about current promotions
+- What advertisements should students know about?
+- Show me all posted advertisements
+
+VIETNAMESE:
+-----------
+- Có những quảng cáo nào được đăng?
+- Cho tôi xem tất cả các quảng cáo hiện tại
+- Có ưu đãi khuyến mãi nào không?
+- Tìm các quảng cáo từ doanh nghiệp địa phương
+- Có khuyến mãi nào dành cho sinh viên?
+- Cho tôi biết về các ưu đãi đặc biệt
+- Có quảng cáo giảm giá cho sinh viên nào không?
+- Có quảng cáo nào liên quan đến sinh viên?
+- Cho tôi xem các quảng cáo từ công ty đối tác
+- Tìm nội dung khuyến mãi
+- Có cơ hội quảng cáo nào?
+- Có ưu đãi đặc biệt nào cho sinh viên không?
+- Cho tôi biết về các khuyến mãi hiện tại
+- Sinh viên nên biết về quảng cáo nào?
+- Cho tôi xem tất cả các quảng cáo đã đăng
+
+================================================================================
+10. COMPARISON & COMPLEX QUESTIONS (So sánh & Câu hỏi phức tạp)
+================================================================================
+
+ENGLISH:
+--------
+- Compare all available scholarships and tell me which one is best for me
+- What's the difference between internships and job opportunities?
+- Show me events happening this week vs next week
+- Which department has the most activities?
+- Compare scholarship deadlines and requirements
+- What are the upcoming deadlines I should be aware of?
+- Show me all opportunities expiring in the next 30 days
+- What's happening on campus this month?
+- Tell me everything I need to know about applying for scholarships
+- What opportunities are available for computer science students?
+- Find all activities related to career development
+- What should I do to prepare for job applications?
+- Show me opportunities sorted by deadline
+- What are the most important announcements I might have missed?
+- Compare part-time jobs and internships
+
+VIETNAMESE:
+-----------
+- So sánh tất cả các học bổng có sẵn và cho tôi biết cái nào phù hợp nhất với tôi
+- Sự khác biệt giữa thực tập và cơ hội việc làm là gì?
+- Cho tôi xem các sự kiện diễn ra tuần này so với tuần tới
+- Khoa nào có nhiều hoạt động nhất?
+- So sánh hạn nộp đơn và yêu cầu của các học bổng
+- Có những hạn chót nào sắp tới tôi nên biết?
+- Cho tôi xem tất cả các cơ hội hết hạn trong 30 ngày tới
+- Có gì đang diễn ra trong trường tháng này?
+- Cho tôi biết tất cả những gì tôi cần biết về đăng ký học bổng
+- Có những cơ hội nào cho sinh viên khoa học máy tính?
+- Tìm tất cả các hoạt động liên quan đến phát triển nghề nghiệp
+- Tôi nên làm gì để chuẩn bị cho đơn xin việc?
+- Cho tôi xem các cơ hội được sắp xếp theo hạn chót
+- Có những thông báo quan trọng nào tôi có thể đã bỏ lỡ?
+- So sánh công việc bán thời gian và thực tập
+
+================================================================================
+11. TIME-BASED QUESTIONS (Câu hỏi theo thời gian)
+================================================================================
+
+ENGLISH:
+--------
+- What happened last month?
+- Show me past events from last semester
+- What opportunities are available now?
+- What's coming up next week?
+- Find events scheduled for next month
+- What happened in previous years?
+- Show me current opportunities
+- What will happen in the future?
+- Are there any events today?
+- What's happening tomorrow?
+- Show me all past scholarships
+- What opportunities expired recently?
+- Find upcoming deadlines
+- What activities are planned for next semester?
+- Show me historical events and activities
+
+VIETNAMESE:
+-----------
+- Đã xảy ra gì tháng trước?
+- Cho tôi xem các sự kiện đã qua từ học kỳ trước
+- Có những cơ hội nào hiện có?
+- Có gì sắp tới tuần sau?
+- Tìm các sự kiện được lên lịch cho tháng tới
+- Đã xảy ra gì trong những năm trước?
+- Cho tôi xem các cơ hội hiện tại
+- Sẽ xảy ra gì trong tương lai?
+- Có sự kiện nào hôm nay không?
+- Có gì xảy ra ngày mai?
+- Cho tôi xem tất cả các học bổng đã qua
+- Có cơ hội nào vừa hết hạn không?
+- Tìm các hạn chót sắp tới
+- Có hoạt động nào được lên kế hoạch cho học kỳ tới?
+- Cho tôi xem các sự kiện và hoạt động trong quá khứ
+
+================================================================================
+12. DEPARTMENT-SPECIFIC QUESTIONS (Câu hỏi theo khoa)
+================================================================================
+
+ENGLISH:
+--------
+- What opportunities are available for Computer Science students?
+- Show me events from the Engineering department
+- What scholarships are offered by the Business department?
+- Find activities organized by the Science department
+- Tell me about opportunities for Arts students
+- What does the Law department offer?
+- Show me all activities from my department
+- What opportunities exist for students in the Medical department?
+- Find events specific to Engineering students
+- What does the Economics department have for students?
+- Show me department-specific scholarships
+- What activities are organized by different departments?
+- Tell me about opportunities in the Technology department
+- What department has the most events?
+- Show me opportunities filtered by department
+
+VIETNAMESE:
+-----------
+- Có những cơ hội nào cho sinh viên Khoa học Máy tính?
+- Cho tôi xem các sự kiện từ khoa Kỹ thuật
+- Có học bổng nào được cung cấp bởi khoa Kinh doanh?
+- Tìm các hoạt động được tổ chức bởi khoa Khoa học
+- Cho tôi biết về cơ hội cho sinh viên Nghệ thuật
+- Khoa Luật cung cấp gì?
+- Cho tôi xem tất cả các hoạt động từ khoa của tôi
+- Có những cơ hội nào cho sinh viên khoa Y?
+- Tìm các sự kiện dành riêng cho sinh viên Kỹ thuật
+- Khoa Kinh tế có gì cho sinh viên?
+- Cho tôi xem các học bổng theo khoa
+- Có hoạt động nào được tổ chức bởi các khoa khác nhau?
+- Cho tôi biết về cơ hội trong khoa Công nghệ
+- Khoa nào có nhiều sự kiện nhất?
+- Cho tôi xem các cơ hội được lọc theo khoa
+
+================================================================================
+13. LOCATION-BASED QUESTIONS (Câu hỏi theo địa điểm)
+================================================================================
+
+ENGLISH:
+--------
+- What events are happening in the main auditorium?
+- Show me activities at the library
+- Find events in Ho Chi Minh City
+- What's happening on campus?
+- Tell me about events at the student center
+- Are there any off-campus events?
+- Show me events by location
+- What activities are in the sports complex?
+- Find events near the university
+- What's happening in different locations?
+- Show me events at specific venues
+- What locations host the most events?
+- Tell me about events in different cities
+- Find activities by their location
+- Show me all event locations
+
+VIETNAMESE:
+-----------
+- Có những sự kiện nào diễn ra tại hội trường chính?
+- Cho tôi xem các hoạt động tại thư viện
+- Tìm các sự kiện tại Thành phố Hồ Chí Minh
+- Có gì đang diễn ra trong trường?
+- Cho tôi biết về các sự kiện tại trung tâm sinh viên
+- Có sự kiện nào ngoài trường không?
+- Cho tôi xem các sự kiện theo địa điểm
+- Có hoạt động nào tại khu thể thao không?
+- Tìm các sự kiện gần trường đại học
+- Có gì xảy ra ở các địa điểm khác nhau?
+- Cho tôi xem các sự kiện tại các địa điểm cụ thể
+- Địa điểm nào tổ chức nhiều sự kiện nhất?
+- Cho tôi biết về các sự kiện ở các thành phố khác nhau
+- Tìm các hoạt động theo địa điểm của chúng
+- Cho tôi xem tất cả các địa điểm sự kiện
+
+================================================================================
+14. GENERAL INFORMATION QUESTIONS (Câu hỏi thông tin chung)
+================================================================================
+
+ENGLISH:
+--------
+- What information is available in the system?
+- Tell me everything about opportunities for students
+- What can I find in this system?
+- Show me an overview of all available topics
+- What types of information are stored here?
+- Give me a summary of all opportunities
+- What categories of topics exist?
+- Tell me about the different types of content
+- What information is most important for students?
+- Show me a breakdown of all topic types
+- What can students search for?
+- Tell me about the system's capabilities
+- What information is available to me?
+- Show me all categories and their contents
+- What should every student know about?
+
+VIETNAMESE:
+-----------
+- Có những thông tin nào trong hệ thống?
+- Cho tôi biết tất cả về cơ hội cho sinh viên
+- Tôi có thể tìm thấy gì trong hệ thống này?
+- Cho tôi xem tổng quan về tất cả các chủ đề có sẵn
+- Có những loại thông tin nào được lưu trữ ở đây?
+- Cho tôi tóm tắt về tất cả các cơ hội
+- Có những danh mục chủ đề nào?
+- Cho tôi biết về các loại nội dung khác nhau
+- Thông tin nào quan trọng nhất cho sinh viên?
+- Cho tôi xem phân tích tất cả các loại chủ đề
+- Sinh viên có thể tìm kiếm gì?
+- Cho tôi biết về khả năng của hệ thống
+- Có thông tin nào dành cho tôi?
+- Cho tôi xem tất cả các danh mục và nội dung của chúng
+- Mọi sinh viên nên biết gì?
+
+================================================================================
+END OF RAG QUESTION SAMPLES
+================================================================================
+

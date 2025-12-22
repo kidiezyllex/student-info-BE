@@ -9,17 +9,17 @@ import ChatSession from '../models/chatSession.model.js';
 export const askQuestion = async (req, res) => {
   try {
     const { question, sessionId, type, departmentId, includeExpired } = req.body;
-    
+
     if (!question || !question.trim()) {
       return res.status(400).json({
         success: false,
         message: 'Vui lòng nhập câu hỏi'
       });
     }
-    
+
     let chatSession;
     let chatHistory = [];
-    
+
     // Nếu có sessionId, lấy session hiện có
     if (sessionId) {
       chatSession = await ChatSession.findById(sessionId);
@@ -40,41 +40,41 @@ export const askQuestion = async (req, res) => {
         title: 'Cuộc trò chuyện mới'
       });
     }
-    
+
     // Thêm câu hỏi của người dùng vào messages
     chatSession.messages.push({
       role: 'user',
       content: question.trim()
     });
-    
+
     // Cập nhật lastActive
     chatSession.lastActive = Date.now();
-    
+
     // Gọi Groq RAG để nhận câu trả lời
     const ragResponse = await askWithRAG(question.trim(), chatHistory, {
       type: type || null,
       departmentId: departmentId || null,
       limit: 10,
-      includeExpired: includeExpired || false
+      includeExpired: includeExpired !== undefined ? includeExpired : true  // Default to true to show all opportunities
     });
-    
+
     // Xử lý response
     const responseContent = ragResponse.content || 'Xin lỗi, không thể tạo câu trả lời.';
-    
+
     // Thêm câu trả lời của AI vào messages
     chatSession.messages.push({
       role: 'assistant',
       content: responseContent
     });
-    
+
     // Nếu là tin nhắn đầu tiên, tạo tiêu đề từ câu hỏi
     if (chatSession.messages.length <= 2) {
       chatSession.title = question.trim().substring(0, 50) + (question.trim().length > 50 ? '...' : '');
     }
-    
+
     // Lưu session
     await chatSession.save();
-    
+
     res.status(200).json({
       success: true,
       data: {
@@ -105,15 +105,15 @@ export const askQuestion = async (req, res) => {
 export const createChatSession = async (req, res) => {
   try {
     const { title } = req.body;
-    
+
     const chatSession = new ChatSession({
       user: req.user._id,
       title: title || 'Cuộc trò chuyện mới',
       lastActive: Date.now()
     });
-    
+
     await chatSession.save();
-    
+
     res.status(201).json({
       success: true,
       message: 'New chat session created successfully',
@@ -152,9 +152,9 @@ export const getChatHistory = async (req, res) => {
       .sort({ lastActive: -1 })
       .skip(skip)
       .limit(limit);
-    
+
     const totalPages = Math.ceil(total / limit);
-    
+
     res.status(200).json({
       success: true,
       data: chatSessions,
@@ -181,14 +181,14 @@ export const getChatHistory = async (req, res) => {
 export const getChatSession = async (req, res) => {
   try {
     const chatSession = await ChatSession.findById(req.params.id);
-    
+
     if (!chatSession) {
       return res.status(404).json({
         success: false,
         message: 'Chat session not found'
       });
     }
-    
+
     // Kiểm tra xem phiên chat có thuộc về người dùng không
     if (chatSession.user.toString() !== req.user._id.toString()) {
       return res.status(403).json({
@@ -196,7 +196,7 @@ export const getChatSession = async (req, res) => {
         message: 'You do not have permission to access this chat session'
       });
     }
-    
+
     res.status(200).json({
       success: true,
       data: chatSession
@@ -219,23 +219,23 @@ export const getChatSession = async (req, res) => {
 export const rateAnswer = async (req, res) => {
   try {
     const { sessionId, messageIndex, isAccurate } = req.body;
-    
+
     if (!sessionId || messageIndex === undefined || isAccurate === undefined) {
       return res.status(400).json({
         success: false,
         message: 'Missing rating information'
       });
     }
-    
+
     const chatSession = await ChatSession.findById(sessionId);
-    
+
     if (!chatSession) {
       return res.status(404).json({
         success: false,
         message: 'Chat session not found'
       });
     }
-    
+
     // Kiểm tra xem phiên chat có thuộc về người dùng không
     if (chatSession.user.toString() !== req.user._id.toString()) {
       return res.status(403).json({
@@ -243,20 +243,20 @@ export const rateAnswer = async (req, res) => {
         message: 'You do not have permission to rate this chat session'
       });
     }
-    
+
     // Kiểm tra index hợp lệ và là tin nhắn của assistant
-    if (messageIndex < 0 || messageIndex >= chatSession.messages.length || 
-        chatSession.messages[messageIndex].role !== 'assistant') {
+    if (messageIndex < 0 || messageIndex >= chatSession.messages.length ||
+      chatSession.messages[messageIndex].role !== 'assistant') {
       return res.status(400).json({
         success: false,
         message: 'Invalid message index'
       });
     }
-    
+
     // Cập nhật đánh giá
     chatSession.messages[messageIndex].isAccurate = isAccurate;
     await chatSession.save();
-    
+
     res.status(200).json({
       success: true,
       message: 'Rating updated'
@@ -279,14 +279,14 @@ export const rateAnswer = async (req, res) => {
 export const deleteChatSession = async (req, res) => {
   try {
     const chatSession = await ChatSession.findById(req.params.id);
-    
+
     if (!chatSession) {
       return res.status(404).json({
         success: false,
         message: 'Chat session not found'
       });
     }
-    
+
     // Kiểm tra xem phiên chat có thuộc về người dùng không
     if (chatSession.user.toString() !== req.user._id.toString()) {
       return res.status(403).json({
@@ -294,9 +294,9 @@ export const deleteChatSession = async (req, res) => {
         message: 'You do not have permission to delete this chat session'
       });
     }
-    
+
     await ChatSession.deleteOne({ _id: req.params.id });
-    
+
     res.status(200).json({
       success: true,
       message: 'Chat session deleted'
@@ -318,10 +318,10 @@ export const deleteChatSession = async (req, res) => {
  */
 export const searchTopics = async (req, res) => {
   try {
-    const { 
-      q = '', 
-      type = null, 
-      departmentId = null, 
+    const {
+      q = '',
+      type = null,
+      departmentId = null,
       limit = 20,
       includeExpired = false,
       sortBy = 'relevance'

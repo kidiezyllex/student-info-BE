@@ -12,6 +12,7 @@
     "seed": "tsx src/seed.js",
     "reset": "tsx src/reset-database.js",
     "reset:seed": "tsx src/reset-and-seed.js",
+    "export:topics": "tsx src/scripts/export-topics.js",
     "postinstall": "npm rebuild bcrypt --update-binary"
   },
   "dependencies": {

@@ -5,7 +5,7 @@ dotenv.config();
 
 const GROQ_API_KEY = process.env.GROQ_API_KEY;
 const GROQ_API_URL = 'https://api.groq.com/openai/v1/chat/completions';
-const GROQ_MODEL = 'llama-3.1-70b-versatile';
+const GROQ_MODEL = 'llama-3.3-70b-versatile';
 
 const SYNONYMS = {
   'scholarship': ['scholarship', 'financial aid', 'grant', 'bursary', 'funding', 'tuition assistance'],
@@ -19,36 +19,124 @@ const SYNONYMS = {
 };
 
 /**
- * Map keywords to topic type
+ * Map keywords to topic type - Enhanced with Vietnamese and more English synonyms
  */
 const KEYWORD_TO_TYPE = {
+  // Scholarship keywords
   'scholarship': 'scholarship',
+  'scholarships': 'scholarship',
+  'học bổng': 'scholarship',
+  'hoc bong': 'scholarship',
   'financial aid': 'scholarship',
   'grant': 'scholarship',
+  'grants': 'scholarship',
   'bursary': 'scholarship',
+  'funding': 'scholarship',
+  'tuition': 'scholarship',
+
+  // Event keywords
   'event': 'event',
+  'events': 'event',
+  'sự kiện': 'event',
+  'su kien': 'event',
   'activity': 'event',
+  'activities': 'event',
+  'hoạt động': 'event',
+  'hoat dong': 'event',
   'program': 'event',
+  'programme': 'event',
   'workshop': 'event',
+  'seminar': 'event',
+  'conference': 'event',
+  'hội thảo': 'event',
+  'hoi thao': 'event',
+
+  // Job keywords
   'job': 'job',
+  'jobs': 'job',
+  'việc làm': 'job',
+  'viec lam': 'job',
+  'công việc': 'job',
+  'cong viec': 'job',
   'employment': 'job',
   'position': 'job',
+  'positions': 'job',
+  'vị trí': 'job',
+  'vi tri': 'job',
   'career': 'job',
+  'careers': 'job',
+  'work': 'job',
+  'working': 'job',
+  'làm việc': 'job',
+  'lam viec': 'job',
+  'tuyển dụng': 'job',
+  'tuyen dung': 'job',
+
+  // Recruitment keywords
   'recruitment': 'recruitment',
+  'recruiting': 'recruitment',
   'hiring': 'recruitment',
+  'hire': 'recruitment',
   'vacancy': 'recruitment',
+  'vacancies': 'recruitment',
+  'tuyển': 'recruitment',
+  'tuyen': 'recruitment',
+
+  // Internship keywords
   'internship': 'internship',
+  'internships': 'internship',
+  'thực tập': 'internship',
+  'thuc tap': 'internship',
   'intern': 'internship',
+  'interns': 'internship',
   'trainee': 'internship',
+  'trainees': 'internship',
+  'apprentice': 'internship',
+  'apprenticeship': 'internship',
+
+  // Notification keywords
   'notification': 'notification',
+  'notifications': 'notification',
+  'thông báo': 'notification',
+  'thong bao': 'notification',
   'announcement': 'notification',
+  'announcements': 'notification',
   'notice': 'notification',
+  'notices': 'notification',
+  'update': 'notification',
+  'updates': 'notification',
+  'news': 'notification',
+
+  // Volunteer keywords
   'volunteer': 'volunteer',
+  'volunteers': 'volunteer',
   'volunteering': 'volunteer',
+  'tình nguyện': 'volunteer',
+  'tinh nguyen': 'volunteer',
+  'tình nguyện viên': 'volunteer',
+  'tinh nguyen vien': 'volunteer',
+  'community service': 'volunteer',
+
+  // Extracurricular keywords
   'extracurricular': 'extracurricular',
+  'ngoại khóa': 'extracurricular',
+  'ngoai khoa': 'extracurricular',
   'club': 'extracurricular',
+  'clubs': 'extracurricular',
+  'câu lạc bộ': 'extracurricular',
+  'cau lac bo': 'extracurricular',
+  'society': 'extracurricular',
+  'societies': 'extracurricular',
+  'organization': 'extracurricular',
+  'organizations': 'extracurricular',
+
+  // Advertisement keywords
   'advertisement': 'advertisement',
-  'ad': 'advertisement'
+  'advertisements': 'advertisement',
+  'quảng cáo': 'advertisement',
+  'quang cao': 'advertisement',
+  'ad': 'advertisement',
+  'ads': 'advertisement'
 };
 
 /**
@@ -103,7 +191,7 @@ Return only JSON, no additional text.`
 
     const data = await response.json();
     const analysisText = data?.choices?.[0]?.message?.content;
-    
+
     if (!analysisText) {
       return null;
     }
@@ -131,10 +219,10 @@ Return only JSON, no additional text.`
 
 function expandKeywords(keywords) {
   const expanded = new Set(keywords);
-  
+
   keywords.forEach(keyword => {
     const lowerKeyword = keyword.toLowerCase();
-    
+
     for (const [key, synonyms] of Object.entries(SYNONYMS)) {
       if (lowerKeyword.includes(key) || synonyms.some(s => lowerKeyword.includes(s))) {
         synonyms.forEach(syn => expanded.add(syn));
@@ -142,29 +230,48 @@ function expandKeywords(keywords) {
       }
     }
   });
-  
+
   return Array.from(expanded);
 }
 
 async function searchRelevantTopics(userQuestion, options = {}) {
   try {
-    const { 
-      type = null, 
-      departmentId = null, 
+    const {
+      type = null,
+      departmentId = null,
       limit = 10,
       includeExpired = false,
       nlpAnalysis = null
     } = options;
+
+    console.log('🔍 Search Debug - User Question:', userQuestion);
+    console.log('🔍 Search Debug - Options:', { type, departmentId, limit, includeExpired });
 
     let analysis = nlpAnalysis;
     if (!analysis) {
       analysis = await analyzeQuestionWithNLP(userQuestion);
     }
 
+    console.log('🔍 Search Debug - NLP Analysis:', analysis);
+
     let detectedType = type;
     if (!detectedType && analysis?.intent) {
       detectedType = KEYWORD_TO_TYPE[analysis.intent] || null;
     }
+
+    // Fallback: detect type from keywords in question if NLP fails
+    if (!detectedType) {
+      const lowerQuestion = userQuestion.toLowerCase();
+      for (const [keyword, topicType] of Object.entries(KEYWORD_TO_TYPE)) {
+        if (lowerQuestion.includes(keyword)) {
+          detectedType = topicType;
+          console.log(`🔍 Search Debug - Detected type from keyword "${keyword}": ${topicType}`);
+          break;
+        }
+      }
+    }
+
+    console.log('🔍 Search Debug - Detected Type:', detectedType);
 
     let searchQuery = userQuestion;
     if (analysis?.expandedKeywords && analysis.expandedKeywords.length > 0) {
@@ -174,6 +281,8 @@ async function searchRelevantTopics(userQuestion, options = {}) {
       const expanded = expandKeywords(analysis.keywords);
       searchQuery = expanded.join(' ');
     }
+
+    console.log('🔍 Search Debug - Search Query:', searchQuery);
 
     const query = {
       $text: { $search: searchQuery }
@@ -198,10 +307,9 @@ async function searchRelevantTopics(userQuestion, options = {}) {
       const now = new Date();
       andConditions.push({
         $or: [
+          { endDate: null, applicationDeadline: null },
           { endDate: { $gte: now } },
-          { endDate: null },
-          { applicationDeadline: { $gte: now } },
-          { applicationDeadline: null }
+          { applicationDeadline: { $gte: now } }
         ]
       });
     }
@@ -210,17 +318,29 @@ async function searchRelevantTopics(userQuestion, options = {}) {
       query.$and = andConditions;
     }
 
+    console.log('🔍 Search Debug - MongoDB Query:', JSON.stringify(query, null, 2));
+
     const topics = await Topic.find(query)
       .populate('department', 'name code')
       .populate('createdBy', 'name email')
       .sort({ score: { $meta: 'textScore' } })
       .limit(limit);
 
+    console.log('🔍 Search Debug - Found topics:', topics.length);
+
     if (topics.length === 0) {
+      console.log('🔍 Search Debug - No results from text search, using fallback...');
+
       const fallbackQuery = {};
       const fallbackAndConditions = [];
 
-      if (type) fallbackQuery.type = type;
+      // Use detected type in fallback
+      if (detectedType) {
+        fallbackQuery.type = detectedType;
+        console.log('🔍 Search Debug - Fallback using detected type:', detectedType);
+      } else if (type) {
+        fallbackQuery.type = type;
+      }
 
       if (departmentId) {
         fallbackAndConditions.push({
@@ -235,14 +355,14 @@ async function searchRelevantTopics(userQuestion, options = {}) {
         const now = new Date();
         fallbackAndConditions.push({
           $or: [
+            { endDate: null, applicationDeadline: null },
             { endDate: { $gte: now } },
-            { endDate: null },
-            { applicationDeadline: { $gte: now } },
-            { applicationDeadline: null }
+            { applicationDeadline: { $gte: now } }
           ]
         });
       }
 
+      // Extract keywords from question for regex search
       const keywords = userQuestion.toLowerCase().split(/\s+/).filter(w => w.length > 2);
       if (keywords.length > 0) {
         fallbackAndConditions.push({
@@ -257,11 +377,15 @@ async function searchRelevantTopics(userQuestion, options = {}) {
         fallbackQuery.$and = fallbackAndConditions;
       }
 
+      console.log('🔍 Search Debug - Fallback Query:', JSON.stringify(fallbackQuery, null, 2));
+
       const fallbackTopics = await Topic.find(fallbackQuery)
         .populate('department', 'name code')
         .populate('createdBy', 'name email')
         .sort({ createdAt: -1 })
         .limit(limit);
+
+      console.log('🔍 Search Debug - Fallback found:', fallbackTopics.length);
 
       return fallbackTopics;
     }
@@ -407,7 +531,7 @@ export async function askWithRAG(userQuestion, chatHistory = [], options = {}) {
     } = options;
 
     const nlpAnalysis = await analyzeQuestionWithNLP(userQuestion);
-    
+
     const relevantTopics = await searchRelevantTopics(userQuestion, {
       type,
       departmentId,
@@ -490,7 +614,7 @@ export async function searchTopicsAdvanced(query, filters = {}) {
     } = filters;
 
     const searchQuery = {};
-    
+
     if (query && query.trim()) {
       searchQuery.$text = { $search: query };
     }

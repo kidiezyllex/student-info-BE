@@ -26,6 +26,9 @@ npm-debug.log*
 uploads/
 temp/
 
+# Export files
+exports/
+
 server/public
 vite.config.ts.*
 *.tar.gz
