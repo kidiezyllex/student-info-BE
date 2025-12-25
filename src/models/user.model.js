@@ -42,15 +42,11 @@ const userSchema = new mongoose.Schema({
     type: Date,
     default: null
   },
-  savedNotifications: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Notification'
-  }],
   savedTopics: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Topic'
   }],
-  
+
   // Personal Information
   fullName: {
     type: String
@@ -65,7 +61,7 @@ const userSchema = new mongoose.Schema({
   avatar: {
     type: String // URL to avatar image
   },
-  
+
   // Contact Information
   phoneNumber: {
     type: String
@@ -82,7 +78,7 @@ const userSchema = new mongoose.Schema({
     relationship: String,
     phoneNumber: String
   },
-  
+
   // Student-specific fields
   studentInfo: {
     class: String, // Lớp học
@@ -111,7 +107,7 @@ const userSchema = new mongoose.Schema({
       category: String // academic, extracurricular, competition, etc.
     }]
   },
-  
+
   // Coordinator-specific fields
   coordinatorInfo: {
     position: String, // Chức vụ
@@ -139,7 +135,7 @@ const userSchema = new mongoose.Schema({
       authors: [String]
     }]
   },
-  
+
   // Profile settings
   profileSettings: {
     isPublic: {
@@ -163,7 +159,7 @@ const userSchema = new mongoose.Schema({
       default: true
     }
   },
-  
+
   // Social links
   socialLinks: {
     facebook: String,
@@ -171,7 +167,7 @@ const userSchema = new mongoose.Schema({
     github: String,
     website: String
   },
-  
+
   // Last activity tracking
   lastLogin: Date,
   lastProfileUpdate: Date

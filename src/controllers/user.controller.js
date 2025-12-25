@@ -16,8 +16,8 @@ export const getUsers = async (req, res) => {
     const filter = {};
     if (role) {
       if (!['student', 'coordinator', 'admin'].includes(role)) {
-        return res.status(400).json({ 
-          message: 'Invalid role specified. Allowed values: student, coordinator, admin' 
+        return res.status(400).json({
+          message: 'Invalid role specified. Allowed values: student, coordinator, admin'
         });
       }
       filter.role = role;
@@ -33,7 +33,7 @@ export const getUsers = async (req, res) => {
       .sort({ createdAt: -1 })
       .skip(skip)
       .limit(limit);
-    
+
     const totalPages = Math.ceil(total / limit);
 
     res.json({
@@ -45,8 +45,8 @@ export const getUsers = async (req, res) => {
       totalPages
     });
   } catch (error) {
-    res.status(500).json({ 
-      message: error.message 
+    res.status(500).json({
+      message: error.message
     });
   }
 };
@@ -97,7 +97,7 @@ export const createUser = async (req, res) => {
 
       // Populate department info
       await user.populate('department', 'name code');
-      
+
       res.status(201).json({
         message: 'User created successfully',
         data: {
@@ -129,7 +129,6 @@ export const getUserById = async (req, res) => {
   try {
     const user = await User.findById(req.params.id)
       .populate('department', 'name code description')
-      .populate('savedNotifications')
       .select('-password');
 
     if (user) {
@@ -220,11 +219,11 @@ export const updateUser = async (req, res) => {
     }
 
     const updatedUser = await user.save();
-    
+
     // Update department coordinator references
     const roleChanged = req.user.role === 'admin' && req.body.role !== undefined && req.body.role !== oldRole;
     const departmentChanged = req.user.role === 'admin' && req.body.department !== undefined && req.body.department?.toString() !== oldDepartment?.toString();
-    
+
     // If user was coordinator and role changed to non-coordinator, remove from old department
     if (oldRole === 'coordinator' && roleChanged && updatedUser.role !== 'coordinator' && oldDepartment) {
       await Department.findByIdAndUpdate(
@@ -232,7 +231,7 @@ export const updateUser = async (req, res) => {
         { $unset: { coordinator: '' } }
       );
     }
-    
+
     // If department changed and user was coordinator, remove from old department
     if (oldRole === 'coordinator' && departmentChanged && oldDepartment) {
       await Department.findByIdAndUpdate(
@@ -240,7 +239,7 @@ export const updateUser = async (req, res) => {
         { $unset: { coordinator: '' } }
       );
     }
-    
+
     // If user is coordinator (either was already or just became one), sync with department
     if (updatedUser.role === 'coordinator' && updatedUser.department) {
       await Department.findByIdAndUpdate(
@@ -248,7 +247,7 @@ export const updateUser = async (req, res) => {
         { coordinator: updatedUser._id }
       );
     }
-    
+
     // Populate department info for response
     await updatedUser.populate('department', 'name code');
 
@@ -293,7 +292,7 @@ export const updateUserProfile = async (req, res) => {
 
     // Update all provided fields
     const allowedFields = [
-      'fullName', 'dateOfBirth', 'gender', 'avatar', 'phoneNumber', 
+      'fullName', 'dateOfBirth', 'gender', 'avatar', 'phoneNumber',
       'address', 'emergencyContact', 'socialLinks', 'profileSettings'
     ];
 
@@ -371,7 +370,7 @@ export const getUsersByRole = async (req, res) => {
     const page = parseInt(req.query.page) || 1;
     const limit = parseInt(req.query.limit) || 10;
     const skip = (page - 1) * limit;
-    
+
     if (!['student', 'coordinator', 'admin'].includes(role)) {
       return res.status(400).json({ message: 'Invalid role specified' });
     }

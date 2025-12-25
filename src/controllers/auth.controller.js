@@ -33,7 +33,7 @@ export const login = async (req, res) => {
           success: payload.success,
           message: payload.message
         });
-      } catch {}
+      } catch { }
     };
 
     if (!email) {
@@ -147,7 +147,7 @@ export const login = async (req, res) => {
     };
     try {
       console.log('Login response:', { email: req.body?.email, statusCode: 500, success: payload.success, message: payload.message });
-    } catch {}
+    } catch { }
     res.status(500).json(payload);
   }
 };
@@ -164,9 +164,9 @@ export const register = async (req, res) => {
     const userExists = await User.findOne({ email });
 
     if (userExists) {
-      return res.status(400).json({ 
+      return res.status(400).json({
         success: false,
-        message: 'User already exists' 
+        message: 'User already exists'
       });
     }
 
@@ -212,7 +212,7 @@ export const register = async (req, res) => {
 
     if (user) {
       await user.populate('department', 'name code');
-      
+
       res.status(200).json({
         success: true,
         message: 'Registration successful',
@@ -238,9 +238,9 @@ export const register = async (req, res) => {
 
   } catch (error) {
     console.error('Registration error:', error);
-    res.status(500).json({ 
+    res.status(500).json({
       success: false,
-      message: 'Failed to process registration request' 
+      message: 'Failed to process registration request'
     });
   }
 };
@@ -289,7 +289,7 @@ export const completeRegistration = async (req, res) => {
     }
 
     // Find and validate verification token
-    const tokenRecord = await VerificationToken.findOne({ 
+    const tokenRecord = await VerificationToken.findOne({
       token: verificationToken,
       email: email.toLowerCase()
     });
@@ -336,7 +336,7 @@ export const completeRegistration = async (req, res) => {
 
       // Populate department info
       await user.populate('department', 'name code');
-      
+
       res.status(200).json({
         success: true,
         message: 'Registration completed successfully',
@@ -374,7 +374,6 @@ export const getProfile = async (req, res) => {
   try {
     const user = await User.findById(req.user._id)
       .populate('department', 'name code description')
-      .populate('savedNotifications')
       .select('-password');
 
     if (user) {
