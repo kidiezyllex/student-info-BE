@@ -3,11 +3,6 @@ import User from '../models/user.model.js';
 import VerificationToken from '../models/verificationToken.model.js';
 import { jwtSecret, jwtExpiresIn } from '../config/database.js';
 import VerificationCode from '../models/verificationCode.model.js';
-import { sendVerificationCode } from '../services/email.service.js';
-
-const generateVerificationCode = () => {
-  return Math.floor(100000 + Math.random() * 900000).toString();
-};
 
 const generateToken = (id) => {
   return jwt.sign({ id }, jwtSecret, {
@@ -24,24 +19,11 @@ export const login = async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    const logLogin = (statusCode, payload) => {
-      try {
-        // Avoid logging sensitive password, only meta info
-        console.log('Login response:', {
-          email,
-          statusCode,
-          success: payload.success,
-          message: payload.message
-        });
-      } catch { }
-    };
-
     if (!email) {
       const payload = {
         success: false,
         message: 'Email is required'
       };
-      logLogin(400, payload);
       return res.status(400).json(payload);
     }
 
@@ -105,7 +87,6 @@ export const login = async (req, res) => {
           return res.status(400).json(payload);
         }
 
-        // Consume the verified code so it can't be reused
         await VerificationCode.deleteOne({ _id: verifiedCode._id });
       }
     }
@@ -146,7 +127,6 @@ export const login = async (req, res) => {
       message: 'Internal server error'
     };
     try {
-      console.log('Login response:', { email: req.body?.email, statusCode: 500, success: payload.success, message: payload.message });
     } catch { }
     res.status(500).json(payload);
   }

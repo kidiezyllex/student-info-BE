@@ -50,23 +50,14 @@ const toJSON = (doc) => {
   return obj;
 };
 
-/**
- * Export all topics from MongoDB to a JSON file
- */
 const exportTopicsToJson = async () => {
   try {
-    // Connect to database
-    console.log('Connecting to MongoDB...');
     await connectDB();
 
-    // Fetch all topics with populated fields
-    console.log('Fetching all topics from database...');
     const topics = await Topic.find({})
       .populate('department', 'name code')
       .populate('createdBy', 'name email role')
       .sort({ createdAt: -1 });
-
-    console.log(`Found ${topics.length} topics`);
 
     // Convert topics to JSON format
     const topicsData = topics.map(topic => toJSON(topic));
@@ -103,34 +94,20 @@ const exportTopicsToJson = async () => {
 
     // Write to file with pretty formatting
     fs.writeFileSync(filepath, JSON.stringify(exportData, null, 2), 'utf8');
-
-    console.log(`\n✅ Export thành công!`);
-    console.log(`📁 File được lưu tại: ${filepath}`);
-    console.log(`📊 Tổng số topics: ${topics.length}`);
-
-    console.log(`\n📈 Thống kê theo loại:`);
-    Object.entries(statsByType).forEach(([type, count]) => {
-      console.log(`   - ${type}: ${count}`);
-    });
-
   } catch (error) {
     console.error('❌ Lỗi khi export topics:', error);
     throw error;
   } finally {
-    // Disconnect from database
     await disconnectDB();
-    console.log('\nĐã đóng kết nối database.');
   }
 };
 
 // Run the export function
 exportTopicsToJson()
   .then(() => {
-    console.log('\n✨ Hoàn thành!');
     process.exit(0);
   })
   .catch((error) => {
-    console.error('\n❌ Có lỗi xảy ra:', error);
     process.exit(1);
   });
 

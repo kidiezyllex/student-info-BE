@@ -7,6 +7,7 @@ Detailed documentation for all API endpoints available in the system.
 ### 1. Auth
 
 #### 1.1. Register
+
 - **Method:** POST
 - **Path:** `/api/auth/register`
 - **Access:** Public (3 role)
@@ -34,6 +35,7 @@ Detailed documentation for all API endpoints available in the system.
   ```
 
 #### 1.2. Login
+
 - **Method:** POST
 - **Path:** `/api/auth/login`
 - **Access:** Public (3 role)
@@ -67,10 +69,11 @@ Detailed documentation for all API endpoints available in the system.
   ```
 - **Example Accounts:**
   - Admin: `admin@gmail.com / Admin123456`
-  - Quản trị ngành: `quantringanh1@gmail.com / Qtn123456`,  `admin2@gmail.com / Admin123456`
+  - Quản trị ngành: `quantringanh1@gmail.com / Qtn123456`, `admin2@gmail.com / Admin123456`
   - Student: `buitranthienan1111@gmail.com / kidiezyllex.1111`
 
 #### 1.3. Get Profile
+
 - **Method:** GET
 - **Path:** `/api/auth/profile`
 - **Access:** Private (3 role)
@@ -114,6 +117,7 @@ Detailed documentation for all API endpoints available in the system.
 ### 2. Users
 
 #### 2.1. Get All Users
+
 - **Method:** GET
 - **Path:** `/api/users`
 - **Access:** Admin only
@@ -146,6 +150,7 @@ Detailed documentation for all API endpoints available in the system.
   ```
 
 #### 2.2. Get User by ID
+
 - **Method:** GET
 - **Path:** `/api/users/:id`
 - **Access:** Private (3 role)
@@ -229,6 +234,7 @@ Detailed documentation for all API endpoints available in the system.
   ```
 
 #### 2.3. Get Users by Role
+
 - **Method:** GET
 - **Path:** `/api/users/role/:role`
 - **Access:** Admin only
@@ -256,6 +262,7 @@ Detailed documentation for all API endpoints available in the system.
   ```
 
 #### 2.4. Get Users by Department
+
 - **Method:** GET
 - **Path:** `/api/users/department/:departmentId`
 - **Access:** Private (3 role)
@@ -282,6 +289,7 @@ Detailed documentation for all API endpoints available in the system.
   ```
 
 #### 2.5. Update User Basic Information
+
 - **Method:** PUT
 - **Path:** `/api/users/:id`
 - **Access:** Private (own profile or admin)
@@ -326,6 +334,7 @@ Detailed documentation for all API endpoints available in the system.
   ```
 
 #### 2.6. Update User Profile (Comprehensive)
+
 - **Method:** PUT
 - **Path:** `/api/users/:id/profile`
 - **Access:** Private (own profile or admin)
@@ -435,6 +444,7 @@ Detailed documentation for all API endpoints available in the system.
   ```
 
 #### 2.7. Delete User
+
 - **Method:** DELETE
 - **Path:** `/api/users/:id`
 - **Access:** Admin only
@@ -449,10 +459,11 @@ Detailed documentation for all API endpoints available in the system.
 ### 3. Departments
 
 #### 3.1. Get All Departments
+
 - **Method:** GET
 - **Path:** `/api/departments`
 - **Access:** Public
-- **Response:
+- \*\*Response:
   ```json
   {
     "message": "Departments retrieved successfully",
@@ -469,6 +480,7 @@ Detailed documentation for all API endpoints available in the system.
   ```
 
 #### 3.2. Get Department by ID
+
 - **Method:** GET
 - **Path:** `/api/departments/:id`
 - **Access:** Public
@@ -487,6 +499,7 @@ Detailed documentation for all API endpoints available in the system.
   ```
 
 #### 3.3. Create Department
+
 - **Method:** POST
 - **Path:** `/api/departments`
 - **Access:** Admin only
@@ -494,10 +507,10 @@ Detailed documentation for all API endpoints available in the system.
 - **Payload:**
   ```json
   {
-  "name": "Công nghệ thông tin",
-  "code": "CNTT",
-  "description": "Ngành học về công nghệ thông tin và lập trình",
-  "coordinatorId": "67f80cb9b5b273e272ae6f44"
+    "name": "Công nghệ thông tin",
+    "code": "CNTT",
+    "description": "Ngành học về công nghệ thông tin và lập trình",
+    "coordinatorId": "67f80cb9b5b273e272ae6f44"
   }
   ```
 - **Response:**
@@ -515,6 +528,7 @@ Detailed documentation for all API endpoints available in the system.
   ```
 
 #### 3.4. Update Department
+
 - **Method:** PUT
 - **Path:** `/api/departments/:id`
 - **Access:** Admin only
@@ -543,6 +557,7 @@ Detailed documentation for all API endpoints available in the system.
   ```
 
 #### 3.5. Delete Department
+
 - **Method:** DELETE
 - **Path:** `/api/departments/:id`
 - **Access:** Admin only
@@ -557,6 +572,7 @@ Detailed documentation for all API endpoints available in the system.
 ### 4. Events
 
 #### 4.1. Get Upcoming Events
+
 - **Method:** GET
 - **Path:** `/api/events`
 - **Access:** Private (Admin, Coordinator, Student)
@@ -586,6 +602,7 @@ Detailed documentation for all API endpoints available in the system.
   ```
 
 #### 4.2. Get All Events (Including Past)
+
 - **Method:** GET
 - **Path:** `/api/events/all`
 - **Access:** Private (Admin, Coordinator - only for their department)
@@ -615,6 +632,7 @@ Detailed documentation for all API endpoints available in the system.
   ```
 
 #### 4.3. Get Event by ID
+
 - **Method:** GET
 - **Path:** `/api/events/:id`
 - **Access:** Private (Admin, Coordinator, Student)
@@ -640,6 +658,7 @@ Detailed documentation for all API endpoints available in the system.
   ```
 
 #### 4.4. Create Event
+
 - **Method:** POST
 - **Path:** `/api/events`
 - **Access:** Private (Admin, Coordinator - only for their department)
@@ -647,13 +666,13 @@ Detailed documentation for all API endpoints available in the system.
 - **Payload:**
   ```json
   {
-  "title": "Hội thảo Công nghệ",
-  "description": "Mô tả chi tiết về hội thảo",
-  "startDate": "2025-05-06T09:00:00Z",
-  "endDate": "2025-05-15T16:00:00Z",
-  "location": "Hội trường A",
-  "department": "67f8d416b509cace3cc9d4ea",
-  "organizer": "Khoa Công nghệ thông tin"
+    "title": "Hội thảo Công nghệ",
+    "description": "Mô tả chi tiết về hội thảo",
+    "startDate": "2025-05-06T09:00:00Z",
+    "endDate": "2025-05-15T16:00:00Z",
+    "location": "Hội trường A",
+    "department": "67f8d416b509cace3cc9d4ea",
+    "organizer": "Khoa Công nghệ thông tin"
   }
   ```
 - **Response:**
@@ -674,6 +693,7 @@ Detailed documentation for all API endpoints available in the system.
   ```
 
 #### 4.5. Update Event
+
 - **Method:** PUT
 - **Path:** `/api/events/:id`
 - **Access:** Private (Admin, Coordinator - only for their department, cannot update general events)
@@ -708,6 +728,7 @@ Detailed documentation for all API endpoints available in the system.
   ```
 
 #### 4.6. Delete Event
+
 - **Method:** DELETE
 - **Path:** `/api/events/:id`
 - **Access:** Private (Admin, Coordinator - only for their department, cannot delete general events)
@@ -722,6 +743,7 @@ Detailed documentation for all API endpoints available in the system.
 ### 5. Scholarships
 
 #### 5.1. Get Active Scholarships
+
 - **Method:** GET
 - **Path:** `/api/scholarships`
 - **Access:** Private (Admin, Coordinator, Student)
@@ -753,6 +775,7 @@ Detailed documentation for all API endpoints available in the system.
   ```
 
 #### 5.2. Get All Scholarships (Including Expired)
+
 - **Method:** GET
 - **Path:** `/api/scholarships/all`
 - **Access:** Private (Admin, Coordinator - only for their department)
@@ -784,6 +807,7 @@ Detailed documentation for all API endpoints available in the system.
   ```
 
 #### 5.3. Get Scholarship by ID
+
 - **Method:** GET
 - **Path:** `/api/scholarships/:id`
 - **Access:** Private (Admin, Coordinator, Student)
@@ -811,6 +835,7 @@ Detailed documentation for all API endpoints available in the system.
   ```
 
 #### 5.4. Create Scholarship
+
 - **Method:** POST
 - **Path:** `/api/scholarships`
 - **Access:** Private (Admin, Coordinator - only for their department)
@@ -849,6 +874,7 @@ Detailed documentation for all API endpoints available in the system.
   ```
 
 #### 5.5. Update Scholarship
+
 - **Method:** PUT
 - **Path:** `/api/scholarships/:id`
 - **Access:** Private (Admin, Coordinator - only for their department, cannot update general scholarships)
@@ -887,6 +913,7 @@ Detailed documentation for all API endpoints available in the system.
   ```
 
 #### 5.6. Delete Scholarship
+
 - **Method:** DELETE
 - **Path:** `/api/scholarships/:id`
 - **Access:** Private (Admin, Coordinator - only for their department, cannot delete general scholarships)
@@ -901,6 +928,7 @@ Detailed documentation for all API endpoints available in the system.
 ### 6. Messages
 
 #### 6.1. Get Conversations
+
 - **Method:** GET
 - **Path:** `/api/messages`
 - **Access:** Private
@@ -922,6 +950,7 @@ Detailed documentation for all API endpoints available in the system.
   ```
 
 #### 6.2. Get Conversation History
+
 - **Method:** GET
 - **Path:** `/api/messages/:userId`
 - **Access:** Private
@@ -944,6 +973,7 @@ Detailed documentation for all API endpoints available in the system.
   ```
 
 #### 6.3. Send Message
+
 - **Method:** POST
 - **Path:** `/api/messages`
 - **Access:** Private
@@ -971,6 +1001,7 @@ Detailed documentation for all API endpoints available in the system.
   ```
 
 #### 6.4. Mark Message as Read
+
 - **Method:** PUT
 - **Path:** `/api/messages/:messageId/read`
 - **Access:** Private
@@ -983,6 +1014,7 @@ Detailed documentation for all API endpoints available in the system.
   ```
 
 #### 6.5. Mark All Messages as Read
+
 - **Method:** PUT
 - **Path:** `/api/messages/:userId/read-all`
 - **Access:** Private
@@ -997,6 +1029,7 @@ Detailed documentation for all API endpoints available in the system.
 ### 7. Notifications
 
 #### 7.1. Get Notifications
+
 - **Method:** GET
 - **Path:** `/api/notifications`
 - **Access:** Private (Admin, Coordinator, Student)
@@ -1028,6 +1061,7 @@ Detailed documentation for all API endpoints available in the system.
   ```
 
 #### 7.2. Get Notification by ID
+
 - **Method:** GET
 - **Path:** `/api/notifications/:id`
 - **Access:** Private (Admin, Coordinator, Student)
@@ -1054,6 +1088,7 @@ Detailed documentation for all API endpoints available in the system.
   ```
 
 #### 7.3. Create Notification
+
 - **Method:** POST
 - **Path:** `/api/notifications`
 - **Access:** Private (Admin, Coordinator - only for their department)
@@ -1089,6 +1124,7 @@ Detailed documentation for all API endpoints available in the system.
   ```
 
 #### 7.4. Update Notification
+
 - **Method:** PUT
 - **Path:** `/api/notifications/:id`
 - **Access:** Private (Admin, Coordinator - only for their department, cannot update general notifications)
@@ -1123,6 +1159,7 @@ Detailed documentation for all API endpoints available in the system.
   ```
 
 #### 7.5. Delete Notification
+
 - **Method:** DELETE
 - **Path:** `/api/notifications/:id`
 - **Access:** Private (Admin, Coordinator - only for their department, cannot delete general notifications)
@@ -1135,6 +1172,7 @@ Detailed documentation for all API endpoints available in the system.
   ```
 
 #### 7.6. Get Saved Notifications
+
 - **Method:** GET
 - **Path:** `/api/notifications/saved`
 - **Access:** Private
@@ -1163,6 +1201,7 @@ Detailed documentation for all API endpoints available in the system.
   ```
 
 #### 7.7. Save Notification
+
 - **Method:** PUT
 - **Path:** `/api/notifications/:id/save`
 - **Access:** Private
@@ -1175,6 +1214,7 @@ Detailed documentation for all API endpoints available in the system.
   ```
 
 #### 7.8. Unsave Notification
+
 - **Method:** PUT
 - **Path:** `/api/notifications/:id/unsave`
 - **Access:** Private
@@ -1189,6 +1229,7 @@ Detailed documentation for all API endpoints available in the system.
 ### 8. Chat
 
 #### 8.1. Ask AI Question
+
 - **Method:** POST
 - **Path:** `/api/chat/ask`
 - **Access:** Private
@@ -1217,6 +1258,7 @@ Detailed documentation for all API endpoints available in the system.
   ```
 
 #### 8.2. Get Chat History
+
 - **Method:** GET
 - **Path:** `/api/chat/history`
 - **Access:** Private
@@ -1238,6 +1280,7 @@ Detailed documentation for all API endpoints available in the system.
   ```
 
 #### 8.3. Get Chat Session
+
 - **Method:** GET
 - **Path:** `/api/chat/session/:id`
 - **Access:** Private
@@ -1264,6 +1307,7 @@ Detailed documentation for all API endpoints available in the system.
   ```
 
 #### 8.4. Rate AI Response
+
 - **Method:** PUT
 - **Path:** `/api/chat/rate`
 - **Access:** Private
@@ -1285,6 +1329,7 @@ Detailed documentation for all API endpoints available in the system.
   ```
 
 #### 8.5. Delete Chat Session
+
 - **Method:** DELETE
 - **Path:** `/api/chat/session/:id`
 - **Access:** Private
@@ -1300,6 +1345,7 @@ Detailed documentation for all API endpoints available in the system.
 ### 9. Dataset
 
 #### 9.1. Get All Dataset Items
+
 - **Method:** GET
 - **Path:** `/api/dataset`
 - **Access:** Private (Admin, Coordinator, Student)
@@ -1328,6 +1374,7 @@ Detailed documentation for all API endpoints available in the system.
   ```
 
 #### 9.2. Get Dataset Item by ID
+
 - **Method:** GET
 - **Path:** `/api/dataset/:id`
 - **Access:** Private (Admin, Coordinator, Student)
@@ -1351,6 +1398,7 @@ Detailed documentation for all API endpoints available in the system.
   ```
 
 #### 9.3. Create Dataset Item
+
 - **Method:** POST
 - **Path:** `/api/dataset`
 - **Access:** Private (Admin, Coordinator - only for their department)
@@ -1380,6 +1428,7 @@ Detailed documentation for all API endpoints available in the system.
   ```
 
 #### 9.4. Update Dataset Item
+
 - **Method:** PUT
 - **Path:** `/api/dataset/:id`
 - **Access:** Private (Admin, Coordinator - only for their department)
@@ -1408,6 +1457,7 @@ Detailed documentation for all API endpoints available in the system.
   ```
 
 #### 9.5. Delete Dataset Item
+
 - **Method:** DELETE
 - **Path:** `/api/dataset/:id`
 - **Access:** Private (Admin, Coordinator - only for their department)
@@ -1422,6 +1472,7 @@ Detailed documentation for all API endpoints available in the system.
 ### 10. AI Training
 
 #### 10.1. Train AI
+
 - **Method:** POST
 - **Path:** `/api/ai/train`
 - **Access:** Private (Admin, Coordinator - only for their department)
@@ -1446,6 +1497,7 @@ Detailed documentation for all API endpoints available in the system.
   ```
 
 #### 10.2. Get Training History
+
 - **Method:** GET
 - **Path:** `/api/ai/training-history`
 - **Access:** Private (Admin, Coordinator - only for their department)
@@ -1476,7 +1528,9 @@ Detailed documentation for all API endpoints available in the system.
 ## A. Phân quyền các chức năng
 
 ### 1. Role: Coordinator
+
 #### Dataset
+
 - `GET /api/dataset` — Lấy tất cả dữ liệu dataset
 - `GET /api/dataset/:id` — Lấy chi tiết dữ liệu
 - `POST /api/dataset` — Thêm dữ liệu mới (chỉ cho ngành mình)
@@ -1484,23 +1538,27 @@ Detailed documentation for all API endpoints available in the system.
 - `DELETE /api/dataset/:id` — Xóa dữ liệu (chỉ cho ngành mình)
 
 #### Event
+
 - `GET /api/events/all` — Lấy tất cả sự kiện (chỉ của ngành mình)
 - `POST /api/events` — Tạo sự kiện mới (chỉ cho ngành mình)
 - `PUT /api/events/:id` — Cập nhật sự kiện (chỉ cho ngành mình, không được cập nhật sự kiện chung)
 - `DELETE /api/events/:id` — Xóa sự kiện (chỉ cho ngành mình, không được xóa sự kiện chung)
 
 #### Notification
+
 - `POST /api/notifications` — Tạo thông báo mới (chỉ cho ngành mình)
 - `PUT /api/notifications/:id` — Cập nhật thông báo (chỉ cho ngành mình, không được cập nhật thông báo chung)
 - `DELETE /api/notifications/:id` — Xóa thông báo (chỉ cho ngành mình, không được xóa thông báo chung)
 
 #### Scholarship
+
 - `GET /api/scholarships/all` — Lấy tất cả học bổng (chỉ của ngành mình)
 - `POST /api/scholarships` — Tạo học bổng mới (chỉ cho ngành mình)
 - `PUT /api/scholarships/:id` — Cập nhật học bổng (chỉ cho ngành mình, không được cập nhật học bổng chung)
 - `DELETE /api/scholarships/:id` — Xóa học bổng (chỉ cho ngành mình, không được xóa học bổng chung)
 
 #### AI
+
 - `POST /api/ai/train` — Training AI từ dataset
 - `GET /api/ai/training-history` — Lấy lịch sử training AI
 
@@ -1511,15 +1569,18 @@ Coordinator cũng có thể sử dụng tất cả các route public như studen
 ### 2. Role: Student
 
 #### Dataset
+
 - `GET /api/dataset` — Lấy tất cả dữ liệu dataset
 - `GET /api/dataset/:id` — Lấy chi tiết dữ liệu
 
 #### Event
+
 - `GET /api/events` — Lấy tất cả sự kiện sắp diễn ra hoặc đang diễn ra
 
 ### 11. Upload
 
 #### 11.1. Upload Single File
+
 - **Method:** POST
 - **Path:** `/api/upload/single`
 - **Access:** Private (3 role)
@@ -1551,6 +1612,7 @@ Coordinator cũng có thể sử dụng tất cả các route public như studen
   ```
 
 #### 11.2. Upload Multiple Files
+
 - **Method:** POST
 - **Path:** `/api/upload/multiple`
 - **Access:** Private (3 role)
@@ -1587,6 +1649,7 @@ Coordinator cũng có thể sử dụng tất cả các route public như studen
   ```
 
 #### 11.3. Delete File
+
 - **Method:** DELETE
 - **Path:** `/api/upload/:publicId`
 - **Access:** Private (3 role)
@@ -1606,6 +1669,7 @@ Coordinator cũng có thể sử dụng tất cả các route public như studen
   ```
 
 #### 11.4. Get Upload Statistics
+
 - **Method:** GET
 - **Path:** `/api/upload/stats`
 - **Access:** Admin only
@@ -1627,6 +1691,7 @@ Coordinator cũng có thể sử dụng tất cả các route public như studen
   ```
 
 **Supported File Types:**
+
 - **Images:** JPG, JPEG, PNG, GIF, WebP, SVG
 - **Documents:** PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, TXT, CSV, RTF
 - **Archives:** ZIP, RAR, 7Z
@@ -1635,6 +1700,66 @@ Coordinator cũng có thể sử dụng tất cả các route public như studen
 - **Other:** JSON, XML, HTML, CSS, JS
 
 **Upload Limits:**
+
 - Maximum file size: 50MB per file
 - Maximum files per request: 10 files
 - All files are automatically organized in Cloudinary folders
+
+### 12. Google Calendar
+
+#### 12.1. Get Calendar Events
+
+- **Method:** GET
+- **Path:** `/api/calendar/events`
+- **Access:** Public
+- **Query Parameters:**
+  - `calendarId`: Google Calendar ID (Required)
+  - `maxResults`: Maximum number of events to return (Optional, default: 10)
+  - `timeMin`: Lower bound for event start time in ISO 8601 format (Optional, default: current time)
+  - `timeMax`: Upper bound for event start time in ISO 8601 format (Optional)
+- **Example Requests:**
+
+  ```
+  # Get upcoming 20 events
+  GET /api/calendar/events?calendarId=c_6d1538434f0949f4572a2e27a19bc4433076bc33fab658dbc801e55e469993b0@group.calendar.google.com&maxResults=20
+
+  # Get events in a specific time range
+  GET /api/calendar/events?calendarId=c_6d1538434f0949f4572a2e27a19bc4433076bc33fab658dbc801e55e469993b0@group.calendar.google.com&timeMin=2025-12-30T00:00:00Z&timeMax=2026-01-31T23:59:59Z
+  ```
+
+- **Response:**
+  ```json
+  {
+    "success": true,
+    "message": "Calendar events retrieved successfully",
+    "data": {
+      "calendarId": "c_6d1538434f0949f4572a2e27a19bc4433076bc33fab658dbc801e55e469993b0@group.calendar.google.com",
+      "calendarName": "CSE2023",
+      "totalEvents": 5,
+      "events": [
+        {
+          "id": "string",
+          "summary": "G2 - Statistics - Assoc. Prof. Hieu",
+          "description": "string",
+          "location": "Lecture Hall-1-H1-114 (110)",
+          "start": "2025-12-30T08:45:00Z",
+          "end": "2025-12-30T12:00:00Z",
+          "creator": {
+            "email": "string",
+            "displayName": "string"
+          },
+          "organizer": {
+            "email": "string",
+            "displayName": "CSE2023",
+            "self": true
+          },
+          "attendees": [],
+          "htmlLink": "https://www.google.com/calendar/event?...",
+          "status": "confirmed",
+          "created": "2024-01-01T00:00:00Z",
+          "updated": "2024-01-01T00:00:00Z"
+        }
+      ]
+    }
+  }
+  ```

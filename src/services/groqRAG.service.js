@@ -243,35 +243,24 @@ async function searchRelevantTopics(userQuestion, options = {}) {
       includeExpired = false,
       nlpAnalysis = null
     } = options;
-
-    console.log('🔍 Search Debug - User Question:', userQuestion);
-    console.log('🔍 Search Debug - Options:', { type, departmentId, limit, includeExpired });
-
     let analysis = nlpAnalysis;
     if (!analysis) {
       analysis = await analyzeQuestionWithNLP(userQuestion);
     }
-
-    console.log('🔍 Search Debug - NLP Analysis:', analysis);
-
     let detectedType = type;
     if (!detectedType && analysis?.intent) {
       detectedType = KEYWORD_TO_TYPE[analysis.intent] || null;
     }
 
-    // Fallback: detect type from keywords in question if NLP fails
     if (!detectedType) {
       const lowerQuestion = userQuestion.toLowerCase();
       for (const [keyword, topicType] of Object.entries(KEYWORD_TO_TYPE)) {
         if (lowerQuestion.includes(keyword)) {
           detectedType = topicType;
-          console.log(`🔍 Search Debug - Detected type from keyword "${keyword}": ${topicType}`);
           break;
         }
       }
     }
-
-    console.log('🔍 Search Debug - Detected Type:', detectedType);
 
     let searchQuery = userQuestion;
     if (analysis?.expandedKeywords && analysis.expandedKeywords.length > 0) {
@@ -281,8 +270,6 @@ async function searchRelevantTopics(userQuestion, options = {}) {
       const expanded = expandKeywords(analysis.keywords);
       searchQuery = expanded.join(' ');
     }
-
-    console.log('🔍 Search Debug - Search Query:', searchQuery);
 
     const query = {
       $text: { $search: searchQuery }
@@ -318,26 +305,19 @@ async function searchRelevantTopics(userQuestion, options = {}) {
       query.$and = andConditions;
     }
 
-    console.log('🔍 Search Debug - MongoDB Query:', JSON.stringify(query, null, 2));
-
     const topics = await Topic.find(query)
       .populate('department', 'name code')
       .populate('createdBy', 'name email')
       .sort({ score: { $meta: 'textScore' } })
       .limit(limit);
 
-    console.log('🔍 Search Debug - Found topics:', topics.length);
-
     if (topics.length === 0) {
-      console.log('🔍 Search Debug - No results from text search, using fallback...');
-
       const fallbackQuery = {};
       const fallbackAndConditions = [];
 
       // Use detected type in fallback
       if (detectedType) {
         fallbackQuery.type = detectedType;
-        console.log('🔍 Search Debug - Fallback using detected type:', detectedType);
       } else if (type) {
         fallbackQuery.type = type;
       }
@@ -377,16 +357,11 @@ async function searchRelevantTopics(userQuestion, options = {}) {
         fallbackQuery.$and = fallbackAndConditions;
       }
 
-      console.log('🔍 Search Debug - Fallback Query:', JSON.stringify(fallbackQuery, null, 2));
-
       const fallbackTopics = await Topic.find(fallbackQuery)
         .populate('department', 'name code')
         .populate('createdBy', 'name email')
         .sort({ createdAt: -1 })
         .limit(limit);
-
-      console.log('🔍 Search Debug - Fallback found:', fallbackTopics.length);
-
       return fallbackTopics;
     }
 
