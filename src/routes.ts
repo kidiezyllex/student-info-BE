@@ -15,6 +15,8 @@ import uploadRoutes from "./routes/upload.routes.js";
 import verificationRoutes from "./routes/verification.routes.js";
 import topicRoutes from "./routes/topic.routes.js";
 import calendarRoutes from "./routes/calendar.routes.js";
+import statisticsRoutes from "./routes/statistics.routes.js";
+import activityLogRoutes from "./routes/activityLog.routes.js";
 export async function registerRoutes(app: Express): Promise<Server> {
   try {
     await connectDB();
@@ -28,6 +30,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
     app.use("/api/verification", verificationRoutes);
     app.use("/api/topics", topicRoutes);
     app.use("/api/calendar", calendarRoutes);
+    app.use("/api/statistics", statisticsRoutes);
+    app.use("/api/activity-logs", activityLogRoutes);
     setupSwagger(app);
     
     app.get("/", (req: Request, res: Response) => {
@@ -43,7 +47,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
           topics: "/api/topics",
           chat: "/api/chat",
           departments: "/api/departments",
-          calendar: "/api/calendar"
+          calendar: "/api/calendar",
+          statistics: "/api/statistics",
+          activityLogs: "/api/activity-logs"
         }
       });
     });

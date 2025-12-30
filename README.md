@@ -1763,3 +1763,80 @@ Coordinator cũng có thể sử dụng tất cả các route public như studen
     }
   }
   ```
+
+### 13. Statistics
+
+#### 13.1. Get Statistics Summary
+
+- **Method:** GET
+- **Path:** `/api/statistics/summary`
+- **Access:** Public (or Protected depending on config)
+- **Response:**
+  ```json
+  {
+    "success": true,
+    "message": "Get statistics summary successfully",
+    "data": {
+      "studentsCount": 1250,
+      "departmentsCount": 12,
+      "coordinatorsCount": 45,
+      "topicsCount": 86,
+      "topicsByType": {
+        "event": 20,
+        "scholarship": 15,
+        "notification": 25,
+        "job": 10,
+        "advertisement": 5,
+        "internship": 4,
+        "recruitment": 3,
+        "volunteer": 2,
+        "extracurricular": 2
+      }
+    }
+  }
+  ```
+
+### 14. Activity Logs
+
+#### 14.1. Get Activity Logs
+
+- **Method:** GET
+- **Path:** `/api/activity-logs`
+- **Access:** Admin, Coordinator only
+- **Headers:** Authorization token required
+- **Query Parameters:**
+  - `page`: Page number (default: 1)
+  - `limit`: Items per page (default: 20)
+  - `action`: Filter by action (CREATE, UPDATE, DELETE)
+  - `resource`: Filter by resource name (e.g., Topic, User)
+  - `userId`: Filter by user ID
+  - `startDate`: Filter logs after this date (ISO format)
+  - `endDate`: Filter logs before this date (ISO format)
+- **Response:**
+  ```json
+  {
+    "success": true,
+    "data": [
+      {
+        "_id": "string",
+        "user": {
+          "_id": "string",
+          "name": "string",
+          "email": "string",
+          "role": "string"
+        },
+        "action": "CREATE",
+        "resource": "Topic",
+        "resourceId": "string",
+        "details": "Created topic: New Event Title (Type: event)",
+        "ipAddress": "127.0.0.1",
+        "userAgent": "Mozilla/5.0...",
+        "createdAt": "date"
+      }
+    ],
+    "total": 100,
+    "page": 1,
+    "limit": 20,
+    "totalPages": 5
+  }
+  ```

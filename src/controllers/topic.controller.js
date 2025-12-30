@@ -1,6 +1,7 @@
 import Topic from '../models/topic.model.js';
 import Department from '../models/department.model.js';
 import User from '../models/user.model.js';
+import { logActivity } from './activityLog.controller.js';
 
 /**
  * @desc    Get all topics
@@ -342,6 +343,16 @@ export const createTopic = async (req, res) => {
     // Create topic
     const topic = await Topic.create(topicData);
     
+    // Log activity
+    await logActivity({
+      user: req.user,
+      action: 'CREATE',
+      resource: 'Topic',
+      resourceId: topic._id.toString(),
+      details: `Created topic: ${topic.title} (Type: ${topic.type})`,
+      req
+    });
+    
     res.status(201).json({
       success: true,
       message: 'New topic created',
@@ -464,6 +475,16 @@ export const updateTopic = async (req, res) => {
     
     await topic.save();
     
+    // Log activity
+    await logActivity({
+      user: req.user,
+      action: 'UPDATE',
+      resource: 'Topic',
+      resourceId: topic._id.toString(),
+      details: `Updated topic: ${topic.title}`,
+      req
+    });
+    
     res.status(200).json({
       success: true,
       message: 'Topic updated successfully',
@@ -526,6 +547,16 @@ export const deleteTopic = async (req, res) => {
       { savedTopics: topic._id },
       { $pull: { savedTopics: topic._id } }
     );
+    
+    // Log activity
+    await logActivity({
+      user: req.user,
+      action: 'DELETE',
+      resource: 'Topic',
+      resourceId: topic._id.toString(),
+      details: `Deleted topic: ${topic.title}`,
+      req
+    });
     
     res.status(200).json({
       success: true,
