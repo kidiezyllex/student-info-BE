@@ -10,36 +10,25 @@ import { logActivity } from './activityLog.controller.js';
  */
 export const getAllTopics = async (req, res) => {
   try {
-    const { type, department, search, q } = req.query;
+    const { type, department, search, q, sort, order, hasDeadline, status } = req.query;
     const searchTerm = search || q;
     
-    console.log(`[getAllTopics] Params: type=${type}, dept=${department}, search=${searchTerm}, page=${req.query.page}`);
-
     const page = parseInt(req.query.page) || 1;
     const limit = parseInt(req.query.limit) || 10;
     const skip = (page - 1) * limit;
     const query = {};
     const andConditions = [];
     
-    // Filter by type if provided
-    if (type) {
-      query.type = type;
-    }
+    if (type) query.type = type;
     
-    // Filter by department if provided
     if (department) {
       andConditions.push({
-        $or: [
-          { department },
-          { department: null } // General topics
-        ]
+        $or: [{ department }, { department: null }]
       });
     }
     
-    // Search in title, description, organizer, company, provider
     if (searchTerm) {
       const searchRegex = new RegExp(searchTerm, 'i');
-      console.log(`[getAllTopics] Applying regex search for: "${searchTerm}"`);
       andConditions.push({
         $or: [
           { title: searchRegex },
@@ -52,45 +41,81 @@ export const getAllTopics = async (req, res) => {
     }
     
     const now = new Date();
-    if (type === 'event') {
-      query.endDate = { $gt: now };
-    } else if (type === 'scholarship') {
+
+    // 1. Status Filter
+    if (status === 'active') {
       andConditions.push({
-        $or: [
-          { applicationDeadline: { $exists: false } },
-          { applicationDeadline: null },
-          { applicationDeadline: { $gt: now } }
+        $and: [
+          { $or: [{ endDate: { $gte: now } }, { endDate: null }] },
+          { $or: [{ applicationDeadline: { $gte: now } }, { applicationDeadline: null }] }
         ]
       });
-    } else if (type === 'notification') {
-      // Only show notifications that haven't expired
+    } else if (status === 'expired') {
       andConditions.push({
         $or: [
-          { endDate: { $exists: false } },
-          { endDate: null },
-          { endDate: { $gt: now } }
+          { endDate: { $lt: now } },
+          { applicationDeadline: { $lt: now } }
+        ]
+      });
+    } else {
+      // Default behavior if status is NOT specified
+      if (type === 'event') {
+        andConditions.push({ endDate: { $gt: now } });
+      } else if (type === 'scholarship') {
+        andConditions.push({
+          $or: [
+            { applicationDeadline: { $exists: false } },
+            { applicationDeadline: null },
+            { applicationDeadline: { $gt: now } }
+          ]
+        });
+      } else if (type === 'notification') {
+        andConditions.push({
+          $or: [
+            { endDate: { $exists: false } },
+            { endDate: null },
+            { endDate: { $gt: now } }
+          ]
+        });
+      }
+    }
+
+    // 2. Deadline Filter
+    if (hasDeadline === 'true') {
+      andConditions.push({
+        $or: [
+          { applicationDeadline: { $exists: true, $ne: null } },
+          { endDate: { $exists: true, $ne: null } }
+        ]
+      });
+    } else if (hasDeadline === 'false') {
+      andConditions.push({
+        $and: [
+          { $or: [{ applicationDeadline: { $exists: false } }, { applicationDeadline: null }] },
+          { $or: [{ endDate: { $exists: false } }, { endDate: null }] }
         ]
       });
     }
     
-    // Combine all conditions with $and if needed
     if (andConditions.length > 0) {
       query.$and = andConditions;
     }
     
-    console.log('[DEBUG] Final Query:', query);
+    console.log('[getAllTopics-DEBUG] Query:', JSON.stringify(query));
 
     const total = await Topic.countDocuments(query);
-    console.log('[DEBUG] Total Matches:', total);
     
-    // Determine sort order based on type
+    // 3. Sorting
     let sortOrder = { createdAt: -1 };
-    if (type === 'event') {
-      sortOrder = { startDate: 1 };
-    } else if (type === 'scholarship') {
-      sortOrder = { applicationDeadline: 1 };
-    } else if (type === 'notification') {
-      sortOrder = { isImportant: -1, createdAt: -1 };
+    
+    if (sort) {
+      const direction = order === 'asc' ? 1 : -1;
+      sortOrder = { [sort]: direction };
+    } else {
+      // Default type-based sorting
+      if (type === 'event') sortOrder = { startDate: 1 };
+      else if (type === 'scholarship') sortOrder = { applicationDeadline: 1 };
+      else if (type === 'notification') sortOrder = { isImportant: -1, createdAt: -1 };
     }
     
     const topics = await Topic.find(query)

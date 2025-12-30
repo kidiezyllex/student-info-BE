@@ -24,8 +24,6 @@ export const logActivity = async (data) => {
       if (req) {
         req.activityLogged = true;
       }
-      
-      console.log(`[ActivityLog] ${action} ${resource} by ${user.email}`);
     }
   } catch (error) {
     console.error('[ActivityLog] Error creating log:', error);
