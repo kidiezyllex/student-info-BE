@@ -34,7 +34,6 @@ export const login = async (req, res) => {
         success: false,
         message: 'Invalid email or password'
       };
-      logLogin(401, payload);
       return res.status(401).json(payload);
     }
 
@@ -46,7 +45,6 @@ export const login = async (req, res) => {
           success: false,
           message: 'Password is required for admin and coordinator'
         };
-        logLogin(400, payload);
         return res.status(400).json(payload);
       }
 
@@ -56,7 +54,6 @@ export const login = async (req, res) => {
           success: false,
           message: 'Invalid email or password'
         };
-        logLogin(401, payload);
         return res.status(401).json(payload);
       }
     } else {
@@ -67,7 +64,6 @@ export const login = async (req, res) => {
             success: false,
             message: 'Invalid email or password'
           };
-          logLogin(401, payload);
           return res.status(401).json(payload);
         }
       } else {
@@ -83,7 +79,6 @@ export const login = async (req, res) => {
             success: false,
             message: 'Verification code is required or has expired'
           };
-          logLogin(400, payload);
           return res.status(400).json(payload);
         }
 
@@ -96,7 +91,6 @@ export const login = async (req, res) => {
         success: false,
         message: 'Account is deactivated'
       };
-      logLogin(401, payload);
       return res.status(401).json(payload);
     }
 
@@ -118,7 +112,6 @@ export const login = async (req, res) => {
         token: generateToken(user._id)
       }
     };
-    logLogin(200, successPayload);
     res.status(200).json(successPayload);
   } catch (error) {
     console.error('Login error:', error);
@@ -126,8 +119,6 @@ export const login = async (req, res) => {
       success: false,
       message: 'Internal server error'
     };
-    try {
-    } catch { }
     res.status(500).json(payload);
   }
 };

@@ -9,7 +9,11 @@ import User from '../models/user.model.js';
  */
 export const getAllTopics = async (req, res) => {
   try {
-    const { type, department } = req.query;
+    const { type, department, search, q } = req.query;
+    const searchTerm = search || q;
+    
+    console.log(`[getAllTopics] Params: type=${type}, dept=${department}, search=${searchTerm}, page=${req.query.page}`);
+
     const page = parseInt(req.query.page) || 1;
     const limit = parseInt(req.query.limit) || 10;
     const skip = (page - 1) * limit;
@@ -27,6 +31,21 @@ export const getAllTopics = async (req, res) => {
         $or: [
           { department },
           { department: null } // General topics
+        ]
+      });
+    }
+    
+    // Search in title, description, organizer, company, provider
+    if (searchTerm) {
+      const searchRegex = new RegExp(searchTerm, 'i');
+      console.log(`[getAllTopics] Applying regex search for: "${searchTerm}"`);
+      andConditions.push({
+        $or: [
+          { title: searchRegex },
+          { description: searchRegex },
+          { organizer: searchRegex },
+          { company: searchRegex },
+          { provider: searchRegex }
         ]
       });
     }
@@ -58,7 +77,10 @@ export const getAllTopics = async (req, res) => {
       query.$and = andConditions;
     }
     
+    console.log('[DEBUG] Final Query:', query);
+
     const total = await Topic.countDocuments(query);
+    console.log('[DEBUG] Total Matches:', total);
     
     // Determine sort order based on type
     let sortOrder = { createdAt: -1 };
@@ -104,11 +126,12 @@ export const getAllTopics = async (req, res) => {
  */
 export const getAllTopicsAdmin = async (req, res) => {
   try {
-    const { type, department } = req.query;
+    const { type, department, search } = req.query;
     const page = parseInt(req.query.page) || 1;
     const limit = parseInt(req.query.limit) || 10;
     const skip = (page - 1) * limit;
     const query = {};
+    const andConditions = [];
     
     // Filter by type if provided
     if (type) {
@@ -123,6 +146,25 @@ export const getAllTopicsAdmin = async (req, res) => {
     // If coordinator, only show topics from their department
     if (req.user.role === 'coordinator') {
       query.department = req.user.department;
+    }
+    
+    // Search in title, description, organizer, company, provider
+    if (search) {
+      const searchRegex = new RegExp(search, 'i');
+      andConditions.push({
+        $or: [
+          { title: searchRegex },
+          { description: searchRegex },
+          { organizer: searchRegex },
+          { company: searchRegex },
+          { provider: searchRegex }
+        ]
+      });
+    }
+    
+    // Combine all conditions with $and if needed
+    if (andConditions.length > 0) {
+      query.$and = andConditions;
     }
     
     const total = await Topic.countDocuments(query);

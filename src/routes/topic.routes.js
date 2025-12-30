@@ -38,6 +38,11 @@ const router = express.Router();
  *           type: string
  *         description: Filter by department ID
  *       - in: query
+ *         name: search
+ *         schema:
+ *           type: string
+ *         description: Search in title, description, organizer, company, provider
+ *       - in: query
  *         name: page
  *         schema:
  *           type: integer
@@ -72,6 +77,21 @@ router.get('/', authenticate, isAnyUser, getAllTopics);
  *         schema:
  *           type: string
  *         description: Filter by department ID
+ *       - in: query
+ *         name: search
+ *         schema:
+ *           type: string
+ *         description: Search in title, description, organizer, company, provider
+ *       - in: query
+ *         name: page
+ *         schema:
+ *           type: integer
+ *         description: Page number
+ *       - in: query
+ *         name: limit
+ *         schema:
+ *           type: integer
+ *         description: Items per page
  *     responses:
  *       200:
  *         description: List of all topics

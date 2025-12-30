@@ -139,6 +139,24 @@ const KEYWORD_TO_TYPE = {
   'ads': 'advertisement'
 };
 
+const CONTACT_DATA_HARDCODED = [
+  { name: "Dr. Le Lam Son", title: "Academic Coordinator for the Computer Science program cum Lecturer in Software Engineering and Programming Languages", room: "384", email: "son.ll@vgu.edu.vn" },
+  { name: "Assoc. Prof. Garcia Clavel Manuel", title: "Senior Lecturer in Programming Languages and Methods", room: "305", email: "manuel.clavel@vgu.edu.vn" },
+  { name: "Dr. Tran Hong Ngoc", title: "Lecturer in Security, Privacy, and Data Science", room: "387", email: "ngoc.th@vgu.edu.vn" },
+  { name: "Dr. Tran Thi Thu Huong", title: "Lecturer in Mathematical Foundations for Computer Science", room: "390", email: "huong.ttt@vgu.edu.vn" },
+  { name: "Dr. Truong Dinh Huy", title: "Lecturer in Computer Networks and Internet of Things", room: "389", email: "huy.td@vgu.edu.vn" },
+  { name: "Dr. Nguyen Tuan Cuong", title: "Lecturer in Information Systems and Data Science", room: "385", email: "cuong.nt2@vgu.edu.vn" },
+  { name: "Dr. Tran Huu Tam", title: "Lecturer in Distributed Computing and Systems", room: "378", email: "tam.th@vgu.edu.vn" },
+  { name: "M.Sc. Le Duy Hung", title: "Lab Engineer in Real-time Systems and IT Security", room: "383", email: "hung.ld2@vgu.edu.vn" },
+  { name: "Mr. Le Thai Cuong", title: "Lab Engineer in Computer Networks", room: "386", email: "cuong.lt@vgu.edu.vn" },
+  { name: "M.Fin. Le Thuy Doan Trang", title: "Faculty Assistant for Study program of CSE", room: "388", email: "cse@vgu.edu.vn" },
+  { name: "Mr. Nguyễn Mai Linh", title: "Tuition fees and Scholarships Accountant", room: "351", email: "linh.nm@vgu.edu.vn" },
+  { name: "Ms. Bùi Tố Nguyên", title: "Scholarship Officer / International Officer", room: "218", email: "scholarships@vgu.edu.vn / international@vgu.edu.vn" },
+  { name: "Dormitory", title: "Dorm Management Board", room: "N/A", email: "dormitory@vgu.edu.vn" },
+  { name: "ASA", title: "Department of Academic and Student Affairs", room: "218", email: "studentaffairs@vgu.edu.vn" },
+  { name: "Research Management Department", title: "Research Management Department", room: "N/A", email: "rm@vgu.edu.vn" }
+];
+
 /**
  * Analyze question with NLP to extract intent and entities
  */
@@ -517,22 +535,39 @@ export async function askWithRAG(userQuestion, chatHistory = [], options = {}) {
 
     const topicContext = formatTopicContext(relevantTopics);
 
+    // Check for contact related keywords
+    const contactKeywords = ['contact', 'liên hệ', 'email', 'mail', 'phone', 'sdt', 'số điện thoại', 'address', 'địa chỉ', 'meet', 'gặp', 'room', 'phòng'];
+    const lowerQuestion = userQuestion.toLowerCase();
+    const isContactQuery = contactKeywords.some(keyword => lowerQuestion.includes(keyword));
+
+    let contactContext = '';
+    if (isContactQuery) {
+      contactContext = `
+CONTACT INFORMATION (Taken from official records):
+${CONTACT_DATA_HARDCODED.map(c => `- ${c.name}: ${c.title}. Room: ${c.room}. Email: ${c.email}`).join('\n')}
+`;
+    }
+
     const systemPrompt = {
       role: 'system',
       content: `You are an intelligent assistant specialized in helping students search for information about events, scholarships, notifications, job opportunities, internships, and other activities at the school.
 
-SYSTEM INFORMATION (RAG Context):
+OFFICIAL CONTACT LIST (Use this for contact/room/email queries):
+${contactContext}
+
+SEARCH RESULTS (From Database):
 ${topicContext}
 
 RESPONSE RULES:
-1. MANDATORY: Prioritize using information from the RAG context above. If relevant information exists, you must cite it specifically.
-2. Respond in English, clearly, detailed, and friendly.
-3. If there are multiple relevant results, list them all with numbers [1], [2], [3]...
-4. Only use general knowledge if NO information is found in the RAG context.
-5. Always provide specific information: name, description, time, location, requirements, deadline, etc.
-6. If no information is found, clearly notify and suggest the user can contact the relevant department for more details.
-7. If there is information about application deadlines, emphasize it so users don't miss it.
-8. Always check and notify if events/scholarships have expired (if there is information about endDate or applicationDeadline).
+1. MANDATORY: Check the OFFICIAL CONTACT LIST first if the user asks for contact info, rooms, or person names.
+2. Prioritize using information from the context provided above.
+3. Respond in English, clearly, detailed, and friendly.
+4. If there are multiple relevant results, list them all with numbers [1], [2], [3]...
+5. Only use general knowledge if NO information is found in the provided context.
+6. Always provide specific information: name, description, time, location, requirements, deadline, etc.
+7. If no information is found, clearly notify and suggest the user can contact the relevant department.
+8. If there is information about application deadlines, emphasize it.
+9. Always check and notify if events/scholarships have expired.
 
 Answer the user's question in the most helpful and accurate way possible.`
     };
