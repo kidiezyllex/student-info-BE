@@ -1,0 +1,2002 @@
+[
+  {
+    "_id": "69485a4474f308ffdd2ce63d",
+    "sender": "69485a2974f308ffdd2ce3c3",
+    "receiver": "69485a0a74f308ffdd2ce212",
+    "content": "How to register for courses?",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:20.711Z",
+    "updatedAt": "2025-12-21T20:36:20.711Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4474f308ffdd2ce63f",
+    "sender": "69485a2174f308ffdd2ce35f",
+    "receiver": "69485a1d74f308ffdd2ce321",
+    "content": "I would like to know more about the upcoming event.",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:20.769Z",
+    "updatedAt": "2025-12-21T20:36:20.769Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4474f308ffdd2ce641",
+    "sender": "69485a2774f308ffdd2ce3af",
+    "receiver": "69485a0a74f308ffdd2ce209",
+    "content": "I would like to know more about the upcoming event.",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:20.829Z",
+    "updatedAt": "2025-12-21T20:36:20.829Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4474f308ffdd2ce643",
+    "sender": "69485a2674f308ffdd2ce3a7",
+    "receiver": "69485a2074f308ffdd2ce34f",
+    "content": "Can you send me information about the dormitory?",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:20.885Z",
+    "updatedAt": "2025-12-21T20:36:20.885Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4474f308ffdd2ce645",
+    "sender": "69485a1974f308ffdd2ce2ef",
+    "receiver": "69485a0f74f308ffdd2ce269",
+    "content": "I would like to know more about the upcoming event.",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:20.943Z",
+    "updatedAt": "2025-12-21T20:36:20.943Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4574f308ffdd2ce647",
+    "sender": "69485a3774f308ffdd2ce485",
+    "receiver": "69485a3674f308ffdd2ce477",
+    "content": "How to register for courses?",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:21.002Z",
+    "updatedAt": "2025-12-21T20:36:21.002Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4574f308ffdd2ce649",
+    "sender": "69485a1c74f308ffdd2ce315",
+    "receiver": "69485a1474f308ffdd2ce2a9",
+    "content": "When is the scholarship application deadline?",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:21.060Z",
+    "updatedAt": "2025-12-21T20:36:21.060Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4574f308ffdd2ce64b",
+    "sender": "69485a2a74f308ffdd2ce3d9",
+    "receiver": "69485a1e74f308ffdd2ce333",
+    "content": "Hello, I have a question about the training program.",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:21.116Z",
+    "updatedAt": "2025-12-21T20:36:21.116Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4574f308ffdd2ce64d",
+    "sender": "69485a1574f308ffdd2ce2b3",
+    "receiver": "69485a0a74f308ffdd2ce206",
+    "content": "Hello, I have a question about the training program.",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:21.173Z",
+    "updatedAt": "2025-12-21T20:36:21.173Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4574f308ffdd2ce64f",
+    "sender": "69485a2d74f308ffdd2ce3f9",
+    "receiver": "69485a0a74f308ffdd2ce206",
+    "content": "How to register for courses?",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:21.230Z",
+    "updatedAt": "2025-12-21T20:36:21.230Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4574f308ffdd2ce651",
+    "sender": "69485a1674f308ffdd2ce2c5",
+    "receiver": "69485a0a74f308ffdd2ce20c",
+    "content": "Hello, I have a question about the training program.",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:21.288Z",
+    "updatedAt": "2025-12-21T20:36:21.288Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4574f308ffdd2ce653",
+    "sender": "69485a2174f308ffdd2ce357",
+    "receiver": "69485a0a74f308ffdd2ce20f",
+    "content": "Thank you for your response!",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:21.343Z",
+    "updatedAt": "2025-12-21T20:36:21.343Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4574f308ffdd2ce655",
+    "sender": "69485a1b74f308ffdd2ce307",
+    "receiver": "69485a0974f308ffdd2ce200",
+    "content": "How to register for courses?",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:21.399Z",
+    "updatedAt": "2025-12-21T20:36:21.399Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4574f308ffdd2ce657",
+    "sender": "69485a2c74f308ffdd2ce3ed",
+    "receiver": "69485a2974f308ffdd2ce3c7",
+    "content": "How to register for courses?",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:21.457Z",
+    "updatedAt": "2025-12-21T20:36:21.457Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4574f308ffdd2ce659",
+    "sender": "69485a2574f308ffdd2ce393",
+    "receiver": "69485a0a74f308ffdd2ce209",
+    "content": "I need support regarding tuition fees.",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:21.514Z",
+    "updatedAt": "2025-12-21T20:36:21.514Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4574f308ffdd2ce65b",
+    "sender": "69485a1574f308ffdd2ce2b7",
+    "receiver": "69485a2474f308ffdd2ce383",
+    "content": "Thank you for your response!",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:21.572Z",
+    "updatedAt": "2025-12-21T20:36:21.572Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4574f308ffdd2ce65d",
+    "sender": "69485a0c74f308ffdd2ce23f",
+    "receiver": "69485a0f74f308ffdd2ce26f",
+    "content": "How to register for courses?",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:21.630Z",
+    "updatedAt": "2025-12-21T20:36:21.630Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4574f308ffdd2ce65f",
+    "sender": "69485a2974f308ffdd2ce3c3",
+    "receiver": "69485a0a74f308ffdd2ce20f",
+    "content": "Can you send me information about the dormitory?",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:21.688Z",
+    "updatedAt": "2025-12-21T20:36:21.688Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4574f308ffdd2ce661",
+    "sender": "69485a1174f308ffdd2ce283",
+    "receiver": "69485a0a74f308ffdd2ce20f",
+    "content": "When will the final exam schedule be available?",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:21.749Z",
+    "updatedAt": "2025-12-21T20:36:21.749Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4574f308ffdd2ce663",
+    "sender": "69485a2174f308ffdd2ce35f",
+    "receiver": "69485a0974f308ffdd2ce200",
+    "content": "When will the final exam schedule be available?",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:21.805Z",
+    "updatedAt": "2025-12-21T20:36:21.805Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4574f308ffdd2ce665",
+    "sender": "69485a2174f308ffdd2ce359",
+    "receiver": "69485a1574f308ffdd2ce2bd",
+    "content": "I need support regarding tuition fees.",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:21.865Z",
+    "updatedAt": "2025-12-21T20:36:21.865Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4574f308ffdd2ce667",
+    "sender": "69485a2a74f308ffdd2ce3d5",
+    "receiver": "69485a0a74f308ffdd2ce209",
+    "content": "Hello, I have a question about the training program.",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:21.925Z",
+    "updatedAt": "2025-12-21T20:36:21.925Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4574f308ffdd2ce669",
+    "sender": "69485a2874f308ffdd2ce3bb",
+    "receiver": "69485a0974f308ffdd2ce200",
+    "content": "Hello, I have a question about the training program.",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:21.984Z",
+    "updatedAt": "2025-12-21T20:36:21.984Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4674f308ffdd2ce66b",
+    "sender": "69485a3574f308ffdd2ce467",
+    "receiver": "69485a3574f308ffdd2ce46b",
+    "content": "When will the final exam schedule be available?",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:22.042Z",
+    "updatedAt": "2025-12-21T20:36:22.042Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4674f308ffdd2ce66d",
+    "sender": "69485a1874f308ffdd2ce2e7",
+    "receiver": "69485a0e74f308ffdd2ce255",
+    "content": "Can you send me information about the dormitory?",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:22.101Z",
+    "updatedAt": "2025-12-21T20:36:22.101Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4674f308ffdd2ce66f",
+    "sender": "69485a1b74f308ffdd2ce30b",
+    "receiver": "69485a1674f308ffdd2ce2c3",
+    "content": "I need support regarding tuition fees.",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:22.163Z",
+    "updatedAt": "2025-12-21T20:36:22.163Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4674f308ffdd2ce671",
+    "sender": "69485a2a74f308ffdd2ce3d7",
+    "receiver": "69485a0974f308ffdd2ce200",
+    "content": "How to register for courses?",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:22.219Z",
+    "updatedAt": "2025-12-21T20:36:22.219Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4674f308ffdd2ce673",
+    "sender": "69485a0d74f308ffdd2ce24d",
+    "receiver": "69485a0a74f308ffdd2ce20c",
+    "content": "When is the scholarship application deadline?",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:22.277Z",
+    "updatedAt": "2025-12-21T20:36:22.277Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4674f308ffdd2ce675",
+    "sender": "69485a2174f308ffdd2ce363",
+    "receiver": "69485a2074f308ffdd2ce351",
+    "content": "I need support regarding tuition fees.",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:22.335Z",
+    "updatedAt": "2025-12-21T20:36:22.335Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4674f308ffdd2ce677",
+    "sender": "69485a2974f308ffdd2ce3c7",
+    "receiver": "69485a2174f308ffdd2ce35b",
+    "content": "Thank you for your response!",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:22.393Z",
+    "updatedAt": "2025-12-21T20:36:22.393Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4674f308ffdd2ce679",
+    "sender": "69485a1c74f308ffdd2ce313",
+    "receiver": "69485a1474f308ffdd2ce2af",
+    "content": "How to register for courses?",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:22.450Z",
+    "updatedAt": "2025-12-21T20:36:22.450Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4674f308ffdd2ce67b",
+    "sender": "69485a1974f308ffdd2ce2eb",
+    "receiver": "69485a0a74f308ffdd2ce20c",
+    "content": "When will the final exam schedule be available?",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:22.507Z",
+    "updatedAt": "2025-12-21T20:36:22.507Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4674f308ffdd2ce67d",
+    "sender": "69485a1b74f308ffdd2ce305",
+    "receiver": "69485a2b74f308ffdd2ce3e1",
+    "content": "Can you send me information about the dormitory?",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:22.564Z",
+    "updatedAt": "2025-12-21T20:36:22.564Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4674f308ffdd2ce67f",
+    "sender": "69485a2e74f308ffdd2ce409",
+    "receiver": "69485a0a74f308ffdd2ce209",
+    "content": "I need support regarding tuition fees.",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:22.620Z",
+    "updatedAt": "2025-12-21T20:36:22.620Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4674f308ffdd2ce681",
+    "sender": "69485a2474f308ffdd2ce38d",
+    "receiver": "69485a0a74f308ffdd2ce206",
+    "content": "Hello, I have a question about the training program.",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:22.678Z",
+    "updatedAt": "2025-12-21T20:36:22.678Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4674f308ffdd2ce683",
+    "sender": "69485a1f74f308ffdd2ce33f",
+    "receiver": "69485a1b74f308ffdd2ce307",
+    "content": "When will the final exam schedule be available?",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:22.734Z",
+    "updatedAt": "2025-12-21T20:36:22.734Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4674f308ffdd2ce685",
+    "sender": "69485a1e74f308ffdd2ce339",
+    "receiver": "69485a3174f308ffdd2ce435",
+    "content": "How to register for courses?",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:22.790Z",
+    "updatedAt": "2025-12-21T20:36:22.790Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4674f308ffdd2ce687",
+    "sender": "69485a3274f308ffdd2ce447",
+    "receiver": "69485a1e74f308ffdd2ce331",
+    "content": "How to register for courses?",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:22.850Z",
+    "updatedAt": "2025-12-21T20:36:22.850Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4674f308ffdd2ce689",
+    "sender": "69485a3474f308ffdd2ce45d",
+    "receiver": "69485a0a74f308ffdd2ce206",
+    "content": "When will the final exam schedule be available?",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:22.906Z",
+    "updatedAt": "2025-12-21T20:36:22.906Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4674f308ffdd2ce68b",
+    "sender": "69485a2374f308ffdd2ce373",
+    "receiver": "69485a2474f308ffdd2ce381",
+    "content": "I would like to know more about the upcoming event.",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:22.963Z",
+    "updatedAt": "2025-12-21T20:36:22.963Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4774f308ffdd2ce68d",
+    "sender": "69485a2874f308ffdd2ce3c1",
+    "receiver": "69485a0a74f308ffdd2ce209",
+    "content": "Thank you for your response!",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:23.020Z",
+    "updatedAt": "2025-12-21T20:36:23.020Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4774f308ffdd2ce68f",
+    "sender": "69485a2974f308ffdd2ce3cb",
+    "receiver": "69485a0a74f308ffdd2ce20f",
+    "content": "How to register for courses?",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:23.077Z",
+    "updatedAt": "2025-12-21T20:36:23.077Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4774f308ffdd2ce691",
+    "sender": "69485a1674f308ffdd2ce2c1",
+    "receiver": "69485a0f74f308ffdd2ce26d",
+    "content": "Hello, I have a question about the training program.",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:23.136Z",
+    "updatedAt": "2025-12-21T20:36:23.136Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4774f308ffdd2ce693",
+    "sender": "69485a2574f308ffdd2ce397",
+    "receiver": "69485a1e74f308ffdd2ce337",
+    "content": "I would like to know more about the upcoming event.",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:23.193Z",
+    "updatedAt": "2025-12-21T20:36:23.193Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4774f308ffdd2ce695",
+    "sender": "69485a2974f308ffdd2ce3cf",
+    "receiver": "69485a3274f308ffdd2ce449",
+    "content": "When will the final exam schedule be available?",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:23.249Z",
+    "updatedAt": "2025-12-21T20:36:23.249Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4774f308ffdd2ce697",
+    "sender": "69485a1974f308ffdd2ce2e9",
+    "receiver": "69485a0974f308ffdd2ce200",
+    "content": "I need support regarding tuition fees.",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:23.307Z",
+    "updatedAt": "2025-12-21T20:36:23.307Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4774f308ffdd2ce699",
+    "sender": "69485a2c74f308ffdd2ce3f3",
+    "receiver": "69485a1e74f308ffdd2ce33b",
+    "content": "How to register for courses?",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:23.368Z",
+    "updatedAt": "2025-12-21T20:36:23.368Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4774f308ffdd2ce69b",
+    "sender": "69485a1474f308ffdd2ce2ad",
+    "receiver": "69485a0a74f308ffdd2ce20c",
+    "content": "I would like to know more about the upcoming event.",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:23.426Z",
+    "updatedAt": "2025-12-21T20:36:23.426Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4774f308ffdd2ce69d",
+    "sender": "69485a1c74f308ffdd2ce31f",
+    "receiver": "69485a1574f308ffdd2ce2bd",
+    "content": "I would like to know more about the upcoming event.",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:23.482Z",
+    "updatedAt": "2025-12-21T20:36:23.482Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4774f308ffdd2ce69f",
+    "sender": "69485a2a74f308ffdd2ce3dd",
+    "receiver": "69485a0a74f308ffdd2ce206",
+    "content": "Hello, I have a question about the training program.",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:23.543Z",
+    "updatedAt": "2025-12-21T20:36:23.543Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4774f308ffdd2ce6a1",
+    "sender": "69485a3774f308ffdd2ce485",
+    "receiver": "69485a2d74f308ffdd2ce401",
+    "content": "Hello, I have a question about the training program.",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:23.600Z",
+    "updatedAt": "2025-12-21T20:36:23.600Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4774f308ffdd2ce6a3",
+    "sender": "69485a2574f308ffdd2ce399",
+    "receiver": "69485a1274f308ffdd2ce28b",
+    "content": "When will the final exam schedule be available?",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:23.658Z",
+    "updatedAt": "2025-12-21T20:36:23.658Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4774f308ffdd2ce6a5",
+    "sender": "69485a3174f308ffdd2ce43d",
+    "receiver": "69485a2074f308ffdd2ce34d",
+    "content": "Thank you for your response!",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:23.717Z",
+    "updatedAt": "2025-12-21T20:36:23.717Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4774f308ffdd2ce6a7",
+    "sender": "69485a0e74f308ffdd2ce255",
+    "receiver": "69485a1e74f308ffdd2ce33b",
+    "content": "Thank you for your response!",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:23.780Z",
+    "updatedAt": "2025-12-21T20:36:23.780Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4774f308ffdd2ce6a9",
+    "sender": "69485a1a74f308ffdd2ce301",
+    "receiver": "69485a0a74f308ffdd2ce212",
+    "content": "I would like to know more about the upcoming event.",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:23.838Z",
+    "updatedAt": "2025-12-21T20:36:23.838Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4774f308ffdd2ce6ab",
+    "sender": "69485a2874f308ffdd2ce3b7",
+    "receiver": "69485a0974f308ffdd2ce203",
+    "content": "Thank you for your response!",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:23.893Z",
+    "updatedAt": "2025-12-21T20:36:23.893Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4774f308ffdd2ce6ad",
+    "sender": "69485a1e74f308ffdd2ce339",
+    "receiver": "69485a1e74f308ffdd2ce33b",
+    "content": "How to register for courses?",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:23.950Z",
+    "updatedAt": "2025-12-21T20:36:23.950Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4874f308ffdd2ce6af",
+    "sender": "69485a1374f308ffdd2ce2a3",
+    "receiver": "69485a0974f308ffdd2ce200",
+    "content": "Hello, I have a question about the training program.",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:24.009Z",
+    "updatedAt": "2025-12-21T20:36:24.009Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4874f308ffdd2ce6b1",
+    "sender": "69485a0b74f308ffdd2ce237",
+    "receiver": "69485a0a74f308ffdd2ce212",
+    "content": "Can you send me information about the dormitory?",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:24.066Z",
+    "updatedAt": "2025-12-21T20:36:24.066Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4874f308ffdd2ce6b3",
+    "sender": "69485a2574f308ffdd2ce391",
+    "receiver": "69485a1774f308ffdd2ce2d9",
+    "content": "I would like to know more about the upcoming event.",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:24.123Z",
+    "updatedAt": "2025-12-21T20:36:24.123Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4874f308ffdd2ce6b5",
+    "sender": "69485a2174f308ffdd2ce35b",
+    "receiver": "69485a0a74f308ffdd2ce20f",
+    "content": "When will the final exam schedule be available?",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:24.182Z",
+    "updatedAt": "2025-12-21T20:36:24.182Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4874f308ffdd2ce6b7",
+    "sender": "69485a2074f308ffdd2ce34b",
+    "receiver": "69485a2574f308ffdd2ce397",
+    "content": "I would like to know more about the upcoming event.",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:24.238Z",
+    "updatedAt": "2025-12-21T20:36:24.238Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4874f308ffdd2ce6b9",
+    "sender": "69485a2b74f308ffdd2ce3e3",
+    "receiver": "69485a0974f308ffdd2ce200",
+    "content": "Thank you for your response!",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:24.296Z",
+    "updatedAt": "2025-12-21T20:36:24.296Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4874f308ffdd2ce6bb",
+    "sender": "69485a1674f308ffdd2ce2cd",
+    "receiver": "69485a0a74f308ffdd2ce20f",
+    "content": "I would like to know more about the upcoming event.",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:24.353Z",
+    "updatedAt": "2025-12-21T20:36:24.353Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4874f308ffdd2ce6bd",
+    "sender": "69485a0d74f308ffdd2ce253",
+    "receiver": "69485a0a74f308ffdd2ce20c",
+    "content": "Hello, I have a question about the training program.",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:24.409Z",
+    "updatedAt": "2025-12-21T20:36:24.409Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4874f308ffdd2ce6bf",
+    "sender": "69485a3074f308ffdd2ce42f",
+    "receiver": "69485a1374f308ffdd2ce2a5",
+    "content": "How to register for courses?",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:24.468Z",
+    "updatedAt": "2025-12-21T20:36:24.468Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4874f308ffdd2ce6c1",
+    "sender": "69485a3574f308ffdd2ce469",
+    "receiver": "69485a1474f308ffdd2ce2ab",
+    "content": "Hello, I have a question about the training program.",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:24.526Z",
+    "updatedAt": "2025-12-21T20:36:24.526Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4874f308ffdd2ce6c3",
+    "sender": "69485a1274f308ffdd2ce295",
+    "receiver": "69485a0974f308ffdd2ce1fd",
+    "content": "How to register for courses?",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:24.586Z",
+    "updatedAt": "2025-12-21T20:36:24.586Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4874f308ffdd2ce6c5",
+    "sender": "69485a1274f308ffdd2ce28b",
+    "receiver": "69485a2c74f308ffdd2ce3f7",
+    "content": "Hello, I have a question about the training program.",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:24.644Z",
+    "updatedAt": "2025-12-21T20:36:24.644Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4874f308ffdd2ce6c7",
+    "sender": "69485a1c74f308ffdd2ce313",
+    "receiver": "69485a1474f308ffdd2ce2a9",
+    "content": "Hello, I have a question about the training program.",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:24.702Z",
+    "updatedAt": "2025-12-21T20:36:24.702Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4874f308ffdd2ce6c9",
+    "sender": "69485a1874f308ffdd2ce2e1",
+    "receiver": "69485a0a74f308ffdd2ce20c",
+    "content": "When will the final exam schedule be available?",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:24.758Z",
+    "updatedAt": "2025-12-21T20:36:24.758Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4874f308ffdd2ce6cb",
+    "sender": "69485a1f74f308ffdd2ce33d",
+    "receiver": "69485a0974f308ffdd2ce203",
+    "content": "When is the scholarship application deadline?",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:24.816Z",
+    "updatedAt": "2025-12-21T20:36:24.816Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4874f308ffdd2ce6cd",
+    "sender": "69485a0f74f308ffdd2ce265",
+    "receiver": "69485a2774f308ffdd2ce3b1",
+    "content": "I need support regarding tuition fees.",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:24.873Z",
+    "updatedAt": "2025-12-21T20:36:24.873Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4874f308ffdd2ce6cf",
+    "sender": "69485a0f74f308ffdd2ce26f",
+    "receiver": "69485a0974f308ffdd2ce203",
+    "content": "When is the scholarship application deadline?",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:24.930Z",
+    "updatedAt": "2025-12-21T20:36:24.930Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4874f308ffdd2ce6d1",
+    "sender": "69485a0f74f308ffdd2ce26f",
+    "receiver": "69485a2a74f308ffdd2ce3d3",
+    "content": "Hello, I have a question about the training program.",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:24.988Z",
+    "updatedAt": "2025-12-21T20:36:24.988Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4974f308ffdd2ce6d3",
+    "sender": "69485a1b74f308ffdd2ce305",
+    "receiver": "69485a1774f308ffdd2ce2d3",
+    "content": "Thank you for your response!",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:25.044Z",
+    "updatedAt": "2025-12-21T20:36:25.044Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4974f308ffdd2ce6d5",
+    "sender": "69485a3374f308ffdd2ce457",
+    "receiver": "69485a0a74f308ffdd2ce209",
+    "content": "Thank you for your response!",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:25.103Z",
+    "updatedAt": "2025-12-21T20:36:25.103Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4974f308ffdd2ce6d7",
+    "sender": "69485a3574f308ffdd2ce473",
+    "receiver": "69485a0a74f308ffdd2ce20f",
+    "content": "When will the final exam schedule be available?",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:25.161Z",
+    "updatedAt": "2025-12-21T20:36:25.161Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4974f308ffdd2ce6d9",
+    "sender": "69485a2974f308ffdd2ce3c5",
+    "receiver": "69485a0a74f308ffdd2ce212",
+    "content": "Hello, I have a question about the training program.",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:25.220Z",
+    "updatedAt": "2025-12-21T20:36:25.220Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4974f308ffdd2ce6db",
+    "sender": "69485a3374f308ffdd2ce44d",
+    "receiver": "69485a0974f308ffdd2ce200",
+    "content": "How to register for courses?",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:25.277Z",
+    "updatedAt": "2025-12-21T20:36:25.277Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4974f308ffdd2ce6dd",
+    "sender": "69485a2a74f308ffdd2ce3d1",
+    "receiver": "69485a1774f308ffdd2ce2d5",
+    "content": "Thank you for your response!",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:25.335Z",
+    "updatedAt": "2025-12-21T20:36:25.335Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4974f308ffdd2ce6df",
+    "sender": "69485a2d74f308ffdd2ce403",
+    "receiver": "69485a2074f308ffdd2ce353",
+    "content": "When is the scholarship application deadline?",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:25.394Z",
+    "updatedAt": "2025-12-21T20:36:25.394Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4974f308ffdd2ce6e1",
+    "sender": "69485a2c74f308ffdd2ce3ed",
+    "receiver": "69485a0974f308ffdd2ce1fd",
+    "content": "Can you send me information about the dormitory?",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:25.452Z",
+    "updatedAt": "2025-12-21T20:36:25.452Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4974f308ffdd2ce6e3",
+    "sender": "69485a1574f308ffdd2ce2bb",
+    "receiver": "69485a1c74f308ffdd2ce31f",
+    "content": "When will the final exam schedule be available?",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:25.510Z",
+    "updatedAt": "2025-12-21T20:36:25.510Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4974f308ffdd2ce6e5",
+    "sender": "69485a3474f308ffdd2ce465",
+    "receiver": "69485a2c74f308ffdd2ce3f3",
+    "content": "I would like to know more about the upcoming event.",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:25.569Z",
+    "updatedAt": "2025-12-21T20:36:25.569Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4974f308ffdd2ce6e7",
+    "sender": "69485a1174f308ffdd2ce285",
+    "receiver": "69485a3274f308ffdd2ce449",
+    "content": "I need support regarding tuition fees.",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:25.627Z",
+    "updatedAt": "2025-12-21T20:36:25.627Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4974f308ffdd2ce6e9",
+    "sender": "69485a1274f308ffdd2ce28f",
+    "receiver": "69485a3574f308ffdd2ce46f",
+    "content": "How to register for courses?",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:25.683Z",
+    "updatedAt": "2025-12-21T20:36:25.683Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4974f308ffdd2ce6eb",
+    "sender": "69485a1074f308ffdd2ce275",
+    "receiver": "69485a0974f308ffdd2ce200",
+    "content": "When will the final exam schedule be available?",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:25.741Z",
+    "updatedAt": "2025-12-21T20:36:25.741Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4974f308ffdd2ce6ed",
+    "sender": "69485a3774f308ffdd2ce483",
+    "receiver": "69485a3274f308ffdd2ce449",
+    "content": "How to register for courses?",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:25.800Z",
+    "updatedAt": "2025-12-21T20:36:25.800Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4974f308ffdd2ce6ef",
+    "sender": "69485a1e74f308ffdd2ce339",
+    "receiver": "69485a0a74f308ffdd2ce209",
+    "content": "When will the final exam schedule be available?",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:25.856Z",
+    "updatedAt": "2025-12-21T20:36:25.856Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4974f308ffdd2ce6f1",
+    "sender": "69485a1f74f308ffdd2ce33f",
+    "receiver": "69485a0a74f308ffdd2ce209",
+    "content": "Can you send me information about the dormitory?",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:25.911Z",
+    "updatedAt": "2025-12-21T20:36:25.911Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4974f308ffdd2ce6f3",
+    "sender": "69485a1174f308ffdd2ce289",
+    "receiver": "69485a0a74f308ffdd2ce20f",
+    "content": "I need support regarding tuition fees.",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:25.969Z",
+    "updatedAt": "2025-12-21T20:36:25.969Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4a74f308ffdd2ce6f5",
+    "sender": "69485a3374f308ffdd2ce453",
+    "receiver": "69485a0a74f308ffdd2ce20c",
+    "content": "I would like to know more about the upcoming event.",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:26.026Z",
+    "updatedAt": "2025-12-21T20:36:26.026Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4a74f308ffdd2ce6f7",
+    "sender": "69485a2674f308ffdd2ce39b",
+    "receiver": "69485a0a74f308ffdd2ce20f",
+    "content": "Thank you for your response!",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:26.082Z",
+    "updatedAt": "2025-12-21T20:36:26.082Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4a74f308ffdd2ce6f9",
+    "sender": "69485a3374f308ffdd2ce44f",
+    "receiver": "69485a1a74f308ffdd2ce301",
+    "content": "When is the scholarship application deadline?",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:26.141Z",
+    "updatedAt": "2025-12-21T20:36:26.141Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4a74f308ffdd2ce6fb",
+    "sender": "69485a1474f308ffdd2ce2ab",
+    "receiver": "69485a3574f308ffdd2ce467",
+    "content": "Can you send me information about the dormitory?",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:26.199Z",
+    "updatedAt": "2025-12-21T20:36:26.199Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4a74f308ffdd2ce6fd",
+    "sender": "69485a0e74f308ffdd2ce257",
+    "receiver": "69485a0a74f308ffdd2ce212",
+    "content": "When will the final exam schedule be available?",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:26.260Z",
+    "updatedAt": "2025-12-21T20:36:26.260Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4a74f308ffdd2ce6ff",
+    "sender": "69485a2b74f308ffdd2ce3e1",
+    "receiver": "69485a0c74f308ffdd2ce23f",
+    "content": "Can you send me information about the dormitory?",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:26.317Z",
+    "updatedAt": "2025-12-21T20:36:26.317Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4a74f308ffdd2ce701",
+    "sender": "69485a1374f308ffdd2ce2a5",
+    "receiver": "69485a0974f308ffdd2ce1fd",
+    "content": "Hello, I have a question about the training program.",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:26.373Z",
+    "updatedAt": "2025-12-21T20:36:26.373Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4a74f308ffdd2ce703",
+    "sender": "69485a2474f308ffdd2ce387",
+    "receiver": "69485a0c74f308ffdd2ce23f",
+    "content": "When is the scholarship application deadline?",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:26.431Z",
+    "updatedAt": "2025-12-21T20:36:26.431Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4a74f308ffdd2ce705",
+    "sender": "69485a3574f308ffdd2ce46b",
+    "receiver": "69485a0a74f308ffdd2ce209",
+    "content": "Thank you for your response!",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:26.495Z",
+    "updatedAt": "2025-12-21T20:36:26.495Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4a74f308ffdd2ce707",
+    "sender": "69485a2574f308ffdd2ce393",
+    "receiver": "69485a0c74f308ffdd2ce23f",
+    "content": "Thank you for your response!",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:26.552Z",
+    "updatedAt": "2025-12-21T20:36:26.552Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4a74f308ffdd2ce709",
+    "sender": "69485a1e74f308ffdd2ce32f",
+    "receiver": "69485a3574f308ffdd2ce469",
+    "content": "Thank you for your response!",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:26.609Z",
+    "updatedAt": "2025-12-21T20:36:26.609Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4a74f308ffdd2ce70b",
+    "sender": "69485a0e74f308ffdd2ce255",
+    "receiver": "69485a0974f308ffdd2ce203",
+    "content": "When is the scholarship application deadline?",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:26.668Z",
+    "updatedAt": "2025-12-21T20:36:26.668Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4a74f308ffdd2ce70d",
+    "sender": "69485a3674f308ffdd2ce475",
+    "receiver": "69485a0a74f308ffdd2ce209",
+    "content": "Hello, I have a question about the training program.",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:26.724Z",
+    "updatedAt": "2025-12-21T20:36:26.724Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4a74f308ffdd2ce70f",
+    "sender": "69485a3574f308ffdd2ce473",
+    "receiver": "69485a1e74f308ffdd2ce339",
+    "content": "Hello, I have a question about the training program.",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:26.783Z",
+    "updatedAt": "2025-12-21T20:36:26.783Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4a74f308ffdd2ce711",
+    "sender": "69485a1e74f308ffdd2ce33b",
+    "receiver": "69485a0974f308ffdd2ce203",
+    "content": "Hello, I have a question about the training program.",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:26.840Z",
+    "updatedAt": "2025-12-21T20:36:26.840Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4a74f308ffdd2ce713",
+    "sender": "69485a1074f308ffdd2ce275",
+    "receiver": "69485a1e74f308ffdd2ce33b",
+    "content": "I need support regarding tuition fees.",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:26.899Z",
+    "updatedAt": "2025-12-21T20:36:26.899Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4a74f308ffdd2ce715",
+    "sender": "69485a1674f308ffdd2ce2cb",
+    "receiver": "69485a3174f308ffdd2ce433",
+    "content": "I would like to know more about the upcoming event.",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:26.956Z",
+    "updatedAt": "2025-12-21T20:36:26.956Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4b74f308ffdd2ce717",
+    "sender": "69485a2b74f308ffdd2ce3df",
+    "receiver": "69485a3074f308ffdd2ce42d",
+    "content": "I would like to know more about the upcoming event.",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:27.010Z",
+    "updatedAt": "2025-12-21T20:36:27.010Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4b74f308ffdd2ce719",
+    "sender": "69485a3674f308ffdd2ce477",
+    "receiver": "69485a0a74f308ffdd2ce209",
+    "content": "I need support regarding tuition fees.",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:27.065Z",
+    "updatedAt": "2025-12-21T20:36:27.065Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4b74f308ffdd2ce71b",
+    "sender": "69485a2e74f308ffdd2ce40f",
+    "receiver": "69485a1574f308ffdd2ce2b5",
+    "content": "Thank you for your response!",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:27.124Z",
+    "updatedAt": "2025-12-21T20:36:27.124Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4b74f308ffdd2ce71d",
+    "sender": "69485a1674f308ffdd2ce2cb",
+    "receiver": "69485a1774f308ffdd2ce2d1",
+    "content": "Thank you for your response!",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:27.181Z",
+    "updatedAt": "2025-12-21T20:36:27.181Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4b74f308ffdd2ce71f",
+    "sender": "69485a2f74f308ffdd2ce41b",
+    "receiver": "69485a3474f308ffdd2ce461",
+    "content": "I would like to know more about the upcoming event.",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:27.238Z",
+    "updatedAt": "2025-12-21T20:36:27.238Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4b74f308ffdd2ce721",
+    "sender": "69485a2474f308ffdd2ce389",
+    "receiver": "69485a1574f308ffdd2ce2b5",
+    "content": "When will the final exam schedule be available?",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:27.294Z",
+    "updatedAt": "2025-12-21T20:36:27.294Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4b74f308ffdd2ce723",
+    "sender": "69485a1574f308ffdd2ce2b5",
+    "receiver": "69485a0d74f308ffdd2ce249",
+    "content": "I would like to know more about the upcoming event.",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:27.358Z",
+    "updatedAt": "2025-12-21T20:36:27.358Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4b74f308ffdd2ce725",
+    "sender": "69485a1374f308ffdd2ce299",
+    "receiver": "69485a3574f308ffdd2ce46d",
+    "content": "I would like to know more about the upcoming event.",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:27.433Z",
+    "updatedAt": "2025-12-21T20:36:27.433Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4b74f308ffdd2ce727",
+    "sender": "69485a0c74f308ffdd2ce23b",
+    "receiver": "69485a1674f308ffdd2ce2c3",
+    "content": "When is the scholarship application deadline?",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:27.505Z",
+    "updatedAt": "2025-12-21T20:36:27.505Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4b74f308ffdd2ce729",
+    "sender": "69485a3274f308ffdd2ce44b",
+    "receiver": "69485a0f74f308ffdd2ce269",
+    "content": "When is the scholarship application deadline?",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:27.571Z",
+    "updatedAt": "2025-12-21T20:36:27.571Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4b74f308ffdd2ce72b",
+    "sender": "69485a1574f308ffdd2ce2bd",
+    "receiver": "69485a1374f308ffdd2ce29f",
+    "content": "How to register for courses?",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:27.629Z",
+    "updatedAt": "2025-12-21T20:36:27.629Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4b74f308ffdd2ce72d",
+    "sender": "69485a3674f308ffdd2ce481",
+    "receiver": "69485a0a74f308ffdd2ce20c",
+    "content": "I would like to know more about the upcoming event.",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:27.691Z",
+    "updatedAt": "2025-12-21T20:36:27.691Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4b74f308ffdd2ce72f",
+    "sender": "69485a1b74f308ffdd2ce307",
+    "receiver": "69485a1774f308ffdd2ce2d3",
+    "content": "I need support regarding tuition fees.",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:27.760Z",
+    "updatedAt": "2025-12-21T20:36:27.760Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4b74f308ffdd2ce731",
+    "sender": "69485a0e74f308ffdd2ce25f",
+    "receiver": "69485a0a74f308ffdd2ce212",
+    "content": "I need support regarding tuition fees.",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:27.825Z",
+    "updatedAt": "2025-12-21T20:36:27.825Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4b74f308ffdd2ce733",
+    "sender": "69485a1b74f308ffdd2ce307",
+    "receiver": "69485a3574f308ffdd2ce469",
+    "content": "Hello, I have a question about the training program.",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:27.882Z",
+    "updatedAt": "2025-12-21T20:36:27.882Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4b74f308ffdd2ce735",
+    "sender": "69485a2574f308ffdd2ce393",
+    "receiver": "69485a3474f308ffdd2ce45d",
+    "content": "Hello, I have a question about the training program.",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:27.945Z",
+    "updatedAt": "2025-12-21T20:36:27.945Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4c74f308ffdd2ce737",
+    "sender": "69485a1874f308ffdd2ce2e7",
+    "receiver": "69485a2674f308ffdd2ce3a1",
+    "content": "Can you send me information about the dormitory?",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:28.004Z",
+    "updatedAt": "2025-12-21T20:36:28.004Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4c74f308ffdd2ce739",
+    "sender": "69485a1d74f308ffdd2ce327",
+    "receiver": "69485a0a74f308ffdd2ce20c",
+    "content": "When is the scholarship application deadline?",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:28.062Z",
+    "updatedAt": "2025-12-21T20:36:28.062Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4c74f308ffdd2ce73b",
+    "sender": "69485a2f74f308ffdd2ce41f",
+    "receiver": "69485a0a74f308ffdd2ce209",
+    "content": "How to register for courses?",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:28.121Z",
+    "updatedAt": "2025-12-21T20:36:28.121Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4c74f308ffdd2ce73d",
+    "sender": "69485a3074f308ffdd2ce42d",
+    "receiver": "69485a2074f308ffdd2ce34f",
+    "content": "Thank you for your response!",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:28.187Z",
+    "updatedAt": "2025-12-21T20:36:28.187Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4c74f308ffdd2ce73f",
+    "sender": "69485a3174f308ffdd2ce435",
+    "receiver": "69485a0a74f308ffdd2ce206",
+    "content": "When will the final exam schedule be available?",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:28.253Z",
+    "updatedAt": "2025-12-21T20:36:28.253Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4c74f308ffdd2ce741",
+    "sender": "69485a2e74f308ffdd2ce40d",
+    "receiver": "69485a0974f308ffdd2ce200",
+    "content": "How to register for courses?",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:28.320Z",
+    "updatedAt": "2025-12-21T20:36:28.320Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4c74f308ffdd2ce743",
+    "sender": "69485a2474f308ffdd2ce38d",
+    "receiver": "69485a0a74f308ffdd2ce20f",
+    "content": "Hello, I have a question about the training program.",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:28.392Z",
+    "updatedAt": "2025-12-21T20:36:28.392Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4c74f308ffdd2ce745",
+    "sender": "69485a1d74f308ffdd2ce323",
+    "receiver": "69485a1574f308ffdd2ce2b5",
+    "content": "Hello, I have a question about the training program.",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:28.450Z",
+    "updatedAt": "2025-12-21T20:36:28.450Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4c74f308ffdd2ce747",
+    "sender": "69485a1e74f308ffdd2ce335",
+    "receiver": "69485a1174f308ffdd2ce27d",
+    "content": "Hello, I have a question about the training program.",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:28.508Z",
+    "updatedAt": "2025-12-21T20:36:28.508Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4c74f308ffdd2ce749",
+    "sender": "69485a2c74f308ffdd2ce3f5",
+    "receiver": "69485a0a74f308ffdd2ce209",
+    "content": "Can you send me information about the dormitory?",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:28.566Z",
+    "updatedAt": "2025-12-21T20:36:28.566Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4c74f308ffdd2ce74b",
+    "sender": "69485a1874f308ffdd2ce2e3",
+    "receiver": "69485a0a74f308ffdd2ce209",
+    "content": "When will the final exam schedule be available?",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:28.622Z",
+    "updatedAt": "2025-12-21T20:36:28.622Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4c74f308ffdd2ce74d",
+    "sender": "69485a2574f308ffdd2ce399",
+    "receiver": "69485a2f74f308ffdd2ce419",
+    "content": "I would like to know more about the upcoming event.",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:28.680Z",
+    "updatedAt": "2025-12-21T20:36:28.680Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4c74f308ffdd2ce74f",
+    "sender": "69485a1574f308ffdd2ce2b9",
+    "receiver": "69485a3574f308ffdd2ce46b",
+    "content": "Thank you for your response!",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:28.742Z",
+    "updatedAt": "2025-12-21T20:36:28.742Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4c74f308ffdd2ce751",
+    "sender": "69485a1774f308ffdd2ce2d1",
+    "receiver": "69485a1474f308ffdd2ce2b1",
+    "content": "Hello, I have a question about the training program.",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:28.799Z",
+    "updatedAt": "2025-12-21T20:36:28.799Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4c74f308ffdd2ce753",
+    "sender": "69485a1374f308ffdd2ce29b",
+    "receiver": "69485a0974f308ffdd2ce203",
+    "content": "Thank you for your response!",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:28.857Z",
+    "updatedAt": "2025-12-21T20:36:28.857Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4c74f308ffdd2ce755",
+    "sender": "69485a2c74f308ffdd2ce3f7",
+    "receiver": "69485a0a74f308ffdd2ce20f",
+    "content": "When is the scholarship application deadline?",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:28.915Z",
+    "updatedAt": "2025-12-21T20:36:28.915Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4c74f308ffdd2ce757",
+    "sender": "69485a3474f308ffdd2ce461",
+    "receiver": "69485a0b74f308ffdd2ce235",
+    "content": "When will the final exam schedule be available?",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:28.978Z",
+    "updatedAt": "2025-12-21T20:36:28.978Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4d74f308ffdd2ce759",
+    "sender": "69485a2a74f308ffdd2ce3dd",
+    "receiver": "69485a1474f308ffdd2ce2b1",
+    "content": "How to register for courses?",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:29.036Z",
+    "updatedAt": "2025-12-21T20:36:29.036Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4d74f308ffdd2ce75b",
+    "sender": "69485a2d74f308ffdd2ce3fd",
+    "receiver": "69485a0a74f308ffdd2ce206",
+    "content": "I need support regarding tuition fees.",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:29.097Z",
+    "updatedAt": "2025-12-21T20:36:29.097Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4d74f308ffdd2ce75d",
+    "sender": "69485a2874f308ffdd2ce3b7",
+    "receiver": "69485a0a74f308ffdd2ce20f",
+    "content": "Hello, I have a question about the training program.",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:29.154Z",
+    "updatedAt": "2025-12-21T20:36:29.154Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4d74f308ffdd2ce75f",
+    "sender": "69485a2974f308ffdd2ce3c3",
+    "receiver": "69485a2e74f308ffdd2ce413",
+    "content": "Thank you for your response!",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:29.212Z",
+    "updatedAt": "2025-12-21T20:36:29.212Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4d74f308ffdd2ce761",
+    "sender": "69485a2674f308ffdd2ce39f",
+    "receiver": "69485a0974f308ffdd2ce1fd",
+    "content": "I would like to know more about the upcoming event.",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:29.270Z",
+    "updatedAt": "2025-12-21T20:36:29.270Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4d74f308ffdd2ce763",
+    "sender": "69485a3474f308ffdd2ce461",
+    "receiver": "69485a0a74f308ffdd2ce206",
+    "content": "Hello, I have a question about the training program.",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:29.328Z",
+    "updatedAt": "2025-12-21T20:36:29.328Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4d74f308ffdd2ce765",
+    "sender": "69485a2974f308ffdd2ce3c5",
+    "receiver": "69485a1574f308ffdd2ce2b7",
+    "content": "How to register for courses?",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:29.384Z",
+    "updatedAt": "2025-12-21T20:36:29.384Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4d74f308ffdd2ce767",
+    "sender": "69485a1d74f308ffdd2ce321",
+    "receiver": "69485a0974f308ffdd2ce203",
+    "content": "Can you send me information about the dormitory?",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:29.442Z",
+    "updatedAt": "2025-12-21T20:36:29.442Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4d74f308ffdd2ce769",
+    "sender": "69485a2c74f308ffdd2ce3ed",
+    "receiver": "69485a0974f308ffdd2ce203",
+    "content": "When will the final exam schedule be available?",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:29.503Z",
+    "updatedAt": "2025-12-21T20:36:29.503Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4d74f308ffdd2ce76b",
+    "sender": "69485a2774f308ffdd2ce3af",
+    "receiver": "69485a1a74f308ffdd2ce301",
+    "content": "When will the final exam schedule be available?",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:29.562Z",
+    "updatedAt": "2025-12-21T20:36:29.562Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4d74f308ffdd2ce76d",
+    "sender": "69485a3174f308ffdd2ce43b",
+    "receiver": "69485a0a74f308ffdd2ce209",
+    "content": "When will the final exam schedule be available?",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:29.620Z",
+    "updatedAt": "2025-12-21T20:36:29.620Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4d74f308ffdd2ce76f",
+    "sender": "69485a3374f308ffdd2ce44f",
+    "receiver": "69485a1374f308ffdd2ce299",
+    "content": "When is the scholarship application deadline?",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:29.680Z",
+    "updatedAt": "2025-12-21T20:36:29.680Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4d74f308ffdd2ce771",
+    "sender": "69485a2a74f308ffdd2ce3d9",
+    "receiver": "69485a0a74f308ffdd2ce206",
+    "content": "I would like to know more about the upcoming event.",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:29.739Z",
+    "updatedAt": "2025-12-21T20:36:29.739Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4d74f308ffdd2ce773",
+    "sender": "69485a0f74f308ffdd2ce267",
+    "receiver": "69485a2c74f308ffdd2ce3f1",
+    "content": "Hello, I have a question about the training program.",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:29.799Z",
+    "updatedAt": "2025-12-21T20:36:29.799Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4d74f308ffdd2ce775",
+    "sender": "69485a3474f308ffdd2ce461",
+    "receiver": "69485a2a74f308ffdd2ce3d3",
+    "content": "I would like to know more about the upcoming event.",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:29.855Z",
+    "updatedAt": "2025-12-21T20:36:29.855Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4d74f308ffdd2ce777",
+    "sender": "69485a1574f308ffdd2ce2bb",
+    "receiver": "69485a2e74f308ffdd2ce40b",
+    "content": "Can you send me information about the dormitory?",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:29.913Z",
+    "updatedAt": "2025-12-21T20:36:29.913Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4d74f308ffdd2ce779",
+    "sender": "69485a3574f308ffdd2ce473",
+    "receiver": "69485a2874f308ffdd2ce3bd",
+    "content": "When will the final exam schedule be available?",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:29.971Z",
+    "updatedAt": "2025-12-21T20:36:29.971Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4e74f308ffdd2ce77b",
+    "sender": "69485a0f74f308ffdd2ce269",
+    "receiver": "69485a2574f308ffdd2ce391",
+    "content": "Thank you for your response!",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:30.026Z",
+    "updatedAt": "2025-12-21T20:36:30.026Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4e74f308ffdd2ce77d",
+    "sender": "69485a2774f308ffdd2ce3b5",
+    "receiver": "69485a0974f308ffdd2ce1fd",
+    "content": "Can you send me information about the dormitory?",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:30.084Z",
+    "updatedAt": "2025-12-21T20:36:30.084Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4e74f308ffdd2ce77f",
+    "sender": "69485a2974f308ffdd2ce3c7",
+    "receiver": "69485a0a74f308ffdd2ce20c",
+    "content": "Hello, I have a question about the training program.",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:30.141Z",
+    "updatedAt": "2025-12-21T20:36:30.141Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4e74f308ffdd2ce781",
+    "sender": "69485a0e74f308ffdd2ce257",
+    "receiver": "69485a1474f308ffdd2ce2a7",
+    "content": "I need support regarding tuition fees.",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:30.200Z",
+    "updatedAt": "2025-12-21T20:36:30.200Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4e74f308ffdd2ce783",
+    "sender": "69485a3274f308ffdd2ce445",
+    "receiver": "69485a3474f308ffdd2ce45b",
+    "content": "When is the scholarship application deadline?",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:30.258Z",
+    "updatedAt": "2025-12-21T20:36:30.258Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4e74f308ffdd2ce785",
+    "sender": "69485a1c74f308ffdd2ce31f",
+    "receiver": "69485a2a74f308ffdd2ce3d1",
+    "content": "When will the final exam schedule be available?",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:30.315Z",
+    "updatedAt": "2025-12-21T20:36:30.315Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4e74f308ffdd2ce787",
+    "sender": "69485a3474f308ffdd2ce45b",
+    "receiver": "69485a1b74f308ffdd2ce30d",
+    "content": "I would like to know more about the upcoming event.",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:30.373Z",
+    "updatedAt": "2025-12-21T20:36:30.373Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4e74f308ffdd2ce789",
+    "sender": "69485a3574f308ffdd2ce467",
+    "receiver": "69485a1d74f308ffdd2ce329",
+    "content": "Thank you for your response!",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:30.437Z",
+    "updatedAt": "2025-12-21T20:36:30.437Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4e74f308ffdd2ce78b",
+    "sender": "69485a2574f308ffdd2ce397",
+    "receiver": "69485a0a74f308ffdd2ce20f",
+    "content": "When will the final exam schedule be available?",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:30.495Z",
+    "updatedAt": "2025-12-21T20:36:30.495Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4e74f308ffdd2ce78d",
+    "sender": "69485a3074f308ffdd2ce42d",
+    "receiver": "69485a2f74f308ffdd2ce41b",
+    "content": "I would like to know more about the upcoming event.",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:30.553Z",
+    "updatedAt": "2025-12-21T20:36:30.553Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4e74f308ffdd2ce78f",
+    "sender": "69485a1d74f308ffdd2ce321",
+    "receiver": "69485a0a74f308ffdd2ce212",
+    "content": "Can you send me information about the dormitory?",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:30.612Z",
+    "updatedAt": "2025-12-21T20:36:30.612Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4e74f308ffdd2ce791",
+    "sender": "69485a1274f308ffdd2ce28f",
+    "receiver": "69485a0a74f308ffdd2ce209",
+    "content": "When is the scholarship application deadline?",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:30.671Z",
+    "updatedAt": "2025-12-21T20:36:30.671Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4e74f308ffdd2ce793",
+    "sender": "69485a1c74f308ffdd2ce31b",
+    "receiver": "69485a1074f308ffdd2ce273",
+    "content": "Thank you for your response!",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:30.733Z",
+    "updatedAt": "2025-12-21T20:36:30.733Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4e74f308ffdd2ce795",
+    "sender": "69485a2674f308ffdd2ce39d",
+    "receiver": "69485a1074f308ffdd2ce277",
+    "content": "Thank you for your response!",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:30.793Z",
+    "updatedAt": "2025-12-21T20:36:30.793Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4e74f308ffdd2ce797",
+    "sender": "69485a1674f308ffdd2ce2c9",
+    "receiver": "69485a2374f308ffdd2ce377",
+    "content": "When is the scholarship application deadline?",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:30.851Z",
+    "updatedAt": "2025-12-21T20:36:30.851Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4e74f308ffdd2ce799",
+    "sender": "69485a0f74f308ffdd2ce267",
+    "receiver": "69485a0974f308ffdd2ce203",
+    "content": "Can you send me information about the dormitory?",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:30.915Z",
+    "updatedAt": "2025-12-21T20:36:30.915Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4e74f308ffdd2ce79b",
+    "sender": "69485a1b74f308ffdd2ce30f",
+    "receiver": "69485a3374f308ffdd2ce451",
+    "content": "Can you send me information about the dormitory?",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:30.977Z",
+    "updatedAt": "2025-12-21T20:36:30.977Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4f74f308ffdd2ce79d",
+    "sender": "69485a1874f308ffdd2ce2e3",
+    "receiver": "69485a2b74f308ffdd2ce3eb",
+    "content": "When will the final exam schedule be available?",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:31.038Z",
+    "updatedAt": "2025-12-21T20:36:31.038Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4f74f308ffdd2ce79f",
+    "sender": "69485a3074f308ffdd2ce425",
+    "receiver": "69485a0a74f308ffdd2ce209",
+    "content": "Hello, I have a question about the training program.",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:31.098Z",
+    "updatedAt": "2025-12-21T20:36:31.098Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4f74f308ffdd2ce7a1",
+    "sender": "69485a2b74f308ffdd2ce3e5",
+    "receiver": "69485a2c74f308ffdd2ce3f7",
+    "content": "Thank you for your response!",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:31.156Z",
+    "updatedAt": "2025-12-21T20:36:31.156Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4f74f308ffdd2ce7a3",
+    "sender": "69485a1774f308ffdd2ce2cf",
+    "receiver": "69485a1674f308ffdd2ce2c3",
+    "content": "How to register for courses?",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:31.215Z",
+    "updatedAt": "2025-12-21T20:36:31.215Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4f74f308ffdd2ce7a5",
+    "sender": "69485a3274f308ffdd2ce443",
+    "receiver": "69485a0a74f308ffdd2ce20c",
+    "content": "Can you send me information about the dormitory?",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:31.275Z",
+    "updatedAt": "2025-12-21T20:36:31.275Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4f74f308ffdd2ce7a7",
+    "sender": "69485a1a74f308ffdd2ce2fd",
+    "receiver": "69485a3074f308ffdd2ce42f",
+    "content": "I need support regarding tuition fees.",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:31.337Z",
+    "updatedAt": "2025-12-21T20:36:31.337Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4f74f308ffdd2ce7a9",
+    "sender": "69485a1874f308ffdd2ce2dd",
+    "receiver": "69485a0a74f308ffdd2ce209",
+    "content": "Hello, I have a question about the training program.",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:31.399Z",
+    "updatedAt": "2025-12-21T20:36:31.399Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4f74f308ffdd2ce7ab",
+    "sender": "69485a1774f308ffdd2ce2d9",
+    "receiver": "69485a1f74f308ffdd2ce33d",
+    "content": "I would like to know more about the upcoming event.",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:31.460Z",
+    "updatedAt": "2025-12-21T20:36:31.460Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4f74f308ffdd2ce7ad",
+    "sender": "69485a1e74f308ffdd2ce33b",
+    "receiver": "69485a2774f308ffdd2ce3b3",
+    "content": "Can you send me information about the dormitory?",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:31.518Z",
+    "updatedAt": "2025-12-21T20:36:31.518Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4f74f308ffdd2ce7af",
+    "sender": "69485a2474f308ffdd2ce385",
+    "receiver": "69485a0a74f308ffdd2ce212",
+    "content": "I would like to know more about the upcoming event.",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:31.577Z",
+    "updatedAt": "2025-12-21T20:36:31.577Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4f74f308ffdd2ce7b1",
+    "sender": "69485a3774f308ffdd2ce489",
+    "receiver": "69485a0a74f308ffdd2ce20c",
+    "content": "Hello, I have a question about the training program.",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:31.637Z",
+    "updatedAt": "2025-12-21T20:36:31.637Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4f74f308ffdd2ce7b3",
+    "sender": "69485a3074f308ffdd2ce425",
+    "receiver": "69485a0a74f308ffdd2ce20c",
+    "content": "I would like to know more about the upcoming event.",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:31.695Z",
+    "updatedAt": "2025-12-21T20:36:31.695Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4f74f308ffdd2ce7b5",
+    "sender": "69485a2c74f308ffdd2ce3ed",
+    "receiver": "69485a1874f308ffdd2ce2e3",
+    "content": "Hello, I have a question about the training program.",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:31.756Z",
+    "updatedAt": "2025-12-21T20:36:31.756Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4f74f308ffdd2ce7b7",
+    "sender": "69485a1574f308ffdd2ce2bb",
+    "receiver": "69485a1774f308ffdd2ce2d9",
+    "content": "Can you send me information about the dormitory?",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:31.817Z",
+    "updatedAt": "2025-12-21T20:36:31.817Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4f74f308ffdd2ce7b9",
+    "sender": "69485a1374f308ffdd2ce29d",
+    "receiver": "69485a0a74f308ffdd2ce212",
+    "content": "Can you send me information about the dormitory?",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:31.876Z",
+    "updatedAt": "2025-12-21T20:36:31.876Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4f74f308ffdd2ce7bb",
+    "sender": "69485a2074f308ffdd2ce34f",
+    "receiver": "69485a1e74f308ffdd2ce337",
+    "content": "Hello, I have a question about the training program.",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:31.935Z",
+    "updatedAt": "2025-12-21T20:36:31.935Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a4f74f308ffdd2ce7bd",
+    "sender": "69485a3274f308ffdd2ce443",
+    "receiver": "69485a0974f308ffdd2ce203",
+    "content": "I need support regarding tuition fees.",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:31.994Z",
+    "updatedAt": "2025-12-21T20:36:31.994Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5074f308ffdd2ce7bf",
+    "sender": "69485a2474f308ffdd2ce381",
+    "receiver": "69485a0a74f308ffdd2ce20c",
+    "content": "I would like to know more about the upcoming event.",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:32.052Z",
+    "updatedAt": "2025-12-21T20:36:32.052Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5074f308ffdd2ce7c1",
+    "sender": "69485a2b74f308ffdd2ce3eb",
+    "receiver": "69485a0a74f308ffdd2ce209",
+    "content": "I would like to know more about the upcoming event.",
+    "read": false,
+    "createdAt": "2025-12-21T20:36:32.109Z",
+    "updatedAt": "2025-12-21T20:36:32.109Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5074f308ffdd2ce7c3",
+    "sender": "69485a3374f308ffdd2ce453",
+    "receiver": "69485a0e74f308ffdd2ce257",
+    "content": "When is the scholarship application deadline?",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:32.166Z",
+    "updatedAt": "2025-12-21T20:36:32.166Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5074f308ffdd2ce7c5",
+    "sender": "69485a1974f308ffdd2ce2ed",
+    "receiver": "69485a0a74f308ffdd2ce209",
+    "content": "Can you send me information about the dormitory?",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:32.229Z",
+    "updatedAt": "2025-12-21T20:36:32.229Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5074f308ffdd2ce7c7",
+    "sender": "69485a2774f308ffdd2ce3ab",
+    "receiver": "69485a1074f308ffdd2ce277",
+    "content": "How to register for courses?",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:32.285Z",
+    "updatedAt": "2025-12-21T20:36:32.285Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5074f308ffdd2ce7c9",
+    "sender": "69485a2974f308ffdd2ce3c7",
+    "receiver": "69485a1774f308ffdd2ce2d1",
+    "content": "I would like to know more about the upcoming event.",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:32.340Z",
+    "updatedAt": "2025-12-21T20:36:32.340Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5074f308ffdd2ce7cb",
+    "sender": "69485a3374f308ffdd2ce459",
+    "receiver": "69485a2474f308ffdd2ce38b",
+    "content": "I need support regarding tuition fees.",
+    "read": true,
+    "createdAt": "2025-12-21T20:36:32.399Z",
+    "updatedAt": "2025-12-21T20:36:32.399Z",
+    "__v": 0
+  }
+]

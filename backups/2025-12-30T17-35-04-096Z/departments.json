@@ -1,0 +1,82 @@
+[
+  {
+    "_id": "69485a0a74f308ffdd2ce215",
+    "name": "Computer Science",
+    "code": "CS",
+    "description": "In-depth training program in computer theory, algorithms, data structures and complexity analysis. Students are equipped with solid foundational knowledge to research and develop advanced technological solutions.",
+    "coordinator": "69485a0974f308ffdd2ce1fd",
+    "createdAt": "2025-12-21T20:35:22.717Z",
+    "updatedAt": "2025-12-21T20:35:22.717Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a0a74f308ffdd2ce217",
+    "name": "Software Engineering",
+    "code": "SE",
+    "description": "Training professional software engineers with skills in analysis, design, development and maintenance of large-scale software systems. Focus on software development processes, testing and technology project management.",
+    "coordinator": "69485a0974f308ffdd2ce200",
+    "createdAt": "2025-12-21T20:35:22.772Z",
+    "updatedAt": "2025-12-21T20:35:22.772Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a0a74f308ffdd2ce219",
+    "name": "Information Security",
+    "code": "IS",
+    "description": "Specialization training information security experts, cryptography, detection and prevention of cyber attacks. Students learn to protect data and systems from cybersecurity threats.",
+    "coordinator": "69485a0974f308ffdd2ce203",
+    "createdAt": "2025-12-21T20:35:22.828Z",
+    "updatedAt": "2025-12-21T20:35:22.828Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a0a74f308ffdd2ce21b",
+    "name": "Artificial Intelligence",
+    "code": "AI",
+    "description": "Training program in machine learning, deep learning, natural language processing and computer vision. Students are equipped with knowledge to develop intelligent AI systems and apply them in practice.",
+    "coordinator": "69485a0a74f308ffdd2ce206",
+    "createdAt": "2025-12-21T20:35:22.883Z",
+    "updatedAt": "2025-12-21T20:35:22.883Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a0a74f308ffdd2ce21d",
+    "name": "Information Systems",
+    "code": "ISYS",
+    "description": "Training experts in information system management and integration in enterprises. Focus on business analysis, management system design and business process optimization through technology.",
+    "coordinator": "69485a0a74f308ffdd2ce209",
+    "createdAt": "2025-12-21T20:35:22.941Z",
+    "updatedAt": "2025-12-21T20:35:22.941Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a0b74f308ffdd2ce21f",
+    "name": "Computer Networks",
+    "code": "NET",
+    "description": "Specialization in computer network design, deployment and administration, network security, cloud computing and distributed systems. Students learn to build and operate modern network infrastructure.",
+    "coordinator": "69485a0a74f308ffdd2ce20c",
+    "createdAt": "2025-12-21T20:35:23.001Z",
+    "updatedAt": "2025-12-21T20:35:23.001Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a0b74f308ffdd2ce221",
+    "name": "Web Technology",
+    "code": "WEB",
+    "description": "In-depth training in web application development, frontend and backend development, responsive design and modern frameworks. Students learn to build modern and optimized web applications.",
+    "coordinator": "69485a0a74f308ffdd2ce20f",
+    "createdAt": "2025-12-21T20:35:23.057Z",
+    "updatedAt": "2025-12-21T20:35:23.057Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a0b74f308ffdd2ce223",
+    "name": "Game Development",
+    "code": "GD",
+    "description": "Training program in game development, game engines, computer graphics and gameplay design. Students learn to create video games from concept to finished product.",
+    "coordinator": "69485a0a74f308ffdd2ce212",
+    "createdAt": "2025-12-21T20:35:23.114Z",
+    "updatedAt": "2025-12-21T20:35:23.114Z",
+    "__v": 0
+  }
+]

@@ -13,6 +13,8 @@
     "reset": "tsx src/reset-database.js",
     "reset:seed": "tsx src/reset-and-seed.js",
     "export:topics": "tsx src/scripts/export-topics.js",
+    "db:export": "tsx src/scripts/export-data.js",
+    "db:import": "tsx src/scripts/import-data.js",
     "postinstall": "npm rebuild bcrypt --update-binary"
   },
   "dependencies": {

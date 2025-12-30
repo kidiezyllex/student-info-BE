@@ -1,0 +1,2342 @@
+[
+  {
+    "_id": "69485a5074f308ffdd2ce7cd",
+    "user": "69485a2574f308ffdd2ce399",
+    "messages": [
+      {
+        "role": "user",
+        "content": "What are the graduation requirements?",
+        "timestamp": "2025-12-21T18:36:32.458Z",
+        "isAccurate": null,
+        "_id": "69485a5074f308ffdd2ce7ce"
+      },
+      {
+        "role": "assistant",
+        "content": "VGU has many exchange programs with universities in Germany. You can contact the International Relations Office for more details.",
+        "timestamp": "2025-12-21T18:37:02.458Z",
+        "isAccurate": true,
+        "_id": "69485a5074f308ffdd2ce7cf"
+      }
+    ],
+    "title": "Question about What are the graduation requirements",
+    "lastActive": "2025-12-15T19:27:21.382Z",
+    "createdAt": "2025-12-21T20:36:32.461Z",
+    "updatedAt": "2025-12-21T20:36:32.461Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5074f308ffdd2ce7d1",
+    "user": "69485a0f74f308ffdd2ce26f",
+    "messages": [
+      {
+        "role": "user",
+        "content": "What is the schedule for this semester?",
+        "timestamp": "2025-12-21T18:36:32.518Z",
+        "isAccurate": null,
+        "_id": "69485a5074f308ffdd2ce7d2"
+      },
+      {
+        "role": "assistant",
+        "content": "VGU students have many job opportunities at companies domestically and internationally, especially German companies.",
+        "timestamp": "2025-12-21T18:37:02.518Z",
+        "isAccurate": true,
+        "_id": "69485a5074f308ffdd2ce7d3"
+      }
+    ],
+    "title": "Question about What is the schedule for this semester",
+    "lastActive": "2025-12-20T19:46:48.341Z",
+    "createdAt": "2025-12-21T20:36:32.519Z",
+    "updatedAt": "2025-12-21T20:36:32.519Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5074f308ffdd2ce7d5",
+    "user": "69485a1c74f308ffdd2ce317",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Information about student exchange programs?",
+        "timestamp": "2025-12-21T18:36:32.575Z",
+        "isAccurate": null,
+        "_id": "69485a5074f308ffdd2ce7d6"
+      },
+      {
+        "role": "assistant",
+        "content": "You can contact the academic office via email: academic@vgu.edu.vn or phone: 028-7300-7300.",
+        "timestamp": "2025-12-21T18:37:02.575Z",
+        "isAccurate": true,
+        "_id": "69485a5074f308ffdd2ce7d7"
+      }
+    ],
+    "title": "Question about Information about student exchange programs",
+    "lastActive": "2025-12-20T22:18:03.968Z",
+    "createdAt": "2025-12-21T20:36:32.576Z",
+    "updatedAt": "2025-12-21T20:36:32.576Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5074f308ffdd2ce7d9",
+    "user": "69485a1e74f308ffdd2ce33b",
+    "messages": [
+      {
+        "role": "user",
+        "content": "How to contact the academic office?",
+        "timestamp": "2025-12-21T18:36:32.635Z",
+        "isAccurate": null,
+        "_id": "69485a5074f308ffdd2ce7da"
+      },
+      {
+        "role": "assistant",
+        "content": "Graduation requirements include: completing the required number of credits, meeting GPA requirements, and completing the graduation project.",
+        "timestamp": "2025-12-21T18:37:02.635Z",
+        "isAccurate": true,
+        "_id": "69485a5074f308ffdd2ce7db"
+      }
+    ],
+    "title": "Question about How to contact the academic office",
+    "lastActive": "2025-12-15T04:59:44.304Z",
+    "createdAt": "2025-12-21T20:36:32.636Z",
+    "updatedAt": "2025-12-21T20:36:32.636Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5074f308ffdd2ce7dd",
+    "user": "69485a1474f308ffdd2ce2ab",
+    "messages": [
+      {
+        "role": "user",
+        "content": "What are the graduation requirements?",
+        "timestamp": "2025-12-21T18:36:32.694Z",
+        "isAccurate": null,
+        "_id": "69485a5074f308ffdd2ce7de"
+      },
+      {
+        "role": "assistant",
+        "content": "You can register for the dormitory through the online system or contact the Student Affairs Office directly.",
+        "timestamp": "2025-12-21T18:37:02.694Z",
+        "isAccurate": true,
+        "_id": "69485a5074f308ffdd2ce7df"
+      }
+    ],
+    "title": "Question about What are the graduation requirements",
+    "lastActive": "2025-12-18T16:16:57.907Z",
+    "createdAt": "2025-12-21T20:36:32.695Z",
+    "updatedAt": "2025-12-21T20:36:32.695Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5074f308ffdd2ce7e1",
+    "user": "69485a1574f308ffdd2ce2bd",
+    "messages": [
+      {
+        "role": "user",
+        "content": "How to contact the academic office?",
+        "timestamp": "2025-12-21T18:36:32.754Z",
+        "isAccurate": null,
+        "_id": "69485a5074f308ffdd2ce7e2"
+      },
+      {
+        "role": "assistant",
+        "content": "You can register for the dormitory through the online system or contact the Student Affairs Office directly.",
+        "timestamp": "2025-12-21T18:37:02.754Z",
+        "isAccurate": true,
+        "_id": "69485a5074f308ffdd2ce7e3"
+      }
+    ],
+    "title": "Question about How to contact the academic office",
+    "lastActive": "2025-12-20T11:49:15.639Z",
+    "createdAt": "2025-12-21T20:36:32.755Z",
+    "updatedAt": "2025-12-21T20:36:32.755Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5074f308ffdd2ce7e5",
+    "user": "69485a0f74f308ffdd2ce26d",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Job opportunities after graduation?",
+        "timestamp": "2025-12-21T18:36:32.811Z",
+        "isAccurate": null,
+        "_id": "69485a5074f308ffdd2ce7e6"
+      },
+      {
+        "role": "assistant",
+        "content": "Graduation requirements include: completing the required number of credits, meeting GPA requirements, and completing the graduation project.",
+        "timestamp": "2025-12-21T18:37:02.811Z",
+        "isAccurate": true,
+        "_id": "69485a5074f308ffdd2ce7e7"
+      }
+    ],
+    "title": "Question about Job opportunities after graduation",
+    "lastActive": "2025-12-21T15:33:37.377Z",
+    "createdAt": "2025-12-21T20:36:32.812Z",
+    "updatedAt": "2025-12-21T20:36:32.812Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5074f308ffdd2ce7e9",
+    "user": "69485a1874f308ffdd2ce2e1",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Job opportunities after graduation?",
+        "timestamp": "2025-12-21T18:36:32.868Z",
+        "isAccurate": null,
+        "_id": "69485a5074f308ffdd2ce7ea"
+      },
+      {
+        "role": "assistant",
+        "content": "VGU has many exchange programs with universities in Germany. You can contact the International Relations Office for more details.",
+        "timestamp": "2025-12-21T18:37:02.868Z",
+        "isAccurate": true,
+        "_id": "69485a5074f308ffdd2ce7eb"
+      }
+    ],
+    "title": "Question about Job opportunities after graduation",
+    "lastActive": "2025-12-15T00:16:09.902Z",
+    "createdAt": "2025-12-21T20:36:32.869Z",
+    "updatedAt": "2025-12-21T20:36:32.869Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5074f308ffdd2ce7ed",
+    "user": "69485a2c74f308ffdd2ce3ed",
+    "messages": [
+      {
+        "role": "user",
+        "content": "How to register for the dormitory?",
+        "timestamp": "2025-12-21T18:36:32.925Z",
+        "isAccurate": null,
+        "_id": "69485a5074f308ffdd2ce7ee"
+      },
+      {
+        "role": "assistant",
+        "content": "You can apply for scholarships through VGU online system. Please prepare all required documents.",
+        "timestamp": "2025-12-21T18:37:02.925Z",
+        "isAccurate": null,
+        "_id": "69485a5074f308ffdd2ce7ef"
+      }
+    ],
+    "title": "Question about How to register for the dormitory",
+    "lastActive": "2025-12-15T19:04:19.680Z",
+    "createdAt": "2025-12-21T20:36:32.926Z",
+    "updatedAt": "2025-12-21T20:36:32.926Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5074f308ffdd2ce7f1",
+    "user": "69485a3274f308ffdd2ce441",
+    "messages": [
+      {
+        "role": "user",
+        "content": "How to register for the dormitory?",
+        "timestamp": "2025-12-21T18:36:32.983Z",
+        "isAccurate": null,
+        "_id": "69485a5074f308ffdd2ce7f2"
+      },
+      {
+        "role": "assistant",
+        "content": "Graduation requirements include: completing the required number of credits, meeting GPA requirements, and completing the graduation project.",
+        "timestamp": "2025-12-21T18:37:02.983Z",
+        "isAccurate": true,
+        "_id": "69485a5074f308ffdd2ce7f3"
+      }
+    ],
+    "title": "Question about How to register for the dormitory",
+    "lastActive": "2025-12-20T12:33:51.560Z",
+    "createdAt": "2025-12-21T20:36:32.984Z",
+    "updatedAt": "2025-12-21T20:36:32.984Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5174f308ffdd2ce7f5",
+    "user": "69485a2f74f308ffdd2ce421",
+    "messages": [
+      {
+        "role": "user",
+        "content": "When will the final exam schedule be available?",
+        "timestamp": "2025-12-21T18:36:33.048Z",
+        "isAccurate": null,
+        "_id": "69485a5174f308ffdd2ce7f6"
+      },
+      {
+        "role": "assistant",
+        "content": "You can contact the academic office via email: academic@vgu.edu.vn or phone: 028-7300-7300.",
+        "timestamp": "2025-12-21T18:37:03.048Z",
+        "isAccurate": true,
+        "_id": "69485a5174f308ffdd2ce7f7"
+      }
+    ],
+    "title": "Question about When will the final exam schedule be available",
+    "lastActive": "2025-12-15T19:31:24.463Z",
+    "createdAt": "2025-12-21T20:36:33.049Z",
+    "updatedAt": "2025-12-21T20:36:33.049Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5174f308ffdd2ce7f9",
+    "user": "69485a2a74f308ffdd2ce3db",
+    "messages": [
+      {
+        "role": "user",
+        "content": "What is the schedule for this semester?",
+        "timestamp": "2025-12-21T18:36:33.105Z",
+        "isAccurate": null,
+        "_id": "69485a5174f308ffdd2ce7fa"
+      },
+      {
+        "role": "assistant",
+        "content": "Graduation requirements include: completing the required number of credits, meeting GPA requirements, and completing the graduation project.",
+        "timestamp": "2025-12-21T18:37:03.105Z",
+        "isAccurate": null,
+        "_id": "69485a5174f308ffdd2ce7fb"
+      }
+    ],
+    "title": "Question about What is the schedule for this semester",
+    "lastActive": "2025-12-20T21:50:43.552Z",
+    "createdAt": "2025-12-21T20:36:33.107Z",
+    "updatedAt": "2025-12-21T20:36:33.107Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5174f308ffdd2ce7fd",
+    "user": "69485a2b74f308ffdd2ce3e7",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Job opportunities after graduation?",
+        "timestamp": "2025-12-21T18:36:33.163Z",
+        "isAccurate": null,
+        "_id": "69485a5174f308ffdd2ce7fe"
+      },
+      {
+        "role": "assistant",
+        "content": "The class schedule is updated on the system. You can view details in the \"Class Schedule\" section of your account.",
+        "timestamp": "2025-12-21T18:37:03.163Z",
+        "isAccurate": null,
+        "_id": "69485a5174f308ffdd2ce7ff"
+      }
+    ],
+    "title": "Question about Job opportunities after graduation",
+    "lastActive": "2025-12-15T11:00:14.292Z",
+    "createdAt": "2025-12-21T20:36:33.164Z",
+    "updatedAt": "2025-12-21T20:36:33.164Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5174f308ffdd2ce801",
+    "user": "69485a2174f308ffdd2ce35d",
+    "messages": [
+      {
+        "role": "user",
+        "content": "How to apply for scholarships?",
+        "timestamp": "2025-12-21T18:36:33.224Z",
+        "isAccurate": null,
+        "_id": "69485a5174f308ffdd2ce802"
+      },
+      {
+        "role": "assistant",
+        "content": "You can apply for scholarships through VGU online system. Please prepare all required documents.",
+        "timestamp": "2025-12-21T18:37:03.224Z",
+        "isAccurate": true,
+        "_id": "69485a5174f308ffdd2ce803"
+      }
+    ],
+    "title": "Question about How to apply for scholarships",
+    "lastActive": "2025-12-18T07:51:36.881Z",
+    "createdAt": "2025-12-21T20:36:33.226Z",
+    "updatedAt": "2025-12-21T20:36:33.226Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5174f308ffdd2ce805",
+    "user": "69485a3074f308ffdd2ce429",
+    "messages": [
+      {
+        "role": "user",
+        "content": "When will the final exam schedule be available?",
+        "timestamp": "2025-12-21T18:36:33.284Z",
+        "isAccurate": null,
+        "_id": "69485a5174f308ffdd2ce806"
+      },
+      {
+        "role": "assistant",
+        "content": "You can contact the academic office via email: academic@vgu.edu.vn or phone: 028-7300-7300.",
+        "timestamp": "2025-12-21T18:37:03.284Z",
+        "isAccurate": null,
+        "_id": "69485a5174f308ffdd2ce807"
+      }
+    ],
+    "title": "Question about When will the final exam schedule be available",
+    "lastActive": "2025-12-21T20:15:32.658Z",
+    "createdAt": "2025-12-21T20:36:33.287Z",
+    "updatedAt": "2025-12-21T20:36:33.287Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5174f308ffdd2ce809",
+    "user": "69485a2174f308ffdd2ce35b",
+    "messages": [
+      {
+        "role": "user",
+        "content": "What is the schedule for this semester?",
+        "timestamp": "2025-12-21T18:36:33.345Z",
+        "isAccurate": null,
+        "_id": "69485a5174f308ffdd2ce80a"
+      },
+      {
+        "role": "assistant",
+        "content": "You can apply for scholarships through VGU online system. Please prepare all required documents.",
+        "timestamp": "2025-12-21T18:37:03.345Z",
+        "isAccurate": true,
+        "_id": "69485a5174f308ffdd2ce80b"
+      }
+    ],
+    "title": "Question about What is the schedule for this semester",
+    "lastActive": "2025-12-16T16:52:44.602Z",
+    "createdAt": "2025-12-21T20:36:33.348Z",
+    "updatedAt": "2025-12-21T20:36:33.348Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5174f308ffdd2ce80d",
+    "user": "69485a3674f308ffdd2ce47f",
+    "messages": [
+      {
+        "role": "user",
+        "content": "What are the graduation requirements?",
+        "timestamp": "2025-12-21T18:36:33.405Z",
+        "isAccurate": null,
+        "_id": "69485a5174f308ffdd2ce80e"
+      },
+      {
+        "role": "assistant",
+        "content": "You can contact the academic office via email: academic@vgu.edu.vn or phone: 028-7300-7300.",
+        "timestamp": "2025-12-21T18:37:03.405Z",
+        "isAccurate": null,
+        "_id": "69485a5174f308ffdd2ce80f"
+      }
+    ],
+    "title": "Question about What are the graduation requirements",
+    "lastActive": "2025-12-21T20:31:23.680Z",
+    "createdAt": "2025-12-21T20:36:33.406Z",
+    "updatedAt": "2025-12-21T20:36:33.406Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5174f308ffdd2ce811",
+    "user": "69485a1574f308ffdd2ce2b5",
+    "messages": [
+      {
+        "role": "user",
+        "content": "How to contact the academic office?",
+        "timestamp": "2025-12-21T18:36:33.463Z",
+        "isAccurate": null,
+        "_id": "69485a5174f308ffdd2ce812"
+      },
+      {
+        "role": "assistant",
+        "content": "You can apply for scholarships through VGU online system. Please prepare all required documents.",
+        "timestamp": "2025-12-21T18:37:03.463Z",
+        "isAccurate": true,
+        "_id": "69485a5174f308ffdd2ce813"
+      }
+    ],
+    "title": "Question about How to contact the academic office",
+    "lastActive": "2025-12-15T06:01:42.097Z",
+    "createdAt": "2025-12-21T20:36:33.464Z",
+    "updatedAt": "2025-12-21T20:36:33.464Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5174f308ffdd2ce815",
+    "user": "69485a1f74f308ffdd2ce347",
+    "messages": [
+      {
+        "role": "user",
+        "content": "How to contact the academic office?",
+        "timestamp": "2025-12-21T18:36:33.521Z",
+        "isAccurate": null,
+        "_id": "69485a5174f308ffdd2ce816"
+      },
+      {
+        "role": "assistant",
+        "content": "You can register for the dormitory through the online system or contact the Student Affairs Office directly.",
+        "timestamp": "2025-12-21T18:37:03.521Z",
+        "isAccurate": true,
+        "_id": "69485a5174f308ffdd2ce817"
+      }
+    ],
+    "title": "Question about How to contact the academic office",
+    "lastActive": "2025-12-20T04:02:19.532Z",
+    "createdAt": "2025-12-21T20:36:33.522Z",
+    "updatedAt": "2025-12-21T20:36:33.522Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5174f308ffdd2ce819",
+    "user": "69485a2074f308ffdd2ce34d",
+    "messages": [
+      {
+        "role": "user",
+        "content": "What is the schedule for this semester?",
+        "timestamp": "2025-12-21T18:36:33.580Z",
+        "isAccurate": null,
+        "_id": "69485a5174f308ffdd2ce81a"
+      },
+      {
+        "role": "assistant",
+        "content": "You can register for the dormitory through the online system or contact the Student Affairs Office directly.",
+        "timestamp": "2025-12-21T18:37:03.580Z",
+        "isAccurate": true,
+        "_id": "69485a5174f308ffdd2ce81b"
+      }
+    ],
+    "title": "Question about What is the schedule for this semester",
+    "lastActive": "2025-12-16T12:07:25.595Z",
+    "createdAt": "2025-12-21T20:36:33.581Z",
+    "updatedAt": "2025-12-21T20:36:33.581Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5174f308ffdd2ce81d",
+    "user": "69485a0d74f308ffdd2ce253",
+    "messages": [
+      {
+        "role": "user",
+        "content": "How to apply for scholarships?",
+        "timestamp": "2025-12-21T18:36:33.638Z",
+        "isAccurate": null,
+        "_id": "69485a5174f308ffdd2ce81e"
+      },
+      {
+        "role": "assistant",
+        "content": "You can apply for scholarships through VGU online system. Please prepare all required documents.",
+        "timestamp": "2025-12-21T18:37:03.638Z",
+        "isAccurate": true,
+        "_id": "69485a5174f308ffdd2ce81f"
+      }
+    ],
+    "title": "Question about How to apply for scholarships",
+    "lastActive": "2025-12-20T19:35:59.771Z",
+    "createdAt": "2025-12-21T20:36:33.640Z",
+    "updatedAt": "2025-12-21T20:36:33.640Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5174f308ffdd2ce821",
+    "user": "69485a2374f308ffdd2ce373",
+    "messages": [
+      {
+        "role": "user",
+        "content": "How to apply for scholarships?",
+        "timestamp": "2025-12-21T18:36:33.699Z",
+        "isAccurate": null,
+        "_id": "69485a5174f308ffdd2ce822"
+      },
+      {
+        "role": "assistant",
+        "content": "You can register for the dormitory through the online system or contact the Student Affairs Office directly.",
+        "timestamp": "2025-12-21T18:37:03.699Z",
+        "isAccurate": true,
+        "_id": "69485a5174f308ffdd2ce823"
+      }
+    ],
+    "title": "Question about How to apply for scholarships",
+    "lastActive": "2025-12-17T11:02:34.036Z",
+    "createdAt": "2025-12-21T20:36:33.701Z",
+    "updatedAt": "2025-12-21T20:36:33.701Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5174f308ffdd2ce825",
+    "user": "69485a1e74f308ffdd2ce335",
+    "messages": [
+      {
+        "role": "user",
+        "content": "When will the final exam schedule be available?",
+        "timestamp": "2025-12-21T18:36:33.760Z",
+        "isAccurate": null,
+        "_id": "69485a5174f308ffdd2ce826"
+      },
+      {
+        "role": "assistant",
+        "content": "The class schedule is updated on the system. You can view details in the \"Class Schedule\" section of your account.",
+        "timestamp": "2025-12-21T18:37:03.760Z",
+        "isAccurate": true,
+        "_id": "69485a5174f308ffdd2ce827"
+      }
+    ],
+    "title": "Question about When will the final exam schedule be available",
+    "lastActive": "2025-12-19T01:30:48.603Z",
+    "createdAt": "2025-12-21T20:36:33.762Z",
+    "updatedAt": "2025-12-21T20:36:33.762Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5174f308ffdd2ce829",
+    "user": "69485a1874f308ffdd2ce2df",
+    "messages": [
+      {
+        "role": "user",
+        "content": "How to register for the dormitory?",
+        "timestamp": "2025-12-21T18:36:33.820Z",
+        "isAccurate": null,
+        "_id": "69485a5174f308ffdd2ce82a"
+      },
+      {
+        "role": "assistant",
+        "content": "The class schedule is updated on the system. You can view details in the \"Class Schedule\" section of your account.",
+        "timestamp": "2025-12-21T18:37:03.820Z",
+        "isAccurate": true,
+        "_id": "69485a5174f308ffdd2ce82b"
+      }
+    ],
+    "title": "Question about How to register for the dormitory",
+    "lastActive": "2025-12-19T06:16:46.776Z",
+    "createdAt": "2025-12-21T20:36:33.823Z",
+    "updatedAt": "2025-12-21T20:36:33.823Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5174f308ffdd2ce82d",
+    "user": "69485a1574f308ffdd2ce2b5",
+    "messages": [
+      {
+        "role": "user",
+        "content": "What are the graduation requirements?",
+        "timestamp": "2025-12-21T18:36:33.889Z",
+        "isAccurate": null,
+        "_id": "69485a5174f308ffdd2ce82e"
+      },
+      {
+        "role": "assistant",
+        "content": "VGU has many exchange programs with universities in Germany. You can contact the International Relations Office for more details.",
+        "timestamp": "2025-12-21T18:37:03.889Z",
+        "isAccurate": true,
+        "_id": "69485a5174f308ffdd2ce82f"
+      }
+    ],
+    "title": "Question about What are the graduation requirements",
+    "lastActive": "2025-12-21T16:36:08.722Z",
+    "createdAt": "2025-12-21T20:36:33.892Z",
+    "updatedAt": "2025-12-21T20:36:33.892Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5174f308ffdd2ce831",
+    "user": "69485a0f74f308ffdd2ce26d",
+    "messages": [
+      {
+        "role": "user",
+        "content": "How to register for the dormitory?",
+        "timestamp": "2025-12-21T18:36:33.952Z",
+        "isAccurate": null,
+        "_id": "69485a5174f308ffdd2ce832"
+      },
+      {
+        "role": "assistant",
+        "content": "You can apply for scholarships through VGU online system. Please prepare all required documents.",
+        "timestamp": "2025-12-21T18:37:03.952Z",
+        "isAccurate": true,
+        "_id": "69485a5174f308ffdd2ce833"
+      }
+    ],
+    "title": "Question about How to register for the dormitory",
+    "lastActive": "2025-12-14T23:54:31.335Z",
+    "createdAt": "2025-12-21T20:36:33.954Z",
+    "updatedAt": "2025-12-21T20:36:33.954Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5274f308ffdd2ce835",
+    "user": "69485a1274f308ffdd2ce291",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Information about student exchange programs?",
+        "timestamp": "2025-12-21T18:36:34.022Z",
+        "isAccurate": null,
+        "_id": "69485a5274f308ffdd2ce836"
+      },
+      {
+        "role": "assistant",
+        "content": "The class schedule is updated on the system. You can view details in the \"Class Schedule\" section of your account.",
+        "timestamp": "2025-12-21T18:37:04.022Z",
+        "isAccurate": true,
+        "_id": "69485a5274f308ffdd2ce837"
+      }
+    ],
+    "title": "Question about Information about student exchange programs",
+    "lastActive": "2025-12-21T09:46:08.127Z",
+    "createdAt": "2025-12-21T20:36:34.025Z",
+    "updatedAt": "2025-12-21T20:36:34.025Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5274f308ffdd2ce839",
+    "user": "69485a3774f308ffdd2ce485",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Information about student exchange programs?",
+        "timestamp": "2025-12-21T18:36:34.085Z",
+        "isAccurate": null,
+        "_id": "69485a5274f308ffdd2ce83a"
+      },
+      {
+        "role": "assistant",
+        "content": "You can apply for scholarships through VGU online system. Please prepare all required documents.",
+        "timestamp": "2025-12-21T18:37:04.085Z",
+        "isAccurate": true,
+        "_id": "69485a5274f308ffdd2ce83b"
+      }
+    ],
+    "title": "Question about Information about student exchange programs",
+    "lastActive": "2025-12-21T04:49:13.181Z",
+    "createdAt": "2025-12-21T20:36:34.086Z",
+    "updatedAt": "2025-12-21T20:36:34.086Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5274f308ffdd2ce83d",
+    "user": "69485a1074f308ffdd2ce273",
+    "messages": [
+      {
+        "role": "user",
+        "content": "What is the schedule for this semester?",
+        "timestamp": "2025-12-21T18:36:34.148Z",
+        "isAccurate": null,
+        "_id": "69485a5274f308ffdd2ce83e"
+      },
+      {
+        "role": "assistant",
+        "content": "VGU students have many job opportunities at companies domestically and internationally, especially German companies.",
+        "timestamp": "2025-12-21T18:37:04.148Z",
+        "isAccurate": true,
+        "_id": "69485a5274f308ffdd2ce83f"
+      }
+    ],
+    "title": "Question about What is the schedule for this semester",
+    "lastActive": "2025-12-21T02:52:13.515Z",
+    "createdAt": "2025-12-21T20:36:34.150Z",
+    "updatedAt": "2025-12-21T20:36:34.150Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5274f308ffdd2ce841",
+    "user": "69485a2474f308ffdd2ce385",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Job opportunities after graduation?",
+        "timestamp": "2025-12-21T18:36:34.222Z",
+        "isAccurate": null,
+        "_id": "69485a5274f308ffdd2ce842"
+      },
+      {
+        "role": "assistant",
+        "content": "Graduation requirements include: completing the required number of credits, meeting GPA requirements, and completing the graduation project.",
+        "timestamp": "2025-12-21T18:37:04.222Z",
+        "isAccurate": null,
+        "_id": "69485a5274f308ffdd2ce843"
+      }
+    ],
+    "title": "Question about Job opportunities after graduation",
+    "lastActive": "2025-12-19T19:01:04.050Z",
+    "createdAt": "2025-12-21T20:36:34.225Z",
+    "updatedAt": "2025-12-21T20:36:34.225Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5274f308ffdd2ce845",
+    "user": "69485a1b74f308ffdd2ce30b",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Information about student exchange programs?",
+        "timestamp": "2025-12-21T18:36:34.284Z",
+        "isAccurate": null,
+        "_id": "69485a5274f308ffdd2ce846"
+      },
+      {
+        "role": "assistant",
+        "content": "The final exam schedule will be announced on the system and student email 2 weeks in advance.",
+        "timestamp": "2025-12-21T18:37:04.284Z",
+        "isAccurate": true,
+        "_id": "69485a5274f308ffdd2ce847"
+      }
+    ],
+    "title": "Question about Information about student exchange programs",
+    "lastActive": "2025-12-19T11:10:48.345Z",
+    "createdAt": "2025-12-21T20:36:34.286Z",
+    "updatedAt": "2025-12-21T20:36:34.286Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5274f308ffdd2ce849",
+    "user": "69485a1174f308ffdd2ce283",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Job opportunities after graduation?",
+        "timestamp": "2025-12-21T18:36:34.347Z",
+        "isAccurate": null,
+        "_id": "69485a5274f308ffdd2ce84a"
+      },
+      {
+        "role": "assistant",
+        "content": "You can apply for scholarships through VGU online system. Please prepare all required documents.",
+        "timestamp": "2025-12-21T18:37:04.347Z",
+        "isAccurate": true,
+        "_id": "69485a5274f308ffdd2ce84b"
+      }
+    ],
+    "title": "Question about Job opportunities after graduation",
+    "lastActive": "2025-12-16T04:54:33.980Z",
+    "createdAt": "2025-12-21T20:36:34.348Z",
+    "updatedAt": "2025-12-21T20:36:34.348Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5274f308ffdd2ce84d",
+    "user": "69485a3774f308ffdd2ce485",
+    "messages": [
+      {
+        "role": "user",
+        "content": "What is the schedule for this semester?",
+        "timestamp": "2025-12-21T18:36:34.417Z",
+        "isAccurate": null,
+        "_id": "69485a5274f308ffdd2ce84e"
+      },
+      {
+        "role": "assistant",
+        "content": "You can contact the academic office via email: academic@vgu.edu.vn or phone: 028-7300-7300.",
+        "timestamp": "2025-12-21T18:37:04.417Z",
+        "isAccurate": true,
+        "_id": "69485a5274f308ffdd2ce84f"
+      }
+    ],
+    "title": "Question about What is the schedule for this semester",
+    "lastActive": "2025-12-20T12:44:08.606Z",
+    "createdAt": "2025-12-21T20:36:34.418Z",
+    "updatedAt": "2025-12-21T20:36:34.418Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5274f308ffdd2ce851",
+    "user": "69485a1374f308ffdd2ce2a1",
+    "messages": [
+      {
+        "role": "user",
+        "content": "What is the schedule for this semester?",
+        "timestamp": "2025-12-21T18:36:34.477Z",
+        "isAccurate": null,
+        "_id": "69485a5274f308ffdd2ce852"
+      },
+      {
+        "role": "assistant",
+        "content": "VGU has many exchange programs with universities in Germany. You can contact the International Relations Office for more details.",
+        "timestamp": "2025-12-21T18:37:04.477Z",
+        "isAccurate": null,
+        "_id": "69485a5274f308ffdd2ce853"
+      }
+    ],
+    "title": "Question about What is the schedule for this semester",
+    "lastActive": "2025-12-18T00:11:09.300Z",
+    "createdAt": "2025-12-21T20:36:34.478Z",
+    "updatedAt": "2025-12-21T20:36:34.478Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5274f308ffdd2ce855",
+    "user": "69485a1674f308ffdd2ce2c3",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Information about student exchange programs?",
+        "timestamp": "2025-12-21T18:36:34.539Z",
+        "isAccurate": null,
+        "_id": "69485a5274f308ffdd2ce856"
+      },
+      {
+        "role": "assistant",
+        "content": "The class schedule is updated on the system. You can view details in the \"Class Schedule\" section of your account.",
+        "timestamp": "2025-12-21T18:37:04.539Z",
+        "isAccurate": true,
+        "_id": "69485a5274f308ffdd2ce857"
+      }
+    ],
+    "title": "Question about Information about student exchange programs",
+    "lastActive": "2025-12-15T10:24:18.546Z",
+    "createdAt": "2025-12-21T20:36:34.541Z",
+    "updatedAt": "2025-12-21T20:36:34.541Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5274f308ffdd2ce859",
+    "user": "69485a1d74f308ffdd2ce327",
+    "messages": [
+      {
+        "role": "user",
+        "content": "When will the final exam schedule be available?",
+        "timestamp": "2025-12-21T18:36:34.600Z",
+        "isAccurate": null,
+        "_id": "69485a5274f308ffdd2ce85a"
+      },
+      {
+        "role": "assistant",
+        "content": "Graduation requirements include: completing the required number of credits, meeting GPA requirements, and completing the graduation project.",
+        "timestamp": "2025-12-21T18:37:04.600Z",
+        "isAccurate": true,
+        "_id": "69485a5274f308ffdd2ce85b"
+      }
+    ],
+    "title": "Question about When will the final exam schedule be available",
+    "lastActive": "2025-12-18T18:08:11.198Z",
+    "createdAt": "2025-12-21T20:36:34.603Z",
+    "updatedAt": "2025-12-21T20:36:34.603Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5274f308ffdd2ce85d",
+    "user": "69485a1374f308ffdd2ce29b",
+    "messages": [
+      {
+        "role": "user",
+        "content": "What is the schedule for this semester?",
+        "timestamp": "2025-12-21T18:36:34.661Z",
+        "isAccurate": null,
+        "_id": "69485a5274f308ffdd2ce85e"
+      },
+      {
+        "role": "assistant",
+        "content": "You can apply for scholarships through VGU online system. Please prepare all required documents.",
+        "timestamp": "2025-12-21T18:37:04.661Z",
+        "isAccurate": true,
+        "_id": "69485a5274f308ffdd2ce85f"
+      }
+    ],
+    "title": "Question about What is the schedule for this semester",
+    "lastActive": "2025-12-19T21:43:52.164Z",
+    "createdAt": "2025-12-21T20:36:34.663Z",
+    "updatedAt": "2025-12-21T20:36:34.663Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5274f308ffdd2ce861",
+    "user": "69485a0f74f308ffdd2ce269",
+    "messages": [
+      {
+        "role": "user",
+        "content": "What are the graduation requirements?",
+        "timestamp": "2025-12-21T18:36:34.725Z",
+        "isAccurate": null,
+        "_id": "69485a5274f308ffdd2ce862"
+      },
+      {
+        "role": "assistant",
+        "content": "The class schedule is updated on the system. You can view details in the \"Class Schedule\" section of your account.",
+        "timestamp": "2025-12-21T18:37:04.725Z",
+        "isAccurate": true,
+        "_id": "69485a5274f308ffdd2ce863"
+      }
+    ],
+    "title": "Question about What are the graduation requirements",
+    "lastActive": "2025-12-20T18:24:11.238Z",
+    "createdAt": "2025-12-21T20:36:34.727Z",
+    "updatedAt": "2025-12-21T20:36:34.727Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5274f308ffdd2ce865",
+    "user": "69485a2b74f308ffdd2ce3e9",
+    "messages": [
+      {
+        "role": "user",
+        "content": "How to apply for scholarships?",
+        "timestamp": "2025-12-21T18:36:34.786Z",
+        "isAccurate": null,
+        "_id": "69485a5274f308ffdd2ce866"
+      },
+      {
+        "role": "assistant",
+        "content": "You can contact the academic office via email: academic@vgu.edu.vn or phone: 028-7300-7300.",
+        "timestamp": "2025-12-21T18:37:04.786Z",
+        "isAccurate": null,
+        "_id": "69485a5274f308ffdd2ce867"
+      }
+    ],
+    "title": "Question about How to apply for scholarships",
+    "lastActive": "2025-12-19T05:36:36.678Z",
+    "createdAt": "2025-12-21T20:36:34.789Z",
+    "updatedAt": "2025-12-21T20:36:34.789Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5274f308ffdd2ce869",
+    "user": "69485a2b74f308ffdd2ce3e9",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Job opportunities after graduation?",
+        "timestamp": "2025-12-21T18:36:34.847Z",
+        "isAccurate": null,
+        "_id": "69485a5274f308ffdd2ce86a"
+      },
+      {
+        "role": "assistant",
+        "content": "Graduation requirements include: completing the required number of credits, meeting GPA requirements, and completing the graduation project.",
+        "timestamp": "2025-12-21T18:37:04.847Z",
+        "isAccurate": null,
+        "_id": "69485a5274f308ffdd2ce86b"
+      }
+    ],
+    "title": "Question about Job opportunities after graduation",
+    "lastActive": "2025-12-18T17:07:52.828Z",
+    "createdAt": "2025-12-21T20:36:34.849Z",
+    "updatedAt": "2025-12-21T20:36:34.849Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5274f308ffdd2ce86d",
+    "user": "69485a1e74f308ffdd2ce337",
+    "messages": [
+      {
+        "role": "user",
+        "content": "What is the schedule for this semester?",
+        "timestamp": "2025-12-21T18:36:34.908Z",
+        "isAccurate": null,
+        "_id": "69485a5274f308ffdd2ce86e"
+      },
+      {
+        "role": "assistant",
+        "content": "The class schedule is updated on the system. You can view details in the \"Class Schedule\" section of your account.",
+        "timestamp": "2025-12-21T18:37:04.908Z",
+        "isAccurate": true,
+        "_id": "69485a5274f308ffdd2ce86f"
+      }
+    ],
+    "title": "Question about What is the schedule for this semester",
+    "lastActive": "2025-12-21T16:51:16.635Z",
+    "createdAt": "2025-12-21T20:36:34.911Z",
+    "updatedAt": "2025-12-21T20:36:34.911Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5274f308ffdd2ce871",
+    "user": "69485a2574f308ffdd2ce395",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Information about student exchange programs?",
+        "timestamp": "2025-12-21T18:36:34.970Z",
+        "isAccurate": null,
+        "_id": "69485a5274f308ffdd2ce872"
+      },
+      {
+        "role": "assistant",
+        "content": "You can apply for scholarships through VGU online system. Please prepare all required documents.",
+        "timestamp": "2025-12-21T18:37:04.970Z",
+        "isAccurate": true,
+        "_id": "69485a5274f308ffdd2ce873"
+      }
+    ],
+    "title": "Question about Information about student exchange programs",
+    "lastActive": "2025-12-19T14:42:30.082Z",
+    "createdAt": "2025-12-21T20:36:34.972Z",
+    "updatedAt": "2025-12-21T20:36:34.972Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5374f308ffdd2ce875",
+    "user": "69485a3574f308ffdd2ce467",
+    "messages": [
+      {
+        "role": "user",
+        "content": "What is the schedule for this semester?",
+        "timestamp": "2025-12-21T18:36:35.031Z",
+        "isAccurate": null,
+        "_id": "69485a5374f308ffdd2ce876"
+      },
+      {
+        "role": "assistant",
+        "content": "You can apply for scholarships through VGU online system. Please prepare all required documents.",
+        "timestamp": "2025-12-21T18:37:05.031Z",
+        "isAccurate": true,
+        "_id": "69485a5374f308ffdd2ce877"
+      }
+    ],
+    "title": "Question about What is the schedule for this semester",
+    "lastActive": "2025-12-17T23:24:00.250Z",
+    "createdAt": "2025-12-21T20:36:35.033Z",
+    "updatedAt": "2025-12-21T20:36:35.033Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5374f308ffdd2ce879",
+    "user": "69485a2774f308ffdd2ce3ad",
+    "messages": [
+      {
+        "role": "user",
+        "content": "What is the schedule for this semester?",
+        "timestamp": "2025-12-21T18:36:35.098Z",
+        "isAccurate": null,
+        "_id": "69485a5374f308ffdd2ce87a"
+      },
+      {
+        "role": "assistant",
+        "content": "The class schedule is updated on the system. You can view details in the \"Class Schedule\" section of your account.",
+        "timestamp": "2025-12-21T18:37:05.098Z",
+        "isAccurate": null,
+        "_id": "69485a5374f308ffdd2ce87b"
+      }
+    ],
+    "title": "Question about What is the schedule for this semester",
+    "lastActive": "2025-12-16T16:03:41.878Z",
+    "createdAt": "2025-12-21T20:36:35.101Z",
+    "updatedAt": "2025-12-21T20:36:35.101Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5374f308ffdd2ce87d",
+    "user": "69485a2374f308ffdd2ce37d",
+    "messages": [
+      {
+        "role": "user",
+        "content": "When will the final exam schedule be available?",
+        "timestamp": "2025-12-21T18:36:35.158Z",
+        "isAccurate": null,
+        "_id": "69485a5374f308ffdd2ce87e"
+      },
+      {
+        "role": "assistant",
+        "content": "VGU students have many job opportunities at companies domestically and internationally, especially German companies.",
+        "timestamp": "2025-12-21T18:37:05.158Z",
+        "isAccurate": true,
+        "_id": "69485a5374f308ffdd2ce87f"
+      }
+    ],
+    "title": "Question about When will the final exam schedule be available",
+    "lastActive": "2025-12-18T08:33:37.378Z",
+    "createdAt": "2025-12-21T20:36:35.159Z",
+    "updatedAt": "2025-12-21T20:36:35.159Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5374f308ffdd2ce881",
+    "user": "69485a2d74f308ffdd2ce3f9",
+    "messages": [
+      {
+        "role": "user",
+        "content": "What is the schedule for this semester?",
+        "timestamp": "2025-12-21T18:36:35.216Z",
+        "isAccurate": null,
+        "_id": "69485a5374f308ffdd2ce882"
+      },
+      {
+        "role": "assistant",
+        "content": "You can register for the dormitory through the online system or contact the Student Affairs Office directly.",
+        "timestamp": "2025-12-21T18:37:05.216Z",
+        "isAccurate": null,
+        "_id": "69485a5374f308ffdd2ce883"
+      }
+    ],
+    "title": "Question about What is the schedule for this semester",
+    "lastActive": "2025-12-19T17:16:24.599Z",
+    "createdAt": "2025-12-21T20:36:35.217Z",
+    "updatedAt": "2025-12-21T20:36:35.217Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5374f308ffdd2ce885",
+    "user": "69485a1f74f308ffdd2ce349",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Job opportunities after graduation?",
+        "timestamp": "2025-12-21T18:36:35.274Z",
+        "isAccurate": null,
+        "_id": "69485a5374f308ffdd2ce886"
+      },
+      {
+        "role": "assistant",
+        "content": "The final exam schedule will be announced on the system and student email 2 weeks in advance.",
+        "timestamp": "2025-12-21T18:37:05.274Z",
+        "isAccurate": true,
+        "_id": "69485a5374f308ffdd2ce887"
+      }
+    ],
+    "title": "Question about Job opportunities after graduation",
+    "lastActive": "2025-12-17T10:22:09.043Z",
+    "createdAt": "2025-12-21T20:36:35.276Z",
+    "updatedAt": "2025-12-21T20:36:35.276Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5374f308ffdd2ce889",
+    "user": "69485a2d74f308ffdd2ce403",
+    "messages": [
+      {
+        "role": "user",
+        "content": "What is the schedule for this semester?",
+        "timestamp": "2025-12-21T18:36:35.333Z",
+        "isAccurate": null,
+        "_id": "69485a5374f308ffdd2ce88a"
+      },
+      {
+        "role": "assistant",
+        "content": "VGU students have many job opportunities at companies domestically and internationally, especially German companies.",
+        "timestamp": "2025-12-21T18:37:05.333Z",
+        "isAccurate": true,
+        "_id": "69485a5374f308ffdd2ce88b"
+      }
+    ],
+    "title": "Question about What is the schedule for this semester",
+    "lastActive": "2025-12-20T09:42:10.923Z",
+    "createdAt": "2025-12-21T20:36:35.335Z",
+    "updatedAt": "2025-12-21T20:36:35.335Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5374f308ffdd2ce88d",
+    "user": "69485a2974f308ffdd2ce3cb",
+    "messages": [
+      {
+        "role": "user",
+        "content": "What is the schedule for this semester?",
+        "timestamp": "2025-12-21T18:36:35.395Z",
+        "isAccurate": null,
+        "_id": "69485a5374f308ffdd2ce88e"
+      },
+      {
+        "role": "assistant",
+        "content": "VGU students have many job opportunities at companies domestically and internationally, especially German companies.",
+        "timestamp": "2025-12-21T18:37:05.395Z",
+        "isAccurate": null,
+        "_id": "69485a5374f308ffdd2ce88f"
+      }
+    ],
+    "title": "Question about What is the schedule for this semester",
+    "lastActive": "2025-12-20T19:52:38.343Z",
+    "createdAt": "2025-12-21T20:36:35.398Z",
+    "updatedAt": "2025-12-21T20:36:35.398Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5374f308ffdd2ce891",
+    "user": "69485a0b74f308ffdd2ce235",
+    "messages": [
+      {
+        "role": "user",
+        "content": "What is the schedule for this semester?",
+        "timestamp": "2025-12-21T18:36:35.456Z",
+        "isAccurate": null,
+        "_id": "69485a5374f308ffdd2ce892"
+      },
+      {
+        "role": "assistant",
+        "content": "You can contact the academic office via email: academic@vgu.edu.vn or phone: 028-7300-7300.",
+        "timestamp": "2025-12-21T18:37:05.456Z",
+        "isAccurate": true,
+        "_id": "69485a5374f308ffdd2ce893"
+      }
+    ],
+    "title": "Question about What is the schedule for this semester",
+    "lastActive": "2025-12-15T19:03:16.881Z",
+    "createdAt": "2025-12-21T20:36:35.458Z",
+    "updatedAt": "2025-12-21T20:36:35.458Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5374f308ffdd2ce895",
+    "user": "69485a2774f308ffdd2ce3af",
+    "messages": [
+      {
+        "role": "user",
+        "content": "What is the schedule for this semester?",
+        "timestamp": "2025-12-21T18:36:35.516Z",
+        "isAccurate": null,
+        "_id": "69485a5374f308ffdd2ce896"
+      },
+      {
+        "role": "assistant",
+        "content": "VGU has many exchange programs with universities in Germany. You can contact the International Relations Office for more details.",
+        "timestamp": "2025-12-21T18:37:05.516Z",
+        "isAccurate": null,
+        "_id": "69485a5374f308ffdd2ce897"
+      }
+    ],
+    "title": "Question about What is the schedule for this semester",
+    "lastActive": "2025-12-19T09:55:36.110Z",
+    "createdAt": "2025-12-21T20:36:35.518Z",
+    "updatedAt": "2025-12-21T20:36:35.518Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5374f308ffdd2ce899",
+    "user": "69485a1874f308ffdd2ce2e5",
+    "messages": [
+      {
+        "role": "user",
+        "content": "What is the schedule for this semester?",
+        "timestamp": "2025-12-21T18:36:35.576Z",
+        "isAccurate": null,
+        "_id": "69485a5374f308ffdd2ce89a"
+      },
+      {
+        "role": "assistant",
+        "content": "VGU students have many job opportunities at companies domestically and internationally, especially German companies.",
+        "timestamp": "2025-12-21T18:37:05.576Z",
+        "isAccurate": null,
+        "_id": "69485a5374f308ffdd2ce89b"
+      }
+    ],
+    "title": "Question about What is the schedule for this semester",
+    "lastActive": "2025-12-19T19:41:37.475Z",
+    "createdAt": "2025-12-21T20:36:35.579Z",
+    "updatedAt": "2025-12-21T20:36:35.579Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5374f308ffdd2ce89d",
+    "user": "69485a1f74f308ffdd2ce33f",
+    "messages": [
+      {
+        "role": "user",
+        "content": "What is the schedule for this semester?",
+        "timestamp": "2025-12-21T18:36:35.637Z",
+        "isAccurate": null,
+        "_id": "69485a5374f308ffdd2ce89e"
+      },
+      {
+        "role": "assistant",
+        "content": "You can apply for scholarships through VGU online system. Please prepare all required documents.",
+        "timestamp": "2025-12-21T18:37:05.637Z",
+        "isAccurate": null,
+        "_id": "69485a5374f308ffdd2ce89f"
+      }
+    ],
+    "title": "Question about What is the schedule for this semester",
+    "lastActive": "2025-12-16T03:41:16.973Z",
+    "createdAt": "2025-12-21T20:36:35.639Z",
+    "updatedAt": "2025-12-21T20:36:35.639Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5374f308ffdd2ce8a1",
+    "user": "69485a2074f308ffdd2ce355",
+    "messages": [
+      {
+        "role": "user",
+        "content": "How to apply for scholarships?",
+        "timestamp": "2025-12-21T18:36:35.699Z",
+        "isAccurate": null,
+        "_id": "69485a5374f308ffdd2ce8a2"
+      },
+      {
+        "role": "assistant",
+        "content": "VGU students have many job opportunities at companies domestically and internationally, especially German companies.",
+        "timestamp": "2025-12-21T18:37:05.699Z",
+        "isAccurate": true,
+        "_id": "69485a5374f308ffdd2ce8a3"
+      }
+    ],
+    "title": "Question about How to apply for scholarships",
+    "lastActive": "2025-12-15T04:02:08.491Z",
+    "createdAt": "2025-12-21T20:36:35.701Z",
+    "updatedAt": "2025-12-21T20:36:35.701Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5374f308ffdd2ce8a5",
+    "user": "69485a3374f308ffdd2ce455",
+    "messages": [
+      {
+        "role": "user",
+        "content": "How to register for the dormitory?",
+        "timestamp": "2025-12-21T18:36:35.759Z",
+        "isAccurate": null,
+        "_id": "69485a5374f308ffdd2ce8a6"
+      },
+      {
+        "role": "assistant",
+        "content": "The final exam schedule will be announced on the system and student email 2 weeks in advance.",
+        "timestamp": "2025-12-21T18:37:05.759Z",
+        "isAccurate": true,
+        "_id": "69485a5374f308ffdd2ce8a7"
+      }
+    ],
+    "title": "Question about How to register for the dormitory",
+    "lastActive": "2025-12-20T12:17:20.345Z",
+    "createdAt": "2025-12-21T20:36:35.761Z",
+    "updatedAt": "2025-12-21T20:36:35.761Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5374f308ffdd2ce8a9",
+    "user": "69485a3674f308ffdd2ce479",
+    "messages": [
+      {
+        "role": "user",
+        "content": "How to register for the dormitory?",
+        "timestamp": "2025-12-21T18:36:35.819Z",
+        "isAccurate": null,
+        "_id": "69485a5374f308ffdd2ce8aa"
+      },
+      {
+        "role": "assistant",
+        "content": "Graduation requirements include: completing the required number of credits, meeting GPA requirements, and completing the graduation project.",
+        "timestamp": "2025-12-21T18:37:05.819Z",
+        "isAccurate": true,
+        "_id": "69485a5374f308ffdd2ce8ab"
+      }
+    ],
+    "title": "Question about How to register for the dormitory",
+    "lastActive": "2025-12-17T19:07:07.245Z",
+    "createdAt": "2025-12-21T20:36:35.821Z",
+    "updatedAt": "2025-12-21T20:36:35.821Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5374f308ffdd2ce8ad",
+    "user": "69485a2b74f308ffdd2ce3e1",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Job opportunities after graduation?",
+        "timestamp": "2025-12-21T18:36:35.880Z",
+        "isAccurate": null,
+        "_id": "69485a5374f308ffdd2ce8ae"
+      },
+      {
+        "role": "assistant",
+        "content": "You can register for the dormitory through the online system or contact the Student Affairs Office directly.",
+        "timestamp": "2025-12-21T18:37:05.880Z",
+        "isAccurate": true,
+        "_id": "69485a5374f308ffdd2ce8af"
+      }
+    ],
+    "title": "Question about Job opportunities after graduation",
+    "lastActive": "2025-12-20T11:47:37.758Z",
+    "createdAt": "2025-12-21T20:36:35.882Z",
+    "updatedAt": "2025-12-21T20:36:35.882Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5374f308ffdd2ce8b1",
+    "user": "69485a1e74f308ffdd2ce333",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Information about student exchange programs?",
+        "timestamp": "2025-12-21T18:36:35.939Z",
+        "isAccurate": null,
+        "_id": "69485a5374f308ffdd2ce8b2"
+      },
+      {
+        "role": "assistant",
+        "content": "You can register for the dormitory through the online system or contact the Student Affairs Office directly.",
+        "timestamp": "2025-12-21T18:37:05.939Z",
+        "isAccurate": null,
+        "_id": "69485a5374f308ffdd2ce8b3"
+      }
+    ],
+    "title": "Question about Information about student exchange programs",
+    "lastActive": "2025-12-15T22:20:35.551Z",
+    "createdAt": "2025-12-21T20:36:35.943Z",
+    "updatedAt": "2025-12-21T20:36:35.943Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5474f308ffdd2ce8b5",
+    "user": "69485a1274f308ffdd2ce295",
+    "messages": [
+      {
+        "role": "user",
+        "content": "What are the graduation requirements?",
+        "timestamp": "2025-12-21T18:36:36.000Z",
+        "isAccurate": null,
+        "_id": "69485a5474f308ffdd2ce8b6"
+      },
+      {
+        "role": "assistant",
+        "content": "You can register for the dormitory through the online system or contact the Student Affairs Office directly.",
+        "timestamp": "2025-12-21T18:37:06.000Z",
+        "isAccurate": true,
+        "_id": "69485a5474f308ffdd2ce8b7"
+      }
+    ],
+    "title": "Question about What are the graduation requirements",
+    "lastActive": "2025-12-16T18:36:42.282Z",
+    "createdAt": "2025-12-21T20:36:36.002Z",
+    "updatedAt": "2025-12-21T20:36:36.002Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5474f308ffdd2ce8b9",
+    "user": "69485a1f74f308ffdd2ce33f",
+    "messages": [
+      {
+        "role": "user",
+        "content": "How to apply for scholarships?",
+        "timestamp": "2025-12-21T18:36:36.060Z",
+        "isAccurate": null,
+        "_id": "69485a5474f308ffdd2ce8ba"
+      },
+      {
+        "role": "assistant",
+        "content": "VGU has many exchange programs with universities in Germany. You can contact the International Relations Office for more details.",
+        "timestamp": "2025-12-21T18:37:06.060Z",
+        "isAccurate": true,
+        "_id": "69485a5474f308ffdd2ce8bb"
+      }
+    ],
+    "title": "Question about How to apply for scholarships",
+    "lastActive": "2025-12-17T01:33:04.579Z",
+    "createdAt": "2025-12-21T20:36:36.061Z",
+    "updatedAt": "2025-12-21T20:36:36.061Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5474f308ffdd2ce8bd",
+    "user": "69485a2474f308ffdd2ce385",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Job opportunities after graduation?",
+        "timestamp": "2025-12-21T18:36:36.119Z",
+        "isAccurate": null,
+        "_id": "69485a5474f308ffdd2ce8be"
+      },
+      {
+        "role": "assistant",
+        "content": "You can contact the academic office via email: academic@vgu.edu.vn or phone: 028-7300-7300.",
+        "timestamp": "2025-12-21T18:37:06.119Z",
+        "isAccurate": true,
+        "_id": "69485a5474f308ffdd2ce8bf"
+      }
+    ],
+    "title": "Question about Job opportunities after graduation",
+    "lastActive": "2025-12-20T10:22:53.179Z",
+    "createdAt": "2025-12-21T20:36:36.120Z",
+    "updatedAt": "2025-12-21T20:36:36.120Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5474f308ffdd2ce8c1",
+    "user": "69485a2d74f308ffdd2ce3f9",
+    "messages": [
+      {
+        "role": "user",
+        "content": "What are the graduation requirements?",
+        "timestamp": "2025-12-21T18:36:36.176Z",
+        "isAccurate": null,
+        "_id": "69485a5474f308ffdd2ce8c2"
+      },
+      {
+        "role": "assistant",
+        "content": "The final exam schedule will be announced on the system and student email 2 weeks in advance.",
+        "timestamp": "2025-12-21T18:37:06.176Z",
+        "isAccurate": true,
+        "_id": "69485a5474f308ffdd2ce8c3"
+      }
+    ],
+    "title": "Question about What are the graduation requirements",
+    "lastActive": "2025-12-17T18:15:57.128Z",
+    "createdAt": "2025-12-21T20:36:36.178Z",
+    "updatedAt": "2025-12-21T20:36:36.178Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5474f308ffdd2ce8c5",
+    "user": "69485a0e74f308ffdd2ce25d",
+    "messages": [
+      {
+        "role": "user",
+        "content": "How to contact the academic office?",
+        "timestamp": "2025-12-21T18:36:36.236Z",
+        "isAccurate": null,
+        "_id": "69485a5474f308ffdd2ce8c6"
+      },
+      {
+        "role": "assistant",
+        "content": "VGU students have many job opportunities at companies domestically and internationally, especially German companies.",
+        "timestamp": "2025-12-21T18:37:06.236Z",
+        "isAccurate": null,
+        "_id": "69485a5474f308ffdd2ce8c7"
+      }
+    ],
+    "title": "Question about How to contact the academic office",
+    "lastActive": "2025-12-16T11:20:33.164Z",
+    "createdAt": "2025-12-21T20:36:36.237Z",
+    "updatedAt": "2025-12-21T20:36:36.237Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5474f308ffdd2ce8c9",
+    "user": "69485a2174f308ffdd2ce35f",
+    "messages": [
+      {
+        "role": "user",
+        "content": "How to contact the academic office?",
+        "timestamp": "2025-12-21T18:36:36.294Z",
+        "isAccurate": null,
+        "_id": "69485a5474f308ffdd2ce8ca"
+      },
+      {
+        "role": "assistant",
+        "content": "You can apply for scholarships through VGU online system. Please prepare all required documents.",
+        "timestamp": "2025-12-21T18:37:06.294Z",
+        "isAccurate": true,
+        "_id": "69485a5474f308ffdd2ce8cb"
+      }
+    ],
+    "title": "Question about How to contact the academic office",
+    "lastActive": "2025-12-15T22:29:39.567Z",
+    "createdAt": "2025-12-21T20:36:36.295Z",
+    "updatedAt": "2025-12-21T20:36:36.295Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5474f308ffdd2ce8cd",
+    "user": "69485a2574f308ffdd2ce38f",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Job opportunities after graduation?",
+        "timestamp": "2025-12-21T18:36:36.352Z",
+        "isAccurate": null,
+        "_id": "69485a5474f308ffdd2ce8ce"
+      },
+      {
+        "role": "assistant",
+        "content": "Graduation requirements include: completing the required number of credits, meeting GPA requirements, and completing the graduation project.",
+        "timestamp": "2025-12-21T18:37:06.352Z",
+        "isAccurate": null,
+        "_id": "69485a5474f308ffdd2ce8cf"
+      }
+    ],
+    "title": "Question about Job opportunities after graduation",
+    "lastActive": "2025-12-17T01:53:15.329Z",
+    "createdAt": "2025-12-21T20:36:36.354Z",
+    "updatedAt": "2025-12-21T20:36:36.354Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5474f308ffdd2ce8d1",
+    "user": "69485a1a74f308ffdd2ce2fd",
+    "messages": [
+      {
+        "role": "user",
+        "content": "What are the graduation requirements?",
+        "timestamp": "2025-12-21T18:36:36.411Z",
+        "isAccurate": null,
+        "_id": "69485a5474f308ffdd2ce8d2"
+      },
+      {
+        "role": "assistant",
+        "content": "You can contact the academic office via email: academic@vgu.edu.vn or phone: 028-7300-7300.",
+        "timestamp": "2025-12-21T18:37:06.411Z",
+        "isAccurate": true,
+        "_id": "69485a5474f308ffdd2ce8d3"
+      }
+    ],
+    "title": "Question about What are the graduation requirements",
+    "lastActive": "2025-12-20T06:00:07.640Z",
+    "createdAt": "2025-12-21T20:36:36.412Z",
+    "updatedAt": "2025-12-21T20:36:36.412Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5474f308ffdd2ce8d5",
+    "user": "69485a1e74f308ffdd2ce333",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Job opportunities after graduation?",
+        "timestamp": "2025-12-21T18:36:36.468Z",
+        "isAccurate": null,
+        "_id": "69485a5474f308ffdd2ce8d6"
+      },
+      {
+        "role": "assistant",
+        "content": "You can apply for scholarships through VGU online system. Please prepare all required documents.",
+        "timestamp": "2025-12-21T18:37:06.468Z",
+        "isAccurate": true,
+        "_id": "69485a5474f308ffdd2ce8d7"
+      }
+    ],
+    "title": "Question about Job opportunities after graduation",
+    "lastActive": "2025-12-17T19:14:32.573Z",
+    "createdAt": "2025-12-21T20:36:36.469Z",
+    "updatedAt": "2025-12-21T20:36:36.469Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5474f308ffdd2ce8d9",
+    "user": "69485a1f74f308ffdd2ce345",
+    "messages": [
+      {
+        "role": "user",
+        "content": "How to apply for scholarships?",
+        "timestamp": "2025-12-21T18:36:36.526Z",
+        "isAccurate": null,
+        "_id": "69485a5474f308ffdd2ce8da"
+      },
+      {
+        "role": "assistant",
+        "content": "VGU has many exchange programs with universities in Germany. You can contact the International Relations Office for more details.",
+        "timestamp": "2025-12-21T18:37:06.526Z",
+        "isAccurate": true,
+        "_id": "69485a5474f308ffdd2ce8db"
+      }
+    ],
+    "title": "Question about How to apply for scholarships",
+    "lastActive": "2025-12-17T09:52:41.845Z",
+    "createdAt": "2025-12-21T20:36:36.527Z",
+    "updatedAt": "2025-12-21T20:36:36.527Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5474f308ffdd2ce8dd",
+    "user": "69485a2674f308ffdd2ce39f",
+    "messages": [
+      {
+        "role": "user",
+        "content": "What are the graduation requirements?",
+        "timestamp": "2025-12-21T18:36:36.583Z",
+        "isAccurate": null,
+        "_id": "69485a5474f308ffdd2ce8de"
+      },
+      {
+        "role": "assistant",
+        "content": "VGU students have many job opportunities at companies domestically and internationally, especially German companies.",
+        "timestamp": "2025-12-21T18:37:06.583Z",
+        "isAccurate": true,
+        "_id": "69485a5474f308ffdd2ce8df"
+      }
+    ],
+    "title": "Question about What are the graduation requirements",
+    "lastActive": "2025-12-19T17:09:16.044Z",
+    "createdAt": "2025-12-21T20:36:36.584Z",
+    "updatedAt": "2025-12-21T20:36:36.584Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5474f308ffdd2ce8e1",
+    "user": "69485a1c74f308ffdd2ce313",
+    "messages": [
+      {
+        "role": "user",
+        "content": "When will the final exam schedule be available?",
+        "timestamp": "2025-12-21T18:36:36.640Z",
+        "isAccurate": null,
+        "_id": "69485a5474f308ffdd2ce8e2"
+      },
+      {
+        "role": "assistant",
+        "content": "The class schedule is updated on the system. You can view details in the \"Class Schedule\" section of your account.",
+        "timestamp": "2025-12-21T18:37:06.640Z",
+        "isAccurate": true,
+        "_id": "69485a5474f308ffdd2ce8e3"
+      }
+    ],
+    "title": "Question about When will the final exam schedule be available",
+    "lastActive": "2025-12-16T23:57:38.041Z",
+    "createdAt": "2025-12-21T20:36:36.641Z",
+    "updatedAt": "2025-12-21T20:36:36.641Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5474f308ffdd2ce8e5",
+    "user": "69485a3174f308ffdd2ce437",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Job opportunities after graduation?",
+        "timestamp": "2025-12-21T18:36:36.699Z",
+        "isAccurate": null,
+        "_id": "69485a5474f308ffdd2ce8e6"
+      },
+      {
+        "role": "assistant",
+        "content": "You can apply for scholarships through VGU online system. Please prepare all required documents.",
+        "timestamp": "2025-12-21T18:37:06.699Z",
+        "isAccurate": true,
+        "_id": "69485a5474f308ffdd2ce8e7"
+      }
+    ],
+    "title": "Question about Job opportunities after graduation",
+    "lastActive": "2025-12-15T16:38:02.784Z",
+    "createdAt": "2025-12-21T20:36:36.700Z",
+    "updatedAt": "2025-12-21T20:36:36.700Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5474f308ffdd2ce8e9",
+    "user": "69485a3474f308ffdd2ce461",
+    "messages": [
+      {
+        "role": "user",
+        "content": "How to contact the academic office?",
+        "timestamp": "2025-12-21T18:36:36.756Z",
+        "isAccurate": null,
+        "_id": "69485a5474f308ffdd2ce8ea"
+      },
+      {
+        "role": "assistant",
+        "content": "You can apply for scholarships through VGU online system. Please prepare all required documents.",
+        "timestamp": "2025-12-21T18:37:06.756Z",
+        "isAccurate": true,
+        "_id": "69485a5474f308ffdd2ce8eb"
+      }
+    ],
+    "title": "Question about How to contact the academic office",
+    "lastActive": "2025-12-15T07:57:03.551Z",
+    "createdAt": "2025-12-21T20:36:36.757Z",
+    "updatedAt": "2025-12-21T20:36:36.757Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5474f308ffdd2ce8ed",
+    "user": "69485a2874f308ffdd2ce3bf",
+    "messages": [
+      {
+        "role": "user",
+        "content": "How to apply for scholarships?",
+        "timestamp": "2025-12-21T18:36:36.813Z",
+        "isAccurate": null,
+        "_id": "69485a5474f308ffdd2ce8ee"
+      },
+      {
+        "role": "assistant",
+        "content": "VGU students have many job opportunities at companies domestically and internationally, especially German companies.",
+        "timestamp": "2025-12-21T18:37:06.813Z",
+        "isAccurate": true,
+        "_id": "69485a5474f308ffdd2ce8ef"
+      }
+    ],
+    "title": "Question about How to apply for scholarships",
+    "lastActive": "2025-12-18T17:54:57.358Z",
+    "createdAt": "2025-12-21T20:36:36.814Z",
+    "updatedAt": "2025-12-21T20:36:36.814Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5474f308ffdd2ce8f1",
+    "user": "69485a0c74f308ffdd2ce243",
+    "messages": [
+      {
+        "role": "user",
+        "content": "When will the final exam schedule be available?",
+        "timestamp": "2025-12-21T18:36:36.874Z",
+        "isAccurate": null,
+        "_id": "69485a5474f308ffdd2ce8f2"
+      },
+      {
+        "role": "assistant",
+        "content": "Graduation requirements include: completing the required number of credits, meeting GPA requirements, and completing the graduation project.",
+        "timestamp": "2025-12-21T18:37:06.874Z",
+        "isAccurate": true,
+        "_id": "69485a5474f308ffdd2ce8f3"
+      }
+    ],
+    "title": "Question about When will the final exam schedule be available",
+    "lastActive": "2025-12-17T01:10:05.489Z",
+    "createdAt": "2025-12-21T20:36:36.874Z",
+    "updatedAt": "2025-12-21T20:36:36.874Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5474f308ffdd2ce8f5",
+    "user": "69485a2774f308ffdd2ce3af",
+    "messages": [
+      {
+        "role": "user",
+        "content": "How to apply for scholarships?",
+        "timestamp": "2025-12-21T18:36:36.931Z",
+        "isAccurate": null,
+        "_id": "69485a5474f308ffdd2ce8f6"
+      },
+      {
+        "role": "assistant",
+        "content": "You can register for the dormitory through the online system or contact the Student Affairs Office directly.",
+        "timestamp": "2025-12-21T18:37:06.931Z",
+        "isAccurate": true,
+        "_id": "69485a5474f308ffdd2ce8f7"
+      }
+    ],
+    "title": "Question about How to apply for scholarships",
+    "lastActive": "2025-12-18T17:23:38.815Z",
+    "createdAt": "2025-12-21T20:36:36.932Z",
+    "updatedAt": "2025-12-21T20:36:36.932Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5474f308ffdd2ce8f9",
+    "user": "69485a1374f308ffdd2ce29f",
+    "messages": [
+      {
+        "role": "user",
+        "content": "How to register for the dormitory?",
+        "timestamp": "2025-12-21T18:36:36.986Z",
+        "isAccurate": null,
+        "_id": "69485a5474f308ffdd2ce8fa"
+      },
+      {
+        "role": "assistant",
+        "content": "You can register for the dormitory through the online system or contact the Student Affairs Office directly.",
+        "timestamp": "2025-12-21T18:37:06.986Z",
+        "isAccurate": null,
+        "_id": "69485a5474f308ffdd2ce8fb"
+      }
+    ],
+    "title": "Question about How to register for the dormitory",
+    "lastActive": "2025-12-18T09:06:26.214Z",
+    "createdAt": "2025-12-21T20:36:36.987Z",
+    "updatedAt": "2025-12-21T20:36:36.987Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5574f308ffdd2ce8fd",
+    "user": "69485a3674f308ffdd2ce47f",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Information about student exchange programs?",
+        "timestamp": "2025-12-21T18:36:37.044Z",
+        "isAccurate": null,
+        "_id": "69485a5574f308ffdd2ce8fe"
+      },
+      {
+        "role": "assistant",
+        "content": "You can contact the academic office via email: academic@vgu.edu.vn or phone: 028-7300-7300.",
+        "timestamp": "2025-12-21T18:37:07.044Z",
+        "isAccurate": true,
+        "_id": "69485a5574f308ffdd2ce8ff"
+      }
+    ],
+    "title": "Question about Information about student exchange programs",
+    "lastActive": "2025-12-18T01:05:57.991Z",
+    "createdAt": "2025-12-21T20:36:37.044Z",
+    "updatedAt": "2025-12-21T20:36:37.044Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5574f308ffdd2ce901",
+    "user": "69485a1274f308ffdd2ce295",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Information about student exchange programs?",
+        "timestamp": "2025-12-21T18:36:37.101Z",
+        "isAccurate": null,
+        "_id": "69485a5574f308ffdd2ce902"
+      },
+      {
+        "role": "assistant",
+        "content": "The class schedule is updated on the system. You can view details in the \"Class Schedule\" section of your account.",
+        "timestamp": "2025-12-21T18:37:07.101Z",
+        "isAccurate": true,
+        "_id": "69485a5574f308ffdd2ce903"
+      }
+    ],
+    "title": "Question about Information about student exchange programs",
+    "lastActive": "2025-12-16T20:49:45.422Z",
+    "createdAt": "2025-12-21T20:36:37.103Z",
+    "updatedAt": "2025-12-21T20:36:37.103Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5574f308ffdd2ce905",
+    "user": "69485a1674f308ffdd2ce2c3",
+    "messages": [
+      {
+        "role": "user",
+        "content": "What is the schedule for this semester?",
+        "timestamp": "2025-12-21T18:36:37.160Z",
+        "isAccurate": null,
+        "_id": "69485a5574f308ffdd2ce906"
+      },
+      {
+        "role": "assistant",
+        "content": "You can register for the dormitory through the online system or contact the Student Affairs Office directly.",
+        "timestamp": "2025-12-21T18:37:07.160Z",
+        "isAccurate": true,
+        "_id": "69485a5574f308ffdd2ce907"
+      }
+    ],
+    "title": "Question about What is the schedule for this semester",
+    "lastActive": "2025-12-20T19:00:28.573Z",
+    "createdAt": "2025-12-21T20:36:37.162Z",
+    "updatedAt": "2025-12-21T20:36:37.162Z",
+    "__v": 0
+  },
+  {
+    "_id": "69485a5574f308ffdd2ce909",
+    "user": "69485a2474f308ffdd2ce385",
+    "messages": [
+      {
+        "role": "user",
+        "content": "How to contact the academic office?",
+        "timestamp": "2025-12-21T18:36:37.220Z",
+        "isAccurate": null,
+        "_id": "69485a5574f308ffdd2ce90a"
+      },
+      {
+        "role": "assistant",
+        "content": "The final exam schedule will be announced on the system and student email 2 weeks in advance.",
+        "timestamp": "2025-12-21T18:37:07.220Z",
+        "isAccurate": true,
+        "_id": "69485a5574f308ffdd2ce90b"
+      }
+    ],
+    "title": "Question about How to contact the academic office",
+    "lastActive": "2025-12-19T10:34:08.208Z",
+    "createdAt": "2025-12-21T20:36:37.221Z",
+    "updatedAt": "2025-12-21T20:36:37.221Z",
+    "__v": 0
+  },
+  {
+    "_id": "69496fe68b39b4e7a31daa85",
+    "user": "6948fc3d99b18663c9c3bdae",
+    "title": "Có những cơ hội việc làm nào?",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Có những cơ hội việc làm nào?",
+        "isAccurate": null,
+        "_id": "69496fe68b39b4e7a31daa86",
+        "timestamp": "2025-12-22T16:20:54.540Z"
+      },
+      {
+        "role": "assistant",
+        "content": "Sorry, the system is experiencing an error processing your question. Please try again later or contact the relevant department for assistance.",
+        "isAccurate": null,
+        "_id": "69496fe78b39b4e7a31daa89",
+        "timestamp": "2025-12-22T16:20:55.438Z"
+      },
+      {
+        "role": "user",
+        "content": "Có những cơ hội việc làm nào?",
+        "isAccurate": null,
+        "_id": "69496fef8b39b4e7a31daa96",
+        "timestamp": "2025-12-22T16:21:03.779Z"
+      },
+      {
+        "role": "assistant",
+        "content": "Sorry, the system is experiencing an error processing your question. Please try again later or contact the relevant department for assistance.",
+        "isAccurate": null,
+        "_id": "69496ff08b39b4e7a31daa99",
+        "timestamp": "2025-12-22T16:21:04.496Z"
+      },
+      {
+        "role": "user",
+        "content": "Có những cơ hội việc làm nào?",
+        "isAccurate": null,
+        "_id": "69497134f31f0aeb84216a70",
+        "timestamp": "2025-12-22T16:26:28.888Z"
+      },
+      {
+        "role": "assistant",
+        "content": "Sorry, the system is experiencing an error processing your question. Please try again later or contact the relevant department for assistance.",
+        "isAccurate": null,
+        "_id": "69497135f31f0aeb84216a73",
+        "timestamp": "2025-12-22T16:26:29.802Z"
+      },
+      {
+        "role": "user",
+        "content": "Có những cơ hội việc làm nào?",
+        "isAccurate": null,
+        "_id": "694971bef31f0aeb84216a88",
+        "timestamp": "2025-12-22T16:28:46.043Z"
+      },
+      {
+        "role": "assistant",
+        "content": "Sorry, the system is experiencing an error processing your question. Please try again later or contact the relevant department for assistance.",
+        "isAccurate": null,
+        "_id": "694971bef31f0aeb84216a8b",
+        "timestamp": "2025-12-22T16:28:46.863Z"
+      },
+      {
+        "role": "user",
+        "content": "Có những cơ hội việc làm nào?",
+        "isAccurate": null,
+        "_id": "694971dab73968481a7bfe49",
+        "timestamp": "2025-12-22T16:29:14.372Z"
+      },
+      {
+        "role": "assistant",
+        "content": "Xin lỗi, nhưng tôi không tìm thấy thông tin về các cơ hội việc làm trong hệ thống. Nếu bạn đang tìm kiếm cơ hội việc làm, tôi khuyên bạn nên liên hệ với bộ phận nhân sự hoặc phòng việc làm của trường để biết thêm thông tin.\n\nTuy nhiên, tôi có thể cung cấp một số gợi ý chung về các nguồn thông tin việc làm mà bạn có thể tham khảo:\n\n1. Trang web việc làm của trường: Nhiều trường đại học có trang web riêng để đăng tải thông tin về các cơ hội việc làm cho sinh viên.\n2. Mạng xã hội: Các trang mạng xã hội như LinkedIn, Facebook, và Twitter thường có các nhóm và trang dành cho việc tìm kiếm việc làm.\n3. Các công ty tuyển dụng: Bạn có thể tìm kiếm các công ty tuyển dụng trong lĩnh vực bạn quan tâm và xem xét các cơ hội việc làm của họ.\n4. Các sự kiện việc làm: Tham gia các sự kiện việc làm và hội chợ việc làm để gặp gỡ các nhà tuyển dụng và tìm hiểu về các cơ hội việc làm.\n\nHy vọng những gợi ý này sẽ giúp bạn tìm được cơ hội việc làm phù hợp!",
+        "isAccurate": null,
+        "_id": "694971dbb73968481a7bfe4c",
+        "timestamp": "2025-12-22T16:29:15.968Z"
+      }
+    ],
+    "lastActive": "2025-12-22T16:29:14.373Z",
+    "createdAt": "2025-12-22T16:20:55.439Z",
+    "updatedAt": "2025-12-22T16:29:15.984Z",
+    "__v": 4
+  },
+  {
+    "_id": "6949746f4910f2aac57dcac3",
+    "user": "6948fc3d99b18663c9c3bdae",
+    "title": "Có những cơ hội việc làm nào?",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Có những cơ hội việc làm nào?",
+        "isAccurate": null,
+        "_id": "6949746f4910f2aac57dcac4",
+        "timestamp": "2025-12-22T16:40:15.700Z"
+      },
+      {
+        "role": "assistant",
+        "content": "Xin chào! Tôi rất tiếc khi thông tin trong hệ thống của tôi không cung cấp thông tin cụ thể về các cơ hội việc làm hiện tại. Tuy nhiên, tôi có thể đề xuất một số cách để bạn tìm kiếm các cơ hội việc làm phù hợp:\n\n1. **Truy cập trang web của trường**: Bạn có thể kiểm tra trang web chính thức của trường để tìm kiếm các thông báo về việc làm, thực tập, hoặc các chương trình liên kết với các công ty.\n2. **Liên hệ với Bộ phận Việc làm của trường**: Bộ phận này thường cung cấp thông tin về các cơ hội việc làm, tổ chức các sự kiện tuyển dụng, và hỗ trợ sinh viên trong quá trình tìm kiếm việc làm.\n3. **Tìm kiếm trên các trang web việc làm trực tuyến**: Có nhiều trang web việc làm trực tuyến như LinkedIn, Indeed, hoặc Glassdoor, nơi bạn có thể tìm kiếm các công việc theo lĩnh vực, vị trí, hoặc tên công ty.\n4. **Tham gia các sự kiện tuyển dụng**: Tham gia các sự kiện tuyển dụng, hội chợ việc làm, hoặc các buổi gặp gỡ với các công ty để tìm hiểu về các cơ hội việc làm và mạng lưới với các nhà tuyển dụng.\n\nNếu bạn có thông tin cụ thể về lĩnh vực hoặc loại công việc bạn quan tâm, tôi có thể cố gắng giúp bạn tìm kiếm thông tin liên quan. Hãy cho tôi biết nếu bạn cần thêm hỗ trợ!",
+        "isAccurate": null,
+        "_id": "694974714910f2aac57dcac7",
+        "timestamp": "2025-12-22T16:40:17.687Z"
+      },
+      {
+        "role": "user",
+        "content": "Có những cơ hội việc làm nào?",
+        "isAccurate": null,
+        "_id": "694974fc4910f2aac57dcad6",
+        "timestamp": "2025-12-22T16:42:36.125Z"
+      },
+      {
+        "role": "assistant",
+        "content": "Xin chào! Tôi rất tiếc khi thông tin trong hệ thống của tôi không cung cấp thông tin cụ thể về các cơ hội việc làm hiện tại. Tuy nhiên, tôi có thể đề xuất một số cách để bạn tìm kiếm các cơ hội việc làm phù hợp:\n\n1. **Truy cập trang web của trường**: Bạn có thể kiểm tra trang web chính thức của trường để tìm kiếm các thông báo về việc làm, thực tập, hoặc các chương trình liên kết với các công ty.\n2. **Liên hệ với Bộ phận Việc làm của trường**: Bộ phận này thường cung cấp thông tin về các cơ hội việc làm, tổ chức các sự kiện tuyển dụng, và hỗ trợ sinh viên trong quá trình tìm kiếm việc làm.\n3. **Tìm kiếm trên các trang web việc làm trực tuyến**: Có nhiều trang web việc làm trực tuyến như LinkedIn, Indeed, hoặc Glassdoor, nơi bạn có thể tìm kiếm các công việc theo lĩnh vực, vị trí, hoặc tên công ty.\n4. **Tham gia các sự kiện tuyển dụng**: Tham gia các sự kiện tuyển dụng, hội chợ việc làm, hoặc các buổi gặp gỡ với các công ty để tìm hiểu về các cơ hội việc làm và mạng lưới với các nhà tuyển dụng.\n\nNếu bạn có thông tin cụ thể về lĩnh vực hoặc loại công việc bạn quan tâm, tôi có thể cố gắng giúp bạn tìm kiếm thông tin liên quan. Hãy cho tôi biết nếu bạn cần thêm hỗ trợ!\n\nNếu bạn muốn biết thêm thông tin về các cơ hội việc làm, bạn có thể liên hệ với Bộ phận Việc làm của trường hoặc truy cập trang web của trường để tìm kiếm thông tin cập nhật.",
+        "isAccurate": null,
+        "_id": "694974fd4910f2aac57dcad9",
+        "timestamp": "2025-12-22T16:42:37.770Z"
+      }
+    ],
+    "lastActive": "2025-12-22T16:42:36.125Z",
+    "createdAt": "2025-12-22T16:40:17.710Z",
+    "updatedAt": "2025-12-22T16:42:37.775Z",
+    "__v": 1
+  },
+  {
+    "_id": "694d5afd97d76cea6e5f47af",
+    "user": "6948fc3d99b18663c9c3bdae",
+    "title": "What scholarships are available for students?",
+    "messages": [
+      {
+        "role": "user",
+        "content": "What scholarships are available for students?",
+        "isAccurate": null,
+        "_id": "694d5afd97d76cea6e5f47b0",
+        "timestamp": "2025-12-25T15:40:45.453Z"
+      },
+      {
+        "role": "assistant",
+        "content": "There are several scholarships available for students at VGU. Here are the details:\n\n[1] **IT Scholarship for Students in Need - Round 3**: This scholarship is provided by the VGU Development Fund and offers 15,000,000 VND. The application deadline is **March 5, 2026**. Requirements include a GPA of 3.5 or higher, no disciplinary violations, and active participation in school activities.\n\n[2] **IT Department Excellence Scholarship**: Provided by the VGU Foundation, this scholarship offers 21,000,000 VND. The application deadline is **February 11, 2026**. Requirements include a GPA of 3.1 or higher, no disciplinary violations, and active participation in school activities.\n\n[3] **Cybersecurity Scholarship - Round 13**: Offered by the German Business Association in Vietnam, this scholarship provides 15,000,000 VND. The application deadline is **March 3, 2026**. Requirements include a GPA of 2.7 or higher, no disciplinary violations, and active participation in school activities.\n\n[4] **Cloud Computing Scholarship - Round 12**: Provided by the Ministry of Education and Training, this scholarship offers 16,000,000 VND. The application deadline is **February 9, 2026**. Requirements include a GPA of 3.7 or higher, no disciplinary violations, and active participation in school activities.\n\n[5] **Information Security Scholarship - Round 6**: Offered by DAAD (German Academic Exchange Service), this scholarship provides 15,000,000 VND. The application deadline is **March 4, 2026**. Requirements include a GPA of 3.3 or higher, no disciplinary violations, and active participation in school activities.\n\n[6] **Web Development Scholarship - Round 9**: Provided by the Ministry of Education and Training, this scholarship offers 5,000,000 VND. The application deadline is **April 14, 2026**. Requirements include a GPA of 2.9 or higher, no disciplinary violations, and active participation in school activities.\n\n[7] **Software Development Scholarship - Round 5**: Offered by the VGU Development Fund, this scholarship provides 13,000,000 VND. The application deadline is **January 15, 2026** (please note that this deadline has already passed).\n\n[8] **Game Development Scholarship - Round 8**: Provided by Siemens Corporation, this scholarship offers 5,000,000 VND. The application deadline is **April 9, 2026**. Requirements include a GPA of 3.9 or higher, no disciplinary violations, and active participation in school activities.\n\n[9] **Programming Talent Scholarship - Round 7**: Offered by the VGU Development Fund, this scholarship provides 14,000,000 VND. The application deadline is **January 29, 2026** (please note that this deadline has already passed).\n\n[10] **Data Science Scholarship - Round 11**: Provided by Bosch Corporation, this scholarship offers 10,000,000 VND. The application deadline is **May 12, 2026**. Requirements include a GPA of 3.5 or higher, no disciplinary violations, and active participation in school activities.\n\nPlease note that some deadlines have already passed, and it's essential to check the eligibility criteria and application process for each scholarship. You can submit your application through the VGU online system, including an application form, transcript, and recommendation letter. Don't miss the application deadlines to ensure you don't miss out on these opportunities!",
+        "isAccurate": null,
+        "_id": "694d5b0097d76cea6e5f47b4",
+        "timestamp": "2025-12-25T15:40:48.709Z"
+      }
+    ],
+    "lastActive": "2025-12-25T15:40:45.453Z",
+    "createdAt": "2025-12-25T15:40:48.712Z",
+    "updatedAt": "2025-12-25T15:40:48.712Z",
+    "__v": 0
+  },
+  {
+    "_id": "694d62eeb0b1f32cb6848ba3",
+    "user": "694d6298b0b1f32cb6848b5c",
+    "title": "tìm các học bổng trong kỳ tới",
+    "messages": [
+      {
+        "role": "user",
+        "content": "tìm các học bổng trong kỳ tới",
+        "isAccurate": null,
+        "_id": "694d62eeb0b1f32cb6848ba4",
+        "timestamp": "2025-12-25T16:14:38.298Z"
+      },
+      {
+        "role": "assistant",
+        "content": "Xin chào! Tôi rất vui được giúp bạn tìm kiếm các học bổng trong kỳ tới. Tuy nhiên, tôi không tìm thấy thông tin cụ thể về các học bổng trong hệ thống RAG Context.\n\nNhưng tôi có thể cung cấp một số gợi ý chung về cách tìm kiếm học bổng:\n\n1. **Truy cập trang web của trường**: Bạn có thể truy cập trang web của trường để tìm kiếm thông tin về các học bổng hiện có.\n2. **Liên hệ với bộ phận học bổng**: Bạn có thể liên hệ với bộ phận học bổng của trường để hỏi về các học bổng hiện có và các yêu cầu cần thiết để申请.\n3. **Tìm kiếm trên internet**: Bạn có thể tìm kiếm trên internet về các học bổng hiện có và các yêu cầu cần thiết để申请.\n\nMột số học bổng phổ biến mà bạn có thể tìm kiếm:\n\n* Học bổng chính phủ\n* Học bổng của các tổ chức phi lợi nhuận\n* Học bổng của các doanh nghiệp\n* Học bổng du học\n\nNếu bạn muốn tìm kiếm học bổng cụ thể, vui lòng cung cấp cho tôi thêm thông tin về loại học bổng bạn muốn tìm kiếm, chẳng hạn như:\n* Ngành học\n* Trình độ học vấn\n* Quốc gia hoặc khu vực bạn muốn học\n* Thời gian học\n\nTôi sẽ cố gắng giúp bạn tìm kiếm các học bổng phù hợp với nhu cầu của bạn.",
+        "isAccurate": null,
+        "_id": "694d62efb0b1f32cb6848ba7",
+        "timestamp": "2025-12-25T16:14:39.764Z"
+      },
+      {
+        "role": "user",
+        "content": "can you give me some scholarship program at VGU",
+        "isAccurate": null,
+        "_id": "694d6314b0b1f32cb6848bb4",
+        "timestamp": "2025-12-25T16:15:16.894Z"
+      },
+      {
+        "role": "assistant",
+        "content": "Sorry, the system is experiencing an error processing your question. Please try again later or contact the relevant department for assistance.",
+        "isAccurate": null,
+        "_id": "694d6315b0b1f32cb6848bb8",
+        "timestamp": "2025-12-25T16:15:17.499Z"
+      },
+      {
+        "role": "user",
+        "content": "can you give me some scholarship program at VGU ?",
+        "isAccurate": null,
+        "_id": "694d6399b0b1f32cb6848bc9",
+        "timestamp": "2025-12-25T16:17:29.433Z"
+      },
+      {
+        "role": "assistant",
+        "content": "Sorry, the system is experiencing an error processing your question. Please try again later or contact the relevant department for assistance.",
+        "isAccurate": null,
+        "_id": "694d6399b0b1f32cb6848bcd",
+        "timestamp": "2025-12-25T16:17:29.980Z"
+      },
+      {
+        "role": "user",
+        "content": "can you give me some scholarship program at VGU",
+        "isAccurate": null,
+        "_id": "694d63b05d1083f1bed0e5d6",
+        "timestamp": "2025-12-25T16:17:52.620Z"
+      },
+      {
+        "role": "assistant",
+        "content": "Tôi xin lỗi vì sự cố trước đó. Dưới đây là một số chương trình học bổng tại VGU mà tôi tìm thấy trong hệ thống RAG Context:\n\n1. **Học bổng IT Department Excellence Scholarship**: Học bổng này được cung cấp bởi VGU Foundation, với giá trị 21.000.000 VND. Thời hạn nộp đơn là **2/11/2026**. Yêu cầu: GPA 3.1 hoặc cao hơn, không vi phạm kỷ luật, tham gia hoạt động trường học tích cực.\n2. **Học bổng Cybersecurity Scholarship - Round 13**: Học bổng này được cung cấp bởi German Business Association in Vietnam, với giá trị 15.000.000 VND. Thời hạn nộp đơn là **3/3/2026**. Yêu cầu: GPA 2.7 hoặc cao hơn, không vi phạm kỷ luật, tham gia hoạt động trường học tích cực.\n3. **Học bổng Game Development Scholarship - Round 8**: Học bổng này được cung cấp bởi Siemens Corporation, với giá trị 5.000.000 VND. Thời hạn nộp đơn là **4/9/2026**. Yêu cầu: GPA 3.9 hoặc cao hơn, không vi phạm kỷ luật, tham gia hoạt động trường học tích cực.\n4. **Học bổng Web Development Scholarship - Round 9**: Học bổng này được cung cấp bởi Ministry of Education and Training, với giá trị 5.000.000 VND. Thời hạn nộp đơn là **4/14/2026**. Yêu cầu: GPA 2.9 hoặc cao hơn, không vi phạm kỷ luật, tham gia hoạt động trường học tích cực.\n5. **Học bổng IT Scholarship for Students in Need - Round 3**: Học bổng này được cung cấp bởi VGU Development Fund, với giá trị 15.000.000 VND. Thời hạn nộp đơn là **3/5/2026**. Yêu cầu: GPA 3.5 hoặc cao hơn, không vi phạm kỷ luật, tham gia hoạt động trường học tích cực.\n\nXin lưu ý rằng thời hạn nộp đơn và yêu cầu có thể thay đổi, vì vậy bạn nên kiểm tra lại thông tin trước khi nộp đơn.",
+        "isAccurate": null,
+        "_id": "694d63b25d1083f1bed0e5da",
+        "timestamp": "2025-12-25T16:17:54.752Z"
+      },
+      {
+        "role": "user",
+        "content": "can you give me some scholrship program at VGU",
+        "isAccurate": null,
+        "_id": "694d63f05d1083f1bed0e5f3",
+        "timestamp": "2025-12-25T16:18:56.447Z"
+      },
+      {
+        "role": "assistant",
+        "content": "Tôi xin lỗi vì trước đó không có thông tin về học bổng tại VGU. Tuy nhiên, tôi có thể cung cấp một số thông tin chung về các chương trình học bổng tại VGU như sau:\n\nXin lưu ý rằng không có thông tin cụ thể về học bổng tại VGU trong hệ thống RAG Context. Tuy nhiên, bạn có thể tham khảo các thông tin sau:\n\n* VGU thường cung cấp các chương trình học bổng cho sinh viên xuất sắc, sinh viên có hoàn cảnh khó khăn, hoặc sinh viên tham gia hoạt động trường học tích cực.\n* Các chương trình học bổng có thể bao gồm học bổng toàn phần, học bổng bán phần, hoặc học bổng hỗ trợ tài chính.\n* Để biết thêm thông tin về các chương trình học bổng tại VGU, bạn có thể liên hệ với bộ phận học bổng của trường hoặc truy cập trang web của trường.\n\nNếu bạn muốn biết thêm thông tin về các chương trình học bổng tại VGU, tôi có thể đề xuất một số cách để bạn tìm kiếm thông tin:\n\n* Truy cập trang web của VGU để tìm kiếm thông tin về các chương trình học bổng.\n* Liên hệ với bộ phận học bổng của VGU để hỏi về các chương trình học bổng hiện có.\n* Tìm kiếm trên internet về các chương trình học bổng tại VGU.\n\nTôi hy vọng những thông tin trên sẽ giúp bạn tìm kiếm được thông tin về các chương trình học bổng tại VGU.",
+        "isAccurate": null,
+        "_id": "694d63f35d1083f1bed0e5f7",
+        "timestamp": "2025-12-25T16:18:59.655Z"
+      },
+      {
+        "role": "user",
+        "content": "can you give me some scholrship program at VGU",
+        "isAccurate": null,
+        "_id": "694d64035d1083f1bed0e614",
+        "timestamp": "2025-12-25T16:19:15.214Z"
+      },
+      {
+        "role": "assistant",
+        "content": "Tôi có thể cung cấp một số thông tin về các chương trình học bổng tại VGU như sau:\n\n1. **Học bổng IT Department Excellence Scholarship**: Học bổng này được cung cấp bởi VGU Foundation, với giá trị 21.000.000 VND. Thời hạn nộp đơn là **2/11/2026**. Yêu cầu: GPA 3.1 hoặc cao hơn, không vi phạm kỷ luật, tham gia hoạt động trường học tích cực.\n2. **Học bổng Cybersecurity Scholarship - Round 13**: Học bổng này được cung cấp bởi German Business Association in Vietnam, với giá trị 15.000.000 VND. Thời hạn nộp đơn là **3/3/2026**. Yêu cầu: GPA 2.7 hoặc cao hơn, không vi phạm kỷ luật, tham gia hoạt động trường học tích cực.\n3. **Học bổng IT Academic Achievement Scholarship - Round 2**: Học bổng này được cung cấp bởi VGU Development Fund, với giá trị 24.000.000 VND. Thời hạn nộp đơn là **3/25/2026**. Yêu cầu: GPA 3.2 hoặc cao hơn, không vi phạm kỷ luật, tham gia hoạt động trường học tích cực.\n4. **Học bổng Data Science Scholarship - Round 11**: Học bổng này được cung cấp bởi Bosch Corporation, với giá trị 10.000.000 VND. Thời hạn nộp đơn là **5/12/2026**. Yêu cầu: GPA 3.5 hoặc cao hơn, không vi phạm kỷ luật, tham gia hoạt động trường học tích cực.\n5. **Học bổng Web Development Scholarship - Round 9**: Học bổng này được cung cấp bởi Ministry of Education and Training, với giá trị 5.000.000 VND. Thời hạn nộp đơn là **4/14/2026**. Yêu cầu: GPA 2.9 hoặc cao hơn, không vi phạm kỷ luật, tham gia hoạt động trường học tích cực.\n6. **Học bổng Game Development Scholarship - Round 8**: Học bổng này được cung cấp bởi Siemens Corporation, với giá trị 5.000.000 VND. Thời hạn nộp đơn là **4/9/2026**. Yêu cầu: GPA 3.9 hoặc cao hơn, không vi phạm kỷ luật, tham gia hoạt động trường học tích cực.\n7. **Học bổng Software Development Scholarship - Round 5**: Học bổng này được cung cấp bởi VGU Development Fund, với giá trị 13.000.000 VND. Thời hạn nộp đơn là **1/15/2026**. Yêu cầu: GPA 3.8 hoặc cao hơn, không vi phạm kỷ luật, tham gia hoạt động trường học tích cực.\n8. **Học bổng Programming Talent Scholarship - Round 7**: Học bổng này được cung cấp bởi VGU Development Fund, với giá trị 14.000.000 VND. Thời hạn nộp đơn là **1/29/2026**. Yêu cầu: GPA 3.6 hoặc cao hơn, không vi phạm kỷ luật, tham gia hoạt động trường học tích cực.\n9. **Học bổng Cloud Computing Scholarship - Round 12**: Học bổng này được cung cấp bởi Ministry of Education and Training, với giá trị 16.000.000 VND. Thời hạn nộp đơn là **2/9/2026**. Yêu cầu: GPA 3.7 hoặc cao hơn, không vi phạm kỷ luật, tham gia hoạt động trường học tích cực.\n10. **Học bổng Blockchain Technology Scholarship - Round 14**: Học bổng này được cung cấp bởi DAAD (German Academic Exchange Service), với giá trị 12.000.000 VND. Thời hạn nộp đơn là **1/25/2026**. Yêu cầu: GPA 2.8 hoặc cao hơn, không vi phạm kỷ luật, tham gia hoạt động trường học tích cực.\n\nXin lưu ý rằng thời hạn nộp đơn và yêu cầu có thể thay đổi, vì vậy bạn nên kiểm tra lại thông tin trước khi nộp đơn.",
+        "isAccurate": null,
+        "_id": "694d64055d1083f1bed0e618",
+        "timestamp": "2025-12-25T16:19:17.524Z"
+      }
+    ],
+    "lastActive": "2025-12-25T16:19:15.214Z",
+    "createdAt": "2025-12-25T16:14:39.765Z",
+    "updatedAt": "2025-12-25T16:19:17.526Z",
+    "__v": 5
+  },
+  {
+    "_id": "694d636b97d76cea6e5f47ca",
+    "user": "6948fc3d99b18663c9c3bdae",
+    "title": "can you give me some scholarship program at VGU ?",
+    "messages": [
+      {
+        "role": "user",
+        "content": "can you give me some scholarship program at VGU ?",
+        "isAccurate": null,
+        "_id": "694d636b97d76cea6e5f47cb",
+        "timestamp": "2025-12-25T16:16:43.353Z"
+      },
+      {
+        "role": "assistant",
+        "content": "VGU offers several scholarship programs for its students. Here are some of the available scholarships:\n\n[1] **IT Department Excellence Scholarship**: This scholarship is for VGU students in the Game Development department, with a GPA of 3.1 or higher, no disciplinary violations, and active participation in school activities. The value of the scholarship is 21,000,000 VND, and the application deadline is **February 11, 2026**.\n\n[2] **Cybersecurity Scholarship - Round 13**: This scholarship is for VGU students in the Information Systems department, with a GPA of 2.7 or higher, no disciplinary violations, and active participation in school activities. The value of the scholarship is 15,000,000 VND, and the application deadline is **March 3, 2026**.\n\n[3] **IT Scholarship for Students in Need - Round 3**: This scholarship is for VGU students in general, with a GPA of 3.5 or higher, no disciplinary violations, and active participation in school activities. The value of the scholarship is 15,000,000 VND, and the application deadline is **March 5, 2026**.\n\n[4] **Web Development Scholarship - Round 9**: This scholarship is for VGU students in the Information Systems department, with a GPA of 2.9 or higher, no disciplinary violations, and active participation in school activities. The value of the scholarship is 5,000,000 VND, and the application deadline is **April 14, 2026**.\n\n[5] **Information Security Scholarship - Round 6**: This scholarship is for VGU students in general, with a GPA of 3.3 or higher, no disciplinary violations, and active participation in school activities. The value of the scholarship is 15,000,000 VND, and the application deadline is **March 4, 2026**.\n\n[6] **Software Development Scholarship - Round 5**: This scholarship is for VGU students in the Information Systems department, with a GPA of 3.8 or higher, no disciplinary violations, and active participation in school activities. The value of the scholarship is 13,000,000 VND, and the application deadline is **January 15, 2026** (note: this deadline has already passed).\n\n[7] **Blockchain Technology Scholarship - Round 14**: This scholarship is for VGU students in general, with a GPA of 2.8 or higher, no disciplinary violations, and active participation in school activities. The value of the scholarship is 12,000,000 VND, and the application deadline is **January 25, 2026** (note: this deadline has already passed).\n\n[8] **Cloud Computing Scholarship - Round 12**: This scholarship is for VGU students in the Software Engineering department, with a GPA of 3.7 or higher, no disciplinary violations, and active participation in school activities. The value of the scholarship is 16,000,000 VND, and the application deadline is **February 9, 2026**.\n\n[9] **Game Development Scholarship - Round 8**: This scholarship is for VGU students in the Artificial Intelligence department, with a GPA of 3.9 or higher, no disciplinary violations, and active participation in school activities. The value of the scholarship is 5,000,000 VND, and the application deadline is **April 9, 2026**.\n\n[10] **Programming Talent Scholarship - Round 7**: This scholarship is for VGU students in general, with a GPA of 3.6 or higher, no disciplinary violations, and active participation in school activities. The value of the scholarship is 14,000,000 VND, and the application deadline is **January 29, 2026** (note: this deadline has already passed).\n\nPlease note that some of these scholarships may have already expired, and it's essential to check the application deadlines to ensure you don't miss out on any opportunities. You can submit your application through the VGU online system, including an application form, transcript, and recommendation letter.\n\nI hope this information helps you find a suitable scholarship program at VGU!",
+        "isAccurate": null,
+        "_id": "694d636e97d76cea6e5f47cf",
+        "timestamp": "2025-12-25T16:16:46.064Z"
+      }
+    ],
+    "lastActive": "2025-12-25T16:16:43.354Z",
+    "createdAt": "2025-12-25T16:16:46.068Z",
+    "updatedAt": "2025-12-25T16:16:46.068Z",
+    "__v": 0
+  },
+  {
+    "_id": "69536187c9b86c43488b6e74",
+    "user": "694d6298b0b1f32cb6848b5c",
+    "title": "Please give me the contact information for room 39...",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Please give me the contact information for room 390.",
+        "isAccurate": null,
+        "_id": "69536187c9b86c43488b6e75",
+        "timestamp": "2025-12-30T05:22:15.753Z"
+      },
+      {
+        "role": "assistant",
+        "content": "I couldn't find any specific information about room 390 in the provided RAG context. The context only includes details about various events organized at VGU, but it does not mention contact information for specific rooms.\n\nIf you're looking for contact information for room 390, I suggest reaching out to the VGU administration or facilities management department for more details. They should be able to provide you with the necessary information, such as the room's purpose, location, and contact person.",
+        "isAccurate": null,
+        "_id": "69536189c9b86c43488b6e79",
+        "timestamp": "2025-12-30T05:22:17.672Z"
+      }
+    ],
+    "lastActive": "2025-12-30T05:22:15.759Z",
+    "createdAt": "2025-12-30T05:22:17.684Z",
+    "updatedAt": "2025-12-30T05:22:17.684Z",
+    "__v": 0
+  },
+  {
+    "_id": "69536267c9b86c43488b6eb2",
+    "user": "694d6298b0b1f32cb6848b5c",
+    "title": "Please give me the contact information for room 39...",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Please give me the contact information for room 390.",
+        "isAccurate": null,
+        "_id": "69536267c9b86c43488b6eb3",
+        "timestamp": "2025-12-30T05:25:59.833Z"
+      },
+      {
+        "role": "assistant",
+        "content": "I couldn't find any information about room 390 in the provided RAG context. The context only mentions events, departments, and locations such as Hall A, Hall C, and Hall E, but it does not provide contact information for specific rooms.\n\nIf you are looking for contact information for room 390, I suggest contacting the relevant department or the administration office at VGU for more details. They should be able to provide you with the necessary information.",
+        "isAccurate": null,
+        "_id": "69536269c9b86c43488b6eb7",
+        "timestamp": "2025-12-30T05:26:01.582Z"
+      }
+    ],
+    "lastActive": "2025-12-30T05:25:59.837Z",
+    "createdAt": "2025-12-30T05:26:01.592Z",
+    "updatedAt": "2025-12-30T05:26:01.592Z",
+    "__v": 0
+  },
+  {
+    "_id": "6953629ad331750326ecc944",
+    "user": "694d6298b0b1f32cb6848b5c",
+    "title": "Please give me the contact information for room 39...",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Please give me the contact information for room 390",
+        "isAccurate": null,
+        "_id": "6953629ad331750326ecc945",
+        "timestamp": "2025-12-30T05:26:50.440Z"
+      },
+      {
+        "role": "assistant",
+        "content": "According to the OFFICIAL CONTACT LIST, the contact information for room 390 is:\n\n- Dr. Tran Thi Thu Huong: Lecturer in Mathematical Foundations for Computer Science. \n- Room: 390\n- Email: huong.ttt@vgu.edu.vn\n\nIf you need to contact Dr. Tran Thi Thu Huong, you can reach out to her at room 390 or send an email to huong.ttt@vgu.edu.vn.",
+        "isAccurate": null,
+        "_id": "6953629cd331750326ecc949",
+        "timestamp": "2025-12-30T05:26:52.098Z"
+      }
+    ],
+    "lastActive": "2025-12-30T05:26:50.441Z",
+    "createdAt": "2025-12-30T05:26:52.116Z",
+    "updatedAt": "2025-12-30T05:26:52.116Z",
+    "__v": 0
+  }
+]
