@@ -17,6 +17,7 @@ import topicRoutes from "./routes/topic.routes.js";
 import calendarRoutes from "./routes/calendar.routes.js";
 import statisticsRoutes from "./routes/statistics.routes.js";
 import activityLogRoutes from "./routes/activityLog.routes.js";
+import supportTicketRoutes from "./routes/supportTicket.routes.js";
 export async function registerRoutes(app: Express): Promise<Server> {
   try {
     await connectDB();
@@ -32,6 +33,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     app.use("/api/calendar", calendarRoutes);
     app.use("/api/statistics", statisticsRoutes);
     app.use("/api/activity-logs", activityLogRoutes);
+    app.use("/api/support-tickets", supportTicketRoutes);
     setupSwagger(app);
     
     app.get("/", (req: Request, res: Response) => {
@@ -49,7 +51,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
           departments: "/api/departments",
           calendar: "/api/calendar",
           statistics: "/api/statistics",
-          activityLogs: "/api/activity-logs"
+          activityLogs: "/api/activity-logs",
+          supportTickets: "/api/support-tickets"
         }
       });
     });
