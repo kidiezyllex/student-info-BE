@@ -147,7 +147,7 @@ export const getUserById = async (req, res) => {
 /**
  * @desc    Update user
  * @route   PUT /api/users/:id
- * @access  Private
+ * @access  Private (Users can update their own profile, Admins can update any user)
  */
 export const updateUser = async (req, res) => {
   try {
@@ -157,11 +157,16 @@ export const updateUser = async (req, res) => {
       return res.status(404).json({ message: 'User not found' });
     }
 
-    // Check if user is updating their own profile or is admin
-    if (req.user._id.toString() !== user._id.toString() && req.user.role !== 'admin') {
+    // Authorization check: Users can update their own profile, Admins can update any user
+    const isOwnProfile = req.user._id.toString() === user._id.toString();
+    const isAdmin = req.user.role === 'admin';
+
+    if (!isOwnProfile && !isAdmin) {
       return res.status(403).json({ message: 'Not authorized to update this user' });
     }
 
+    // ===== Fields that any user can update for their own profile =====
+    
     // Basic fields
     user.name = req.body.name || user.name;
     user.email = req.body.email || user.email;
@@ -207,10 +212,13 @@ export const updateUser = async (req, res) => {
       user.socialLinks = { ...user.socialLinks, ...req.body.socialLinks };
     }
 
+    // ===== Admin-only fields =====
+    // Store old values for department coordinator update
     const oldDepartment = user.department;
     const oldRole = user.role;
 
-    if (req.user.role === 'admin') {
+    // Only admins can change role, department, and active status
+    if (isAdmin) {
       if (req.body.role !== undefined) user.role = req.body.role;
       if (req.body.department !== undefined) {
         user.department = req.body.department;
@@ -219,7 +227,11 @@ export const updateUser = async (req, res) => {
     }
 
     const updatedUser = await user.save();
+
+    // Update department coordinator references
+    const roleChanged = req.user.role === 'admin' && req.body.role !== undefined && req.body.role !== oldRole;
     const departmentChanged = req.user.role === 'admin' && req.body.department !== undefined && req.body.department?.toString() !== oldDepartment?.toString();
+
     // If user was coordinator and role changed to non-coordinator, remove from old department
     if (oldRole === 'coordinator' && roleChanged && updatedUser.role !== 'coordinator' && oldDepartment) {
       await Department.findByIdAndUpdate(
@@ -246,8 +258,6 @@ export const updateUser = async (req, res) => {
 
     // Populate department info for response
     await updatedUser.populate('department', 'name code');
-    console.log('Department after populate:', updatedUser.department);
-    console.log('=== END UPDATE USER DEBUG ===');
 
     res.json({
       status: true,
