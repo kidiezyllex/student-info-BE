@@ -101,8 +101,6 @@ export const getAllTopics = async (req, res) => {
       query.$and = andConditions;
     }
     
-    console.log('[getAllTopics-DEBUG] Query:', JSON.stringify(query));
-
     const total = await Topic.countDocuments(query);
     
     // 3. Sorting

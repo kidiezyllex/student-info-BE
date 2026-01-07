@@ -207,23 +207,19 @@ export const updateUser = async (req, res) => {
       user.socialLinks = { ...user.socialLinks, ...req.body.socialLinks };
     }
 
-    // Store old values for department coordinator update
     const oldDepartment = user.department;
     const oldRole = user.role;
 
-    // Only admin can change role and department
     if (req.user.role === 'admin') {
       if (req.body.role !== undefined) user.role = req.body.role;
-      if (req.body.department !== undefined) user.department = req.body.department;
+      if (req.body.department !== undefined) {
+        user.department = req.body.department;
+      }
       if (req.body.active !== undefined) user.active = req.body.active;
     }
 
     const updatedUser = await user.save();
-
-    // Update department coordinator references
-    const roleChanged = req.user.role === 'admin' && req.body.role !== undefined && req.body.role !== oldRole;
     const departmentChanged = req.user.role === 'admin' && req.body.department !== undefined && req.body.department?.toString() !== oldDepartment?.toString();
-
     // If user was coordinator and role changed to non-coordinator, remove from old department
     if (oldRole === 'coordinator' && roleChanged && updatedUser.role !== 'coordinator' && oldDepartment) {
       await Department.findByIdAndUpdate(
@@ -250,8 +246,11 @@ export const updateUser = async (req, res) => {
 
     // Populate department info for response
     await updatedUser.populate('department', 'name code');
+    console.log('Department after populate:', updatedUser.department);
+    console.log('=== END UPDATE USER DEBUG ===');
 
     res.json({
+      status: true,
       message: 'User updated successfully',
       data: {
         _id: updatedUser._id,
@@ -263,9 +262,12 @@ export const updateUser = async (req, res) => {
         department: updatedUser.department,
         phoneNumber: updatedUser.phoneNumber,
         avatar: updatedUser.avatar,
+        active: updatedUser.active,
         profileSettings: updatedUser.profileSettings,
         lastProfileUpdate: updatedUser.lastProfileUpdate
-      }
+      },
+      errors: {},
+      timestamp: new Date().toISOString()
     });
   } catch (error) {
     res.status(500).json({ message: error.message });
