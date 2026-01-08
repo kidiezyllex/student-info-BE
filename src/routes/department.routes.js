@@ -4,11 +4,66 @@ import {
   getDepartmentById,
   createDepartment,
   updateDepartment,
-  deleteDepartment
+  deleteDepartment,
+  getCoordinatorStats
 } from '../controllers/department.controller.js';
-import { authenticate, isAdmin } from '../middlewares/auth.middleware.js';
+import { authenticate, isAdmin, isAdminOrCoordinator } from '../middlewares/auth.middleware.js';
 
 const router = express.Router();
+
+/**
+ * @swagger
+ * /departments/{id}/stats:
+ *   get:
+ *     summary: Get coordinator dashboard statistics
+ *     tags: [Departments]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: Department ID
+ *     responses:
+ *       200:
+ *         description: Department statistics retrieved successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: boolean
+ *                 message:
+ *                   type: string
+ *                 data:
+ *                   type: object
+ *                   properties:
+ *                     department:
+ *                       type: object
+ *                     activeTopics:
+ *                       type: number
+ *                     studentsCount:
+ *                       type: number
+ *                     tickets:
+ *                       type: object
+ *                       properties:
+ *                         total:
+ *                           type: number
+ *                         pending:
+ *                           type: number
+ *                         resolved:
+ *                           type: number
+ *                         closed:
+ *                           type: number
+ *       403:
+ *         description: Not authorized
+ *       404:
+ *         description: Department not found
+ */
+router.get('/:id/stats', authenticate, isAdminOrCoordinator, getCoordinatorStats);
 
 /**
  * @swagger

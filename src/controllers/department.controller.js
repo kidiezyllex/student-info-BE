@@ -1,5 +1,7 @@
 import Department from '../models/department.model.js';
 import User from '../models/user.model.js';
+import Topic from '../models/topic.model.js';
+import SupportTicket from '../models/supportTicket.model.js';
 
 /**
  * @desc    Lấy tất cả ngành học
@@ -293,4 +295,120 @@ export const deleteDepartment = async (req, res) => {
       error: error.message
     });
   }
-}; 
+};
+
+/**
+ * @desc    Get coordinator dashboard statistics
+ * @route   GET /api/departments/:id/stats
+ * @access  Private (Coordinator/Admin)
+ */
+export const getCoordinatorStats = async (req, res) => {
+  try {
+    const departmentId = req.params.id;
+    
+    // Verify department exists
+    const department = await Department.findById(departmentId);
+    if (!department) {
+      return res.status(404).json({
+        status: false,
+        message: 'Department not found'
+      });
+    }
+
+    // Check authorization - only coordinator of this department or admin
+    const isCoordinatorOfDept = req.user.role === 'coordinator' && 
+                                 req.user.department?.toString() === departmentId;
+    const isAdmin = req.user.role === 'admin';
+
+    if (!isCoordinatorOfDept && !isAdmin) {
+      return res.status(403).json({
+        status: false,
+        message: 'Not authorized to view this department statistics'
+      });
+    }
+
+    // 1. Count active topics in this department
+    const activeTopicsCount = await Topic.countDocuments({
+      department: departmentId,
+      status: 'active'
+    });
+
+    // 2. Count students in this department
+    const studentsCount = await User.countDocuments({
+      department: departmentId,
+      role: 'student',
+      active: true
+    });
+
+    // 3. Count pending tickets (open + in_progress)
+    const pendingTicketsCount = await SupportTicket.countDocuments({
+      department: departmentId,
+      status: { $in: ['open', 'in_progress'] }
+    });
+
+    // 4. Count resolved tickets
+    const resolvedTicketsCount = await SupportTicket.countDocuments({
+      department: departmentId,
+      status: 'resolved'
+    });
+
+    // 5. Get total tickets count
+    const totalTicketsCount = await SupportTicket.countDocuments({
+      department: departmentId
+    });
+
+    // 6. Get recent tickets (last 5)
+    const recentTickets = await SupportTicket.find({
+      department: departmentId
+    })
+      .populate('student', 'name email studentId')
+      .sort({ createdAt: -1 })
+      .limit(5)
+      .select('subject status priority category createdAt');
+
+    // 7. Get tickets by priority
+    const ticketsByPriority = await SupportTicket.aggregate([
+      { $match: { department: department._id } },
+      { $group: { _id: '$priority', count: { $sum: 1 } } }
+    ]);
+
+    // 8. Get tickets by category
+    const ticketsByCategory = await SupportTicket.aggregate([
+      { $match: { department: department._id } },
+      { $group: { _id: '$category', count: { $sum: 1 } } }
+    ]);
+
+    res.status(200).json({
+      status: true,
+      message: 'Department statistics retrieved successfully',
+      data: {
+        department: {
+          _id: department._id,
+          name: department.name,
+          code: department.code
+        },
+        activeTopics: activeTopicsCount,
+        studentsCount: studentsCount,
+        tickets: {
+          total: totalTicketsCount,
+          pending: pendingTicketsCount,
+          resolved: resolvedTicketsCount,
+          closed: totalTicketsCount - pendingTicketsCount - resolvedTicketsCount,
+          byPriority: ticketsByPriority,
+          byCategory: ticketsByCategory,
+          recent: recentTickets
+        }
+      },
+      timestamp: new Date().toISOString()
+    });
+
+  } catch (error) {
+    console.error('Error getting coordinator stats:', error);
+    res.status(500).json({
+      status: false,
+      message: 'Server error',
+      error: error.message
+    });
+  }
+};
+ 
