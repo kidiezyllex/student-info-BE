@@ -4,7 +4,7 @@ import Department from '../models/department.model.js';
 /**
  * @desc    Get all users
  * @route   GET /api/users
- * @access  Private/Admin
+ * @access  Private/Admin/Coordinator
  */
 export const getUsers = async (req, res) => {
   try {
@@ -14,15 +14,52 @@ export const getUsers = async (req, res) => {
     const { role, department } = req.query;
 
     const filter = {};
+    
+    // Role filter
     if (role) {
       if (!['student', 'coordinator', 'admin'].includes(role)) {
         return res.status(400).json({
-          message: 'Invalid role specified. Allowed values: student, coordinator, admin'
+          status: false,
+          message: 'Invalid role specified. Allowed values: student, coordinator, admin',
+          data: {},
+          errors: {},
+          timestamp: new Date().toISOString()
         });
       }
       filter.role = role;
     }
-    if (department) {
+    
+    // Department filter and authorization
+    const isAdmin = req.user.role === 'admin';
+    const isCoordinator = req.user.role === 'coordinator';
+    
+    if (isCoordinator) {
+      // Coordinators can only see users from their own department
+      if (!req.user.department) {
+        return res.status(403).json({
+          status: false,
+          message: 'Coordinator must be assigned to a department',
+          data: {},
+          errors: {},
+          timestamp: new Date().toISOString()
+        });
+      }
+      
+      // Force filter to coordinator's department
+      filter.department = req.user.department;
+      
+      // If coordinator tries to query a different department, deny access
+      if (department && department !== req.user.department.toString()) {
+        return res.status(403).json({
+          status: false,
+          message: 'Coordinators can only view users from their own department',
+          data: {},
+          errors: {},
+          timestamp: new Date().toISOString()
+        });
+      }
+    } else if (isAdmin && department) {
+      // Admins can filter by any department
       filter.department = department;
     }
 
@@ -37,16 +74,25 @@ export const getUsers = async (req, res) => {
     const totalPages = Math.ceil(total / limit);
 
     res.json({
+      status: true,
       message: 'Users retrieved successfully',
       data: users,
-      total,
-      page,
-      limit,
-      totalPages
+      pagination: {
+        total,
+        page,
+        limit,
+        totalPages
+      },
+      errors: {},
+      timestamp: new Date().toISOString()
     });
   } catch (error) {
     res.status(500).json({
-      message: error.message
+      status: false,
+      message: error.message,
+      data: {},
+      errors: {},
+      timestamp: new Date().toISOString()
     });
   }
 };

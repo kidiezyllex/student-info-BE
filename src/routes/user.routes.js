@@ -9,7 +9,7 @@ import {
   getUsersByRole,
   getUsersByDepartment
 } from '../controllers/user.controller.js';
-import { authenticate, isAdmin } from '../middlewares/auth.middleware.js';
+import { authenticate, isAdmin, isAdminOrCoordinator } from '../middlewares/auth.middleware.js';
 
 const router = express.Router();
 
@@ -62,10 +62,28 @@ router.post('/', authenticate, isAdmin, createUser);
  * @swagger
  * /users:
  *   get:
- *     summary: Get all users
+ *     summary: Get all users (Admin sees all, Coordinator sees only their department)
  *     tags: [Users]
  *     security:
  *       - bearerAuth: []
+ *     parameters:
+ *       - in: query
+ *         name: page
+ *         schema:
+ *           type: integer
+ *       - in: query
+ *         name: limit
+ *         schema:
+ *           type: integer
+ *       - in: query
+ *         name: role
+ *         schema:
+ *           type: string
+ *           enum: [student, coordinator, admin]
+ *       - in: query
+ *         name: department
+ *         schema:
+ *           type: string
  *     responses:
  *       200:
  *         description: List of users
@@ -83,7 +101,7 @@ router.post('/', authenticate, isAdmin, createUser);
  *       401:
  *         description: Not authorized
  */
-router.get('/', authenticate, isAdmin, getUsers);
+router.get('/', authenticate, isAdminOrCoordinator, getUsers);
 
 /**
  * @swagger
